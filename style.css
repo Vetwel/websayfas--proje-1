@@ -1952,9 +1952,10 @@ button {
 .hero-visual{
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:flex-start;
     width:100%;
     min-height:560px;
+    padding-top:30px;
 }
 
 .hero-image{

@@ -1916,3 +1916,17 @@ button {
     width: 100%;
   }
 }
+/* Featured product images */
+.featured-product-image img {
+    width: 85%;
+    max-width: 340px;
+    display: block;
+    margin: 0 auto;
+}
+
+.featured-product-image {
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,74 +1,706 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VetWel</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body{
-            margin:0;
-            font-family:Arial, Helvetica, sans-serif;
-            background:#f5f7fa;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        header{
-            background:#0b2c5f;
-            color:white;
-            padding:20px;
-            text-align:center;
-        }
+  <title>VetWel | Bilim Temelli Veteriner Sağlık Çözümleri</title>
+  <meta
+    name="description"
+    content="VetWel, evcil hayvanların sağlıklı yaşamını desteklemek için bilim temelli veteriner beslenme ve bakım çözümleri geliştirir."
+  >
+  <meta
+    name="keywords"
+    content="VetWel, veteriner sağlık, evcil hayvan takviyesi, köpek sağlığı, kedi sağlığı, veteriner beslenme"
+  >
+  <meta name="author" content="VetWel">
+  <meta name="theme-color" content="#0b2447">
 
-        h1{
-            margin:0;
-        }
+  <meta property="og:title" content="VetWel | Bilim Temelli Veteriner Sağlık Çözümleri">
+  <meta
+    property="og:description"
+    content="Veteriner hekimlik yaklaşımıyla geliştirilen güvenilir ve yenilikçi sağlık çözümleri."
+  >
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.vetwel.us/">
 
-        .hero{
-            text-align:center;
-            padding:80px 20px;
-        }
-
-        .hero h2{
-            font-size:42px;
-            color:#0b2c5f;
-        }
-
-        .hero p{
-            font-size:20px;
-            color:#555;
-            max-width:700px;
-            margin:auto;
-        }
-
-        .button{
-            display:inline-block;
-            margin-top:30px;
-            background:#0b2c5f;
-            color:white;
-            padding:15px 35px;
-            text-decoration:none;
-            border-radius:8px;
-        }
-    </style>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Ana içeriğe geç</a>
 
-<header>
-    <h1>VetWel</h1>
-</header>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="VetWel ana sayfa">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="img">
+            <path d="M18 8c7 0 12 5 14 11 2-6 7-11 14-11 8 0 14 7 14 15 0 14-15 25-28 33C19 48 4 37 4 23 4 15 10 8 18 8Z"/>
+            <path class="brand-mark-cross" d="M29 19h6v9h9v6h-9v9h-6v-9h-9v-6h9Z"/>
+          </svg>
+        </span>
 
-<section class="hero">
-    <h2>Science-Based Veterinary Health</h2>
+        <span class="brand-copy">
+          <strong>VetWel</strong>
+          <small>Veterinary Wellness</small>
+        </span>
+      </a>
 
-    <p>
-        Premium nutritional support developed for veterinarians and pet owners.
-    </p>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Menüyü aç"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-    <a class="button" href="#">Explore Products</a>
+      <nav class="primary-navigation" id="primary-navigation" aria-label="Ana menü">
+        <a href="#neden-vetwel">Neden VetWel?</a>
+        <a href="#cozumler">Çözümler</a>
+        <a href="#urunler">Ürünler</a>
+        <a href="#egitim">Eğitim Merkezi</a>
+        <a href="#iletisim" class="nav-cta">İletişim</a>
+      </nav>
+    </div>
+  </header>
 
-</section>
+  <main id="main-content">
+    <section class="hero section">
+      <div class="hero-decoration hero-decoration-one" aria-hidden="true"></div>
+      <div class="hero-decoration hero-decoration-two" aria-hidden="true"></div>
 
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="eyebrow">Bilim • Güven • Sağlıklı Yaşam</span>
+
+          <h1>
+            Evcil hayvanların daha sağlıklı yaşamı için
+            <span>bilim temelli çözümler.</span>
+          </h1>
+
+          <p class="hero-description">
+            VetWel, veteriner hekimlik yaklaşımını modern beslenme bilimiyle
+            birleştirerek kedi ve köpeklerin yaşam kalitesini destekleyen
+            yenilikçi ürünler geliştirir.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#urunler">
+              Ürünleri İncele
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <a class="button button-secondary" href="#neden-vetwel">
+              VetWel'i Keşfet
+            </a>
+          </div>
+
+          <div class="hero-proof" aria-label="VetWel temel değerleri">
+            <div>
+              <strong>Veteriner</strong>
+              <span>yaklaşımı</span>
+            </div>
+            <div>
+              <strong>Bilimsel</strong>
+              <span>formülasyon</span>
+            </div>
+            <div>
+              <strong>Bütüncül</strong>
+              <span>sağlık desteği</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="VetWel sağlık çözümleri görseli">
+          <div class="visual-orbit orbit-one"></div>
+          <div class="visual-orbit orbit-two"></div>
+
+          <div class="pet-card pet-card-dog">
+            <svg viewBox="0 0 300 320" aria-hidden="true">
+              <defs>
+                <linearGradient id="dogGradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#ffd8a8"/>
+                  <stop offset="100%" stop-color="#d99a57"/>
+                </linearGradient>
+              </defs>
+              <circle cx="150" cy="156" r="112" fill="url(#dogGradient)"/>
+              <ellipse cx="82" cy="116" rx="35" ry="64" fill="#9d632f" transform="rotate(-23 82 116)"/>
+              <ellipse cx="218" cy="116" rx="35" ry="64" fill="#9d632f" transform="rotate(23 218 116)"/>
+              <ellipse cx="150" cy="174" rx="83" ry="91" fill="#f2b873"/>
+              <ellipse cx="150" cy="211" rx="53" ry="42" fill="#ffe4bd"/>
+              <circle cx="116" cy="157" r="10" fill="#2c2118"/>
+              <circle cx="184" cy="157" r="10" fill="#2c2118"/>
+              <ellipse cx="150" cy="194" rx="18" ry="13" fill="#2c2118"/>
+              <path d="M150 206c-5 18-25 22-38 11M150 206c5 18 25 22 38 11" fill="none" stroke="#5c3420" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+            <span>Günlük sağlık desteği</span>
+          </div>
+
+          <div class="pet-card pet-card-cat">
+            <svg viewBox="0 0 240 260" aria-hidden="true">
+              <defs>
+                <linearGradient id="catGradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#dce7f0"/>
+                  <stop offset="100%" stop-color="#8da1b5"/>
+                </linearGradient>
+              </defs>
+              <path d="M49 85 32 27l55 34c20-10 46-10 66 0l55-34-17 58c18 20 27 44 27 69 0 63-44 94-98 94s-98-31-98-94c0-25 9-49 27-69Z" fill="url(#catGradient)"/>
+              <path d="m49 85-9-39 37 24M191 85l9-39-37 24" fill="#f4c8c8"/>
+              <ellipse cx="88" cy="139" rx="11" ry="15" fill="#19314c"/>
+              <ellipse cx="152" cy="139" rx="11" ry="15" fill="#19314c"/>
+              <path d="m120 163-13 9 13 8 13-8Z" fill="#bf7d7d"/>
+              <path d="M120 180c-6 13-22 14-30 5M120 180c6 13 22 14 30 5" fill="none" stroke="#526579" stroke-width="5" stroke-linecap="round"/>
+              <path d="M74 174 24 164M75 184l-51 7M166 174l50-10M165 184l51 7" stroke="#526579" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+            <span>Kedi ve köpekler için</span>
+          </div>
+
+          <div class="floating-badge floating-badge-science">
+            <span class="badge-icon">✦</span>
+            <span>
+              <strong>Science-Based</strong>
+              <small>Veterinary Support</small>
+            </span>
+          </div>
+
+          <div class="floating-badge floating-badge-care">
+            <span class="badge-icon">♡</span>
+            <span>
+              <strong>Better Care</strong>
+              <small>Every Day</small>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-bar" aria-label="VetWel güven unsurları">
+      <div class="container trust-grid">
+        <div class="trust-item reveal">
+          <span class="trust-icon">01</span>
+          <div>
+            <strong>Veteriner Odaklı</strong>
+            <p>Gerçek klinik ihtiyaçları merkeze alan yaklaşım.</p>
+          </div>
+        </div>
+
+        <div class="trust-item reveal">
+          <span class="trust-icon">02</span>
+          <div>
+            <strong>Özenle Seçilmiş İçerikler</strong>
+            <p>İşlevsel ve tamamlayıcı bileşen kombinasyonları.</p>
+          </div>
+        </div>
+
+        <div class="trust-item reveal">
+          <span class="trust-icon">03</span>
+          <div>
+            <strong>Günlük Kullanıma Uygun</strong>
+            <p>Pratik kullanım ve sürdürülebilir sağlık desteği.</p>
+          </div>
+        </div>
+
+        <div class="trust-item reveal">
+          <span class="trust-icon">04</span>
+          <div>
+            <strong>Bütüncül Bakım</strong>
+            <p>Farklı sağlık alanlarına yönelik kapsamlı çözümler.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-section" id="neden-vetwel">
+      <div class="container two-column-grid">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Neden VetWel?</span>
+          <h2>Sağlıklı yaşamı destekleyen güvenilir yaklaşım.</h2>
+          <p>
+            Evcil hayvanların sağlık gereksinimleri tek bir çözümle sınırlı
+            değildir. VetWel, farklı yaşam dönemleri ve sağlık ihtiyaçları için
+            veteriner hekimlik bilgisiyle şekillenen ürünler sunar.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <span class="feature-number">01</span>
+            <h3>Bilim Temelli Formülasyon</h3>
+            <p>
+              Ürünlerimiz, bileşenlerin işlevsel uyumu ve hedeflenen sağlık
+              alanları dikkate alınarak geliştirilir.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <span class="feature-number">02</span>
+            <h3>Veteriner Perspektifi</h3>
+            <p>
+              Klinik uygulama deneyimini, evde sürdürülebilir günlük bakım
+              çözümlerine dönüştürüyoruz.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <span class="feature-number">03</span>
+            <h3>Pratik Kullanım</h3>
+            <p>
+              Evcil hayvan sahipleri ve veteriner profesyoneller için anlaşılır,
+              uygulanabilir ve düzenli kullanıma uygun seçenekler sunuyoruz.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <span class="feature-number">04</span>
+            <h3>Sürekli Gelişim</h3>
+            <p>
+              Bilimsel gelişmeleri ve sahadan gelen ihtiyaçları izleyerek ürün
+              portföyümüzü sürekli geliştiriyoruz.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section solutions-section" id="cozumler">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <span class="eyebrow">Klinik Çözümler</span>
+          <h2>Farklı sağlık ihtiyaçlarına yönelik destek.</h2>
+          <p>
+            VetWel ürün ailesi, kedi ve köpeklerin günlük yaşam kalitesini
+            destekleyen temel sağlık alanlarına odaklanır.
+          </p>
+        </div>
+
+        <div class="solution-grid">
+          <article class="solution-card reveal">
+            <span class="solution-icon">◌</span>
+            <h3>Solunum Sağlığı</h3>
+            <p>
+              Solunum konforu, bağışıklık dengesi ve günlük yaşam kalitesine
+              yönelik beslenme desteği.
+            </p>
+            <a href="#breath-ease">Breath Ease'i keşfet <span>→</span></a>
+          </article>
+
+          <article class="solution-card reveal">
+            <span class="solution-icon">◇</span>
+            <h3>Deri ve Tüy Sağlığı</h3>
+            <p>
+              Deri bariyeri, tüy kalitesi ve çevresel hassasiyetlere karşı
+              bütüncül destek.
+            </p>
+            <a href="#urunler">SkinWel'i keşfet <span>→</span></a>
+          </article>
+
+          <article class="solution-card reveal">
+            <span class="solution-icon">♡</span>
+            <h3>Kalp Sağlığı</h3>
+            <p>
+              Kardiyovasküler fonksiyonların ve sağlıklı dolaşımın
+              desteklenmesine yönelik yaklaşım.
+            </p>
+            <a href="#urunler">HeartWel'i keşfet <span>→</span></a>
+          </article>
+
+          <article class="solution-card reveal">
+            <span class="solution-icon">⌁</span>
+            <h3>Böbrek Sağlığı</h3>
+            <p>
+              Böbrek fonksiyonları, mineral dengesi ve günlük beslenme
+              yönetimine destek.
+            </p>
+            <a href="#urunler">KidneyWel'i keşfet <span>→</span></a>
+          </article>
+
+          <article class="solution-card reveal">
+            <span class="solution-icon">△</span>
+            <h3>Karaciğer Sağlığı</h3>
+            <p>
+              Karaciğer fonksiyonları ve metabolik dengenin desteklenmesine
+              yönelik formülasyon.
+            </p>
+            <a href="#urunler">LiverWel'i keşfet <span>→</span></a>
+          </article>
+
+          <article class="solution-card reveal">
+            <span class="solution-icon">✦</span>
+            <h3>Sindirim ve Bağışıklık</h3>
+            <p>
+              Bağırsak mikrobiyotası, sindirim konforu ve bağışıklık dengesini
+              destekleyen çözümler.
+            </p>
+            <a href="#urunler">LactoWel'i keşfet <span>→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section products-section" id="urunler">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Klinik Beslenme Çözümlerimiz</span>
+          <h2>VetWel ürün ailesi.</h2>
+          <p>
+            Her ürün, kendi sağlık alanına özel görsel kimlik ve formülasyon
+            yaklaşımıyla VetWel çatısı altında sunulur.
+          </p>
+        </div>
+
+        <article class="featured-product reveal" id="breath-ease">
+          <div class="product-visual product-purple">
+            <div class="product-box">
+              <span class="product-brand">VetWel</span>
+              <span class="product-category">Respiratory &amp; Immune Care</span>
+              <strong>Breath<br>Ease</strong>
+              <small>For Dogs &amp; Cats</small>
+              <span class="product-count">30 Sachets</span>
+            </div>
+          </div>
+
+          <div class="product-content">
+            <span class="product-label">Öne Çıkan Ürün</span>
+            <h3>Breath Ease</h3>
+            <p class="product-subtitle">Solunum ve bağışıklık desteği</p>
+
+            <p>
+              Breath Ease; solunum yolları, antioksidan savunma ve bağışıklık
+              fonksiyonlarını desteklemek üzere geliştirilen tamamlayıcı bir
+              beslenme ürünüdür.
+            </p>
+
+            <ul class="check-list">
+              <li>Günlük solunum konforunu destekler.</li>
+              <li>Özenle seçilmiş botanik ve besinsel bileşenler içerir.</li>
+              <li>Kedi ve köpeklerde pratik günlük kullanım sunar.</li>
+            </ul>
+
+            <a
+              class="button button-primary"
+              href="https://www.amazon.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Amazon'da İncele
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+
+        <div class="product-grid">
+          <article class="product-card product-skin reveal">
+            <span class="product-card-tag">Skin Health Support</span>
+            <h3>SkinWel</h3>
+            <p>Deri bariyeri, tüy kalitesi ve hassasiyet desteği.</p>
+            <a href="#iletisim">Bilgi al <span>→</span></a>
+          </article>
+
+          <article class="product-card product-heart reveal">
+            <span class="product-card-tag">Heart Health Support</span>
+            <h3>HeartWel</h3>
+            <p>Kardiyovasküler fonksiyonlar için beslenme desteği.</p>
+            <a href="#iletisim">Bilgi al <span>→</span></a>
+          </article>
+
+          <article class="product-card product-liver reveal">
+            <span class="product-card-tag">Liver Health Support</span>
+            <h3>LiverWel</h3>
+            <p>Karaciğer fonksiyonları ve metabolik denge desteği.</p>
+            <a href="#iletisim">Bilgi al <span>→</span></a>
+          </article>
+
+          <article class="product-card product-kidney reveal">
+            <span class="product-card-tag">Kidney Health Support</span>
+            <h3>KidneyWel</h3>
+            <p>Böbrek fonksiyonları ve mineral dengesi desteği.</p>
+            <a href="#iletisim">Bilgi al <span>→</span></a>
+          </article>
+
+          <article class="product-card product-lacto reveal">
+            <span class="product-card-tag">Digestive Support</span>
+            <h3>LactoWel</h3>
+            <p>Sindirim sistemi, mikrobiyota ve bağışıklık desteği.</p>
+            <a href="#iletisim">Bilgi al <span>→</span></a>
+          </article>
+
+          <article class="product-card product-denta reveal">
+            <span class="product-card-tag">Oral Care Support</span>
+            <h3>DentaWel</h3>
+            <p>Ağız hijyeni, diş eti ve mukoza bakım desteği.</p>
+            <a href="#iletisim">Bilgi al <span>→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section education-section" id="egitim">
+      <div class="container education-grid">
+        <div class="education-content reveal">
+          <span class="eyebrow">VetWel Eğitim Merkezi</span>
+          <h2>Doğru bilgi, daha bilinçli bakım.</h2>
+          <p>
+            Evcil hayvan sahipleri ve veteriner profesyoneller için hazırlanan
+            eğitim içerikleriyle ürün kullanımını, temel sağlık konularını ve
+            koruyucu bakım yaklaşımını anlaşılır hale getiriyoruz.
+          </p>
+
+          <div class="education-actions">
+            <a class="button button-light" href="#iletisim">Eğitim İçeriklerini Keşfet</a>
+          </div>
+        </div>
+
+        <div class="education-cards">
+          <article class="education-card reveal">
+            <span>01</span>
+            <div>
+              <h3>Veteriner Anlatımları</h3>
+              <p>Uzman görüşleri ve anlaşılır sağlık bilgilendirmeleri.</p>
+            </div>
+          </article>
+
+          <article class="education-card reveal">
+            <span>02</span>
+            <div>
+              <h3>Ürün Kullanım Rehberleri</h3>
+              <p>Doğru kullanım ve günlük bakım önerileri.</p>
+            </div>
+          </article>
+
+          <article class="education-card reveal">
+            <span>03</span>
+            <div>
+              <h3>Koruyucu Sağlık</h3>
+              <p>Yaşam kalitesini destekleyen pratik bilgiler.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="sss">
+      <div class="container faq-grid">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Sık Sorulan Sorular</span>
+          <h2>VetWel hakkında merak edilenler.</h2>
+          <p>
+            Ürün seçimi ve kullanımıyla ilgili özel durumlarda veteriner
+            hekiminizin önerisini almanız önemlidir.
+          </p>
+        </div>
+
+        <div class="accordion reveal">
+          <article class="accordion-item">
+            <button class="accordion-button" type="button" aria-expanded="false">
+              VetWel ürünleri ilaç mıdır?
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-panel">
+              <p>
+                VetWel portföyündeki ürünlerin sınıflandırması ürüne ve pazara
+                göre değişebilir. Tamamlayıcı ürünler, tanı veya tedavinin yerine
+                geçmez. Ürün etiketini ve veteriner hekiminizin önerisini esas alın.
+              </p>
+            </div>
+          </article>
+
+          <article class="accordion-item">
+            <button class="accordion-button" type="button" aria-expanded="false">
+              Hangi ürünü seçmeliyim?
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-panel">
+              <p>
+                En uygun ürün; hayvanınızın yaşı, türü, kilosu, beslenme düzeni
+                ve sağlık durumuna göre belirlenmelidir. Özellikle kronik
+                hastalıklarda veteriner hekime danışılmalıdır.
+              </p>
+            </div>
+          </article>
+
+          <article class="accordion-item">
+            <button class="accordion-button" type="button" aria-expanded="false">
+              Ürünler günlük kullanıma uygun mu?
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-panel">
+              <p>
+                Kullanım süresi ve miktarı ürüne göre değişir. Ambalaj üzerindeki
+                kullanım talimatını ve veteriner hekiminizin yönlendirmesini takip edin.
+              </p>
+            </div>
+          </article>
+
+          <article class="accordion-item">
+            <button class="accordion-button" type="button" aria-expanded="false">
+              VetWel ürünlerini nereden satın alabilirim?
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-panel">
+              <p>
+                Satışta bulunan ürünlerimize Amazon mağazamızdan ve yetkili satış
+                kanallarından ulaşabilirsiniz. Güncel bilgi için bizimle iletişime geçin.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="iletisim">
+      <div class="container contact-grid">
+        <div class="contact-content reveal">
+          <span class="eyebrow">İletişim</span>
+          <h2>VetWel ile bağlantı kurun.</h2>
+          <p>
+            Ürünlerimiz, veteriner iş birlikleri veya satış kanalları hakkında
+            bilgi almak için bize ulaşabilirsiniz.
+          </p>
+
+          <div class="contact-details">
+            <a href="mailto:info@vetwel.us">
+              <span>@</span>
+              <div>
+                <small>E-posta</small>
+                <strong>info@vetwel.us</strong>
+              </div>
+            </a>
+
+            <a href="https://www.vetwel.us/" target="_blank" rel="noopener noreferrer">
+              <span>↗</span>
+              <div>
+                <small>Web</small>
+                <strong>www.vetwel.us</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contact-form" novalidate>
+          <div class="form-row">
+            <label for="name">Adınız</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              autocomplete="name"
+              placeholder="Adınızı yazın"
+              required
+            >
+          </div>
+
+          <div class="form-row">
+            <label for="email">E-posta adresiniz</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="ornek@email.com"
+              required
+            >
+          </div>
+
+          <div class="form-row">
+            <label for="subject">Konu</label>
+            <select id="subject" name="subject" required>
+              <option value="">Bir konu seçin</option>
+              <option value="Ürün bilgisi">Ürün bilgisi</option>
+              <option value="Veteriner iş birliği">Veteriner iş birliği</option>
+              <option value="Satış ve dağıtım">Satış ve dağıtım</option>
+              <option value="Diğer">Diğer</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="message">Mesajınız</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Mesajınızı yazın"
+              required
+            ></textarea>
+          </div>
+
+          <button class="button button-primary form-submit" type="submit">
+            Mesaj Gönder
+            <span aria-hidden="true">→</span>
+          </button>
+
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="brand brand-footer" href="#top">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <path d="M18 8c7 0 12 5 14 11 2-6 7-11 14-11 8 0 14 7 14 15 0 14-15 25-28 33C19 48 4 37 4 23 4 15 10 8 18 8Z"/>
+              <path class="brand-mark-cross" d="M29 19h6v9h9v6h-9v9h-6v-9h-9v-6h9Z"/>
+            </svg>
+          </span>
+          <span class="brand-copy">
+            <strong>VetWel</strong>
+            <small>Veterinary Wellness</small>
+          </span>
+        </a>
+
+        <p>
+          Bilim temelli veteriner sağlık ve beslenme çözümleri.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Kurumsal</h3>
+        <a href="#neden-vetwel">Neden VetWel?</a>
+        <a href="#egitim">Eğitim Merkezi</a>
+        <a href="#iletisim">İletişim</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Çözümler</h3>
+        <a href="#breath-ease">Breath Ease</a>
+        <a href="#urunler">Ürün Ailesi</a>
+        <a href="#cozumler">Sağlık Alanları</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Yasal</h3>
+        <a href="#sss">Kullanım Bilgileri</a>
+        <a href="#sss">Gizlilik</a>
+        <a href="#sss">Yasal Uyarı</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>
+        © <span id="current-year"></span> VetWel. Tüm hakları saklıdır.
+      </p>
+      <p>
+        Bu web sitesindeki bilgiler veteriner muayenesi, tanı veya tedavinin
+        yerine geçmez.
+      </p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" type="button" aria-label="Sayfanın başına dön">
+    ↑
+  </button>
 </body>
 </html>

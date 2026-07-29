@@ -1932,3 +1932,10 @@ button {
     align-items: center;
     justify-content: center;
 }
+.featured-cleanse .featured-product-image img {
+    transform: scale(1.8);
+}
+
+.featured-breathe .featured-product-image img {
+    transform: scale(1.35);
+}

@@ -2243,3 +2243,16 @@ button {
     height: 28px;
   }
 }
+.product-form{
+    display:inline-block;
+    margin-top:8px;
+    margin-bottom:16px;
+    padding:4px 10px;
+    border-radius:999px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    background:#eef3ff;
+    color:#274c9b;
+}

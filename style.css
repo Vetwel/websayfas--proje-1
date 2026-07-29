@@ -1939,3 +1939,18 @@ button {
 .featured-breathe .featured-product-image img {
     transform: scale(1.35);
 }
+.hero-image{
+    width:100%;
+    max-width:620px;
+    height:auto;
+    display:block;
+    margin:0 auto;
+    border-radius:28px;
+    box-shadow:0 25px 60px rgba(0,0,0,.18);
+}
+
+.hero-visual{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}

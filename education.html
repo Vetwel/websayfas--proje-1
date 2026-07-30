@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>VetWel Eğitim Merkezi | Veteriner Sağlığı ve Bakım Rehberleri</title>
+
+  <meta
+    name="description"
+    content="VetWel Eğitim Merkezi; veteriner hekimler ve hayvan sahipleri için bilim temelli sağlık bilgileri, ürün kullanım rehberleri, videolar ve eğitim içerikleri sunar."
+  >
+
+  <meta name="theme-color" content="#0b2447">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --education-navy: #0b2447;
+      --education-navy-light: #153b67;
+      --education-blue: #2c78a8;
+      --education-cyan: #75c9d8;
+      --education-bg: #f4f7fa;
+      --education-white: #ffffff;
+      --education-text: #172333;
+      --education-muted: #657487;
+      --education-border: #dfe7ee;
+      --education-shadow: 0 18px 45px rgba(11, 36, 71, 0.11);
+      --education-radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--education-bg);
+      color: var(--education-text);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .education-container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .education-skip-link {
+      position: absolute;
+      top: -100px;
+      left: 20px;
+      z-index: 9999;
+      padding: 12px 18px;
+      background: #ffffff;
+      color: var(--education-navy);
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    .education-skip-link:focus {
+      top: 20px;
+    }
+
+    /* HEADER */
+
+    .education-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid rgba(11, 36, 71, 0.08);
+      backdrop-filter: blur(14px);
+    }
+
+    .education-header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .education-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .education-logo-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--education-navy);
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .education-logo-text strong {
+      display: block;
+      color: var(--education-navy);
+      font-size: 23px;
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+
+    .education-logo-text span {
+      display: block;
+      margin-top: 5px;
+      color: var(--education-muted);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+    }
+
+    .education-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .education-nav a {
+      color: #49576a;
+      transition: color 0.2s ease;
+    }
+
+    .education-nav a:hover,
+    .education-nav a:focus {
+      color: var(--education-blue);
+    }
+
+    .education-nav .education-active {
+      color: var(--education-navy);
+      border-bottom: 2px solid var(--education-blue);
+      padding-bottom: 7px;
+    }
+
+    .education-contact-button {
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: var(--education-navy);
+      color: #ffffff !important;
+    }
+
+    /* HERO */
+
+    .education-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0 92px;
+      color: #ffffff;
+      background:
+        radial-gradient(
+          circle at 80% 18%,
+          rgba(117, 201, 216, 0.23),
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 15% 90%,
+          rgba(44, 120, 168, 0.25),
+          transparent 28%
+        ),
+        linear-gradient(135deg, #071b35 0%, #0b2c55 55%, #0e416d 100%);
+    }
+
+    .education-hero::after {
+      content: "";
+      position: absolute;
+      right: -100px;
+      bottom: -170px;
+      width: 520px;
+      height: 520px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 50%;
+    }
+
+    .education-hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .education-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      color: #9de3ec;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .education-eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: #75c9d8;
+    }
+
+    .education-hero h1 {
+      max-width: 720px;
+      margin: 0;
+      font-size: clamp(44px, 6vw, 76px);
+      line-height: 1.03;
+      letter-spacing: -3px;
+    }
+
+    .education-hero p {
+      max-width: 650px;
+      margin: 27px 0 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 18px;
+    }
+
+    .education-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .education-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 13px 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .education-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .education-button-primary {
+      background: #ffffff;
+      color: var(--education-navy);
+    }
+
+    .education-button-secondary {
+      border-color: rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.07);
+      color: #ffffff;
+    }
+
+    .education-hero-panel {
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+      backdrop-filter: blur(10px);
+    }
+
+    .education-hero-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 20px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .education-hero-item + .education-hero-item {
+      margin-top: 13px;
+    }
+
+    .education-number {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #ffffff;
+      color: var(--education-navy);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .education-hero-item strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .education-hero-item span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.67);
+      font-size: 12px;
+    }
+
+    /* SEARCH */
+
+    .education-search-area {
+      position: relative;
+      z-index: 4;
+      margin-top: -35px;
+    }
+
+    .education-search-box {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 16px 18px 16px 25px;
+      border: 1px solid var(--education-border);
+      border-radius: 22px;
+      background: #ffffff;
+      box-shadow: var(--education-shadow);
+    }
+
+    .education-search-icon {
+      font-size: 22px;
+    }
+
+    .education-search-box input {
+      width: 100%;
+      padding: 10px 0;
+      border: 0;
+      outline: 0;
+      color: var(--education-text);
+      background: transparent;
+    }
+
+    .education-search-box button {
+      min-width: 120px;
+      padding: 13px 20px;
+      border: 0;
+      border-radius: 14px;
+      background: var(--education-navy);
+      color: #ffffff;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    /* GENERAL SECTIONS */
+
+    .education-section {
+      padding: 92px 0;
+    }
+
+    .education-section-white {
+      background: #ffffff;
+    }
+
+    .education-section-heading {
+      max-width: 720px;
+      margin-bottom: 42px;
+    }
+
+    .education-kicker {
+      margin: 0 0 9px;
+      color: var(--education-blue);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .education-section-heading h2 {
+      margin: 0;
+      color: var(--education-navy);
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.1;
+      letter-spacing: -1.7px;
+    }
+
+    .education-section-heading p {
+      margin: 17px 0 0;
+      color: var(--education-muted);
+      font-size: 17px;
+    }
+
+    /* CATEGORIES */
+
+    .education-category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .education-category-card {
+      position: relative;
+      min-height: 275px;
+      overflow: hidden;
+      padding: 30px;
+      border: 1px solid var(--education-border);
+      border-radius: var(--education-radius);
+      background: #ffffff;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .education-category-card:hover {
+      transform: translateY(-7px);
+      border-color: #b9d8e5;
+      box-shadow: var(--education-shadow);
+    }
+
+    .education-card-icon {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 26px;
+      border-radius: 17px;
+      background: #e9f4f8;
+      font-size: 25px;
+    }
+
+    .education-category-card h3 {
+      margin: 0;
+      color: var(--education-navy);
+      font-size: 22px;
+    }
+
+    .education-category-card p {
+      margin: 12px 0 20px;
+      color: var(--education-muted);
+      font-size: 14px;
+    }
+
+    .education-card-link {
+      color: var(--education-blue);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    /* FEATURED CONTENT */
+
+    .education-feature-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 26px;
+    }
+
+    .education-feature-main {
+      min-height: 430px;
+      display: flex;
+      align-items: flex-end;
+      padding: 38px;
+      border-radius: 28px;
+      color: #ffffff;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(4, 22, 42, 0.96),
+          rgba(4, 22, 42, 0.2)
+        ),
+        linear-gradient(135deg, #467596, #9ed0d7);
+      box-shadow: var(--education-shadow);
+    }
+
+    .education-content-label {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.15);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .education-feature-main h3 {
+      max-width: 590px;
+      margin: 16px 0 12px;
+      font-size: 35px;
+      line-height: 1.12;
+    }
+
+    .education-feature-main p {
+      max-width: 560px;
+      margin: 0 0 23px;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .education-small-content {
+      display: grid;
+      gap: 20px;
+    }
+
+    .education-content-card {
+      padding: 27px;
+      border: 1px solid var(--education-border);
+      border-radius: 22px;
+      background: #ffffff;
+    }
+
+    .education-content-card span {
+      color: var(--education-blue);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .education-content-card h3 {
+      margin: 11px 0 10px;
+      color: var(--education-navy);
+      font-size: 20px;
+      line-height: 1.25;
+    }
+
+    .education-content-card p {
+      margin: 0;
+      color: var(--education-muted);
+      font-size: 13px;
+    }
+
+    /* PRODUCT GUIDES */
+
+    .education-product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .education-product-card {
+      padding: 24px;
+      border: 1px solid var(--education-border);
+      border-radius: 20px;
+      background: #ffffff;
+      transition: transform 0.2s ease;
+    }
+
+    .education-product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .education-product-color {
+      height: 7px;
+      margin-bottom: 23px;
+      border-radius: 999px;
+    }
+
+    .education-purple {
+      background: #70559a;
+    }
+
+    .education-blue {
+      background: #3b84aa;
+    }
+
+    .education-green {
+      background: #65a36d;
+    }
+
+    .education-red {
+      background: #bc6270;
+    }
+
+    .education-gold {
+      background: #c9a04c;
+    }
+
+    .education-teal {
+      background: #3e9a92;
+    }
+
+    .education-product-card h3 {
+      margin: 0;
+      color: var(--education-navy);
+      font-size: 20px;
+    }
+
+    .education-product-card p {
+      margin: 9px 0 17px;
+      color: var(--education-muted);
+      font-size: 13px;
+    }
+
+    /* AUDIENCE */
+
+    .education-audience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .education-audience-card {
+      padding: 42px;
+      border-radius: 26px;
+    }
+
+    .education-audience-vet {
+      color: #ffffff;
+      background: var(--education-navy);
+    }
+
+    .education-audience-owner {
+      border: 1px solid var(--education-border);
+      background: #ffffff;
+    }
+
+    .education-audience-card h3 {
+      margin: 0 0 14px;
+      font-size: 28px;
+    }
+
+    .education-audience-owner h3 {
+      color: var(--education-navy);
+    }
+
+    .education-audience-card p {
+      margin: 0 0 23px;
+      opacity: 0.75;
+    }
+
+    /* FAQ */
+
+    .education-faq-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .education-faq-item {
+      border: 1px solid var(--education-border);
+      border-radius: 17px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .education-faq-item summary {
+      padding: 21px 24px;
+      color: var(--education-navy);
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .education-faq-item p {
+      margin: 0;
+      padding: 0 24px 23px;
+      color: var(--education-muted);
+      font-size: 14px;
+    }
+
+    /* CTA */
+
+    .education-cta {
+      padding: 0 0 92px;
+    }
+
+    .education-cta-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 35px;
+      padding: 48px;
+      border-radius: 28px;
+      color: #ffffff;
+      background:
+        radial-gradient(
+          circle at right top,
+          rgba(117, 201, 216, 0.25),
+          transparent 35%
+        ),
+        var(--education-navy);
+    }
+
+    .education-cta-inner h2 {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.15;
+    }
+
+    .education-cta-inner p {
+      max-width: 660px;
+      margin: 13px 0 0;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    /* FOOTER */
+
+    .education-footer {
+      padding: 55px 0 30px;
+      color: rgba(255, 255, 255, 0.75);
+      background: #07192f;
+    }
+
+    .education-footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 60px;
+    }
+
+    .education-footer h3,
+    .education-footer h4 {
+      margin-top: 0;
+      color: #ffffff;
+    }
+
+    .education-footer p {
+      max-width: 470px;
+      font-size: 14px;
+    }
+
+    .education-footer-links {
+      display: grid;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .education-footer-bottom {
+      margin-top: 45px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 12px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 960px) {
+      .education-nav {
+        display: none;
+      }
+
+      .education-hero-grid,
+      .education-feature-grid,
+      .education-audience-grid,
+      .education-cta-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .education-category-grid,
+      .education-product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .education-hero-panel {
+        max-width: 650px;
+      }
+
+      .education-cta-inner {
+        justify-items: start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .education-container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .education-header-inner {
+        min-height: 72px;
+      }
+
+      .education-hero {
+        padding: 75px 0 75px;
+      }
+
+      .education-hero h1 {
+        font-size: 45px;
+        letter-spacing: -2px;
+      }
+
+      .education-hero-grid {
+        gap: 45px;
+      }
+
+      .education-search-box {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .education-search-box button {
+        width: 100%;
+      }
+
+      .education-category-grid,
+      .education-product-grid,
+      .education-footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .education-section {
+        padding: 70px 0;
+      }
+
+      .education-feature-main {
+        min-height: 390px;
+        padding: 28px;
+      }
+
+      .education-feature-main h3 {
+        font-size: 29px;
+      }
+
+      .education-audience-card,
+      .education-cta-inner {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="education-skip-link" href="#education-main">
+    Ana içeriğe geç
+  </a>
+
+  <header class="education-header">
+    <div class="education-container education-header-inner">
+
+      <a
+        class="education-logo"
+        href="index.html"
+        aria-label="VetWel ana sayfa"
+      >
+        <span class="education-logo-mark">✚</span>
+
+        <span class="education-logo-text">
+          <strong>VetWel</strong>
+          <span>VETERINARY WELLNESS</span>
+        </span>
+      </a>
+
+      <nav
+        class="education-nav"
+        aria-label="Ana navigasyon"
+      >
+        <a href="index.html#neden-vetwel">Neden VetWel?</a>
+        <a href="index.html#cozumler">Çözümler</a>
+        <a href="index.html#urunler">Ürünler</a>
+
+        <a
+          class="education-active"
+          href="education.html"
+        >
+          Eğitim Merkezi
+        </a>
+
+        <a
+          class="education-contact-button"
+          href="index.html#iletisim"
+        >
+          İletişim
+        </a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="education-main">
+
+    <section class="education-hero">
+      <div class="education-container education-hero-grid">
+
+        <div>
+          <span class="education-eyebrow">
+            VetWel Eğitim Merkezi
+          </span>
+
+          <h1>
+            Bilimsel bilgiyle daha bilinçli bakım.
+          </h1>
+
+          <p>
+            Veteriner hekimler ve hayvan sahipleri için hazırlanan
+            güvenilir eğitim içeriklerini, ürün kullanım rehberlerini,
+            koruyucu sağlık bilgilerini ve uzman anlatımlarını keşfedin.
+          </p>
+
+          <div class="education-hero-actions">
+            <a
+              class="education-button education-button-primary"
+              href="#education-categories"
+            >
+              Eğitimleri Keşfet
+            </a>
+
+            <a
+              class="education-button education-button-secondary"
+              href="#education-guides"
+            >
+              Ürün Rehberleri
+            </a>
+          </div>
+        </div>
+
+        <div class="education-hero-panel">
+
+          <div class="education-hero-item">
+            <span class="education-number">01</span>
+
+            <div>
+              <strong>Veteriner Anlatımları</strong>
+              <span>
+                Uzman görüşleri ve bilim temelli sağlık bilgilendirmeleri.
+              </span>
+            </div>
+          </div>
+
+          <div class="education-hero-item">
+            <span class="education-number">02</span>
+
+            <div>
+              <strong>Ürün Kullanım Rehberleri</strong>
+              <span>
+                Doğru kullanım ve günlük bakım önerileri.
+              </span>
+            </div>
+          </div>
+
+          <div class="education-hero-item">
+            <span class="education-number">03</span>
+
+            <div>
+              <strong>Koruyucu Sağlık</strong>
+              <span>
+                Yaşam kalitesini destekleyen pratik bilgiler.
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="education-search-area">
+      <div class="education-container">
+
+        <form
+          class="education-search-box"
+          onsubmit="return false;"
+        >
+          <span
+            class="education-search-icon"
+            aria-hidden="true"
+          >
+            ⌕
+          </span>
+
+          <input
+            id="education-search"
+            type="search"
+            placeholder="Eğitim merkezinde ara..."
+            aria-label="Eğitim merkezinde ara"
+          >
+
+          <button type="submit">
+            Ara
+          </button>
+        </form>
+
+      </div>
+    </div>
+
+    <section
+      id="education-categories"
+      class="education-section"
+    >
+      <div class="education-container">
+
+        <div class="education-section-heading">
+          <p class="education-kicker">Eğitim kategorileri</p>
+
+          <h2>
+            İhtiyacınız olan bilgiye kolayca ulaşın.
+          </h2>
+
+          <p>
+            Eğitim içerikleri, veteriner profesyonellerinin ve hayvan
+            sahiplerinin doğru bilgiye hızlıca ulaşabilmesi için
+            kategorilere ayrılmıştır.
+          </p>
+        </div>
+
+        <div class="education-category-grid">
+
+          <article class="education-category-card">
+            <div class="education-card-icon">▶</div>
+
+            <h3>Veteriner Videoları</h3>
+
+            <p>
+              Uzman anlatımları, klinik uygulamalar ve sağlık konularına
+              ilişkin bilgilendirici videolar.
+            </p>
+
+            <a class="education-card-link" href="#education-latest">
+              Videoları görüntüle →
+            </a>
+          </article>
+
+          <article class="education-category-card">
+            <div class="education-card-icon">▤</div>
+
+            <h3>Sağlık Makaleleri</h3>
+
+            <p>
+              Solunum, böbrek, karaciğer, deri, kalp ve sindirim sağlığı
+              hakkında anlaşılır bilgiler.
+            </p>
+
+            <a class="education-card-link" href="#education-latest">
+              Makaleleri incele →
+            </a>
+          </article>
+
+          <article class="education-category-card">
+            <div class="education-card-icon">✚</div>
+
+            <h3>Klinik Bilgiler</h3>
+
+            <p>
+              Veteriner profesyonellerine yönelik vaka değerlendirmeleri,
+              klinik yaklaşımlar ve uygulama notları.
+            </p>
+
+            <a class="education-card-link" href="#education-professionals">
+              Klinik içeriklere git →
+            </a>
+          </article>
+
+          <article class="education-category-card">
+            <div class="education-card-icon">✓</div>
+
+            <h3>Ürün Rehberleri</h3>
+
+            <p>
+              VetWel ürünlerinin kullanım alanları, uygulama önerileri ve
+              günlük bakım süreçleri.
+            </p>
+
+            <a class="education-card-link" href="#education-guides">
+              Rehberleri keşfet →
+            </a>
+          </article>
+
+          <article class="education-category-card">
+            <div class="education-card-icon">⬇</div>
+
+            <h3>İndirilebilir Kaynaklar</h3>
+
+            <p>
+              Ürün broşürleri, eğitim materyalleri ve kullanım
+              dokümanlarının yer alacağı kaynak merkezi.
+            </p>
+
+            <a class="education-card-link" href="#education-downloads">
+              Kaynaklara ulaş →
+            </a>
+          </article>
+
+          <article class="education-category-card">
+            <div class="education-card-icon">?</div>
+
+            <h3>Sık Sorulan Sorular</h3>
+
+            <p>
+              Ürünler, kullanım yöntemleri ve genel evcil hayvan sağlığı
+              hakkında sık sorulan sorular.
+            </p>
+
+            <a class="education-card-link" href="#education-faq">
+              Soruları incele →
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="education-latest"
+      class="education-section education-section-white"
+    >
+      <div class="education-container">
+
+        <div class="education-section-heading">
+          <p class="education-kicker">Öne çıkan eğitimler</p>
+
+          <h2>
+            Güncel sağlık ve bakım içerikleri.
+          </h2>
+
+          <p>
+            Bu alan ileride videolar, makaleler ve uzman anlatımlarıyla
+            düzenli olarak güncellenecek.
+          </p>
+        </div>
+
+        <div class="education-feature-grid">
+
+          <article class="education-feature-main">
+            <div>
+              <span class="education-content-label">
+                Solunum sağlığı
+              </span>
+
+              <h3>
+                Köpeklerde ve kedilerde solunum sağlığını desteklemek
+              </h3>
+
+              <p>
+                Solunum hassasiyetlerinin erken işaretleri, günlük bakım
+                yaklaşımı ve veteriner kontrolünün önemi.
+              </p>
+
+              <a
+                class="education-button education-button-primary"
+                href="#"
+              >
+                Yakında
+              </a>
+            </div>
+          </article>
+
+          <div class="education-small-content">
+
+            <article class="education-content-card">
+              <span>Böbrek sağlığı</span>
+
+              <h3>
+                Böbrek sağlığında beslenme desteğinin rolü
+              </h3>
+
+              <p>
+                Günlük bakım, su tüketimi ve veteriner takibinin temel
+                noktaları.
+              </p>
+            </article>
+
+            <article class="education-content-card">
+              <span>Koruyucu sağlık</span>
+
+              <h3>
+                Düzenli veteriner kontrolleri neden önemlidir?
+              </h3>
+
+              <p>
+                Sağlık sorunlarının erken fark edilmesine yardımcı olan
+                temel kontroller.
+              </p>
+            </article>
+
+            <article class="education-content-card">
+              <span>Deri ve tüy sağlığı</span>
+
+              <h3>
+                Sağlıklı deri bariyerini destekleyen günlük alışkanlıklar
+              </h3>
+
+              <p>
+                Beslenme, bakım ve çevresel faktörlerin deri sağlığı
+                üzerindeki etkileri.
+              </p>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="education-guides"
+      class="education-section"
+    >
+      <div class="education-container">
+
+        <div class="education-section-heading">
+          <p class="education-kicker">Ürün kullanım rehberleri</p>
+
+          <h2>
+            VetWel ürünlerini yakından tanıyın.
+          </h2>
+
+          <p>
+            Her ürün için kullanım amacı, temel içerik bilgileri ve
+            günlük uygulama önerileri sunulacaktır.
+          </p>
+        </div>
+
+        <div class="education-product-grid">
+
+          <article class="education-product-card">
+            <div class="education-product-color education-purple"></div>
+            <h3>Breathe Ease</h3>
+            <p>Solunum ve bağışıklık desteği kullanım rehberi.</p>
+            <a class="education-card-link" href="#">Yakında →</a>
+          </article>
+
+          <article class="education-product-card">
+            <div class="education-product-color education-blue"></div>
+            <h3>Cleanse</h3>
+            <p>Veteriner klinik uygulamasına yönelik ürün rehberi.</p>
+            <a class="education-card-link" href="#">Yakında →</a>
+          </article>
+
+          <article class="education-product-card">
+            <div class="education-product-color education-gold"></div>
+            <h3>KidneyWel</h3>
+            <p>Böbrek sağlığı ve günlük beslenme desteği rehberi.</p>
+            <a class="education-card-link" href="#">Yakında →</a>
+          </article>
+
+          <article class="education-product-card">
+            <div class="education-product-color education-green"></div>
+            <h3>LiverWel</h3>
+            <p>Karaciğer sağlığını destekleyici kullanım rehberi.</p>
+            <a class="education-card-link" href="#">Yakında →</a>
+          </article>
+
+          <article class="education-product-card">
+            <div class="education-product-color education-red"></div>
+            <h3>HeartWel</h3>
+            <p>Kalp sağlığına yönelik destek ve bakım bilgileri.</p>
+            <a class="education-card-link" href="#">Yakında →</a>
+          </article>
+
+          <article class="education-product-card">
+            <div class="education-product-color education-teal"></div>
+            <h3>SkinWel</h3>
+            <p>Deri ve tüy sağlığını destekleyen kullanım rehberi.</p>
+            <a class="education-card-link" href="#">Yakında →</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="education-professionals"
+      class="education-section education-section-white"
+    >
+      <div class="education-container">
+
+        <div class="education-section-heading">
+          <p class="education-kicker">Size özel içerikler</p>
+
+          <h2>
+            Veterinerler ve hayvan sahipleri için ayrı bilgi yolları.
+          </h2>
+        </div>
+
+        <div class="education-audience-grid">
+
+          <article class="education-audience-card education-audience-vet">
+            <h3>Veteriner profesyonelleri için</h3>
+
+            <p>
+              Klinik kullanım bilgileri, ürün eğitimleri, uygulama
+              videoları ve vaka içerikleri.
+            </p>
+
+            <a
+              class="education-button education-button-primary"
+              href="#"
+            >
+              Profesyonel içerikler
+            </a>
+          </article>
+
+          <article class="education-audience-card education-audience-owner">
+            <h3>Hayvan sahipleri için</h3>
+
+            <p>
+              Günlük bakım, koruyucu sağlık, beslenme ve ürün kullanımına
+              ilişkin anlaşılır bilgiler.
+            </p>
+
+            <a
+              class="education-button education-contact-button"
+              href="#education-latest"
+            >
+              Sağlık rehberleri
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="education-downloads"
+      class="education-section"
+    >
+      <div class="education-container">
+
+        <div class="education-section-heading">
+          <p class="education-kicker">Kaynak merkezi</p>
+
+          <h2>
+            Broşürler ve indirilebilir rehberler.
+          </h2>
+
+          <p>
+            VetWel ürün katalogları, klinik kullanım belgeleri ve bakım
+            rehberleri yakında bu bölümde yer alacaktır.
+          </p>
+        </div>
+
+        <div class="education-category-grid">
+
+          <article class="education-category-card">
+            <div class="education-card-icon">PDF</div>
+            <h3>Ürün Kataloğu</h3>
+            <p>VetWel ürün ailesinin kurumsal ürün kataloğu.</p>
+            <span class="education-card-link">Hazırlanıyor</span>
+          </article>
+
+          <article class="education-category-card">
+            <div class="education-card-icon">PDF</div>
+            <h3>Kullanım Rehberleri</h3>
+            <p>Ürünlere özel uygulama ve kullanım dokümanları.</p>
+            <span class="education-card-link">Hazırlanıyor</span>
+          </article>
+
+          <article class="education-category-card">
+            <div class="education-card-icon">PDF</div>
+            <h3>Veteriner Broşürleri</h3>
+            <p>Kliniklerde kullanılabilecek bilgilendirici materyaller.</p>
+            <span class="education-card-link">Hazırlanıyor</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="education-faq"
+      class="education-section education-section-white"
+    >
+      <div class="education-container">
+
+        <div class="education-section-heading">
+          <p class="education-kicker">Sık sorulan sorular</p>
+
+          <h2>
+            Merak edilen temel konular.
+          </h2>
+        </div>
+
+        <div class="education-faq-list">
+
+          <details class="education-faq-item">
+            <summary>
+              VetWel Eğitim Merkezi kimler için hazırlanmıştır?
+            </summary>
+
+            <p>
+              Eğitim merkezi hem veteriner profesyonellerine hem de
+              güvenilir sağlık bilgisi arayan hayvan sahiplerine yönelik
+              olarak hazırlanmıştır.
+            </p>
+          </details>
+
+          <details class="education-faq-item">
+            <summary>
+              Eğitim içerikleri veteriner muayenesinin yerine geçer mi?
+            </summary>
+
+            <p>
+              Hayır. Eğitim içerikleri genel bilgilendirme amaçlıdır ve
+              veteriner hekim muayenesi, teşhisi veya tedavisinin yerine
+              geçmez.
+            </p>
+          </details>
+
+          <details class="education-faq-item">
+            <summary>
+              Ürün kullanım bilgilerine nereden ulaşabilirim?
+            </summary>
+
+            <p>
+              Ürün Kullanım Rehberleri bölümünden her VetWel ürünü için
+              hazırlanacak özel rehberlere ulaşabilirsiniz.
+            </p>
+          </details>
+
+          <details class="education-faq-item">
+            <summary>
+              Yeni videolar ve makaleler eklenecek mi?
+            </summary>
+
+            <p>
+              Evet. Eğitim merkezi yeni veteriner anlatımları, sağlık
+              makaleleri ve kullanım rehberleriyle düzenli olarak
+              geliştirilecektir.
+            </p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="education-cta">
+      <div class="education-container">
+
+        <div class="education-cta-inner">
+          <div>
+            <h2>
+              VetWel hakkında daha fazla bilgi alın.
+            </h2>
+
+            <p>
+              Ürünlerimiz, veteriner iş birlikleri veya eğitim
+              içeriklerimiz hakkında bizimle iletişime geçebilirsiniz.
+            </p>
+          </div>
+
+          <a
+            class="education-button education-button-primary"
+            href="index.html#iletisim"
+          >
+            İletişime Geçin
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="education-footer">
+    <div class="education-container">
+
+      <div class="education-footer-grid">
+
+        <div>
+          <h3>VetWel</h3>
+
+          <p>
+            Bilim temelli veteriner beslenme ve bakım çözümleriyle evcil
+            hayvanların sağlıklı yaşamını destekler.
+          </p>
+        </div>
+
+        <div>
+          <h4>Hızlı Bağlantılar</h4>
+
+          <div class="education-footer-links">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="index.html#urunler">Ürünler</a>
+            <a href="education.html">Eğitim Merkezi</a>
+            <a href="index.html#iletisim">İletişim</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>İletişim</h4>
+
+          <div class="education-footer-links">
+            <a href="mailto:info@vetwel.us">info@vetwel.us</a>
+            <a href="https://www.vetwel.us">www.vetwel.us</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="education-footer-bottom">
+        © 2026 VetWel. Tüm hakları saklıdır.
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

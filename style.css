@@ -2256,3 +2256,38 @@ button {
     background:#eef3ff;
     color:#274c9b;
 }
+/* Ürün kartlarını eşit ve düzenli göster */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 520px;
+  overflow: hidden;
+}
+
+/* Tüm ürün görselleri için standart alan */
+.product-card-image {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: 18px;
+  margin-bottom: 22px;
+  overflow: hidden;
+}
+
+/* Görsel oranını bozmadan alana sığdır */
+.product-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+/* Bilgi al bağlantısını kartın altına hizala */
+.product-card > a {
+  margin-top: auto;
+}

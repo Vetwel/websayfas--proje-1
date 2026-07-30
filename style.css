@@ -955,7 +955,7 @@ button {
 }
 
 .product-card {
-  min-height: 250px;
+  min-height: 170px;
   display: flex;
   flex-direction: column;
   padding: 30px;
@@ -1085,7 +1085,7 @@ button {
   display: flex;
   align-items: flex-start;
   gap: 19px;
-  padding: 24px;
+  padding: 12px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-md);

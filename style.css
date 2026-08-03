@@ -964,13 +964,41 @@ button {
   transition:
     transform var(--transition),
     box-shadow var(--transition);
-}
-.product-card img {
+/* Ürün kartlarının standart görsel alanı */
+.product-card-image {
   width: 100%;
-  height: 260px;
-  object-fit: contain;
+  height: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 22px;
+  background: #ffffff;
+  border-radius: 18px;
+}
+
+/* Orijinal ürün oranlarını korur ve fotoğraftaki fazla beyaz alanı azaltır */
+.product-card-image img {
+  width: 100%;
+  height: 100%;
   display: block;
-  margin: 0 auto 20px;
+  object-fit: contain;
+  object-position: center;
+  transform: scale(1.55);
+  transform-origin: center;
+}
+
+/* Kart içeriklerinin aynı hizada durması */
+.product-card {
+  min-height: 540px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+/* Ürün adı ile kategori arasındaki gereksiz boşluğu azaltır */
+.product-card h3 {
+  margin: 16px 0 8px;
 }
 
 .product-card:hover {

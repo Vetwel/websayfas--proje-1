@@ -1792,12 +1792,11 @@ button {
 }
 
 .featured-product-image img {
-  width: auto;
-  height: auto;
-  max-width: 78%;
-  max-height: 300px;
-  object-fit: contain;
-  transform: none;
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transform: scale(1);
 }
 
 .featured-cleanse .featured-product-image {

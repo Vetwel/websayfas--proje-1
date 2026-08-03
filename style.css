@@ -965,6 +965,13 @@ button {
     transform var(--transition),
     box-shadow var(--transition);
 }
+.product-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 20px;
+}
 
 .product-card:hover {
   box-shadow: var(--shadow-sm);

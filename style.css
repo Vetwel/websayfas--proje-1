@@ -2326,3 +2326,27 @@ button {
 .product-card > a {
   margin-top: auto;
 }
+/* Product image fix */
+.product-card-image,
+.product-image,
+.urun-gorsel,
+.product-visual {
+  width: 100%;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 16px;
+}
+
+.product-card-image img,
+.product-image img,
+.urun-gorsel img,
+.product-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}

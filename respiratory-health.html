@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Köpeklerde ve Kedilerde Solunum Sağlığını Desteklemek | VetWel Eğitim Merkezi</title>
+
+  <meta
+    name="description"
+    content="Köpeklerde ve kedilerde solunum sağlığı, solunum hassasiyetlerinin erken belirtileri, çevresel faktörler ve veteriner kontrolünün önemi."
+  >
+
+  <meta name="theme-color" content="#0b2447">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #172333;
+      background: #f5f8fb;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e3e9ef;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-inner {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand strong {
+      font-size: 29px;
+      letter-spacing: -1px;
+      color: #14243a;
+    }
+
+    .brand span {
+      margin-top: 8px;
+      font-size: 10px;
+      letter-spacing: 2.2px;
+      color: #627184;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #39485a;
+    }
+
+    nav a:hover {
+      color: #2c78a8;
+    }
+
+    .hero {
+      background:
+        linear-gradient(135deg, #102a50 0%, #164d78 60%, #2c83a2 100%);
+      color: white;
+      padding: 72px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(280px, .6fr);
+      gap: 55px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #8fe0ea;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin: 0 0 24px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      font-size: 18px;
+      color: rgba(255,255,255,.88);
+      margin: 0;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 22px;
+      padding: 28px;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-card strong {
+      display: block;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      color: #8fe0ea;
+      margin-bottom: 10px;
+    }
+
+    .hero-card p {
+      font-size: 15px;
+      margin: 0;
+    }
+
+    main {
+      padding: 60px 0 80px;
+    }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .article-card,
+    .sidebar-card {
+      background: #ffffff;
+      border: 1px solid #e3e9ef;
+      border-radius: 24px;
+      box-shadow: 0 18px 45px rgba(20,36,58,.07);
+    }
+
+    .article-card {
+      padding: clamp(28px, 5vw, 56px);
+    }
+
+    .article-card h2 {
+      font-size: 31px;
+      line-height: 1.2;
+      margin: 40px 0 15px;
+      color: #162536;
+    }
+
+    .article-card h2:first-child {
+      margin-top: 0;
+    }
+
+    .article-card p {
+      margin: 0 0 21px;
+      font-size: 17px;
+    }
+
+    .article-card ul {
+      padding-left: 25px;
+      margin: 10px 0 28px;
+    }
+
+    .article-card li {
+      margin-bottom: 9px;
+    }
+
+    .highlight {
+      margin: 28px 0;
+      padding: 22px 25px;
+      border-left: 4px solid #69b9c8;
+      border-radius: 15px;
+      background: #edf8fa;
+    }
+
+    .highlight strong {
+      margin-right: 5px;
+    }
+
+    .disclaimer {
+      margin-top: 36px;
+      padding: 22px;
+      border-radius: 16px;
+      background: #f3f5f7;
+      color: #566474;
+      font-size: 14px;
+    }
+
+    aside {
+      display: grid;
+      gap: 22px;
+    }
+
+    .sidebar-card {
+      padding: 24px;
+    }
+
+    .sidebar-card img {
+      display: block;
+      width: 100%;
+      max-height: 250px;
+      object-fit: contain;
+      margin: 0 auto 20px;
+      border-radius: 14px;
+      background: white;
+    }
+
+    .sidebar-card h3 {
+      font-size: 21px;
+      margin: 0 0 12px;
+    }
+
+    .sidebar-card p {
+      margin: 0 0 18px;
+      color: #657487;
+      font-size: 15px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      padding: 11px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      background: #142f50;
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    footer {
+      border-top: 1px solid #dde5ec;
+      background: #ffffff;
+      color: #667487;
+    }
+
+    .footer-inner {
+      min-height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 850px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px 0;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .hero-grid,
+      .article-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 55px 0;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 25px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <strong>VetWel</strong>
+      <span>VETERINARY WELLNESS</span>
+    </a>
+
+    <nav>
+      <a href="index.html#neden-vetwel">Neden VetWel?</a>
+      <a href="index.html#cozumler">Çözümler</a>
+      <a href="index.html#urunler">Ürünler</a>
+      <a href="education.html">Eğitim Merkezi</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <p class="eyebrow">VetWel Eğitim Merkezi • Solunum Sağlığı</p>
+
+      <h1>
+        Köpeklerde ve kedilerde
+        solunum sağlığını desteklemek
+      </h1>
+
+      <p>
+        Solunum sistemiyle ilişkili belirtilerin erken fark edilmesi,
+        çevresel faktörlerin yönetimi ve doğru zamanda veteriner
+        değerlendirmesine başvurulması, kedi ve köpeklerin genel
+        sağlık yönetiminin önemli bir parçasıdır.
+      </p>
+    </div>
+
+    <div class="hero-card">
+      <strong>VetWel Uzman Görüşü</strong>
+      <p>
+        Bu içerik, evcil hayvan sahiplerinin solunum sistemiyle ilişkili
+        temel belirtileri daha iyi tanımasına yardımcı olmak amacıyla
+        hazırlanmıştır.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<main>
+  <div class="container article-layout">
+
+    <article class="article-card">
+
+      <h2>Solunum sisteminin temel görevi nedir?</h2>
+
+      <p>
+        Solunum sistemi, vücudun oksijen gereksiniminin karşılanmasına ve
+        karbondioksitin uzaklaştırılmasına yardımcı olan temel fizyolojik
+        sistemlerden biridir. Üst ve alt solunum yolları, akciğerler ve
+        solunum kasları bu sürecin farklı aşamalarında görev alır.
+      </p>
+
+      <p>
+        Solunum sistemi aynı zamanda dış ortamla doğrudan temas halinde
+        olduğu için partiküller, irritanlar, enfeksiyöz etkenler ve
+        alerjenlerden etkilenebilir. Bu nedenle solunumla ilgili
+        değişikliklerin dikkatle izlenmesi önemlidir.
+      </p>
+
+
+      <h2>Hangi belirtiler dikkate alınmalıdır?</h2>
+
+      <p>
+        Kedi ve köpeklerde solunum sistemiyle ilişkili sorunlar farklı
+        belirtilerle ortaya çıkabilir. Belirtilerin şiddeti, süresi ve
+        hayvanın genel klinik durumu birlikte değerlendirilmelidir.
+      </p>
+
+      <ul>
+        <li>Sürekli veya tekrarlayan öksürük</li>
+        <li>Normalden hızlı veya zor solunum</li>
+        <li>Hırıltılı ya da sesli solunum</li>
+        <li>Burun akıntısı veya sık hapşırma</li>
+        <li>Egzersiz sırasında erken yorulma</li>
+        <li>İştah veya aktivite düzeyinde belirgin değişiklik</li>
+      </ul>
+
+      <div class="highlight">
+        <strong>Önemli:</strong>
+        Dinlenme halinde belirgin nefes darlığı, ağız açık soluma,
+        morarma, ciddi halsizlik veya hızlı kötüleşme görülmesi acil
+        veteriner değerlendirmesi gerektirebilir.
+      </div>
+
+
+      <h2>Kedilerde solunum hassasiyetleri</h2>
+
+      <p>
+        Kedilerde kronik alt solunum yolu hastalıkları arasında feline
+        astım ve kronik bronşit yer alabilir. Bu hastalıklarda öksürük,
+        hırıltı, artmış solunum çabası veya dönemsel nefes darlığı
+        görülebilir.
+      </p>
+
+      <p>
+        Ancak benzer belirtiler enfeksiyonlar, kalp hastalıkları,
+        paraziter hastalıklar veya farklı solunum yolu problemlerinde de
+        ortaya çıkabileceği için yalnızca klinik belirtilere dayanarak
+        tanı konulmamalıdır.
+      </p>
+
+
+      <h2>Köpeklerde kronik öksürük neden önemlidir?</h2>
+
+      <p>
+        Köpeklerde uzun süren veya tekrarlayan öksürük, kronik bronşit
+        dahil olmak üzere farklı solunum sistemi hastalıklarında görülebilir.
+        Kronik bronşit özellikle orta ve ileri yaştaki köpeklerde
+        değerlendirilen nedenlerden biridir.
+      </p>
+
+      <p>
+        Öksürüğün kaynağının belirlenmesinde fizik muayene, göğüs
+        radyografileri ve gerekli durumlarda ileri solunum yolu
+        değerlendirmeleri veteriner hekim tarafından planlanabilir.
+      </p>
+
+
+      <h2>Ev ortamı neden önemlidir?</h2>
+
+      <p>
+        Hava kalitesi ve çevresel irritanlar bazı hayvanlarda solunum
+        belirtilerini artırabilir. Özellikle kronik hava yolu hassasiyeti
+        bulunan hayvanlarda ev ortamındaki solunum irritanlarının
+        azaltılması yararlı olabilir.
+      </p>
+
+      <ul>
+        <li>Sigara ve diğer tütün ürünlerinin dumanından uzak tutulması</li>
+        <li>Aşırı parfüm, aerosol ve yoğun kokulu temizlik ürünlerinin azaltılması</li>
+        <li>Ev ortamında iyi havalandırmanın sağlanması</li>
+        <li>Toz ve partikül birikiminin azaltılması</li>
+        <li>Hayvanın aşırı sıcak ve yoğun egzersizden korunması</li>
+      </ul>
+
+
+      <h2>Veteriner kontrolü neden önemlidir?</h2>
+
+      <p>
+        Öksürük veya nefes alma güçlüğü tek bir hastalığa özgü değildir.
+        Solunum yolu enfeksiyonları, kronik inflamatuvar hava yolu
+        hastalıkları, kardiyak hastalıklar, paraziter hastalıklar ve diğer
+        klinik durumlar benzer belirtilere neden olabilir.
+      </p>
+
+      <p>
+        Veteriner hekim değerlendirmesinde fizik muayenenin yanı sıra
+        gerektiğinde radyografi, laboratuvar testleri, oksijenasyon
+        değerlendirmesi ve ileri hava yolu incelemeleri kullanılabilir.
+        Tedavi altta yatan nedene göre planlanmalıdır.
+      </p>
+
+
+      <h2>Destekleyici bakım nasıl değerlendirilmelidir?</h2>
+
+      <p>
+        Solunum sağlığını desteklemeye yönelik bakım, mevcut belirtilerin
+        nedeninin belirlenmesinin yerine geçmez. Hastanın yaşı, genel
+        sağlık durumu, kullanılan ilaçlar ve mevcut solunum problemi
+        birlikte değerlendirilmelidir.
+      </p>
+
+      <p>
+        Beslenme veya destek ürünleri kullanılacaksa bunlar veteriner
+        hekimin belirlediği tanı ve tedavi planına yardımcı olacak şekilde
+        değerlendirilmelidir. Solunum sıkıntısı bulunan bir hayvanda
+        destek ürünleri acil veteriner müdahalesinin yerine kullanılmamalıdır.
+      </p>
+
+
+      <h2>Bilimsel kaynaklar</h2>
+
+      <ul>
+        <li>
+          Trzil JE.
+          Feline Asthma: Diagnostic and Treatment Update.
+          Veterinary Clinics of North America: Small Animal Practice.
+        </li>
+
+        <li>
+          Rozanski E.
+          Canine Chronic Bronchitis: An Update.
+          Veterinary Clinics of North America: Small Animal Practice.
+        </li>
+
+        <li>
+          Lappin MR, Blondeau J, Boothe D, et al.
+          Antimicrobial Use Guidelines for Treatment of Respiratory Tract
+          Disease in Dogs and Cats.
+          Journal of Veterinary Internal Medicine.
+        </li>
+
+        <li>
+          Grotheer M, Schulz B.
+          Feline Asthma and Chronic Bronchitis — An Overview of Diagnostics
+          and Therapy.
+        </li>
+      </ul>
+
+      <div class="disclaimer">
+        Bu içerik genel eğitim amacıyla hazırlanmıştır ve veteriner hekim
+        muayenesinin, tanının veya tedavinin yerine geçmez. Evcil hayvanınızda
+        solunum güçlüğü, sürekli öksürük veya diğer sağlık sorunları
+        gözlemliyorsanız veteriner hekiminize danışınız.
+      </div>
+
+    </article>
+
+
+    <aside>
+
+      <div class="sidebar-card">
+        <h3>Veteriner Hekimi</h3>
+
+        <p>
+          <strong>Nazif Oben Akşemsettinoğlu</strong><br>
+          Founder & Veterinary Advisor, VetWel
+        </p>
+      </div>
+
+
+      <div class="sidebar-card">
+
+        <img
+          src="breathe-ease.jpeg"
+          alt="VetWel Breathe Ease"
+        >
+
+        <h3>İlgili VetWel Çözümü</h3>
+
+        <p>
+          Solunum sistemi ve günlük destek yaklaşımı hakkında VetWel
+          ürün portföyünü inceleyebilirsiniz.
+        </p>
+
+        <a class="back-link" href="index.html#urunler">
+          Ürünleri İncele →
+        </a>
+
+      </div>
+
+
+      <div class="sidebar-card">
+
+        <h3>Eğitim Merkezi</h3>
+
+        <p>
+          Diğer veteriner sağlık makaleleri ve eğitim içeriklerine ulaşın.
+        </p>
+
+        <a class="back-link" href="education.html">
+          Eğitim Merkezine Dön →
+        </a>
+
+      </div>
+
+    </aside>
+
+  </div>
+</main>
+
+
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 VetWel. Tüm hakları saklıdır.</span>
+    <span>Veterinary Wellness</span>
+  </div>
+</footer>
+
+</body>
+</html>

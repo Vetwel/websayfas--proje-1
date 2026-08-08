@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kedi ve Köpeklerde Karaciğer Sağlığı | VetWel Eğitim Merkezi</title>
+
+  <meta
+    name="description"
+    content="Kedi ve köpeklerde karaciğer sağlığı, dikkat edilmesi gereken belirtiler, beslenme yaklaşımı ve veteriner takibinin önemi."
+  >
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #172333;
+      background: #f5f8fb;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e3e9ef;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-inner {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand strong {
+      font-size: 29px;
+      color: #14243a;
+    }
+
+    .brand span {
+      margin-top: 8px;
+      font-size: 10px;
+      letter-spacing: 2.2px;
+      color: #627184;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #39485a;
+    }
+
+    .hero {
+      background:
+        linear-gradient(135deg, #173b2a 0%, #2d6b48 60%, #67a878 100%);
+      color: #fff;
+      padding: 72px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(280px, .6fr);
+      gap: 55px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #b8e2bf;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.05;
+      margin: 0 0 24px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      font-size: 18px;
+      color: rgba(255,255,255,.88);
+      margin: 0;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 22px;
+      padding: 28px;
+    }
+
+    main {
+      padding: 60px 0 80px;
+    }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .article-card,
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid #e3e9ef;
+      border-radius: 24px;
+      box-shadow: 0 18px 45px rgba(20,36,58,.07);
+    }
+
+    .article-card {
+      padding: clamp(28px, 5vw, 56px);
+    }
+
+    .article-card h2 {
+      font-size: 31px;
+      margin: 40px 0 15px;
+      color: #162536;
+    }
+
+    .article-card p {
+      margin: 0 0 21px;
+      font-size: 17px;
+    }
+
+    .article-card ul {
+      padding-left: 25px;
+    }
+
+    .highlight {
+      margin: 28px 0;
+      padding: 22px 25px;
+      border-left: 4px solid #5f9e70;
+      border-radius: 15px;
+      background: #eef7f0;
+    }
+
+    .disclaimer {
+      margin-top: 36px;
+      padding: 22px;
+      border-radius: 16px;
+      background: #f3f5f7;
+      color: #566474;
+      font-size: 14px;
+    }
+
+    aside {
+      display: grid;
+      gap: 22px;
+    }
+
+    .sidebar-card {
+      padding: 24px;
+    }
+
+    .sidebar-card img {
+      display: block;
+      width: 100%;
+      max-height: 250px;
+      object-fit: contain;
+      margin: 0 auto 20px;
+    }
+
+    .sidebar-card h3 {
+      font-size: 21px;
+      margin: 0 0 12px;
+    }
+
+    .sidebar-card p {
+      margin: 0 0 18px;
+      color: #657487;
+    }
+
+    .back-link {
+      display: inline-flex;
+      padding: 11px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      background: #173b2a;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    footer {
+      border-top: 1px solid #dde5ec;
+      background: #fff;
+      color: #667487;
+    }
+
+    .footer-inner {
+      min-height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid,
+      .article-layout {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+
+    <a class="brand" href="index.html">
+      <strong>VetWel<sup>®</sup></strong>
+      <span>VETERINARY WELLNESS</span>
+    </a>
+
+    <nav>
+      <a href="index.html#neden-vetwel">Neden VetWel?</a>
+      <a href="index.html#cozumler">Çözümler</a>
+      <a href="index.html#urunler">Ürünler</a>
+      <a href="education.html">Eğitim Merkezi</a>
+    </nav>
+
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <p class="eyebrow">VetWel Eğitim Merkezi • Karaciğer Sağlığı</p>
+
+      <h1>
+        Kedi ve köpeklerde karaciğer sağlığını desteklemek
+      </h1>
+
+      <p>
+        Karaciğer; metabolizma, detoksifikasyon, safra üretimi ve birçok
+        besin öğesinin işlenmesinde merkezi rol oynar. Karaciğer sağlığındaki
+        değişikliklerin erken fark edilmesi ve altta yatan nedenin doğru
+        değerlendirilmesi önemlidir.
+      </p>
+    </div>
+
+    <div class="hero-card">
+      <strong>VetWel Uzman Görüşü</strong>
+      <p>
+        Karaciğer hastalıklarının yönetimi yalnızca bir laboratuvar değeri
+        üzerinden değil, klinik bulguların ve tanısal testlerin birlikte
+        değerlendirilmesiyle planlanmalıdır.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<main>
+  <div class="container article-layout">
+
+    <article class="article-card">
+
+      <h2>Karaciğerin temel görevleri nelerdir?</h2>
+
+      <p>
+        Karaciğer; protein, yağ ve karbonhidrat metabolizmasında, safra
+        üretiminde, vitamin ve minerallerin depolanmasında ve birçok metabolik
+        ürünün işlenmesinde önemli görevler üstlenir.
+      </p>
+
+      <p>
+        Bu nedenle karaciğer fonksiyonlarında meydana gelen değişiklikler
+        sindirim sistemi, enerji metabolizması ve genel sağlık üzerinde
+        çeşitli klinik etkiler oluşturabilir.
+      </p>
+
+      <h2>Hangi belirtiler dikkate alınmalıdır?</h2>
+
+      <ul>
+        <li>İştah azalması</li>
+        <li>Kilo kaybı</li>
+        <li>Kusma veya ishal</li>
+        <li>Halsizlik</li>
+        <li>Artmış su tüketimi</li>
+        <li>Sarılık</li>
+        <li>Karında şişkinlik</li>
+        <li>Davranış veya bilinç değişiklikleri</li>
+      </ul>
+
+      <div class="highlight">
+        <strong>Önemli:</strong>
+        Bu belirtiler yalnızca karaciğer hastalığına özgü değildir.
+        Tanı veteriner hekim tarafından klinik muayene ve uygun testlerle
+        konulmalıdır.
+      </div>
+
+      <h2>Tanı nasıl değerlendirilir?</h2>
+
+      <p>
+        Karaciğer hastalıklarının değerlendirilmesinde klinik muayene,
+        kan biyokimyası, hematoloji, idrar analizi ve görüntüleme yöntemleri
+        birlikte kullanılabilir.
+      </p>
+
+      <p>
+        Bazı kronik karaciğer hastalıklarında kesin tanı ve hastalığın
+        tipinin belirlenmesi için karaciğer dokusunun histopatolojik
+        değerlendirilmesi gerekebilir. ACVIM konsensüsü de kronik hepatit
+        değerlendirmesinde klinik tablo, laboratuvar, görüntüleme ve
+        gerektiğinde karaciğer biyopsisinin birlikte ele alınmasını
+        önermektedir.
+      </p>
+
+      <h2>Beslenmenin rolü nedir?</h2>
+
+      <p>
+        Karaciğer hastalığı bulunan hayvanlarda beslenme yaklaşımı hastalığın
+        türüne, şiddetine, hastanın vücut kondisyonuna ve eşlik eden klinik
+        problemlere göre bireyselleştirilmelidir.
+      </p>
+
+      <p>
+        Yeterli enerji ve dengeli besin alımının korunması önemlidir.
+        Protein kısıtlaması her karaciğer hastasında rutin olarak uygulanmaz;
+        protein miktarı özellikle hepatik ensefalopati gibi özel durumlarda
+        veteriner hekim tarafından değerlendirilmelidir.
+      </p>
+
+      <h2>Destekleyici bakım nasıl planlanmalıdır?</h2>
+
+      <p>
+        Destekleyici ürün veya besin öğelerinin seçimi hastanın tanısına,
+        kullandığı ilaçlara ve laboratuvar sonuçlarına göre yapılmalıdır.
+        Tek bir destek ürünü altta yatan karaciğer hastalığının tanı ve
+        tedavisinin yerine geçmez.
+      </p>
+
+      <p>
+        Veteriner hekim uygun hastalarda antioksidan destekler veya farklı
+        beslenme stratejilerini klinik gereksinimlere göre değerlendirebilir.
+      </p>
+
+      <h2>Bilimsel kaynaklar</h2>
+
+      <ul>
+        <li>
+          Webster CRL, Center SA, Cullen JM, et al.
+          ACVIM consensus statement on the diagnosis and treatment of
+          chronic hepatitis in dogs.
+          Journal of Veterinary Internal Medicine. 2019.
+        </li>
+
+        <li>
+          Jaffey JA.
+          Feline cholangitis/cholangiohepatitis complex.
+          Journal of Small Animal Practice. 2022.
+        </li>
+      </ul>
+
+      <div class="disclaimer">
+        Bu içerik genel eğitim amacıyla hazırlanmıştır ve veteriner hekim
+        muayenesinin, tanının veya tedavinin yerine geçmez. Evcil hayvanınızda
+        karaciğer hastalığını düşündüren belirtiler varsa veteriner hekiminize
+        danışınız.
+      </div>
+
+    </article>
+
+    <aside>
+
+      <div class="sidebar-card">
+        <h3>Veteriner Hekimi</h3>
+
+        <p>
+          <strong>Nazif Oben Akşemsettinoğlu</strong><br>
+          Veteriner Hekim &amp; VetWel Kurucusu
+        </p>
+      </div>
+
+      <div class="sidebar-card">
+
+        <img
+          src="assets/images/products/LiverWel.jpg"
+          alt="VetWel LiverWel"
+        >
+
+        <h3>İlgili VetWel Çözümü</h3>
+
+        <p>
+          Karaciğer sağlığı ve günlük beslenme desteği konusunda VetWel
+          ürün portföyünü inceleyebilirsiniz.
+        </p>
+
+        <a class="back-link" href="index.html#urunler">
+          Ürünleri İncele →
+        </a>
+
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Eğitim Merkezi</h3>
+
+        <a class="back-link" href="education.html">
+          Eğitim Merkezine Dön →
+        </a>
+      </div>
+
+    </aside>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 VetWel. Tüm hakları saklıdır.</span>
+    <span>Veterinary Wellness</span>
+  </div>
+</footer>
+
+</body>
+</html>

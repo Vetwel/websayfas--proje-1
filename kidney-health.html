@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Böbrek Sağlığında Beslenme Desteğinin Rolü | VetWel Eğitim Merkezi</title>
+
+  <meta
+    name="description"
+    content="Kedi ve köpeklerde böbrek sağlığı, su tüketimi, beslenme desteği ve düzenli veteriner takibinin önemi hakkında VetWel Eğitim Merkezi içeriği."
+  >
+
+  <style>
+    :root {
+      --navy: #0b2447;
+      --blue: #153b67;
+      --cyan: #75c9d8;
+      --light: #f4f7fa;
+      --white: #ffffff;
+      --text: #172333;
+      --muted: #657487;
+      --border: #dfe7ee;
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 28px;
+      color: var(--navy);
+    }
+
+    .brand small {
+      display: block;
+      margin-top: -4px;
+      font-size: 9px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav a {
+      text-decoration: none;
+    }
+
+    .nav .contact {
+      background: var(--navy);
+      color: var(--white);
+      padding: 11px 18px;
+      border-radius: 999px;
+    }
+
+    .article-hero {
+      background:
+        radial-gradient(circle at 90% 10%, rgba(117,201,216,.30), transparent 30%),
+        linear-gradient(135deg, var(--navy), var(--blue));
+      color: var(--white);
+      padding: 90px 0 78px;
+    }
+
+    .breadcrumb {
+      display: inline-block;
+      margin-bottom: 24px;
+      text-decoration: none;
+      color: #bce9ef;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .article-label {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .article-hero h1 {
+      max-width: 850px;
+      margin: 0;
+      font-size: clamp(38px, 6vw, 64px);
+      line-height: 1.05;
+    }
+
+    .article-hero p {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: rgba(255,255,255,.80);
+      font-size: 18px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .meta span {
+      padding: 8px 13px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      border-radius: 999px;
+      font-size: 12px;
+    }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 42px;
+      padding: 64px 0;
+    }
+
+    .article-card,
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 16px 45px rgba(11,36,71,.07);
+    }
+
+    .article-card {
+      padding: 46px;
+    }
+
+    .article-card h2 {
+      margin: 38px 0 14px;
+      color: var(--navy);
+      font-size: 28px;
+      line-height: 1.25;
+    }
+
+    .article-card h2:first-child {
+      margin-top: 0;
+    }
+
+    .article-card p {
+      margin: 0 0 18px;
+    }
+
+    .article-card ul {
+      padding-left: 22px;
+    }
+
+    .article-card li {
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      margin: 30px 0;
+      padding: 24px;
+      background: #eef8fa;
+      border-left: 4px solid var(--cyan);
+      border-radius: 14px;
+    }
+
+    .highlight strong {
+      color: var(--navy);
+    }
+
+    .sidebar {
+      display: grid;
+      gap: 20px;
+      align-content: start;
+    }
+
+    .sidebar-card {
+      padding: 26px;
+    }
+
+    .sidebar-card h3 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 20px;
+    }
+
+    .sidebar-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .sidebar-card img {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .back-link {
+      display: inline-flex;
+      margin-top: 18px;
+      text-decoration: none;
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .disclaimer {
+      padding: 24px;
+      background: #f6f8fa;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 38px;
+    }
+
+    footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 36px 0;
+      margin-top: 20px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    @media (max-width: 850px) {
+      .nav {
+        display: none;
+      }
+
+      .article-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .article-card {
+        padding: 28px;
+      }
+
+      .article-hero {
+        padding: 64px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a class="brand" href="index.html">
+        VetWel
+        <small>VETERINARY WELLNESS</small>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html#neden-vetwel">Neden VetWel?</a>
+        <a href="index.html#cozumler">Çözümler</a>
+        <a href="index.html#urunler">Ürünler</a>
+        <a href="education.html">Eğitim Merkezi</a>
+        <a class="contact" href="index.html#iletisim">İletişim</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section class="article-hero">
+      <div class="container">
+
+        <a class="breadcrumb" href="education.html">
+          ← VetWel Eğitim Merkezi
+        </a>
+
+        <br>
+
+        <span class="article-label">Böbrek Sağlığı</span>
+
+        <h1>
+          Böbrek sağlığında beslenme desteğinin rolü
+        </h1>
+
+        <p>
+          Böbrek sağlığının desteklenmesinde doğru beslenme yaklaşımı,
+          yeterli su tüketimi ve düzenli veteriner kontrolü birlikte
+          değerlendirilmelidir.
+        </p>
+
+        <div class="meta">
+          <span>Veteriner Eğitim İçeriği</span>
+          <span>Kedi &amp; Köpek</span>
+          <span>Koruyucu Sağlık</span>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="container article-layout">
+
+      <article class="article-card">
+
+        <h2>Böbreklerin temel görevi nedir?</h2>
+
+        <p>
+          Böbrekler, vücudun sıvı ve mineral dengesinin korunmasına,
+          metabolik atıkların uzaklaştırılmasına ve çeşitli fizyolojik
+          süreçlerin düzenlenmesine katkıda bulunan hayati organlardır.
+        </p>
+
+        <p>
+          Bu nedenle böbrek fonksiyonlarının korunması, özellikle ileri
+          yaştaki kedi ve köpeklerde genel sağlık yönetiminin önemli bir
+          parçasıdır.
+        </p>
+
+       <h2>Beslenme neden önemlidir?</h2>
+
+<p>
+  Kronik böbrek hastalığında beslenme yönetimi, hastalığın evresine ve
+  hayvanın bireysel klinik durumuna göre planlanmalıdır. Beslenme yaklaşımında;
+  yeterli enerji alımının sürdürülmesi, uygun protein düzeyinin seçilmesi,
+  fosfor alımının kontrolü ve sıvı dengesinin desteklenmesi önemli başlıklardır.
+</p>
+
+<p>
+  Özellikle serum fosfor düzeylerinin kontrol altında tutulması, kronik böbrek
+  hastalığının beslenme yönetiminde önemli bir hedeftir. Protein miktarı ve
+  kaynağı ise hastanın böbrek fonksiyonları, kas kütlesi, iştahı ve genel
+  klinik durumu birlikte değerlendirilerek veteriner hekim tarafından
+  belirlenmelidir.
+</p>
+
+<div class="highlight">
+  <strong>Önemli:</strong>
+  Böbrek hastalığı bulunan kedi ve köpeklerde diyet değişikliği veya beslenme
+  desteği, laboratuvar sonuçları ve klinik bulgular değerlendirilmeden
+  başlanmamalıdır.
+</div>
+
+       <h2>Su tüketimi ve hidrasyon</h2>
+
+<p>
+  Yeterli sıvı alımı, böbrek perfüzyonunun ve idrar üretiminin sürdürülmesi
+  açısından önemlidir. Özellikle kronik böbrek hastalığı bulunan kedi ve
+  köpeklerde hidrasyon durumunun düzenli olarak değerlendirilmesi gerekir.
+</p>
+
+<p>
+  Kediler doğal olarak düşük su tüketimine eğilim gösterebildiği için,
+  günlük sıvı alımını artırmaya yönelik pratik yaklaşımlar faydalı olabilir.
+  Ancak ileri evre böbrek hastalığı veya eşlik eden kalp hastalığı gibi
+  durumlarda sıvı yönetimi mutlaka veteriner hekim tarafından planlanmalıdır.
+</p>
+
+<ul>
+  <li>Her zaman temiz ve taze su bulundurulması</li>
+  <li>Ev içinde birden fazla su kaynağı kullanılması</li>
+  <li>Uygun hastalarda yaş mamanın değerlendirilmesi</li>
+  <li>Su tüketimi ve idrar miktarındaki değişikliklerin izlenmesi</li>
+  <li>Dehidratasyon belirtilerinin erken fark edilmesi</li>
+</ul>
+
+      <h2>Veteriner kontrolleri neden önemlidir?</h2>
+
+<p>
+  Kronik böbrek hastalığı erken dönemlerde belirgin klinik bulgu vermeden
+  ilerleyebilir. Bu nedenle özellikle ileri yaştaki kedi ve köpeklerde düzenli
+  veteriner muayeneleri ve uygun aralıklarla yapılan laboratuvar kontrolleri,
+  böbrek fonksiyonlarındaki değişikliklerin daha erken fark edilmesine yardımcı olur.
+</p>
+
+<p>
+  Değerlendirmede yalnızca serum kreatinin düzeyi değil; SDMA, fosfor,
+  elektrolitler, idrar özgül ağırlığı, proteinüri, kan basıncı, vücut ağırlığı
+  ve kas kondisyonu gibi parametreler de klinik tabloya göre birlikte ele alınabilir.
+</p>
+
+<p>
+  Artmış su tüketimi ve idrara çıkma, iştah azalması, kilo kaybı, kusma,
+  halsizlik veya davranış değişiklikleri gibi bulgular gözlendiğinde veteriner
+  hekim değerlendirmesi geciktirilmemelidir.
+</p>
+
+      <h2>Beslenme desteği nasıl değerlendirilmelidir?</h2>
+
+<p>
+  Kronik böbrek hastalığında beslenme desteği, hastalığın evresi ve hayvanın
+  bireysel klinik gereksinimleri dikkate alınarak planlanmalıdır. Tek bir
+  içerik veya ürün yerine, hastanın toplam beslenme programı ve klinik durumu
+  birlikte değerlendirilmelidir.
+</p>
+
+<p>
+  Veteriner hekim; serum fosfor ve elektrolit düzeyleri, böbrek fonksiyon
+  göstergeleri, proteinüri, kan basıncı, vücut ağırlığı, kas kondisyonu,
+  iştah ve kullanılan ilaçları birlikte değerlendirerek uygun beslenme
+  yaklaşımını belirler.
+</p>
+
+<p>
+  Gerektiğinde fosfor kontrolüne yönelik beslenme stratejileri, omega-3 yağ
+  asitleri ve diğer destekleyici besin öğeleri hastanın gereksinimlerine göre
+  değerlendirilebilir. Kullanılacak desteğin türü ve miktarı veteriner hekim
+  tarafından bireysel olarak belirlenmelidir.
+</p>
+<h2>Bilimsel kaynaklar</h2>
+
+<ul>
+  <li>
+    International Renal Interest Society (IRIS).
+    Chronic Kidney Disease Staging and Treatment Recommendations.
+  </li>
+
+  <li>
+    International Renal Interest Society (IRIS).
+    Treatment Recommendations for Chronic Kidney Disease in Dogs and Cats.
+  </li>
+
+  <li>
+    Polzin DJ.
+    Chronic Kidney Disease in Small Animals.
+    Veterinary Clinics of North America: Small Animal Practice.
+  </li>
+
+  <li>
+    Sparkes AH, Caney S, Chalhoub S, et al.
+    ISFM Consensus Guidelines on the Diagnosis and Management of Feline Chronic Kidney Disease.
+    Journal of Feline Medicine and Surgery.
+  </li>
+</ul>
+        <div class="disclaimer">
+          Bu içerik genel eğitim amacıyla hazırlanmıştır ve veteriner hekim
+          muayenesinin, tanının veya tedavinin yerine geçmez. Evcil hayvanınızın
+          sağlık durumu ile ilgili kararlar için veteriner hekiminize danışınız.
+        </div>
+
+        <a class="back-link" href="education.html">
+          ← Eğitim Merkezi'ne dön
+        </a>
+
+      </article>
+
+      <aside class="sidebar">
+
+        <div class="sidebar-card">
+          <h3>Veteriner Hekimi</h3>
+          <p>
+            Nazif Oben Akşemsettinoğlu
+          </p>
+          <p style="margin-top:8px;">
+            Founder &amp; Veterinary Advisor, VetWel
+          </p>
+        </div>
+
+        <div class="sidebar-card">
+
+          <img
+            src="assets/images/products/KidneyWel Tablet.jpg"
+            alt="VetWel KidneyWel"
+          >
+
+          <h3>İlgili VetWel Çözümü</h3>
+
+          <p>
+            Böbrek sağlığı ve günlük beslenme desteği konusunda VetWel
+            ürün portföyünü inceleyebilirsiniz.
+          </p>
+
+          <a class="back-link" href="index.html#urunler">
+            Ürünleri incele →
+          </a>
+
+        </div>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 VetWel. Tüm hakları saklıdır.</span>
+      <span>Veterinary Wellness</span>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kedi ve Köpeklerde Kalp Sağlığı | VetWel Eğitim Merkezi</title>
+
+  <meta
+    name="description"
+    content="Kedi ve köpeklerde kalp sağlığı, dikkat edilmesi gereken belirtiler, tanısal yaklaşım ve veteriner takibinin önemi."
+  >
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #172333;
+      background: #f5f8fb;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e3e9ef;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-inner {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand strong {
+      font-size: 29px;
+      color: #14243a;
+    }
+
+    .brand span {
+      margin-top: 8px;
+      font-size: 10px;
+      letter-spacing: 2.2px;
+      color: #627184;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #39485a;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #641f36 0%, #9b3d5a 60%, #cf7189 100%);
+      color: #fff;
+      padding: 72px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(280px, .6fr);
+      gap: 55px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #ffd3de;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.05;
+      margin: 0 0 24px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      font-size: 18px;
+      color: rgba(255,255,255,.9);
+      margin: 0;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 22px;
+      padding: 28px;
+    }
+
+    main {
+      padding: 60px 0 80px;
+    }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .article-card,
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid #e3e9ef;
+      border-radius: 24px;
+      box-shadow: 0 18px 45px rgba(20,36,58,.07);
+    }
+
+    .article-card {
+      padding: clamp(28px, 5vw, 56px);
+    }
+
+    .article-card h2 {
+      font-size: 31px;
+      margin: 40px 0 15px;
+      color: #162536;
+    }
+
+    .article-card p {
+      margin: 0 0 21px;
+      font-size: 17px;
+    }
+
+    .article-card ul {
+      padding-left: 25px;
+    }
+
+    .highlight {
+      margin: 28px 0;
+      padding: 22px 25px;
+      border-left: 4px solid #a54060;
+      border-radius: 15px;
+      background: #fff0f4;
+    }
+
+    .disclaimer {
+      margin-top: 36px;
+      padding: 22px;
+      border-radius: 16px;
+      background: #f3f5f7;
+      color: #566474;
+      font-size: 14px;
+    }
+
+    aside {
+      display: grid;
+      gap: 22px;
+    }
+
+    .sidebar-card {
+      padding: 24px;
+    }
+
+    .sidebar-card img {
+      display: block;
+      width: 100%;
+      max-height: 250px;
+      object-fit: contain;
+      margin: 0 auto 20px;
+    }
+
+    .sidebar-card h3 {
+      font-size: 21px;
+      margin: 0 0 12px;
+    }
+
+    .sidebar-card p {
+      margin: 0 0 18px;
+      color: #657487;
+    }
+
+    .back-link {
+      display: inline-flex;
+      padding: 11px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      background: #7b2945;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    footer {
+      border-top: 1px solid #dde5ec;
+      background: #fff;
+      color: #667487;
+    }
+
+    .footer-inner {
+      min-height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid,
+      .article-layout {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+
+    <a class="brand" href="index.html">
+      <strong>VetWel<sup>®</sup></strong>
+      <span>VETERINARY WELLNESS</span>
+    </a>
+
+    <nav>
+      <a href="index.html#neden-vetwel">Neden VetWel?</a>
+      <a href="index.html#cozumler">Çözümler</a>
+      <a href="index.html#urunler">Ürünler</a>
+      <a href="education.html">Eğitim Merkezi</a>
+    </nav>
+
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <p class="eyebrow">VetWel Eğitim Merkezi • Kalp Sağlığı</p>
+
+      <h1>
+        Kedi ve köpeklerde kalp sağlığını desteklemek
+      </h1>
+
+      <p>
+        Kalp ve dolaşım sistemi, dokulara oksijen ve besin taşınmasında temel
+        rol oynar. Kalp hastalıklarının erken fark edilmesi, doğru tanısal
+        değerlendirme ve düzenli veteriner takibi uzun dönem yönetimin önemli
+        parçalarıdır.
+      </p>
+    </div>
+
+    <div class="hero-card">
+      <strong>VetWel Uzman Görüşü</strong>
+      <p>
+        Kalp hastalıklarında tedavi ve takip planı, yalnızca tek bir belirtiye
+        değil; klinik muayene, görüntüleme ve hastalığın evresine göre
+        oluşturulmalıdır.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<main>
+  <div class="container article-layout">
+
+    <article class="article-card">
+
+      <h2>Kalbin temel görevi nedir?</h2>
+
+      <p>
+        Kalp, kanı akciğerlere ve vücudun diğer dokularına pompalayarak
+        oksijen ve besinlerin taşınmasını sağlar. Kalp kapakları, kalp kası
+        ve elektriksel iletim sistemi birlikte çalışarak dolaşımın
+        sürdürülebilmesini sağlar.
+      </p>
+
+      <h2>Hangi belirtiler dikkate alınmalıdır?</h2>
+
+      <ul>
+        <li>Egzersiz toleransında azalma</li>
+        <li>Hızlı veya zor solunum</li>
+        <li>Öksürük</li>
+        <li>Halsizlik</li>
+        <li>Bayılma veya ani güçsüzlük</li>
+        <li>Karında şişkinlik</li>
+        <li>İştah veya aktivite düzeyinde değişiklik</li>
+      </ul>
+
+      <div class="highlight">
+        <strong>Önemli:</strong>
+        Özellikle istirahatte solunum güçlüğü, morarma, bayılma veya ani
+        kötüleşme acil veteriner değerlendirmesi gerektirebilir.
+      </div>
+
+      <h2>Köpeklerde sık görülen kalp hastalıkları</h2>
+
+      <p>
+        Köpeklerde dejeneratif mitral kapak hastalığı sık karşılaşılan kalp
+        hastalıklarından biridir. ACVIM konsensüsünde hastalık; risk altındaki
+        hastalardan klinik kalp yetmezliği bulunan ileri evrelere kadar
+        sınıflandırılarak takip ve tedavi yaklaşımının hastalığın evresine
+        göre planlanması önerilmektedir.
+      </p>
+
+      <h2>Kedilerde kalp hastalıkları</h2>
+
+      <p>
+        Kedilerde kardiyomiyopatiler önemli kalp hastalıkları arasındadır.
+        Bazı kediler uzun süre belirti göstermeyebilir. Bu nedenle kalp
+        üfürümü, ritim bozukluğu veya risk faktörleri bulunan kedilerde
+        veteriner hekim ileri kardiyak değerlendirme önerebilir.
+      </p>
+
+      <h2>Tanı nasıl değerlendirilir?</h2>
+
+      <p>
+        Kalp hastalığından şüphelenildiğinde fizik muayenenin yanı sıra
+        radyografi, elektrokardiyografi, kan basıncı ölçümü ve
+        ekokardiyografi gibi yöntemler kullanılabilir.
+      </p>
+
+      <p>
+        Hangi testlerin gerekli olduğu hayvanın türüne, yaşına, klinik
+        belirtilerine ve muayene bulgularına göre veteriner hekim tarafından
+        belirlenir.
+      </p>
+
+      <h2>Beslenme ve günlük bakımın rolü</h2>
+
+      <p>
+        Kalp hastalarında uygun vücut kondisyonunun korunması, yeterli ve
+        dengeli beslenme ve veteriner hekimin önerdiği takip programına uyum
+        önemlidir.
+      </p>
+
+      <p>
+        Sodyum, enerji, protein ve diğer besin öğelerine ilişkin gereksinimler
+        hastalığın evresine ve kullanılan tedavilere göre değişebilir.
+        Bu nedenle ciddi diyet değişiklikleri veteriner hekim önerisiyle
+        yapılmalıdır.
+      </p>
+
+      <h2>Destekleyici ürünler nasıl değerlendirilmelidir?</h2>
+
+      <p>
+        Beslenme destekleri, tanı konmuş bir kalp hastalığında reçete edilen
+        ilaçların veya düzenli kardiyoloji takibinin yerine geçmez.
+        Kullanılacak destek ürünleri hastanın mevcut hastalığı, ilaçları ve
+        genel beslenme planıyla birlikte değerlendirilmelidir.
+      </p>
+
+      <h2>Bilimsel kaynaklar</h2>
+
+      <ul>
+        <li>
+          Keene BW, Atkins CE, Bonagura JD, et al.
+          ACVIM consensus guidelines for the diagnosis and treatment of
+          myxomatous mitral valve disease in dogs.
+          Journal of Veterinary Internal Medicine. 2019.
+        </li>
+
+        <li>
+          Luis Fuentes V, Abbott J, Chetboul V, et al.
+          ACVIM consensus statement guidelines for the classification,
+          diagnosis, and management of cardiomyopathies in cats.
+          Journal of Veterinary Internal Medicine. 2020.
+        </li>
+      </ul>
+
+      <div class="disclaimer">
+        Bu içerik genel eğitim amacıyla hazırlanmıştır ve veteriner hekim
+        muayenesinin, tanının veya tedavinin yerine geçmez. Evcil hayvanınızda
+        kalp veya solunum sistemiyle ilişkili belirtiler fark ederseniz
+        veteriner hekiminize danışınız.
+      </div>
+
+    </article>
+
+    <aside>
+
+      <div class="sidebar-card">
+        <h3>Veteriner Hekimi</h3>
+
+        <p>
+          <strong>Nazif Oben Akşemsettinoğlu</strong><br>
+          Veteriner Hekim &amp; VetWel Kurucusu
+        </p>
+      </div>
+
+      <div class="sidebar-card">
+
+        <img
+          src="https://vetwel.github.io/websayfas--proje-1/assets/images/products/HeartWel%20Tablet.jpg?v=1"
+          alt="VetWel HeartWel"
+        >
+
+        <h3>İlgili VetWel Çözümü</h3>
+
+        <p>
+          Kalp sağlığı ve günlük beslenme desteği konusunda VetWel ürün
+          portföyünü inceleyebilirsiniz.
+        </p>
+
+        <a class="back-link" href="index.html#urunler">
+          Ürünleri İncele →
+        </a>
+
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Eğitim Merkezi</h3>
+
+        <a class="back-link" href="education.html">
+          Eğitim Merkezine Dön →
+        </a>
+      </div>
+
+    </aside>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 VetWel. Tüm hakları saklıdır.</span>
+    <span>Veterinary Wellness</span>
+  </div>
+</footer>

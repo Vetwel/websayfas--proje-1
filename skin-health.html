@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kedi ve Köpeklerde Deri Sağlığı | VetWel Eğitim Merkezi</title>
+
+  <meta
+    name="description"
+    content="Kedi ve köpeklerde deri sağlığı, kaşıntı, deri bariyeri, alerjik deri hastalıkları ve veteriner takibinin önemi."
+  >
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #172333;
+      background: #f5f8fb;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e3e9ef;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-inner {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand strong {
+      font-size: 29px;
+      color: #14243a;
+    }
+
+    .brand span {
+      margin-top: 8px;
+      font-size: 10px;
+      letter-spacing: 2.2px;
+      color: #627184;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #39485a;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #164d72 0%, #267fa6 60%, #63b9d4 100%);
+      color: #fff;
+      padding: 72px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(280px, .6fr);
+      gap: 55px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #c9f0fb;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.05;
+      margin: 0 0 24px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      font-size: 18px;
+      color: rgba(255,255,255,.9);
+      margin: 0;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 22px;
+      padding: 28px;
+    }
+
+    main {
+      padding: 60px 0 80px;
+    }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .article-card,
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid #e3e9ef;
+      border-radius: 24px;
+      box-shadow: 0 18px 45px rgba(20,36,58,.07);
+    }
+
+    .article-card {
+      padding: clamp(28px, 5vw, 56px);
+    }
+
+    .article-card h2 {
+      font-size: 31px;
+      margin: 40px 0 15px;
+      color: #162536;
+    }
+
+    .article-card p {
+      margin: 0 0 21px;
+      font-size: 17px;
+    }
+
+    .article-card ul {
+      padding-left: 25px;
+    }
+
+    .highlight {
+      margin: 28px 0;
+      padding: 22px 25px;
+      border-left: 4px solid #2f8fb5;
+      border-radius: 15px;
+      background: #edf8fc;
+    }
+
+    .disclaimer {
+      margin-top: 36px;
+      padding: 22px;
+      border-radius: 16px;
+      background: #f3f5f7;
+      color: #566474;
+      font-size: 14px;
+    }
+
+    aside {
+      display: grid;
+      gap: 22px;
+    }
+
+    .sidebar-card {
+      padding: 24px;
+    }
+
+    .sidebar-card img {
+      display: block;
+      width: 100%;
+      max-height: 250px;
+      object-fit: contain;
+      margin: 0 auto 20px;
+    }
+
+    .sidebar-card h3 {
+      font-size: 21px;
+      margin: 0 0 12px;
+    }
+
+    .sidebar-card p {
+      margin: 0 0 18px;
+      color: #657487;
+    }
+
+    .back-link {
+      display: inline-flex;
+      padding: 11px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      background: #164d72;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    footer {
+      border-top: 1px solid #dde5ec;
+      background: #fff;
+      color: #667487;
+    }
+
+    .footer-inner {
+      min-height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid,
+      .article-layout {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+
+    <a class="brand" href="index.html">
+      <strong>VetWel<sup>®</sup></strong>
+      <span>VETERINARY WELLNESS</span>
+    </a>
+
+    <nav>
+      <a href="index.html#neden-vetwel">Neden VetWel?</a>
+      <a href="index.html#cozumler">Çözümler</a>
+      <a href="index.html#urunler">Ürünler</a>
+      <a href="education.html">Eğitim Merkezi</a>
+    </nav>
+
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <p class="eyebrow">VetWel Eğitim Merkezi • Deri Sağlığı</p>
+
+      <h1>
+        Kedi ve köpeklerde sağlıklı deri bariyerini desteklemek
+      </h1>
+
+      <p>
+        Deri, vücudun dış çevreye karşı en önemli koruyucu bariyerlerinden biridir.
+        Kaşıntı, kızarıklık ve tekrarlayan deri problemlerinde altta yatan nedenin
+        doğru değerlendirilmesi önemlidir.
+      </p>
+    </div>
+
+    <div class="hero-card">
+      <strong>VetWel Uzman Görüşü</strong>
+      <p>
+        Kronik kaşıntı tek bir hastalığa özgü değildir. Parazitler, enfeksiyonlar,
+        gıda reaksiyonları ve alerjik deri hastalıkları birlikte değerlendirilmelidir.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<main>
+  <div class="container article-layout">
+
+    <article class="article-card">
+
+      <h2>Deri bariyeri neden önemlidir?</h2>
+
+      <p>
+        Deri bariyeri; su kaybının kontrol edilmesine, dış çevredeki irritanların
+        ve mikroorganizmaların vücuda girişinin sınırlandırılmasına yardımcı olur.
+        Bariyer bütünlüğündeki değişiklikler bazı kronik inflamatuvar deri
+        hastalıklarında klinik belirtilerin şiddetlenmesine katkıda bulunabilir.
+      </p>
+
+      <h2>Hangi belirtiler dikkate alınmalıdır?</h2>
+
+      <ul>
+        <li>Sürekli veya tekrarlayan kaşıntı</li>
+        <li>Kızarıklık</li>
+        <li>Tüy dökülmesi</li>
+        <li>Deri kokusunda değişiklik</li>
+        <li>Kabuklanma veya kepeklenme</li>
+        <li>Kulak problemlerinin tekrarlaması</li>
+        <li>Pati yalama</li>
+        <li>Tekrarlayan deri enfeksiyonları</li>
+      </ul>
+
+      <div class="highlight">
+        <strong>Önemli:</strong>
+        Kaşıntının nedeni yalnızca alerji değildir. Parazitler, bakteriyel veya
+        fungal enfeksiyonlar ve farklı dermatolojik hastalıklar benzer belirtiler
+        oluşturabilir.
+      </div>
+
+      <h2>Köpeklerde atopik dermatit</h2>
+
+      <p>
+        Köpeklerde atopik dermatit kronik ve kaşıntılı bir deri hastalığıdır.
+        Tanı yalnızca tek bir teste dayanmaz; klinik bulgular ve benzer belirtilere
+        yol açabilecek diğer hastalıkların sistematik olarak dışlanması gerekir.
+      </p>
+
+      <p>
+        Güncel yaklaşım; parazit kontrolü, sekonder enfeksiyonların yönetimi,
+        uygun deri ve tüy bakımı ve gerekli durumlarda veteriner hekimin belirlediği
+        anti-inflamatuvar veya immünomodülatör tedavilerin birlikte kullanılmasını
+        içerir.
+      </p>
+
+      <h2>Kedilerde alerjik deri hastalıkları</h2>
+
+      <p>
+        Kedilerde feline atopic skin syndrome farklı klinik görünümlerle ortaya
+        çıkabilir. Kaşıntı, aşırı yalanma, tüy kaybı ve farklı deri lezyonları
+        görülebilir.
+      </p>
+
+      <p>
+        Tanı konmadan önce pire alerjisi, gıda reaksiyonları, parazitler ve
+        diğer dermatolojik hastalıkların değerlendirilmesi önemlidir.
+      </p>
+
+      <h2>Beslenme ve deri sağlığı</h2>
+
+      <p>
+        Dengeli beslenme deri ve tüy sağlığının korunması için temel öneme sahiptir.
+        Esansiyel yağ asitleri, yeterli protein, vitaminler ve mineraller normal deri
+        fonksiyonlarının sürdürülmesine katkıda bulunur.
+      </p>
+
+      <p>
+        Ancak kronik alerjik deri hastalıklarında beslenme destekleri tek başına
+        tedavinin yerine geçmez. Özellikle gıda reaksiyonundan şüphelenilen hastalarda
+        eliminasyon diyeti veteriner hekim tarafından planlanmalıdır.
+      </p>
+
+      <h2>Günlük bakım nasıl planlanmalıdır?</h2>
+
+      <ul>
+        <li>Veteriner hekimin önerdiği düzenli parazit kontrolü</li>
+        <li>Uygun şampuan ve deri bakım ürünlerinin kullanılması</li>
+        <li>Deri ve kulakların düzenli kontrol edilmesi</li>
+        <li>Tekrarlayan enfeksiyonların erken değerlendirilmesi</li>
+        <li>Beslenme programının klinik gereksinimlere göre planlanması</li>
+      </ul>
+
+      <h2>Bilimsel kaynaklar</h2>
+
+      <ul>
+        <li>
+          Miller J, et al.
+          2023 AAHA Management of Allergic Skin Diseases in Dogs and Cats Guidelines.
+          Journal of the American Animal Hospital Association. 2023.
+        </li>
+
+        <li>
+          Hensel P, Santoro D, Favrot C, Hill P, Griffin C.
+          Canine atopic dermatitis: detailed guidelines for diagnosis and
+          allergen identification.
+          BMC Veterinary Research. 2015.
+        </li>
+
+        <li>
+          Santoro D, Pucheu-Haston CM, Prost C, Mueller RS, Jackson H.
+          Clinical signs and diagnosis of feline atopic syndrome:
+          detailed guidelines for a correct diagnosis.
+          Veterinary Dermatology. 2021.
+        </li>
+      </ul>
+
+      <div class="disclaimer">
+        Bu içerik genel eğitim amacıyla hazırlanmıştır ve veteriner hekim
+        muayenesinin, tanının veya tedavinin yerine geçmez. Evcil hayvanınızda
+        sürekli kaşıntı, deri lezyonları veya tekrarlayan deri problemleri varsa
+        veteriner hekiminize danışınız.
+      </div>
+
+    </article>
+
+    <aside>
+
+      <div class="sidebar-card">
+        <h3>Veteriner Hekimi</h3>
+
+        <p>
+          <strong>Nazif Oben Akşemsettinoğlu</strong><br>
+          Veteriner Hekim &amp; VetWel Kurucusu
+        </p>
+      </div>
+
+      <div class="sidebar-card">
+
+        <img
+          src="https://vetwel.github.io/websayfas--proje-1/assets/images/products/SkinWel%20Tablet.jpg?v=1"
+          alt="VetWel SkinWel"
+        >
+
+        <h3>İlgili VetWel Çözümü</h3>
+
+        <p>
+          Deri ve tüy sağlığına yönelik VetWel ürün portföyünü inceleyebilirsiniz.
+        </p>
+
+        <a class="back-link" href="index.html#urunler">
+          Ürünleri İncele →
+        </a>
+
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Eğitim Merkezi</h3>
+
+        <a class="back-link" href="education.html">
+          Eğitim Merkezine Dön →
+        </a>
+      </div>
+
+    </aside>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 VetWel. Tüm hakları saklıdır.</span>
+    <span>Veterinary Wellness</span>
+  </div>
+</footer>
+
+</body>
+</html>

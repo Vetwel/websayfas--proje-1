@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FLUTD, Strüvit ve Üretral Tıkanıklık | VetWel Eğitim Merkezi</title>
+
+  <meta
+    name="description"
+    content="Kedilerde FLUTD, strüvit kristalleri ve taşları, üretral tıkanıklık, kateterizasyon, üriner sistem yönetimi ve veteriner takibinin önemi."
+  >
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #172333;
+      background: #f5f8fb;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e3e9ef;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-inner {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand strong {
+      font-size: 29px;
+      color: #14243a;
+    }
+
+    .brand span {
+      margin-top: 8px;
+      font-size: 10px;
+      letter-spacing: 2.2px;
+      color: #627184;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #39485a;
+    }
+
+    .hero {
+      background:
+        linear-gradient(135deg, #184c63 0%, #267896 60%, #5cafc0 100%);
+      color: #fff;
+      padding: 72px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(280px, .6fr);
+      gap: 55px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #d1f2f7;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.05;
+      margin: 0 0 24px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      font-size: 18px;
+      color: rgba(255,255,255,.9);
+      margin: 0;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 22px;
+      padding: 28px;
+    }
+
+    .hero-card strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    main {
+      padding: 60px 0 80px;
+    }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .article-card,
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid #e3e9ef;
+      border-radius: 24px;
+      box-shadow: 0 18px 45px rgba(20,36,58,.07);
+    }
+
+    .article-card {
+      padding: clamp(28px, 5vw, 56px);
+    }
+
+    .article-card h2 {
+      font-size: 31px;
+      margin: 40px 0 15px;
+      color: #162536;
+    }
+
+    .article-card p {
+      margin: 0 0 21px;
+      font-size: 17px;
+    }
+
+    .article-card ul {
+      padding-left: 25px;
+    }
+
+    .highlight {
+      margin: 28px 0;
+      padding: 22px 25px;
+      border-left: 4px solid #2e8ca5;
+      border-radius: 15px;
+      background: #edf8fb;
+    }
+
+    .emergency-box {
+      margin: 30px 0;
+      padding: 25px;
+      border-left: 5px solid #a43737;
+      border-radius: 15px;
+      background: #fff1f1;
+    }
+
+    .protocol-box {
+      margin: 32px 0;
+      padding: 28px;
+      border-radius: 20px;
+      border: 1px solid #cce2e8;
+      background: #f2f9fb;
+    }
+
+    .protocol-box h3 {
+      margin: 0 0 14px;
+      color: #1e6074;
+      font-size: 23px;
+    }
+
+    .disclaimer {
+      margin-top: 36px;
+      padding: 22px;
+      border-radius: 16px;
+      background: #f3f5f7;
+      color: #566474;
+      font-size: 14px;
+    }
+
+    aside {
+      display: grid;
+      gap: 22px;
+    }
+
+    .sidebar-card {
+      padding: 24px;
+    }
+
+    .sidebar-card img {
+      display: block;
+      width: 100%;
+      max-height: 250px;
+      object-fit: contain;
+      margin: 0 auto 20px;
+    }
+
+    .sidebar-card h3 {
+      font-size: 21px;
+      margin: 0 0 12px;
+    }
+
+    .sidebar-card p {
+      margin: 0 0 18px;
+      color: #657487;
+    }
+
+    .back-link {
+      display: inline-flex;
+      padding: 11px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      background: #184c63;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    footer {
+      border-top: 1px solid #dde5ec;
+      background: #fff;
+      color: #667487;
+    }
+
+    .footer-inner {
+      min-height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid,
+      .article-layout {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+
+    <a class="brand" href="index.html">
+      <strong>VetWel<sup>®</sup></strong>
+      <span>VETERINARY WELLNESS</span>
+    </a>
+
+    <nav>
+      <a href="index.html#neden-vetwel">Neden VetWel?</a>
+      <a href="index.html#cozumler">Çözümler</a>
+      <a href="index.html#urunler">Ürünler</a>
+      <a href="education.html">Eğitim Merkezi</a>
+    </nav>
+
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <p class="eyebrow">
+        VetWel Eğitim Merkezi • Üriner Sistem Sağlığı
+      </p>
+
+      <h1>
+        FLUTD, strüvit ve üretral tıkanıklıklarda doğru yaklaşım
+      </h1>
+
+      <p>
+        Kedilerde alt üriner sistem problemleri; ağrılı idrar yapma,
+        sık idrara çıkma, kanlı idrar, kristal ve taş oluşumu veya
+        üretral tıkanıklık gibi farklı klinik tablolarla ortaya çıkabilir.
+      </p>
+    </div>
+
+    <div class="hero-card">
+      <strong>VetWel Uzman Görüşü</strong>
+
+      <p>
+        FLUTD tek bir hastalık değildir. İdiyopatik sistit, ürolitler,
+        üretral pluglar, enfeksiyonlar ve diğer nedenler benzer belirtiler
+        oluşturabilir. Tedavi, altta yatan nedene göre planlanmalıdır.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<main>
+  <div class="container article-layout">
+
+    <article class="article-card">
+
+      <h2>FLUTD nedir?</h2>
+
+      <p>
+        Feline Lower Urinary Tract Disease — FLUTD, kedilerde mesane ve
+        üretrayı etkileyen farklı hastalıkların oluşturduğu klinik bir
+        tabloyu tanımlamak için kullanılan genel bir terimdir.
+      </p>
+
+      <p>
+        FLUTD; feline idiopatik sistit, ürolitler, üretral pluglar,
+        bakteriyel enfeksiyonlar, anatomik problemler ve daha nadir
+        nedenlerle ilişkili olabilir.
+      </p>
+
+      <h2>Hangi belirtiler dikkate alınmalıdır?</h2>
+
+      <ul>
+        <li>Sık sık kum kabına gitme</li>
+        <li>Az miktarda idrar yapma</li>
+        <li>İdrar yaparken zorlanma</li>
+        <li>İdrar sırasında ses çıkarma veya ağrı belirtisi</li>
+        <li>İdrarda kan</li>
+        <li>Kum kabı dışına idrar yapma</li>
+        <li>Genital bölgenin sık yalanması</li>
+        <li>İdrar yapamama</li>
+      </ul>
+
+      <div class="emergency-box">
+        <strong>ACİL DURUM:</strong>
+        Özellikle erkek bir kedi sık sık idrar yapmaya çalışıyor ancak
+        idrar çıkaramıyorsa veya yalnızca birkaç damla çıkarıyorsa,
+        üretral tıkanıklık olasılığı düşünülmelidir. Tam obstrüksiyon
+        yaşamı tehdit eden bir acil durumdur ve hemen veteriner müdahalesi
+        gerektirir.
+      </div>
+
+      <h2>Strüvit kristalleri ve taşları nedir?</h2>
+
+      <p>
+        Strüvit; magnezyum, amonyum ve fosfattan oluşan bir mineral
+        yapıdır. Strüvit kristalleri kedi ve köpeklerin idrarında
+        görülebilir; ancak yalnızca kristal görülmesi her zaman klinik
+        ürolit hastalığı anlamına gelmez. :contentReference[oaicite:1]{index=1}
+      </p>
+
+      <p>
+        Uygun koşullarda kristaller bir araya gelerek ürolit yani idrar
+        taşı oluşturabilir. Kedilerde strüvit ürolitleri alt üriner sistem
+        hastalıklarının önemli nedenlerinden biridir. :contentReference[oaicite:2]{index=2}
+      </p>
+
+      <h2>Kristal, taş ve üretral plug aynı şey midir?</h2>
+
+      <p>
+        Hayır. İdrarda mikroskobik kristaller bulunabilir, mesane içinde
+        daha büyük ürolitler oluşabilir veya üretrada mineral ve organik
+        materyallerden oluşan pluglar gelişebilir.
+      </p>
+
+      <p>
+        Bu yapıların klinik önemi, bulundukları yer ve idrar akımını
+        ne ölçüde etkilediklerine göre değişir.
+      </p>
+
+      <h2>Erkek kedilerde neden daha tehlikelidir?</h2>
+
+      <p>
+        Erkek kedilerin üretrası dişi kedilere göre daha uzun ve daha
+        dardır. Bu anatomik özellik nedeniyle erkek kediler üretral
+        tıkanıklık açısından daha yüksek risk taşır. :contentReference[oaicite:3]{index=3}
+      </p>
+
+      <p>
+        Tıkanıklık geliştiğinde idrar mesaneden dışarı çıkamaz. Elektrolit
+        bozuklukları, azotemi ve ciddi sistemik problemler gelişebileceğinden
+        hızlı müdahale gerekir. :contentReference[oaicite:4]{index=4}
+      </p>
+
+      <h2>Üretral tıkanıklık nasıl yönetilir?</h2>
+
+      <p>
+        Üretral obstrüksiyon veteriner acilidir. İlk değerlendirmede
+        hastanın genel durumu, elektrolitleri, böbrek değerleri ve kardiyak
+        riski değerlendirilir.
+      </p>
+
+      <p>
+        Tıkanıklığın giderilmesi için çoğu vakada sedasyon veya anestezi
+        altında üretral kateterizasyon gerekir. Amaç üretranın açılması,
+        idrar akımının yeniden sağlanması ve mesane basıncının azaltılmasıdır.
+        :contentReference[oaicite:5]{index=5}
+      </p>
+
+      <div class="highlight">
+        <strong>Önemli:</strong>
+        Üretral tıkanıklık evde veya yalnızca beslenme destekleriyle
+        tedavi edilmeye çalışılmamalıdır. Fiziksel tıkanıklığın giderilmesi
+        veteriner müdahalesi gerektirir.
+      </div>
+
+      <h2>Strüvit taşları çözünebilir mi?</h2>
+
+      <p>
+        Uygun hastalarda strüvit ürolitleri veteriner hekim tarafından
+        planlanan medikal çözündürme protokolleriyle yönetilebilir.
+        Kullanılacak yaklaşım taşın lokalizasyonu, hastanın klinik durumu,
+        idrar özellikleri ve eşlik eden diğer problemlere göre belirlenir.
+      </p>
+
+      <p>
+        Üretral tıkanıklık mevcutsa önce idrar akımının yeniden sağlanması
+        gerekir. Taş çözündürme yaklaşımı acil obstrüksiyonun giderilmesinin
+        yerine geçmez.
+      </p>
+
+      <h2>Beslenme ve su tüketiminin rolü</h2>
+
+      <p>
+        Üriner sistem sağlığında yeterli su tüketimi ve uygun idrar
+        dilüsyonu önemlidir. Su tüketimini artırmaya yönelik beslenme
+        stratejileri bazı hastalarda yararlı olabilir.
+      </p>
+
+      <ul>
+        <li>Temiz ve taze suya sürekli erişim</li>
+        <li>Birden fazla su kaynağı</li>
+        <li>Uygun hastalarda yaş mama kullanımı</li>
+        <li>Veteriner hekimin önerdiği üriner diyetler</li>
+        <li>İdrar pH ve mineral dengesinin gerektiğinde takip edilmesi</li>
+      </ul>
+
+      <h2>Cleanse hangi amaçla kullanılır?</h2>
+
+      <p>
+        Cleanse, VetWel’in veteriner klinik kullanımına yönelik üriner
+        destek çözümüdür. Özellikle strüvit materyalinin ve alt üriner
+        sistemdeki mineral birikimlerinin bulunduğu klinik vakalarda,
+        veteriner hekimin uyguladığı kateterizasyon ve üriner sistem
+        yönetimine destek amacıyla değerlendirilir.
+      </p>
+
+      <p>
+        Cleanse, üretral tıkanıklığın mekanik olarak açılmasının yerine
+        geçmez. Ürün veteriner hekim tarafından mevcut klinik tablo ve
+        uygulanan prosedür ile birlikte değerlendirilmelidir.
+      </p>
+
+      <div class="protocol-box">
+
+        <h3>Veteriner Klinik Kullanım Yaklaşımı</h3>
+
+        <p>
+          Üretral tıkanıklık bulunan vakalarda veteriner hekim önce
+          kateter ile obstrüksiyon bölgesine ulaşır ve idrar akımını
+          yeniden sağlamak için gerekli işlemleri gerçekleştirir.
+        </p>
+
+        <p>
+          Cleanse, veteriner hekimin klinik değerlendirmesine göre kateter
+          aracılığıyla üriner sistem uygulamasına dahil edilebilir.
+        </p>
+
+        <p>
+          Uygun görülen vakalarda mesane içerisine yaklaşık
+          <strong>5–6 cc</strong> Cleanse uygulanması değerlendirilebilir.
+        </p>
+
+        <p>
+          Prosedür sonrası destek protokolünde veteriner hekimin önerisine
+          göre <strong>2 cc, günde iki kez, 7 gün</strong> kullanım
+          planlanabilir.
+        </p>
+
+        <p>
+          <strong>Bu uygulama yalnızca veteriner hekim gözetiminde ve
+          klinik değerlendirmeye göre yapılmalıdır.</strong>
+        </p>
+
+      </div>
+
+      <h2>Tekrarların azaltılması</h2>
+
+      <p>
+        FLUTD ve üriner problemlerde yalnızca akut atağın yönetilmesi değil,
+        tekrar riskinin azaltılması da önemlidir.
+      </p>
+
+      <p>
+        Su tüketiminin desteklenmesi, uygun beslenme, kilo kontrolü,
+        çevresel stres faktörlerinin azaltılması ve düzenli veteriner
+        kontrolü uzun dönem yönetimin temel parçalarıdır.
+      </p>
+
+      <h2>Bilimsel kaynaklar</h2>
+
+      <ul>
+        <li>
+          International Cat Care.
+          Feline Lower Urinary Tract Disease.
+        </li>
+
+        <li>
+          Merck Veterinary Manual.
+          Lower Urinary Tract Disease in Cats.
+        </li>
+
+        <li>
+          Merck Veterinary Manual.
+          Urolithiasis in Cats.
+        </li>
+
+        <li>
+          Merck Veterinary Manual.
+          Urethral Obstruction in Small Animals.
+        </li>
+      </ul>
+
+      <div class="disclaimer">
+        Bu içerik genel veteriner eğitim amacıyla hazırlanmıştır.
+        Üretral obstrüksiyon acil ve yaşamı tehdit edebilen bir durumdur.
+        Cleanse dahil hiçbir destek ürünü veteriner hekim muayenesinin,
+        kateterizasyonun veya gerekli medikal tedavinin yerine geçmez.
+        Kullanım protokolü hastanın klinik durumuna göre veteriner hekim
+        tarafından belirlenmelidir.
+      </div>
+
+    </article>
+
+    <aside>
+
+      <div class="sidebar-card">
+        <h3>Veteriner Hekimi</h3>
+
+        <p>
+          <strong>Nazif Oben Akşemsettinoğlu</strong><br>
+          Veteriner Hekim &amp; VetWel Kurucusu
+        </p>
+      </div>
+
+      <div class="sidebar-card">
+
+        <h3>İlgili VetWel Çözümü</h3>
+
+        <p>
+          Strüvit ve alt üriner sistem vakalarında veteriner klinik
+          kullanımına yönelik VetWel Cleanse çözümünü inceleyebilirsiniz.
+        </p>
+
+        <a class="back-link" href="index.html#urunler">
+          Cleanse'i İncele →
+        </a>
+
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Eğitim Merkezi</h3>
+
+        <a class="back-link" href="education.html">
+          Eğitim Merkezine Dön →
+        </a>
+      </div>
+
+    </aside>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 VetWel. Tüm hakları saklıdır.</span>
+    <span>Veterinary Wellness</span>
+  </div>
+</footer>
+
+</body>
+</html>

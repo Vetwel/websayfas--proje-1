@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kedi ve Köpeklerde Ağız ve Diş Sağlığı | VetWel Eğitim Merkezi</title>
+
+  <meta
+    name="description"
+    content="Kedi ve köpeklerde ağız ve diş sağlığı, periodontal hastalık, plak kontrolü, evde ağız bakımı ve düzenli veteriner kontrollerinin önemi."
+  >
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #172333;
+      background: #f5f8fb;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e3e9ef;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-inner {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand strong {
+      font-size: 29px;
+      color: #14243a;
+    }
+
+    .brand span {
+      margin-top: 8px;
+      font-size: 10px;
+      letter-spacing: 2.2px;
+      color: #627184;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #39485a;
+    }
+
+    .hero {
+      background:
+        linear-gradient(135deg, #174832 0%, #25704b 60%, #63a977 100%);
+      color: #fff;
+      padding: 72px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(280px, .6fr);
+      gap: 55px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #c8f1d5;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.05;
+      margin: 0 0 24px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      font-size: 18px;
+      color: rgba(255,255,255,.9);
+      margin: 0;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 22px;
+      padding: 28px;
+    }
+
+    main {
+      padding: 60px 0 80px;
+    }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .article-card,
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid #e3e9ef;
+      border-radius: 24px;
+      box-shadow: 0 18px 45px rgba(20,36,58,.07);
+    }
+
+    .article-card {
+      padding: clamp(28px, 5vw, 56px);
+    }
+
+    .article-card h2 {
+      font-size: 31px;
+      margin: 40px 0 15px;
+      color: #162536;
+    }
+
+    .article-card p {
+      margin: 0 0 21px;
+      font-size: 17px;
+    }
+
+    .article-card ul {
+      padding-left: 25px;
+    }
+
+    .highlight {
+      margin: 28px 0;
+      padding: 22px 25px;
+      border-left: 4px solid #388b5c;
+      border-radius: 15px;
+      background: #eef8f1;
+    }
+
+    .disclaimer {
+      margin-top: 36px;
+      padding: 22px;
+      border-radius: 16px;
+      background: #f3f5f7;
+      color: #566474;
+      font-size: 14px;
+    }
+
+    aside {
+      display: grid;
+      gap: 22px;
+    }
+
+    .sidebar-card {
+      padding: 24px;
+    }
+
+    .sidebar-card img {
+      display: block;
+      width: 100%;
+      max-height: 250px;
+      object-fit: contain;
+      margin: 0 auto 20px;
+    }
+
+    .sidebar-card h3 {
+      font-size: 21px;
+      margin: 0 0 12px;
+    }
+
+    .sidebar-card p {
+      margin: 0 0 18px;
+      color: #657487;
+    }
+
+    .back-link {
+      display: inline-flex;
+      padding: 11px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      background: #174832;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    footer {
+      border-top: 1px solid #dde5ec;
+      background: #fff;
+      color: #667487;
+    }
+
+    .footer-inner {
+      min-height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid,
+      .article-layout {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+
+    <a class="brand" href="index.html">
+      <strong>VetWel<sup>®</sup></strong>
+      <span>VETERINARY WELLNESS</span>
+    </a>
+
+    <nav>
+      <a href="index.html#neden-vetwel">Neden VetWel?</a>
+      <a href="index.html#cozumler">Çözümler</a>
+      <a href="index.html#urunler">Ürünler</a>
+      <a href="education.html">Eğitim Merkezi</a>
+    </nav>
+
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <p class="eyebrow">
+        VetWel Eğitim Merkezi • Ağız ve Diş Sağlığı
+      </p>
+
+      <h1>
+        Kedi ve köpeklerde ağız ve diş sağlığını desteklemek
+      </h1>
+
+      <p>
+        Düzenli ağız bakımı, dental plak kontrolü ve veteriner diş
+        muayeneleri; periodontal hastalıkların erken fark edilmesine ve
+        ağız sağlığının korunmasına yardımcı olur.
+      </p>
+    </div>
+
+    <div class="hero-card">
+      <strong>VetWel Uzman Görüşü</strong>
+
+      <p>
+        Ağız kokusu yalnızca kozmetik bir problem değildir.
+        Diş eti hastalığı, periodontal hastalık veya farklı ağız
+        problemlerinin belirtisi olabilir.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<main>
+  <div class="container article-layout">
+
+    <article class="article-card">
+
+      <h2>Ağız ve diş sağlığı neden önemlidir?</h2>
+
+      <p>
+        Dişler, diş etleri ve ağız içi dokular hayvanın beslenmesi,
+        konforu ve genel yaşam kalitesi açısından önemlidir.
+        Dental plak birikimi kontrol edilmediğinde diş eti inflamasyonuna
+        ve zaman içinde periodontal hastalığa katkıda bulunabilir.
+      </p>
+
+      <p>
+        Periodontal hastalık ilerledikçe dişi destekleyen dokular
+        etkilenebilir ve ağrı, diş kaybı veya kronik ağız problemleri
+        gelişebilir.
+      </p>
+
+      <h2>Hangi belirtiler dikkate alınmalıdır?</h2>
+
+      <ul>
+        <li>Kalıcı veya belirgin ağız kokusu</li>
+        <li>Diş etlerinde kızarıklık veya kanama</li>
+        <li>Dişler üzerinde plak veya tartar birikimi</li>
+        <li>Yemek yerken zorlanma</li>
+        <li>Sert mamadan kaçınma</li>
+        <li>Ağız bölgesine dokunulmasına tepki verme</li>
+        <li>Aşırı salya</li>
+        <li>Gevşek veya kırık dişler</li>
+        <li>Ağız içinde şişlik veya kitle</li>
+      </ul>
+
+      <div class="highlight">
+        <strong>Önemli:</strong>
+        Ağız kokusu, diş eti kanaması veya yemek yemede güçlük
+        normal kabul edilmemelidir. Bu belirtiler veteriner hekim
+        değerlendirmesi gerektirebilir.
+      </div>
+
+      <h2>Dental plak ve tartar arasındaki fark nedir?</h2>
+
+      <p>
+        Dental plak, diş yüzeyinde oluşan bakteriyel biyofilmdir.
+        Düzenli mekanik temizlik plak kontrolünün temel yollarından biridir.
+      </p>
+
+      <p>
+        Plak zaman içerisinde mineralize olduğunda tartar veya dental
+        kalkulus oluşabilir. Evde diş fırçalama plak kontrolüne yardımcı
+        olabilir ancak oluşmuş tartarı ortadan kaldırmaz.
+      </p>
+
+      <h2>Diş fırçalama neden önemlidir?</h2>
+
+      <p>
+        Düzenli diş fırçalama evde ağız bakımının en etkili yöntemlerinden
+        biridir. Amaç diş yüzeyinde yeni oluşan plağı mekanik olarak
+        uzaklaştırmaktır.
+      </p>
+
+      <p>
+        İnsanlara yönelik diş macunları kullanılmamalıdır. Hayvanlar için
+        tasarlanmış uygun ağız bakım ürünleri tercih edilmeli ve hayvan
+        diş fırçalamaya kademeli olarak alıştırılmalıdır.
+      </p>
+
+      <h2>Profesyonel dental muayene neden gereklidir?</h2>
+
+      <p>
+        Ağız içinde görülebilen tartar miktarı periodontal hastalığın
+        gerçek şiddetini her zaman göstermez. Diş eti çizgisinin altında
+        bulunan periodontal dokuların değerlendirilmesi önemlidir.
+      </p>
+
+      <p>
+        Veteriner dental değerlendirmesi; ayrıntılı ağız muayenesi,
+        periodontal sondalama ve gerekli durumlarda dental radyografileri
+        içerebilir.
+      </p>
+
+      <h2>Anestezisiz diş temizliği yeterli midir?</h2>
+
+      <p>
+        Yalnızca görünen diş yüzeyindeki tartarın temizlenmesi,
+        diş eti çizgisinin altında bulunan periodontal hastalığın
+        değerlendirilmesini veya tedavisini sağlamaz.
+      </p>
+
+      <p>
+        Profesyonel dental işlemin kapsamı hastanın klinik durumuna göre
+        veteriner hekim tarafından belirlenmelidir.
+      </p>
+
+      <h2>Evde ağız bakımı nasıl desteklenebilir?</h2>
+
+      <ul>
+        <li>Düzenli diş fırçalama</li>
+        <li>Veteriner hekimin önerdiği ağız bakım ürünleri</li>
+        <li>Diş ve diş etlerinin düzenli kontrol edilmesi</li>
+        <li>Ağız kokusundaki değişikliklerin takip edilmesi</li>
+        <li>Düzenli veteriner diş muayeneleri</li>
+      </ul>
+
+      <h2>Destekleyici ürünler nasıl değerlendirilmelidir?</h2>
+
+      <p>
+        Ağız hijyenine yönelik ürünler günlük bakım programının bir
+        parçası olarak değerlendirilebilir. Ancak bu ürünler mevcut
+        periodontal hastalığın profesyonel tanı veya tedavisinin yerine
+        geçmez.
+      </p>
+
+      <p>
+        Ürün seçimi hayvanın ağız sağlığı, yaşı, mevcut dental problemleri
+        ve veteriner hekimin önerileri dikkate alınarak yapılmalıdır.
+      </p>
+
+      <h2>Bilimsel kaynaklar</h2>
+
+      <ul>
+        <li>
+          Bellows J, Berg ML, Dennis S, et al.
+          2019 AAHA Dental Care Guidelines for Dogs and Cats.
+          Journal of the American Animal Hospital Association.
+          2019;55(2):49–69.
+        </li>
+
+        <li>
+          World Small Animal Veterinary Association.
+          WSAVA Global Dental Guidelines.
+        </li>
+      </ul>
+
+      <div class="disclaimer">
+        Bu içerik genel eğitim amacıyla hazırlanmıştır ve veteriner hekim
+        muayenesinin, tanının veya tedavinin yerine geçmez.
+        Evcil hayvanınızda ağız kokusu, diş eti kanaması, ağız ağrısı,
+        yemek yemede güçlük veya diğer ağız-diş problemleri gözlemliyorsanız
+        veteriner hekiminize danışınız.
+      </div>
+
+    </article>
+
+    <aside>
+
+      <div class="sidebar-card">
+        <h3>Veteriner Hekimi</h3>
+
+        <p>
+          <strong>Nazif Oben Akşemsettinoğlu</strong><br>
+          Veteriner Hekim &amp; VetWel Kurucusu
+        </p>
+      </div>
+
+      <div class="sidebar-card">
+
+        <img
+          src="https://vetwel.github.io/websayfas--proje-1/assets/images/products/DentaWel%20Tablet.jpg?v=1"
+          alt="VetWel DentaWel"
+        >
+
+        <h3>İlgili VetWel Çözümü</h3>
+
+        <p>
+          Günlük ağız hijyeni, plak kontrolü ve diş eti sağlığının
+          desteklenmesine yönelik VetWel ürün portföyünü inceleyebilirsiniz.
+        </p>
+
+        <a class="back-link" href="index.html#urunler">
+          Ürünleri İncele →
+        </a>
+
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Eğitim Merkezi</h3>
+
+        <a class="back-link" href="education.html">
+          Eğitim Merkezine Dön →
+        </a>
+      </div>
+
+    </aside>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 VetWel. Tüm hakları saklıdır.</span>
+    <span>Veterinary Wellness</span>
+  </div>
+</footer>
+
+</body>
+</html>

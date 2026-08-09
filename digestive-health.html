@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bağırsak Mikrobiyotası ve Bağışıklık | VetWel Eğitim Merkezi</title>
+
+  <meta
+    name="description"
+    content="Kedi ve köpeklerde bağırsak mikrobiyotası, probiyotikler, bağırsak bariyeri, bağışıklık sistemi ve bitkisel beslenme desteği."
+  >
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #172333;
+      background: #f5f8fb;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e3e9ef;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-inner {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand strong {
+      font-size: 29px;
+      color: #14243a;
+    }
+
+    .brand span {
+      margin-top: 8px;
+      font-size: 10px;
+      letter-spacing: 2.2px;
+      color: #627184;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #39485a;
+    }
+
+    .hero {
+      background:
+        linear-gradient(135deg, #305b43 0%, #548363 58%, #8dbb82 100%);
+      color: #fff;
+      padding: 72px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(280px, .6fr);
+      gap: 55px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #d8f0d6;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.05;
+      margin: 0 0 24px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      font-size: 18px;
+      color: rgba(255,255,255,.9);
+      margin: 0;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.11);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 22px;
+      padding: 28px;
+    }
+
+    .hero-card strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    main {
+      padding: 60px 0 80px;
+    }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .article-card,
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid #e3e9ef;
+      border-radius: 24px;
+      box-shadow: 0 18px 45px rgba(20,36,58,.07);
+    }
+
+    .article-card {
+      padding: clamp(28px, 5vw, 56px);
+    }
+
+    .article-card h2 {
+      font-size: 31px;
+      margin: 40px 0 15px;
+      color: #162536;
+    }
+
+    .article-card p {
+      margin: 0 0 21px;
+      font-size: 17px;
+    }
+
+    .article-card ul {
+      padding-left: 25px;
+    }
+
+    .highlight {
+      margin: 28px 0;
+      padding: 22px 25px;
+      border-left: 4px solid #579266;
+      border-radius: 15px;
+      background: #eef7ef;
+    }
+
+    .technology-box {
+      margin: 32px 0;
+      padding: 28px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #eef8f1, #f8fbf8);
+      border: 1px solid #cfe3d3;
+    }
+
+    .technology-box h3 {
+      margin: 0 0 12px;
+      font-size: 23px;
+      color: #315e42;
+    }
+
+    .pill {
+      display: inline-block;
+      margin: 4px 5px 4px 0;
+      padding: 7px 12px;
+      background: #e7f2e9;
+      color: #315e42;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .disclaimer {
+      margin-top: 36px;
+      padding: 22px;
+      border-radius: 16px;
+      background: #f3f5f7;
+      color: #566474;
+      font-size: 14px;
+    }
+
+    aside {
+      display: grid;
+      gap: 22px;
+    }
+
+    .sidebar-card {
+      padding: 24px;
+    }
+
+    .sidebar-card img {
+      display: block;
+      width: 100%;
+      max-height: 250px;
+      object-fit: contain;
+      margin: 0 auto 20px;
+    }
+
+    .sidebar-card h3 {
+      font-size: 21px;
+      margin: 0 0 12px;
+    }
+
+    .sidebar-card p {
+      margin: 0 0 18px;
+      color: #657487;
+    }
+
+    .back-link {
+      display: inline-flex;
+      padding: 11px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      background: #315e42;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    footer {
+      border-top: 1px solid #dde5ec;
+      background: #fff;
+      color: #667487;
+    }
+
+    .footer-inner {
+      min-height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid,
+      .article-layout {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+
+    <a class="brand" href="index.html">
+      <strong>VetWel<sup>®</sup></strong>
+      <span>VETERINARY WELLNESS</span>
+    </a>
+
+    <nav>
+      <a href="index.html#neden-vetwel">Neden VetWel?</a>
+      <a href="index.html#cozumler">Çözümler</a>
+      <a href="index.html#urunler">Ürünler</a>
+      <a href="education.html">Eğitim Merkezi</a>
+    </nav>
+
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <p class="eyebrow">
+        VetWel Eğitim Merkezi • Mikrobiyota &amp; Bağışıklık
+      </p>
+
+      <h1>
+        Sağlıklı bağırsak, dengeli mikrobiyota, güçlü savunma
+      </h1>
+
+      <p>
+        Bağırsak sistemi yalnızca sindirimden sorumlu değildir.
+        Bağırsak mikrobiyotası ve intestinal bariyer, normal bağışıklık
+        fonksiyonlarının düzenlenmesinde de önemli rol oynar.
+      </p>
+    </div>
+
+    <div class="hero-card">
+      <strong>VetWel Uzman Görüşü</strong>
+
+      <p>
+        Probiyotik yaklaşımın amacı yalnızca dışkı kalitesini desteklemek
+        değildir. Mikrobiyota, bağırsak bariyeri ve bağışıklık sistemi
+        birbiriyle sürekli iletişim halinde çalışan biyolojik bir sistemdir.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<main>
+  <div class="container article-layout">
+
+    <article class="article-card">
+
+      <h2>Bağırsak mikrobiyotası nedir?</h2>
+
+      <p>
+        Gastrointestinal sistem, çok sayıda mikroorganizmanın oluşturduğu
+        kompleks bir mikrobiyal ekosisteme sahiptir. Bu topluluk genel olarak
+        bağırsak mikrobiyotası olarak adlandırılır.
+      </p>
+
+      <p>
+        Dengeli bir mikrobiyota; sindirim, bazı besin öğelerinin metabolizması,
+        bağırsak bariyerinin korunması ve normal bağışıklık fonksiyonlarının
+        düzenlenmesiyle ilişkilidir.
+      </p>
+
+      <h2>Bağırsak ve bağışıklık sistemi arasındaki ilişki</h2>
+
+      <p>
+        Gastrointestinal sistem, dış çevreyle sürekli temas halinde bulunan
+        önemli bir immünolojik yüzeydir. Bağırsak epiteli, mukus tabakası,
+        mikrobiyota ve bağışıklık hücreleri birlikte çalışarak intestinal
+        homeostazın korunmasına katkıda bulunur.
+      </p>
+
+      <p>
+        Bu nedenle bağırsak sağlığı ile normal bağışıklık fonksiyonları
+        birbirinden tamamen bağımsız sistemler olarak değerlendirilmemelidir.
+        Bu ilişki sıklıkla <strong>bağırsak–bağışıklık ekseni</strong>
+        olarak ifade edilir.
+      </p>
+
+      <div class="highlight">
+        <strong>Önemli:</strong>
+        Probiyotiklerin etkileri kullanılan mikroorganizma suşuna, canlı
+        mikroorganizma miktarına, ürünün stabilitesine, saklama koşullarına
+        ve hayvanın mevcut sağlık durumuna göre değişebilir.
+      </div>
+
+      <h2>Probiyotikler nedir?</h2>
+
+      <p>
+        Probiyotikler, yeterli miktarda uygulandıklarında konakçıya sağlık
+        yararı sağlayabilen canlı mikroorganizmalar olarak tanımlanır.
+      </p>
+
+      <p>
+        Veteriner beslenmesinde probiyotikler; gastrointestinal mikrobiyal
+        dengenin ve normal sindirim fonksiyonlarının desteklenmesine yönelik
+        beslenme stratejilerinin bir parçası olarak kullanılabilir.
+      </p>
+
+      <h2>Spor oluşturmayan canlı probiyotikler</h2>
+
+      <p>
+        Probiyotik mikroorganizmaların biyolojik özellikleri birbirinden
+        farklıdır. Bazı bakteriler spor oluşturabilirken bazı probiyotik
+        bakteriler <strong>spor oluşturmayan vejetatif hücreler</strong>
+        halinde bulunur.
+      </p>
+
+      <p>
+        Vejetatif probiyotik bakteriler uygun çevresel koşullarda metabolik
+        olarak aktif hale gelebilen canlı mikroorganizmalardır. Gastrointestinal
+        sisteme ulaştıklarında bağırsak ortamı ve mevcut mikrobiyota ile
+        etkileşime girmeye hazır hale gelirler.
+      </p>
+
+      <p>
+        Bununla birlikte probiyotik performansı yalnızca bakterinin sporlu
+        veya sporsuz olmasına bağlı değildir. Suş seçimi, canlılık,
+        gastrointestinal tolerans, ürün formülasyonu ve saklama koşulları
+        birlikte önem taşır.
+      </p>
+
+      <div class="technology-box">
+
+        <h3>Dondurarak Kurutma — Liyofilizasyon Teknolojisi</h3>
+
+        <p>
+          Canlı probiyotik mikroorganizmaların ürün içerisinde stabil
+          tutulması özel üretim teknolojileri gerektirir.
+        </p>
+
+        <p>
+          <strong>Liyofilizasyon (freeze-drying)</strong>, mikroorganizmaların
+          kontrollü şekilde dondurulması ve suyun düşük basınç altında
+          uzaklaştırılması prensibine dayanan bir kurutma yöntemidir.
+        </p>
+
+        <p>
+          Bu teknoloji, uygun üretim ve saklama koşullarıyla birlikte,
+          probiyotik mikroorganizmaların canlılığının ve stabilitesinin
+          korunmasına yardımcı olabilir. Mikroorganizmalar uygun ortamla
+          yeniden karşılaştıklarında metabolik aktivitelerini yeniden
+          kazanabilir.
+        </p>
+
+        <span class="pill">Canlı Probiyotikler</span>
+        <span class="pill">Liyofilizasyon</span>
+        <span class="pill">Mikrobiyota Desteği</span>
+        <span class="pill">Bağırsak–Bağışıklık Ekseni</span>
+
+      </div>
+
+      <h2>Bitkisel bileşenler neden kullanılır?</h2>
+
+      <p>
+        Veteriner beslenmesinde bazı bitkisel bileşenler, gastrointestinal
+        fonksiyonların ve genel beslenme desteğinin bir parçası olarak
+        formülasyonlara dahil edilebilir.
+      </p>
+
+      <p>
+        Bitkisel bileşenlerin etkileri kullanılan bitkiye, aktif bileşenlere,
+        ekstraksiyon yöntemine ve miktarına göre değişebileceğinden
+        formülasyonun bütünü içerisinde değerlendirilmelidir.
+      </p>
+
+      <h2>Probiyotik + bitkisel yaklaşım</h2>
+
+      <p>
+        LactoWel yaklaşımında probiyotik mikroorganizmalar ile seçilmiş
+        bitkisel bileşenlerin aynı formülasyonda bulunmasının amacı,
+        gastrointestinal sistemi tek bir noktadan değil, farklı beslenme
+        mekanizmaları üzerinden desteklemektir.
+      </p>
+
+      <p>
+        Bu yaklaşım; mikrobiyota dengesinin, normal sindirim fonksiyonlarının,
+        bağırsak bariyerinin ve normal bağışıklık fonksiyonlarının
+        desteklenmesine yönelik bütüncül bir beslenme stratejisidir.
+      </p>
+
+      <h2>Mikrobiyota hangi durumlarda değişebilir?</h2>
+
+      <ul>
+        <li>Beslenme değişiklikleri</li>
+        <li>Stres</li>
+        <li>Antibiyotik kullanımı</li>
+        <li>Gastrointestinal hastalıklar</li>
+        <li>Yaş değişiklikleri</li>
+        <li>Çevresel faktörler</li>
+      </ul>
+
+      <p>
+        Uzun süren ishal, kusma, iştahsızlık, kilo kaybı veya tekrarlayan
+        gastrointestinal belirtiler yalnızca probiyotik kullanılarak
+        yönetilmemelidir. Altta yatan hastalığın veteriner hekim tarafından
+        değerlendirilmesi gerekir.
+      </p>
+
+      <h2>LactoWel yaklaşımı</h2>
+
+      <p>
+        LactoWel; canlı probiyotik mikroorganizmalar ile bitkisel bileşenleri
+        bir araya getiren gastrointestinal destek formülasyonudur.
+      </p>
+
+      <p>
+        Formülasyon; bağırsak mikrobiyotasını, normal sindirim fonksiyonlarını,
+        intestinal bariyeri ve normal bağışıklık fonksiyonlarını desteklemeye
+        yönelik olarak geliştirilmiştir.
+      </p>
+
+      <p>
+        Probiyotik mikroorganizmaların stabilitesinin korunmasına yardımcı
+        olmak amacıyla kullanılan liyofilizasyon teknolojisi, canlı
+        mikroorganizmaların uygun koşullarda muhafaza edilmesine yönelik
+        önemli üretim yöntemlerinden biridir.
+      </p>
+
+      <h2>Bilimsel kaynaklar</h2>
+
+      <ul>
+        <li>
+          American Animal Hospital Association.
+          2021 AAHA Nutrition and Weight Management Guidelines —
+          Microbiome, Prebiotics and Postbiotics.
+        </li>
+
+        <li>
+          Suchodolski JS.
+          Diagnosis and interpretation of intestinal dysbiosis in dogs
+          and cats.
+          The Veterinary Journal.
+        </li>
+
+        <li>
+          Hill C, Guarner F, Reid G, et al.
+          Expert consensus document: The International Scientific
+          Association for Probiotics and Prebiotics consensus statement
+          on the scope and appropriate use of the term probiotic.
+          Nature Reviews Gastroenterology & Hepatology. 2014.
+        </li>
+      </ul>
+
+      <div class="disclaimer">
+        Bu içerik genel eğitim amacıyla hazırlanmıştır ve veteriner hekim
+        muayenesinin, tanının veya tedavinin yerine geçmez. Probiyotik ve
+        beslenme desteklerinin etkileri kullanılan mikroorganizma suşuna,
+        formülasyona ve hastanın klinik durumuna göre değişebilir.
+        Evcil hayvanınızda devam eden gastrointestinal belirtiler varsa
+        veteriner hekiminize danışınız.
+      </div>
+
+    </article>
+
+    <aside>
+
+      <div class="sidebar-card">
+        <h3>Veteriner Hekimi</h3>
+
+        <p>
+          <strong>Nazif Oben Akşemsettinoğlu</strong><br>
+          Veteriner Hekim &amp; VetWel Kurucusu
+        </p>
+      </div>
+
+      <div class="sidebar-card">
+
+        <img
+          src="https://vetwel.github.io/websayfas--proje-1/assets/images/products/LactoWel%20Tablet.jpg?v=1"
+          alt="VetWel LactoWel"
+        >
+
+        <h3>İlgili VetWel Çözümü</h3>
+
+        <p>
+          Probiyotik mikroorganizmalar ve bitkisel bileşenleri bir araya
+          getiren LactoWel formülasyonunu inceleyebilirsiniz.
+        </p>
+
+        <a class="back-link" href="index.html#urunler">
+          Ürünleri İncele →
+        </a>
+
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Eğitim Merkezi</h3>
+
+        <a class="back-link" href="education.html">
+          Eğitim Merkezine Dön →
+        </a>
+      </div>
+
+    </aside>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 VetWel. Tüm hakları saklıdır.</span>
+    <span>Veterinary Wellness</span>
+  </div>
+</footer>
+
+</body>
+</html>

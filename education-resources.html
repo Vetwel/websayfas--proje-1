@@ -71,10 +71,121 @@
       font-weight: 700;
       color: #7b8794;
     }
+     body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .resources-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid rgba(11,36,71,0.08);
+    }
+
+    .resources-header-inner {
+      max-width: 1150px;
+      min-height: 82px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .resources-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .resources-logo-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #0b2447;
+      color: white;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .resources-logo-text strong {
+      display: block;
+      color: #0b2447;
+      font-size: 23px;
+    }
+
+    .resources-logo-text span {
+      display: block;
+      margin-top: 3px;
+      color: #657487;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
+    .resources-nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .resources-nav a {
+      color: #49576a;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .resources-nav .active {
+      color: #0b2447;
+      border-bottom: 2px solid #2c78a8;
+      padding-bottom: 7px;
+    }
+
+    .resources-contact {
+      padding: 11px 19px;
+      border-radius: 999px;
+      background: #0b2447;
+      color: white !important;
+    }
+
+    @media (max-width: 800px) {
+      .resources-nav {
+        display: none;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <header class="resources-header">
+  <div class="resources-header-inner">
+
+    <a class="resources-logo" href="index.html">
+      <span class="resources-logo-mark">✚</span>
+      <span class="resources-logo-text">
+        <strong>VetWel®</strong>
+        <span>VETERINARY WELLNESS</span>
+      </span>
+    </a>
+
+    <nav class="resources-nav">
+      <a href="index.html#neden-vetwel">Neden VetWel?</a>
+      <a href="index.html#cozumler">Çözümler</a>
+      <a href="index.html#urunler">Ürünler</a>
+      <a class="active" href="education.html">Eğitim Merkezi</a>
+      <a class="resources-contact" href="index.html#iletisim">İletişim</a>
+    </nav>
+
+  </div>
+</header>
 
   <main class="resources-page">
 

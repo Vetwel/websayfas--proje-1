@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Alt Üriner Sistem Problemlerinde Klinik Yaklaşım | VetWel®</title>
+
+  <meta
+    name="description"
+    content="Kedi ve köpeklerde alt üriner sistem bulgularının değerlendirilmesi, obstrüksiyon ayrımı, idrar analizi, urolit ve enfeksiyon yönetimi ile tamamlayıcı üriner destek yaklaşımı."
+  >
+
+  <meta name="theme-color" content="#0b2447">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f8fb;
+      color: #172333;
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+
+    /* HEADER */
+
+    .clinical-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid rgba(11,36,71,0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .clinical-header-inner {
+      max-width: 1150px;
+      min-height: 82px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .clinical-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .clinical-logo-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #0b2447;
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .clinical-logo-text strong {
+      display: block;
+      color: #0b2447;
+      font-size: 23px;
+      line-height: 1;
+    }
+
+    .clinical-logo-text span {
+      display: block;
+      margin-top: 5px;
+      color: #657487;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+    }
+
+    .clinical-nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+    }
+
+    .clinical-nav a {
+      color: #49576a;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .clinical-nav .active {
+      color: #0b2447;
+      border-bottom: 2px solid #2c78a8;
+      padding-bottom: 7px;
+    }
+
+    .clinical-contact {
+      padding: 11px 19px;
+      border-radius: 999px;
+      background: #0b2447;
+      color: white !important;
+    }
+
+
+    /* GENERAL */
+
+    .clinical-container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .clinical-main {
+      padding-bottom: 90px;
+    }
+
+    .clinical-back {
+      display: inline-block;
+      margin: 32px 0 24px;
+      color: #294d73;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+
+    /* HERO */
+
+    .clinical-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 62px;
+      border-radius: 28px;
+      color: #ffffff;
+      background:
+        radial-gradient(
+          circle at 86% 16%,
+          rgba(92,215,210,0.20),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #071b35 0%,
+          #0b3158 55%,
+          #116a75 100%
+        );
+      box-shadow: 0 22px 55px rgba(11,36,71,0.15);
+    }
+
+    .clinical-eyebrow {
+      margin: 0 0 14px;
+      color: #a5eeee;
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .clinical-hero h1 {
+      max-width: 850px;
+      margin: 0;
+      font-size: clamp(38px, 5vw, 60px);
+      line-height: 1.06;
+      letter-spacing: -2px;
+    }
+
+    .clinical-hero-lead {
+      max-width: 800px;
+      margin: 24px 0 0;
+      color: rgba(255,255,255,0.82);
+      font-size: 18px;
+    }
+
+    .clinical-author {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.68);
+      font-size: 13px;
+    }
+
+    .clinical-author strong {
+      color: #ffffff;
+    }
+
+
+    /* SUMMARY */
+
+    .clinical-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 30px 0 58px;
+    }
+
+    .clinical-summary-card {
+      padding: 27px;
+      border: 1px solid #dfe7ee;
+      border-radius: 19px;
+      background: #ffffff;
+      box-shadow: 0 8px 25px rgba(11,36,71,0.05);
+    }
+
+    .clinical-summary-number {
+      display: inline-grid;
+      width: 39px;
+      height: 39px;
+      place-items: center;
+      margin-bottom: 15px;
+      border-radius: 50%;
+      background: #e7f5f5;
+      color: #0b4f59;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .clinical-summary-card h3 {
+      margin: 0 0 8px;
+      color: #0b2447;
+      font-size: 18px;
+    }
+
+    .clinical-summary-card p {
+      margin: 0;
+      color: #657487;
+      font-size: 14px;
+    }
+
+
+    /* SECTIONS */
+
+    .clinical-section {
+      margin-top: 65px;
+    }
+
+    .clinical-section-heading {
+      max-width: 850px;
+      margin-bottom: 28px;
+    }
+
+    .clinical-kicker {
+      margin: 0 0 8px;
+      color: #16818a;
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .clinical-section h2 {
+      margin: 0;
+      color: #0b2447;
+      font-size: clamp(29px, 4vw, 40px);
+      line-height: 1.12;
+      letter-spacing: -1px;
+    }
+
+    .clinical-section-heading > p:last-child {
+      margin: 14px 0 0;
+      color: #657487;
+      font-size: 16px;
+    }
+
+
+    /* FLOW */
+
+    .clinical-flow {
+      display: grid;
+      gap: 13px;
+    }
+
+    .clinical-flow-item {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 22px 24px;
+      border: 1px solid #dfe7ee;
+      border-radius: 17px;
+      background: #ffffff;
+    }
+
+    .clinical-flow-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: #e8f5f5;
+      color: #0b5259;
+      font-weight: 850;
+    }
+
+    .clinical-flow-item h3 {
+      margin: 1px 0 5px;
+      color: #0b2447;
+      font-size: 18px;
+    }
+
+    .clinical-flow-item p {
+      margin: 0;
+      color: #657487;
+      font-size: 14px;
+    }
+
+
+    /* EMERGENCY */
+
+    .clinical-emergency {
+      padding: 32px;
+      border-radius: 20px;
+      background: #fff4f4;
+      border: 1px solid #f0cccc;
+      border-left: 6px solid #a43e3e;
+    }
+
+    .clinical-emergency-label {
+      margin: 0 0 8px;
+      color: #a43e3e;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1.3px;
+    }
+
+    .clinical-emergency h3 {
+      margin: 0 0 13px;
+      color: #782828;
+      font-size: 25px;
+    }
+
+    .clinical-emergency p {
+      margin: 0;
+      color: #694a4a;
+    }
+
+
+    /* TWO COLUMNS */
+
+    .clinical-two-column {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 26px;
+    }
+
+    .clinical-panel {
+      padding: 29px;
+      border: 1px solid #dfe7ee;
+      border-radius: 20px;
+      background: #ffffff;
+    }
+
+    .clinical-panel h3 {
+      margin: 0 0 14px;
+      color: #0b2447;
+      font-size: 21px;
+    }
+
+    .clinical-panel p {
+      color: #657487;
+      font-size: 14px;
+    }
+
+    .clinical-panel ul {
+      margin-bottom: 0;
+      padding-left: 20px;
+      color: #596775;
+    }
+
+    .clinical-panel li {
+      margin: 8px 0;
+    }
+
+
+    /* TABLE */
+
+    .clinical-table-wrap {
+      overflow-x: auto;
+      margin-top: 25px;
+      border: 1px solid #dfe7ee;
+      border-radius: 18px;
+      background: #ffffff;
+    }
+
+    .clinical-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+
+    .clinical-table th,
+    .clinical-table td {
+      padding: 17px 18px;
+      border-bottom: 1px solid #e5ebf0;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .clinical-table th {
+      background: #0b2447;
+      color: #ffffff;
+      font-size: 13px;
+    }
+
+    .clinical-table td {
+      color: #4e5d6c;
+      font-size: 14px;
+    }
+
+    .clinical-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .clinical-table strong {
+      color: #0b2447;
+    }
+
+
+    /* MANAGEMENT */
+
+    .clinical-management {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .clinical-management-card {
+      padding: 27px;
+      border-radius: 19px;
+      background: #ffffff;
+      border: 1px solid #dfe7ee;
+    }
+
+    .clinical-management-card span {
+      display: block;
+      margin-bottom: 8px;
+      color: #16818a;
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .clinical-management-card h3 {
+      margin: 0 0 9px;
+      color: #0b2447;
+      font-size: 19px;
+    }
+
+    .clinical-management-card p {
+      margin: 0;
+      color: #657487;
+      font-size: 14px;
+    }
+
+
+    /* CLINICAL NOTE */
+
+    .clinical-note {
+      margin-top: 25px;
+      padding: 26px 28px;
+      border-radius: 16px;
+      background: #edf7f7;
+      border-left: 5px solid #16818a;
+    }
+
+    .clinical-note h3 {
+      margin: 0 0 9px;
+      color: #0b4f59;
+    }
+
+    .clinical-note p {
+      margin: 0;
+      color: #50666b;
+      font-size: 14px;
+    }
+
+
+    /* VETWEL */
+
+    .clinical-vetwel {
+      margin-top: 70px;
+      padding: 45px;
+      border-radius: 26px;
+      background:
+        linear-gradient(
+          135deg,
+          #0b2447,
+          #12646e
+        );
+      color: #ffffff;
+    }
+
+    .clinical-vetwel-label {
+      margin: 0 0 11px;
+      color: #a5eeee;
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .clinical-vetwel h2 {
+      margin: 0;
+      color: #ffffff;
+      font-size: clamp(30px, 4vw, 41px);
+    }
+
+    .clinical-vetwel > p {
+      max-width: 860px;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .clinical-vetwel-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .clinical-vetwel-card {
+      padding: 25px;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 17px;
+      background: rgba(255,255,255,0.07);
+    }
+
+    .clinical-vetwel-card h3 {
+      margin: 0 0 8px;
+      font-size: 19px;
+    }
+
+    .clinical-vetwel-card p {
+      margin: 0 0 18px;
+      color: rgba(255,255,255,0.72);
+      font-size: 14px;
+    }
+
+    .clinical-pdf-button {
+      display: inline-flex;
+      padding: 11px 17px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #0b2447;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+
+    /* FOLLOW UP */
+
+    .clinical-followup {
+      padding: 30px;
+      border: 1px solid #dfe7ee;
+      border-radius: 20px;
+      background: #ffffff;
+    }
+
+    .clinical-followup h3 {
+      margin-top: 0;
+      color: #0b2447;
+    }
+
+    .clinical-followup ul {
+      margin-bottom: 0;
+      padding-left: 21px;
+      color: #596775;
+    }
+
+    .clinical-followup li {
+      margin: 8px 0;
+    }
+
+
+    /* REFERENCES */
+
+    .clinical-references {
+      margin-top: 70px;
+      padding-top: 30px;
+      border-top: 1px solid #dfe7ee;
+    }
+
+    .clinical-references h2 {
+      font-size: 25px;
+    }
+
+    .clinical-references li {
+      margin-bottom: 10px;
+      color: #657487;
+      font-size: 13px;
+    }
+
+    .clinical-references a {
+      color: #16818a;
+    }
+
+
+    /* DISCLAIMER */
+
+    .clinical-disclaimer {
+      margin-top: 35px;
+      padding: 22px 25px;
+      border-radius: 15px;
+      background: #edf2f7;
+      color: #566473;
+      font-size: 12px;
+    }
+
+    .clinical-disclaimer strong {
+      color: #0b2447;
+    }
+
+
+    /* FOOTER */
+
+    .clinical-footer {
+      padding: 32px 20px;
+      background: #071b35;
+      color: rgba(255,255,255,0.62);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .clinical-footer strong {
+      color: #ffffff;
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+
+      .clinical-nav {
+        display: none;
+      }
+
+      .clinical-hero {
+        padding: 38px 28px;
+      }
+
+      .clinical-summary-grid,
+      .clinical-two-column,
+      .clinical-management,
+      .clinical-vetwel-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .clinical-flow-item {
+        grid-template-columns: 45px 1fr;
+        padding: 19px;
+      }
+
+      .clinical-flow-icon {
+        width: 42px;
+        height: 42px;
+      }
+
+      .clinical-vetwel {
+        padding: 32px 25px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="clinical-header">
+
+    <div class="clinical-header-inner">
+
+      <a class="clinical-logo" href="index.html">
+
+        <span class="clinical-logo-mark">✚</span>
+
+        <span class="clinical-logo-text">
+          <strong>VetWel®</strong>
+          <span>VETERINARY WELLNESS</span>
+        </span>
+
+      </a>
+
+
+      <nav class="clinical-nav">
+
+        <a href="index.html#neden-vetwel">Neden VetWel?</a>
+
+        <a href="index.html#cozumler">Çözümler</a>
+
+        <a href="index.html#urunler">Ürünler</a>
+
+        <a class="active" href="education.html">
+          Eğitim Merkezi
+        </a>
+
+        <a
+          class="clinical-contact"
+          href="index.html#iletisim"
+        >
+          İletişim
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <main class="clinical-main">
+
+    <div class="clinical-container">
+
+      <a
+        href="education-resources.html#clinical-guides"
+        class="clinical-back"
+      >
+        ← Klinik Kullanım Rehberleri
+      </a>
+
+
+      <!-- HERO -->
+
+      <section class="clinical-hero">
+
+        <p class="clinical-eyebrow">
+          VETWEL® KLİNİK KULLANIM REHBERİ
+        </p>
+
+        <h1>
+          Kedi ve Köpeklerde
+          Alt Üriner Sistem Problemlerinde
+          Klinik Yaklaşım
+        </h1>
+
+        <p class="clinical-hero-lead">
+          Dizüri, strangüri, pollaküri, hematüri ve uygunsuz
+          yere idrar yapma benzer klinik belirtiler oluşturabilir;
+          ancak altta yatan neden her hastada aynı değildir.
+          Klinik yaklaşımın ilk amacı obstrüksiyonu hızla ayırmak,
+          ardından enfeksiyon, urolitiyazis, inflamatuar süreçler
+          ve diğer nedenleri sistematik biçimde değerlendirmektir.
+        </p>
+
+        <div class="clinical-author">
+          Hazırlayan:
+          <strong>
+            Veteriner Hekimi Nazif Oben Akşemsettinoğlu
+          </strong>
+          · VetWel® Eğitim Merkezi
+        </div>
+
+      </section>
+
+
+      <!-- SUMMARY -->
+
+      <section class="clinical-summary-grid">
+
+        <article class="clinical-summary-card">
+
+          <span class="clinical-summary-number">01</span>
+
+          <h3>Önce obstrüksiyonu dışla</h3>
+
+          <p>
+            İdrar yapamayan veya yalnızca damla çıkaran,
+            mesanesi gergin ve ağrılı hastada üretral
+            obstrüksiyon acil değerlendirilmelidir.
+          </p>
+
+        </article>
+
+
+        <article class="clinical-summary-card">
+
+          <span class="clinical-summary-number">02</span>
+
+          <h3>Belirtiyi tanı kabul etme</h3>
+
+          <p>
+            Benzer alt üriner sistem bulguları FIC,
+            urolitiyazis, enfeksiyon, anatomik veya
+            fonksiyonel birçok farklı nedenle oluşabilir.
+          </p>
+
+        </article>
+
+
+        <article class="clinical-summary-card">
+
+          <span class="clinical-summary-number">03</span>
+
+          <h3>Nedene yönelik yönet</h3>
+
+          <p>
+            İdrar analizi, kültür, görüntüleme ve hasta
+            öyküsüyle neden belirlendikten sonra tedavi
+            ve tamamlayıcı destek planı oluşturulur.
+          </p>
+
+        </article>
+
+      </section>
+
+
+
+      <!-- EMERGENCY -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-emergency">
+
+          <p class="clinical-emergency-label">
+            ACİL AYIRICI NOKTA
+          </p>
+
+          <h3>
+            Üretral obstrüksiyon yaşamı tehdit eden bir acil durumdur
+          </h3>
+
+          <p>
+            İdrar çıkışının olmaması veya ciddi şekilde azalması,
+            tekrarlayan başarısız idrar yapma girişimleri,
+            ağrılı ve distandü mesane, kusma, letarji,
+            bradikardi, hipotermi veya genel durum bozukluğu
+            üretral obstrüksiyon açısından acil değerlendirme
+            gerektirir. Böyle bir hastada tamamlayıcı ürün
+            uygulaması obstrüksiyonun giderilmesinin veya
+            acil stabilizasyonun yerine geçmez.
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- CLINICAL FLOW -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            KLİNİK AKIŞ
+          </p>
+
+          <h2>
+            Alt üriner sistem bulgusundan tanıya
+          </h2>
+
+          <p>
+            Aynı klinik bulgu farklı hastalıkların sonucu
+            olabileceğinden, yaklaşım semptomdan çok
+            altta yatan nedeni belirlemeye odaklanmalıdır.
+          </p>
+
+        </div>
+
+
+        <div class="clinical-flow">
+
+          <article class="clinical-flow-item">
+
+            <div class="clinical-flow-icon">1</div>
+
+            <div>
+
+              <h3>
+                İdrar çıkışı var mı?
+              </h3>
+
+              <p>
+                Hastanın gerçekten idrar yapıp yapamadığı
+                belirlenmeli; özellikle erkek kedilerde
+                obstrüksiyon olasılığı ilk aşamada
+                değerlendirilmelidir.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="clinical-flow-item">
+
+            <div class="clinical-flow-icon">2</div>
+
+            <div>
+
+              <h3>
+                Öykü ve fizik muayeneyi tamamla
+              </h3>
+
+              <p>
+                İlk atak mı, tekrarlayan mı; diyet, su tüketimi,
+                çevresel stres, kullanılan ilaçlar, önceki
+                urolit veya enfeksiyon öyküsü ve eş zamanlı
+                hastalıklar sorgulanmalıdır.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="clinical-flow-item">
+
+            <div class="clinical-flow-icon">3</div>
+
+            <div>
+
+              <h3>
+                İdrarı değerlendir
+              </h3>
+
+              <p>
+                İdrar özgül ağırlığı, pH, sediment,
+                eritrosit-lökosit varlığı ve kristalüri klinik
+                tabloyla birlikte değerlendirilmelidir.
+                Enfeksiyon şüphesinde uygun örnekten kültür
+                ve duyarlılık testi düşünülmelidir.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="clinical-flow-item">
+
+            <div class="clinical-flow-icon">4</div>
+
+            <div>
+
+              <h3>
+                Görüntülemeyi gerektiğinde ekle
+              </h3>
+
+              <p>
+                Urolit, anatomik anormallik, kitle,
+                mesane duvarı değişiklikleri veya üst
+                üriner sistem tutulumu şüphesinde radyografi
+                ve ultrasonografi tanısal plana eklenebilir.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="clinical-flow-item">
+
+            <div class="clinical-flow-icon">5</div>
+
+            <div>
+
+              <h3>
+                Etiyolojiye yönelik plan oluştur
+              </h3>
+
+              <p>
+                FIC, urolitiyazis, bakteriyel enfeksiyon,
+                üretral tıkaç, anatomik veya diğer nedenler
+                birbirinden ayrıldıktan sonra hasta bazlı
+                tedavi, beslenme ve takip planına geçilir.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- SPECIES -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            TÜR FARKLILIKLARI
+          </p>
+
+          <h2>
+            Kedi ve köpekte aynı belirti, farklı olasılıklar
+          </h2>
+
+        </div>
+
+
+        <div class="clinical-two-column">
+
+          <article class="clinical-panel">
+
+            <h3>
+              Kedilerde
+            </h3>
+
+            <p>
+              Alt üriner sistem belirtilerinin nedenleri arasında
+              özellikle şu başlıklar değerlendirilir:
+            </p>
+
+            <ul>
+              <li>Feline idiopatik sistit (FIC)</li>
+              <li>Üretral obstrüksiyon</li>
+              <li>Urolitiyazis</li>
+              <li>Üretral tıkaçlar</li>
+              <li>Bakteriyel üriner sistem enfeksiyonu</li>
+              <li>Anatomik veya neoplastik nedenler</li>
+            </ul>
+
+          </article>
+
+
+          <article class="clinical-panel">
+
+            <h3>
+              Köpeklerde
+            </h3>
+
+            <p>
+              Benzer alt üriner sistem belirtilerinde özellikle
+              şu nedenler araştırılabilir:
+            </p>
+
+            <ul>
+              <li>Bakteriyel sistit / üriner sistem enfeksiyonu</li>
+              <li>Urolitiyazis</li>
+              <li>Üretral veya mesane kaynaklı obstrüksiyon</li>
+              <li>Prostatik hastalıklar</li>
+              <li>Anatomik veya fonksiyonel bozukluklar</li>
+              <li>Mesane veya üretra neoplazileri</li>
+            </ul>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- DIFFERENTIAL TABLE -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            AYIRICI TANI
+          </p>
+
+          <h2>
+            Klinik bulguya göre düşünülmesi gereken başlıklar
+          </h2>
+
+        </div>
+
+
+        <div class="clinical-table-wrap">
+
+          <table class="clinical-table">
+
+            <thead>
+
+              <tr>
+                <th>Klinik Durum</th>
+                <th>Değerlendirme</th>
+                <th>Temel Yaklaşım</th>
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              <tr>
+
+                <td>
+                  <strong>Dizüri / Pollaküri / Hematüri</strong>
+                </td>
+
+                <td>
+                  İdrar analizi, sediment, öykü,
+                  fizik muayene ve gerektiğinde görüntüleme.
+                </td>
+
+                <td>
+                  Etiyolojiyi belirle; yalnızca semptom
+                  üzerinden ampirik uzun dönem yaklaşım yapma.
+                </td>
+
+              </tr>
+
+
+              <tr>
+
+                <td>
+                  <strong>İdrar yapamama</strong>
+                </td>
+
+                <td>
+                  Mesane palpasyonu, sistemik stabilite,
+                  elektrolit ve böbrek parametreleri.
+                </td>
+
+                <td>
+                  Üretral obstrüksiyon açısından
+                  acil stabilizasyon ve dekompresyon planı.
+                </td>
+
+              </tr>
+
+
+              <tr>
+
+                <td>
+                  <strong>Kristalüri</strong>
+                </td>
+
+                <td>
+                  Kristal tipi, idrar pH'sı,
+                  özgül ağırlık, görüntüleme ve klinik bulgular.
+                </td>
+
+                <td>
+                  Kristal varlığını tek başına hastalık kabul
+                  etmeden klinik tablo ve urolit varlığıyla
+                  birlikte yorumla.
+                </td>
+
+              </tr>
+
+
+              <tr>
+
+                <td>
+                  <strong>Urolit</strong>
+                </td>
+
+                <td>
+                  Lokalizasyon, mineral tipi olasılığı,
+                  radyografik özellik, enfeksiyon ve
+                  obstrüksiyon riski.
+                </td>
+
+                <td>
+                  Uygun olgularda medikal dissolüsyon,
+                  minimal invaziv uzaklaştırma veya
+                  diğer hasta bazlı yöntemler.
+                </td>
+
+              </tr>
+
+
+              <tr>
+
+                <td>
+                  <strong>Enfeksiyon şüphesi</strong>
+                </td>
+
+                <td>
+                  Uygun idrar örneği, sediment,
+                  kültür ve antimikrobiyal duyarlılık.
+                </td>
+
+                <td>
+                  Bakteriyel enfeksiyon doğrulandığında
+                  antimikrobiyal tedaviyi hasta ve
+                  kültür sonucuna göre planla.
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- DIAGNOSTICS -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            TANISAL DEĞERLENDİRME
+          </p>
+
+          <h2>
+            Pratik klinik kontrol listesi
+          </h2>
+
+        </div>
+
+
+        <div class="clinical-two-column">
+
+          <article class="clinical-panel">
+
+            <h3>
+              Temel değerlendirme
+            </h3>
+
+            <ul>
+              <li>İdrar yapma sıklığı ve miktarı</li>
+              <li>Dizüri / strangüri</li>
+              <li>Hematüri</li>
+              <li>Uygunsuz yere idrar yapma</li>
+              <li>Mesane palpasyonu</li>
+              <li>Hidrasyon durumu</li>
+              <li>Vücut sıcaklığı ve genel durum</li>
+              <li>Önceki ataklar ve tedaviler</li>
+            </ul>
+
+          </article>
+
+
+          <article class="clinical-panel">
+
+            <h3>
+              Tanısal testler
+            </h3>
+
+            <ul>
+              <li>İdrar özgül ağırlığı</li>
+              <li>İdrar pH'sı</li>
+              <li>Sediment incelemesi</li>
+              <li>Kristal değerlendirmesi</li>
+              <li>Gerektiğinde idrar kültürü</li>
+              <li>Serum biyokimyası</li>
+              <li>Elektrolitler</li>
+              <li>Radyografi</li>
+              <li>Ultrasonografi</li>
+            </ul>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- MANAGEMENT -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            KLİNİK YÖNETİM
+          </p>
+
+          <h2>
+            Tanıya göre temel yönetim başlıkları
+          </h2>
+
+        </div>
+
+
+        <div class="clinical-management">
+
+          <article class="clinical-management-card">
+
+            <span>01 · OBSTRÜKSİYON</span>
+
+            <h3>
+              İdrar akımının yeniden sağlanması
+            </h3>
+
+            <p>
+              Üretral obstrüksiyon destek ürünleriyle
+              izlenecek bir durum değildir. Stabilizasyon,
+              elektrolit bozukluklarının değerlendirilmesi
+              ve uygun dekompresyon/kateterizasyon
+              önceliklidir.
+            </p>
+
+          </article>
+
+
+          <article class="clinical-management-card">
+
+            <span>02 · UROLİTİYAZİS</span>
+
+            <h3>
+              Mineral tipine yönelik yaklaşım
+            </h3>
+
+            <p>
+              Urolitin lokalizasyonu, tahmini veya
+              analiz edilmiş mineral yapısı, enfeksiyon
+              durumu ve obstrüksiyon riski tedavi
+              stratejisini belirler.
+            </p>
+
+          </article>
+
+
+          <article class="clinical-management-card">
+
+            <span>03 · STRUVİT</span>
+
+            <h3>
+              Uygun olgularda medikal dissolüsyon
+            </h3>
+
+            <p>
+              Struvit urolitlerinde uygun hasta ve klinik
+              koşullarda terapötik diyet temelli medikal
+              dissolüsyon değerlendirilebilir. Köpeklerde
+              enfeksiyon ilişkisi ayrıca araştırılmalıdır.
+            </p>
+
+          </article>
+
+
+          <article class="clinical-management-card">
+
+            <span>04 · ENFEKSİYON</span>
+
+            <h3>
+              Antimikrobiyal stewardship
+            </h3>
+
+            <p>
+              Antibiyotik kullanımı bakteriyel enfeksiyon
+              olasılığı, uygun örnekleme ve gerektiğinde
+              kültür/duyarlılık sonuçlarıyla
+              ilişkilendirilmelidir.
+            </p>
+
+          </article>
+
+
+          <article class="clinical-management-card">
+
+            <span>05 · FIC</span>
+
+            <h3>
+              Multimodal yaklaşım
+            </h3>
+
+            <p>
+              Feline idiopatik sistitte ağrı yönetimi,
+              su alımının artırılması, çevresel düzenleme,
+              stres azaltma ve bireysel risk faktörlerinin
+              ele alınması klinik planın önemli parçalarıdır.
+            </p>
+
+          </article>
+
+
+          <article class="clinical-management-card">
+
+            <span>06 · NÜKS</span>
+
+            <h3>
+              Tekrarlayan olguda yeniden değerlendir
+            </h3>
+
+            <p>
+              Tekrarlayan belirtilerde önceki tanının
+              otomatik olarak doğru olduğu varsayılmamalı;
+              hastanın yaşı, klinik profili ve yeni
+              bulgulara göre tanısal plan yenilenmelidir.
+            </p>
+
+          </article>
+
+        </div>
+
+
+        <div class="clinical-note">
+
+          <h3>
+            Kristalüri ≠ otomatik olarak urolitiyazis
+          </h3>
+
+          <p>
+            Kristaller idrar örneğinin alınma ve saklanma
+            koşullarından, idrar konsantrasyonundan ve pH'dan
+            etkilenebilir. Kristalüri klinik belirtiler,
+            sediment bulguları ve gerektiğinde görüntüleme
+            sonuçlarıyla birlikte yorumlanmalıdır.
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- POST CATHETER -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            OBSTRÜKSİYON SONRASI
+          </p>
+
+          <h2>
+            Kateterizasyon sonrası takip
+          </h2>
+
+          <p>
+            Obstrüksiyon giderildikten sonra süreç bitmiş
+            kabul edilmemelidir. Hasta hem sistemik komplikasyonlar
+            hem de yeniden obstrüksiyon riski açısından izlenmelidir.
+          </p>
+
+        </div>
+
+
+        <div class="clinical-followup">
+
+          <h3>
+            Takipte değerlendirilebilecek başlıklar
+          </h3>
+
+          <ul>
+            <li>İdrar çıkışı ve idrar akımının devamlılığı</li>
+            <li>Mesane boyutu ve hasta konforu</li>
+            <li>Serum potasyumu ve diğer elektrolitler</li>
+            <li>Kreatinin / renal parametreler</li>
+            <li>Hidrasyon durumu</li>
+            <li>Ağrı ve inflamasyon kontrolü</li>
+            <li>Post-obstrüktif diürez olasılığı</li>
+            <li>Altta yatan urolit / FIC / tıkaç nedeni</li>
+            <li>Beslenme ve su tüketimi</li>
+            <li>Nüks riskinin azaltılmasına yönelik plan</li>
+          </ul>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- VETWEL -->
+
+      <section class="clinical-vetwel">
+
+        <p class="clinical-vetwel-label">
+          TAMAMLAYICI ÜRİNER DESTEK
+        </p>
+
+        <h2>
+          VetWel® desteği klinik plana nerede dahil edilir?
+        </h2>
+
+        <p>
+          VetWel® ürünleri alt üriner sistem hastalığının
+          tanısı, obstrüksiyonun giderilmesi, antimikrobiyal
+          tedavi, terapötik diyet veya gerekli cerrahi /
+          girişimsel yaklaşımın yerine geçmez.
+          Tanı ve gerekli temel tedavi tamamlandıktan sonra
+          veteriner hekimin değerlendirmesiyle tamamlayıcı
+          üriner ve renal beslenme desteği kapsamında
+          kullanılabilir.
+        </p>
+
+
+        <div class="clinical-vetwel-grid">
+
+          <article class="clinical-vetwel-card">
+
+            <h3>
+              Cleanse®
+            </h3>
+
+            <p>
+              Üriner sistem desteği, normal idrar akışının
+              ve mineral/sediment yönetiminin desteklenmesi
+              amacıyla klinik plana tamamlayıcı olarak
+              dahil edilebilir. Ürüne özgü kullanım ve
+              veteriner protokolü için profesyonel
+              broşürü inceleyin.
+            </p>
+
+            <a
+              class="clinical-pdf-button"
+              href="Cleanse_VetWel_Veteriner_Profesyonel_Brosur_STANDART_FINAL.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              Cleanse Broşürünü Aç →
+            </a>
+
+          </article>
+
+
+          <article class="clinical-vetwel-card">
+
+            <h3>
+              KidneyWel®
+            </h3>
+
+            <p>
+              Renal ve üriner sistem fonksiyonlarının
+              tamamlayıcı beslenme desteğinin uygun
+              görüldüğü hastalarda klinik değerlendirmeye
+              ek bir seçenek olarak düşünülebilir.
+            </p>
+
+            <a
+              class="clinical-pdf-button"
+              href="KidneyWel_VetWel_Veteriner_Profesyonel_Brosur_STANDART_FINAL.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              KidneyWel Broşürünü Aç →
+            </a>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- FOLLOW UP -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            KLİNİK TAKİP
+          </p>
+
+          <h2>
+            Nüksün önlenmesi tanı kadar önemlidir
+          </h2>
+
+        </div>
+
+
+        <div class="clinical-followup">
+
+          <h3>
+            Kontrollerde değerlendirilebilecek noktalar
+          </h3>
+
+          <ul>
+            <li>Alt üriner sistem belirtilerinin tekrarı</li>
+            <li>İdrar miktarı ve sıklığı</li>
+            <li>İdrar özgül ağırlığı ve pH</li>
+            <li>Sediment ve kristal profili</li>
+            <li>Gerektiğinde kontrol kültürü</li>
+            <li>Urolit bulunan hastada görüntüleme takibi</li>
+            <li>Su tüketimi ve yaş mama / diyet uyumu</li>
+            <li>Vücut ağırlığı ve kondisyon</li>
+            <li>Kedilerde çevresel stres faktörleri</li>
+            <li>Hasta sahibinin erken uyarı belirtilerini tanıması</li>
+          </ul>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- REFERENCES -->
+
+      <section class="clinical-section clinical-references">
+
+        <p class="clinical-kicker">
+          BİLİMSEL KAYNAKLAR
+        </p>
+
+        <h2>
+          Referanslar
+        </h2>
+
+        <ol>
+
+          <li>
+            Taylor S, Boysen S, Buffington T, et al.
+            2025 iCatCare consensus guidelines on the
+            diagnosis and management of lower urinary
+            tract diseases in cats.
+            Journal of Feline Medicine and Surgery. 2025.
+            <a
+              href="https://pubmed.ncbi.nlm.nih.gov/39935081/"
+              target="_blank"
+              rel="noopener"
+            >
+              PubMed
+            </a>
+          </li>
+
+          <li>
+            Lulich JP, Berent AC, Adams LG, et al.
+            ACVIM Small Animal Consensus Recommendations
+            on the Treatment and Prevention of Uroliths
+            in Dogs and Cats.
+            Journal of Veterinary Internal Medicine. 2016.
+            <a
+              href="https://pubmed.ncbi.nlm.nih.gov/27611724/"
+              target="_blank"
+              rel="noopener"
+            >
+              PubMed
+            </a>
+          </li>
+
+          <li>
+            Weese JS, Blondeau J, Boothe D, et al.
+            International Society for Companion Animal
+            Infectious Diseases guidelines for the diagnosis
+            and management of bacterial urinary tract
+            infections in dogs and cats.
+            Veterinary Journal. 2019.
+          </li>
+
+          <li>
+            Weese JS, Allerton F, Scahill K, et al.
+            Development of standard consensus definitions
+            for infectious urinary tract disease in dogs
+            and cats: a modified Delphi study.
+            Journal of Small Animal Practice. 2026.
+            <a
+              href="https://pubmed.ncbi.nlm.nih.gov/41944143/"
+              target="_blank"
+              rel="noopener"
+            >
+              PubMed
+            </a>
+          </li>
+
+        </ol>
+
+      </section>
+
+
+
+      <!-- DISCLAIMER -->
+
+      <div class="clinical-disclaimer">
+
+        <strong>Profesyonel kullanım notu:</strong>
+        Bu içerik veteriner hekimlere yönelik eğitim amacıyla
+        hazırlanmıştır ve bireysel hastanın muayenesi,
+        tanısal değerlendirmesi veya veteriner hekimin
+        klinik kararının yerine geçmez.
+
+        <br><br>
+
+        Üretral obstrüksiyon şüphesinde gecikmeden acil
+        veteriner müdahalesi gerekir.
+
+        <br><br>
+
+        <strong>
+          VetWel® ürünleri ilaç değildir, tamamlayıcı yemdir.
+        </strong>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <footer class="clinical-footer">
+
+    <strong>VetWel® Veterinary Wellness</strong>
+    <br>
+    Eğitim Merkezi · Veteriner Profesyonelleri
+
+  </footer>
+
+
+</body>
+</html>

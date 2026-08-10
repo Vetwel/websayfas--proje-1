@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Kronik Böbrek Hastalığında Klinik Destek Yaklaşımı | VetWel®</title>
+
+  <meta
+    name="description"
+    content="Kedi ve köpeklerde kronik böbrek hastalığının değerlendirilmesi, IRIS evrelemesi, klinik takip ve tamamlayıcı renal destek yaklaşımı."
+  >
+
+  <meta name="theme-color" content="#0b2447">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f8fb;
+      color: #172333;
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+
+    /* HEADER */
+
+    .clinical-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid rgba(11,36,71,0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .clinical-header-inner {
+      max-width: 1150px;
+      min-height: 82px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .clinical-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .clinical-logo-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #0b2447;
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .clinical-logo-text strong {
+      display: block;
+      color: #0b2447;
+      font-size: 23px;
+      line-height: 1;
+    }
+
+    .clinical-logo-text span {
+      display: block;
+      margin-top: 5px;
+      color: #657487;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+    }
+
+    .clinical-nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+    }
+
+    .clinical-nav a {
+      color: #49576a;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .clinical-nav .active {
+      color: #0b2447;
+      border-bottom: 2px solid #2c78a8;
+      padding-bottom: 7px;
+    }
+
+    .clinical-contact {
+      padding: 11px 19px;
+      border-radius: 999px;
+      background: #0b2447;
+      color: white !important;
+    }
+
+
+    /* GENERAL */
+
+    .clinical-container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .clinical-main {
+      padding-bottom: 90px;
+    }
+
+    .clinical-back {
+      display: inline-block;
+      margin: 32px 0 24px;
+      color: #294d73;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+
+    /* HERO */
+
+    .clinical-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 62px;
+      border-radius: 28px;
+      color: #ffffff;
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(117,201,216,0.20),
+          transparent 28%
+        ),
+        linear-gradient(
+          135deg,
+          #071b35 0%,
+          #0b2c55 55%,
+          #164f76 100%
+        );
+      box-shadow: 0 22px 55px rgba(11,36,71,0.15);
+    }
+
+    .clinical-eyebrow {
+      margin: 0 0 14px;
+      color: #9de3ec;
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .clinical-hero h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(38px, 5vw, 60px);
+      line-height: 1.06;
+      letter-spacing: -2px;
+    }
+
+    .clinical-hero-lead {
+      max-width: 790px;
+      margin: 24px 0 0;
+      color: rgba(255,255,255,0.80);
+      font-size: 18px;
+    }
+
+    .clinical-author {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.68);
+      font-size: 13px;
+    }
+
+    .clinical-author strong {
+      color: #ffffff;
+    }
+
+
+    /* QUICK SUMMARY */
+
+    .clinical-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 30px 0 58px;
+    }
+
+    .clinical-summary-card {
+      padding: 27px;
+      border: 1px solid #dfe7ee;
+      border-radius: 19px;
+      background: #ffffff;
+      box-shadow: 0 8px 25px rgba(11,36,71,0.05);
+    }
+
+    .clinical-summary-number {
+      display: inline-grid;
+      width: 39px;
+      height: 39px;
+      place-items: center;
+      margin-bottom: 15px;
+      border-radius: 50%;
+      background: #e9f4f8;
+      color: #0b2447;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .clinical-summary-card h3 {
+      margin: 0 0 8px;
+      color: #0b2447;
+      font-size: 18px;
+    }
+
+    .clinical-summary-card p {
+      margin: 0;
+      color: #657487;
+      font-size: 14px;
+    }
+
+
+    /* CONTENT */
+
+    .clinical-section {
+      margin-top: 65px;
+    }
+
+    .clinical-section-heading {
+      max-width: 820px;
+      margin-bottom: 28px;
+    }
+
+    .clinical-kicker {
+      margin: 0 0 8px;
+      color: #2c78a8;
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .clinical-section h2 {
+      margin: 0;
+      color: #0b2447;
+      font-size: clamp(29px, 4vw, 40px);
+      line-height: 1.12;
+      letter-spacing: -1px;
+    }
+
+    .clinical-section-heading > p:last-child {
+      margin: 14px 0 0;
+      color: #657487;
+      font-size: 16px;
+    }
+
+
+    /* FLOW */
+
+    .clinical-flow {
+      display: grid;
+      gap: 13px;
+    }
+
+    .clinical-flow-item {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 22px 24px;
+      border: 1px solid #dfe7ee;
+      border-radius: 17px;
+      background: #ffffff;
+    }
+
+    .clinical-flow-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: #edf6f8;
+      color: #0b2447;
+      font-weight: 850;
+    }
+
+    .clinical-flow-item h3 {
+      margin: 1px 0 5px;
+      color: #0b2447;
+      font-size: 18px;
+    }
+
+    .clinical-flow-item p {
+      margin: 0;
+      color: #657487;
+      font-size: 14px;
+    }
+
+
+    /* TABLES */
+
+    .clinical-table-wrap {
+      overflow-x: auto;
+      margin-top: 25px;
+      border: 1px solid #dfe7ee;
+      border-radius: 18px;
+      background: #ffffff;
+    }
+
+    .clinical-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px;
+    }
+
+    .clinical-table th,
+    .clinical-table td {
+      padding: 17px 18px;
+      border-bottom: 1px solid #e5ebf0;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .clinical-table th {
+      background: #0b2447;
+      color: #ffffff;
+      font-size: 13px;
+    }
+
+    .clinical-table td {
+      color: #4e5d6c;
+      font-size: 14px;
+    }
+
+    .clinical-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .clinical-table strong {
+      color: #0b2447;
+    }
+
+
+    /* ALERT */
+
+    .clinical-alert {
+      margin-top: 25px;
+      padding: 25px 27px;
+      border-left: 5px solid #a44747;
+      border-radius: 12px;
+      background: #fff6f6;
+    }
+
+    .clinical-alert h3 {
+      margin: 0 0 10px;
+      color: #7b2727;
+      font-size: 18px;
+    }
+
+    .clinical-alert p {
+      margin: 0;
+      color: #694a4a;
+      font-size: 14px;
+    }
+
+
+    /* TWO COLUMN */
+
+    .clinical-two-column {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 26px;
+    }
+
+    .clinical-panel {
+      padding: 29px;
+      border: 1px solid #dfe7ee;
+      border-radius: 20px;
+      background: #ffffff;
+    }
+
+    .clinical-panel h3 {
+      margin: 0 0 14px;
+      color: #0b2447;
+      font-size: 21px;
+    }
+
+    .clinical-panel ul {
+      margin: 0;
+      padding-left: 20px;
+      color: #596775;
+    }
+
+    .clinical-panel li {
+      margin: 8px 0;
+    }
+
+
+    /* MANAGEMENT */
+
+    .clinical-management {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .clinical-management-card {
+      padding: 27px;
+      border-radius: 19px;
+      background: #ffffff;
+      border: 1px solid #dfe7ee;
+    }
+
+    .clinical-management-card span {
+      display: block;
+      margin-bottom: 8px;
+      color: #2c78a8;
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .clinical-management-card h3 {
+      margin: 0 0 9px;
+      color: #0b2447;
+      font-size: 19px;
+    }
+
+    .clinical-management-card p {
+      margin: 0;
+      color: #657487;
+      font-size: 14px;
+    }
+
+
+    /* VETWEL BOX */
+
+    .clinical-vetwel {
+      margin-top: 70px;
+      padding: 45px;
+      border-radius: 26px;
+      background:
+        linear-gradient(
+          135deg,
+          #0b2447,
+          #174f75
+        );
+      color: #ffffff;
+    }
+
+    .clinical-vetwel-label {
+      margin: 0 0 11px;
+      color: #9de3ec;
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .clinical-vetwel h2 {
+      color: #ffffff;
+      font-size: clamp(30px, 4vw, 41px);
+    }
+
+    .clinical-vetwel > p {
+      max-width: 850px;
+      color: rgba(255,255,255,0.77);
+    }
+
+    .clinical-vetwel-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .clinical-vetwel-card {
+      padding: 25px;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 17px;
+      background: rgba(255,255,255,0.07);
+    }
+
+    .clinical-vetwel-card h3 {
+      margin: 0 0 8px;
+      font-size: 19px;
+    }
+
+    .clinical-vetwel-card p {
+      margin: 0 0 18px;
+      color: rgba(255,255,255,0.72);
+      font-size: 14px;
+    }
+
+    .clinical-pdf-button {
+      display: inline-flex;
+      padding: 11px 17px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #0b2447;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+
+    /* FOLLOW-UP */
+
+    .clinical-followup {
+      padding: 30px;
+      border: 1px solid #dfe7ee;
+      border-radius: 20px;
+      background: #ffffff;
+    }
+
+    .clinical-followup h3 {
+      margin-top: 0;
+      color: #0b2447;
+    }
+
+    .clinical-followup ul {
+      margin-bottom: 0;
+      padding-left: 21px;
+      color: #596775;
+    }
+
+    .clinical-followup li {
+      margin: 8px 0;
+    }
+
+
+    /* REFERENCES */
+
+    .clinical-references {
+      margin-top: 70px;
+      padding-top: 30px;
+      border-top: 1px solid #dfe7ee;
+    }
+
+    .clinical-references h2 {
+      font-size: 25px;
+    }
+
+    .clinical-references p,
+    .clinical-references li {
+      color: #657487;
+      font-size: 13px;
+    }
+
+    .clinical-references a {
+      color: #2c78a8;
+    }
+
+
+    /* DISCLAIMER */
+
+    .clinical-disclaimer {
+      margin-top: 35px;
+      padding: 22px 25px;
+      border-radius: 15px;
+      background: #edf2f7;
+      color: #566473;
+      font-size: 12px;
+    }
+
+    .clinical-disclaimer strong {
+      color: #0b2447;
+    }
+
+
+    /* FOOTER */
+
+    .clinical-footer {
+      padding: 32px 20px;
+      background: #071b35;
+      color: rgba(255,255,255,0.62);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .clinical-footer strong {
+      color: #ffffff;
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+
+      .clinical-nav {
+        display: none;
+      }
+
+      .clinical-hero {
+        padding: 38px 28px;
+      }
+
+      .clinical-summary-grid,
+      .clinical-two-column,
+      .clinical-management,
+      .clinical-vetwel-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .clinical-summary-grid {
+        margin-bottom: 45px;
+      }
+
+      .clinical-flow-item {
+        grid-template-columns: 45px 1fr;
+        padding: 19px;
+      }
+
+      .clinical-flow-icon {
+        width: 42px;
+        height: 42px;
+      }
+
+      .clinical-vetwel {
+        padding: 32px 25px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="clinical-header">
+
+    <div class="clinical-header-inner">
+
+      <a class="clinical-logo" href="index.html">
+
+        <span class="clinical-logo-mark">✚</span>
+
+        <span class="clinical-logo-text">
+          <strong>VetWel®</strong>
+          <span>VETERINARY WELLNESS</span>
+        </span>
+
+      </a>
+
+
+      <nav class="clinical-nav">
+
+        <a href="index.html#neden-vetwel">Neden VetWel?</a>
+
+        <a href="index.html#cozumler">Çözümler</a>
+
+        <a href="index.html#urunler">Ürünler</a>
+
+        <a class="active" href="education.html">
+          Eğitim Merkezi
+        </a>
+
+        <a
+          class="clinical-contact"
+          href="index.html#iletisim"
+        >
+          İletişim
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <main class="clinical-main">
+
+    <div class="clinical-container">
+
+      <a
+        href="education-resources.html#clinical-guides"
+        class="clinical-back"
+      >
+        ← Klinik Kullanım Rehberleri
+      </a>
+
+
+      <!-- HERO -->
+
+      <section class="clinical-hero">
+
+        <p class="clinical-eyebrow">
+          VETWEL® KLİNİK KULLANIM REHBERİ
+        </p>
+
+        <h1>
+          Kedi ve Köpeklerde
+          Kronik Böbrek Hastalığında
+          Klinik Destek Yaklaşımı
+        </h1>
+
+        <p class="clinical-hero-lead">
+          Kronik böbrek hastalığında değerlendirme yalnızca
+          kreatinin değerine dayanmaz. Stabil hastada renal
+          fonksiyonun evrelenmesi; proteinüri, sistemik kan
+          basıncı, hidrasyon, fosfor dengesi, beslenme durumu
+          ve hastalığın klinik etkileriyle birlikte ele alınmalıdır.
+        </p>
+
+        <div class="clinical-author">
+          Hazırlayan:
+          <strong>
+            Veteriner Hekimi Nazif Oben Akşemsettinoğlu
+          </strong>
+          · VetWel® Eğitim Merkezi
+        </div>
+
+      </section>
+
+
+      <!-- QUICK SUMMARY -->
+
+      <section class="clinical-summary-grid">
+
+        <article class="clinical-summary-card">
+
+          <span class="clinical-summary-number">01</span>
+
+          <h3>Önce CKD'yi doğrula</h3>
+
+          <p>
+            Pre-renal ve post-renal nedenleri dışla;
+            hastanın stabil ve yeterli hidrasyonda
+            olduğundan emin ol.
+          </p>
+
+        </article>
+
+
+        <article class="clinical-summary-card">
+
+          <span class="clinical-summary-number">02</span>
+
+          <h3>IRIS evresini belirle</h3>
+
+          <p>
+            Kreatinin ve SDMA'yı birlikte değerlendir;
+            ardından UPC ve sistolik kan basıncıyla
+            alt evreleme yap.
+          </p>
+
+        </article>
+
+
+        <article class="clinical-summary-card">
+
+          <span class="clinical-summary-number">03</span>
+
+          <h3>Hastayı bütüncül yönet</h3>
+
+          <p>
+            Renal diyet, hidrasyon, fosfor, proteinüri,
+            hipertansiyon ve klinik semptomları
+            hasta bazında ele al.
+          </p>
+
+        </article>
+
+      </section>
+
+
+
+      <!-- CLINICAL FLOW -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            KLİNİK AKIŞ
+          </p>
+
+          <h2>
+            CKD şüphesinden klinik plana
+          </h2>
+
+          <p>
+            Kronik böbrek hastalığında amaç yalnızca laboratuvar
+            değerlerini sınıflandırmak değil; ilerlemeyi
+            yavaşlatmaya, komplikasyonları kontrol etmeye ve
+            yaşam kalitesini korumaya yönelik bireysel bir
+            takip planı oluşturmaktır.
+          </p>
+
+        </div>
+
+
+        <div class="clinical-flow">
+
+          <article class="clinical-flow-item">
+
+            <div class="clinical-flow-icon">1</div>
+
+            <div>
+
+              <h3>
+                Hastanın stabilitesini değerlendir
+              </h3>
+
+              <p>
+                Dehidrasyon, akut böbrek hasarı, üriner
+                obstrüksiyon ve diğer pre-renal veya post-renal
+                nedenler değerlendirilmeden stabil CKD
+                evrelemesine geçilmemelidir.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="clinical-flow-item">
+
+            <div class="clinical-flow-icon">2</div>
+
+            <div>
+
+              <h3>
+                Renal fonksiyon göstergelerini değerlendir
+              </h3>
+
+              <p>
+                Serum kreatinin ve SDMA sonuçlarını hastanın
+                kas kitlesi, hidrasyon durumu ve seri ölçümleriyle
+                birlikte yorumla. Tek bir laboratuvar sonucu
+                yerine trendleri dikkate al.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="clinical-flow-item">
+
+            <div class="clinical-flow-icon">3</div>
+
+            <div>
+
+              <h3>
+                UPC ve sistemik kan basıncını belirle
+              </h3>
+
+              <p>
+                Proteinüri ve hipertansiyon CKD progresyonu ve
+                hedef organ hasarı açısından ayrı risk
+                faktörleridir ve IRIS evrelemesinde ayrıca
+                sınıflandırılır.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="clinical-flow-item">
+
+            <div class="clinical-flow-icon">4</div>
+
+            <div>
+
+              <h3>
+                Beslenme ve metabolik komplikasyonları değerlendir
+              </h3>
+
+              <p>
+                Fosfor, potasyum, asit-baz dengesi, vücut
+                kondisyonu, kas kondisyonu, iştah ve hidrasyon
+                durumunu hastalığın evresine göre takip et.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="clinical-flow-item">
+
+            <div class="clinical-flow-icon">5</div>
+
+            <div>
+
+              <h3>
+                Bireysel tedavi ve takip planı oluştur
+              </h3>
+
+              <p>
+                Renal diyet, hidrasyon desteği, fosfor yönetimi,
+                proteinüri ve hipertansiyon kontrolü ile
+                semptomatik tedaviler hasta ihtiyacına göre
+                planlanır.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- IRIS STAGING -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            IRIS 2026
+          </p>
+
+          <h2>
+            Kreatinin temelli CKD evreleri
+          </h2>
+
+          <p>
+            Aşağıdaki değerler stabil ve yeterli hidrasyona
+            sahip hastaların değerlendirilmesinde kullanılan
+            IRIS kreatinin aralıklarının klinik özetidir.
+            SDMA özellikle kreatinin ile uyumsuzluk olduğunda
+            evrelemeyi etkileyebilir.
+          </p>
+
+        </div>
+
+
+        <div class="clinical-table-wrap">
+
+          <table class="clinical-table">
+
+            <thead>
+
+              <tr>
+                <th>IRIS Evresi</th>
+                <th>Köpek Kreatinin</th>
+                <th>Kedi Kreatinin</th>
+                <th>Genel Klinik Yorum</th>
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              <tr>
+                <td><strong>Stage 1</strong></td>
+                <td>&lt; 1.4 mg/dL</td>
+                <td>&lt; 1.6 mg/dL</td>
+                <td>
+                  Kreatinin normal aralıkta olabilir;
+                  diğer renal anormallikler CKD'yi düşündürebilir.
+                </td>
+              </tr>
+
+              <tr>
+                <td><strong>Stage 2</strong></td>
+                <td>1.4 – 2.8 mg/dL</td>
+                <td>1.6 – 2.8 mg/dL</td>
+                <td>
+                  Hafif renal azotemi; klinik belirtiler
+                  hafif olabilir veya bulunmayabilir.
+                </td>
+              </tr>
+
+              <tr>
+                <td><strong>Stage 3</strong></td>
+                <td>2.9 – 5.0 mg/dL</td>
+                <td>2.9 – 5.0 mg/dL</td>
+                <td>
+                  Orta derecede renal azotemi;
+                  ekstrarenal klinik bulgular daha sık görülür.
+                </td>
+              </tr>
+
+              <tr>
+                <td><strong>Stage 4</strong></td>
+                <td>&gt; 5.0 mg/dL</td>
+                <td>&gt; 5.0 mg/dL</td>
+                <td>
+                  İleri renal azotemi ve üremik
+                  komplikasyon riski belirgindir.
+                </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- UPC -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            ALT EVRELEME
+          </p>
+
+          <h2>
+            Proteinüri: UPC değerlendirmesi
+          </h2>
+
+          <p>
+            Renal proteinüri değerlendirilmeden önce pre-renal
+            ve post-renal proteinüri nedenleri dışlanmalıdır.
+            Persistan proteinüri klinik olarak ayrıca takip edilmelidir.
+          </p>
+
+        </div>
+
+
+        <div class="clinical-table-wrap">
+
+          <table class="clinical-table">
+
+            <thead>
+
+              <tr>
+                <th>UPC Alt Evresi</th>
+                <th>Köpek</th>
+                <th>Kedi</th>
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              <tr>
+                <td><strong>Non-proteinürik</strong></td>
+                <td>&lt; 0.2</td>
+                <td>&lt; 0.2</td>
+              </tr>
+
+              <tr>
+                <td><strong>Borderline proteinürik</strong></td>
+                <td>0.2 – 0.5</td>
+                <td>0.2 – 0.4</td>
+              </tr>
+
+              <tr>
+                <td><strong>Proteinürik</strong></td>
+                <td>&gt; 0.5</td>
+                <td>&gt; 0.4</td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- BLOOD PRESSURE -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            KAN BASINCI
+          </p>
+
+          <h2>
+            Sistolik kan basıncı alt evrelemesi
+          </h2>
+
+        </div>
+
+
+        <div class="clinical-table-wrap">
+
+          <table class="clinical-table">
+
+            <thead>
+
+              <tr>
+                <th>Sistolik Kan Basıncı</th>
+                <th>IRIS Sınıflandırması</th>
+                <th>Hedef Organ Hasarı Riski</th>
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              <tr>
+                <td><strong>&lt; 140 mmHg</strong></td>
+                <td>Normotansif</td>
+                <td>Minimal</td>
+              </tr>
+
+              <tr>
+                <td><strong>140 – 159 mmHg</strong></td>
+                <td>Prehipertansif</td>
+                <td>Düşük</td>
+              </tr>
+
+              <tr>
+                <td><strong>160 – 179 mmHg</strong></td>
+                <td>Hipertansif</td>
+                <td>Orta</td>
+              </tr>
+
+              <tr>
+                <td><strong>≥ 180 mmHg</strong></td>
+                <td>Şiddetli hipertansif</td>
+                <td>Yüksek</td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- RED FLAGS -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            AYIRICI NOKTA
+          </p>
+
+          <h2>
+            Rutin CKD yönetiminin dışına çıkan durumlar
+          </h2>
+
+        </div>
+
+
+        <div class="clinical-alert">
+
+          <h3>
+            Acil veya ileri değerlendirme gerektirebilir
+          </h3>
+
+          <p>
+            Ani kreatinin artışı, belirgin oligüri veya anüri,
+            üriner obstrüksiyon şüphesi, ciddi dehidrasyon,
+            tekrarlayan kusma, nörolojik veya oküler hipertansif
+            bulgular ve hızlı klinik kötüleşme rutin stabil CKD
+            takibi olarak değerlendirilmemelidir. Akut böbrek
+            hasarı, post-renal obstrüksiyon ve diğer acil nedenler
+            öncelikle araştırılmalıdır.
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- DIAGNOSTIC -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            DEĞERLENDİRME
+          </p>
+
+          <h2>
+            Klinik kontrolde gözden geçirilebilecek temel alanlar
+          </h2>
+
+        </div>
+
+
+        <div class="clinical-two-column">
+
+          <article class="clinical-panel">
+
+            <h3>
+              Laboratuvar ve görüntüleme
+            </h3>
+
+            <ul>
+              <li>Serum kreatinin</li>
+              <li>SDMA</li>
+              <li>BUN / üre</li>
+              <li>Serum fosfor</li>
+              <li>Elektrolitler</li>
+              <li>Hematokrit / hemogram</li>
+              <li>İdrar özgül ağırlığı</li>
+              <li>İdrar sediment değerlendirmesi</li>
+              <li>UPC</li>
+              <li>Gerektiğinde idrar kültürü</li>
+              <li>Ultrasonografi / görüntüleme</li>
+            </ul>
+
+          </article>
+
+
+          <article class="clinical-panel">
+
+            <h3>
+              Klinik hasta değerlendirmesi
+            </h3>
+
+            <ul>
+              <li>Sistolik kan basıncı</li>
+              <li>Hidrasyon durumu</li>
+              <li>Vücut kondisyon skoru</li>
+              <li>Kas kondisyon skoru</li>
+              <li>İştah ve günlük kalori alımı</li>
+              <li>Vücut ağırlığı trendi</li>
+              <li>PU / PD öyküsü</li>
+              <li>Kusma ve bulantı</li>
+              <li>Aktivite ve yaşam kalitesi</li>
+              <li>Eş zamanlı ilaç ve hastalıklar</li>
+            </ul>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- STANDARD MANAGEMENT -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            TEMEL CKD YÖNETİMİ
+          </p>
+
+          <h2>
+            Klinik yönetimin ana bileşenleri
+          </h2>
+
+          <p>
+            Uygulamalar hastanın IRIS evresine, laboratuvar
+            sonuçlarına ve klinik durumuna göre bireyselleştirilir.
+          </p>
+
+        </div>
+
+
+        <div class="clinical-management">
+
+          <article class="clinical-management-card">
+
+            <span>01 · BESLENME</span>
+
+            <h3>
+              Renal diyet
+            </h3>
+
+            <p>
+              IRIS Stage 2'den itibaren klinik renal diyet
+              değerlendirilir; ileri evrelerde beslenme yönetimi
+              CKD tedavisinin temel bileşenlerinden biridir.
+              Yeterli kalori alımı ve kas kitlesinin korunması
+              ayrıca izlenmelidir.
+            </p>
+
+          </article>
+
+
+          <article class="clinical-management-card">
+
+            <span>02 · HİDRASYON</span>
+
+            <h3>
+              Su ve sıvı dengesi
+            </h3>
+
+            <p>
+              Hastanın yeterli suya erişimi sağlanmalı,
+              dehidrasyon düzeltilmeli ve tekrarlayan
+              dehidrasyon riski bireysel olarak yönetilmelidir.
+            </p>
+
+          </article>
+
+
+          <article class="clinical-management-card">
+
+            <span>03 · FOSFOR</span>
+
+            <h3>
+              Fosfor kontrolü
+            </h3>
+
+            <p>
+              Fosfor yönetiminde ilk basamak diyetle fosfor
+              kısıtlamasıdır. Serum fosforu hedefin üzerinde
+              kalıyorsa veteriner hekimin kararıyla enterik
+              fosfat bağlayıcılar değerlendirilebilir.
+            </p>
+
+          </article>
+
+
+          <article class="clinical-management-card">
+
+            <span>04 · PROTEİNÜRİ</span>
+
+            <h3>
+              UPC takibi
+            </h3>
+
+            <p>
+              Persistan renal proteinüri ayrıca yönetilmeli ve
+              tedavi yanıtı seri UPC ölçümleriyle takip edilmelidir.
+            </p>
+
+          </article>
+
+
+          <article class="clinical-management-card">
+
+            <span>05 · HİPERTANSİYON</span>
+
+            <h3>
+              Kan basıncı kontrolü
+            </h3>
+
+            <p>
+              Persistan hipertansiyon hedef organ hasarı riskini
+              artırır. Kan basıncı ölçümleri klinik koşullar
+              standardize edilerek yorumlanmalıdır.
+            </p>
+
+          </article>
+
+
+          <article class="clinical-management-card">
+
+            <span>06 · YAŞAM KALİTESİ</span>
+
+            <h3>
+              Klinik komplikasyonlar
+            </h3>
+
+            <p>
+              Anemi, metabolik asidoz, elektrolit bozuklukları,
+              bulantı, kusma, iştahsızlık ve kilo kaybı
+              özellikle ileri evrelerde ayrıca değerlendirilir.
+            </p>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- VETWEL -->
+
+      <section class="clinical-vetwel">
+
+        <p class="clinical-vetwel-label">
+          TAMAMLAYICI RENAL DESTEK
+        </p>
+
+        <h2>
+          KidneyWel® klinik plana nerede dahil edilir?
+        </h2>
+
+        <p>
+          KidneyWel®, veteriner hekimin oluşturduğu temel CKD
+          yönetiminin yerine geçmez. Renal diyet, hidrasyon,
+          fosfor yönetimi, proteinüri ve hipertansiyon kontrolü
+          gibi standart yaklaşımlara ek olarak tamamlayıcı
+          beslenme desteği kapsamında değerlendirilebilir.
+          Kullanım şekli ve takip planı hastanın klinik durumu,
+          eş zamanlı tedavileri ve veteriner hekimin
+          değerlendirmesine göre belirlenmelidir.
+        </p>
+
+
+        <div class="clinical-vetwel-grid">
+
+          <article class="clinical-vetwel-card">
+
+            <h3>
+              KidneyWel® Tablet
+            </h3>
+
+            <p>
+              Renal ve üriner sistem fonksiyonlarının
+              desteklenmesine yönelik tablet form.
+              Kullanım protokolü ve ürün bileşenleri için
+              profesyonel broşürü inceleyin.
+            </p>
+
+            <a
+              class="clinical-pdf-button"
+              href="KidneyWel_VetWel_Veteriner_Profesyonel_Brosur_STANDART_FINAL.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              Profesyonel Broşürü Aç →
+            </a>
+
+          </article>
+
+
+          <article class="clinical-vetwel-card">
+
+            <h3>
+              KidneyWel® Liquid
+            </h3>
+
+            <p>
+              Sıvı uygulamanın tercih edildiği hastalarda
+              tamamlayıcı renal destek seçeneği.
+              Doz ve kullanım ayrıntıları için profesyonel
+              broşürü inceleyin.
+            </p>
+
+            <a
+              class="clinical-pdf-button"
+              href="KidneyWel_Liquid_VetWel_Veteriner_Profesyonel_Brosur_STANDART_DUZELTILMIS_v6.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              Profesyonel Broşürü Aç →
+            </a>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- FOLLOW UP -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            KLİNİK TAKİP
+          </p>
+
+          <h2>
+            Tek ölçüm değil, trend önemlidir
+          </h2>
+
+        </div>
+
+
+        <div class="clinical-followup">
+
+          <h3>
+            Takipte değerlendirilebilecek göstergeler
+          </h3>
+
+          <ul>
+            <li>Kreatinin ve SDMA trendi</li>
+            <li>Serum fosfor konsantrasyonu</li>
+            <li>UPC değişimi</li>
+            <li>Sistolik kan basıncı</li>
+            <li>Elektrolit ve asit-baz dengesi</li>
+            <li>Hematokrit / anemi gelişimi</li>
+            <li>Vücut ağırlığı ve kas kondisyonu</li>
+            <li>İştah, hidrasyon ve günlük aktivite</li>
+            <li>PU / PD ve gastrointestinal belirtiler</li>
+            <li>Genel yaşam kalitesi</li>
+          </ul>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- REFERENCES -->
+
+      <section class="clinical-section clinical-references">
+
+        <p class="clinical-kicker">
+          BİLİMSEL KAYNAKLAR
+        </p>
+
+        <h2>
+          Referanslar
+        </h2>
+
+        <ol>
+
+          <li>
+            International Renal Interest Society (IRIS).
+            IRIS Staging of Chronic Kidney Disease.
+            Modified 2026.
+            <a
+              href="https://www.iris-kidney.com/iris-guidelines-1"
+              target="_blank"
+              rel="noopener"
+            >
+              IRIS Guidelines
+            </a>
+          </li>
+
+          <li>
+            International Renal Interest Society (IRIS).
+            Treatment Recommendations for CKD in Dogs.
+            Modified 2026.
+          </li>
+
+          <li>
+            International Renal Interest Society (IRIS).
+            Treatment Recommendations for CKD in Cats.
+            Modified 2026.
+          </li>
+
+        </ol>
+
+      </section>
+
+
+
+      <!-- DISCLAIMER -->
+
+      <div class="clinical-disclaimer">
+
+        <strong>Profesyonel kullanım notu:</strong>
+        Bu içerik veteriner hekimlere yönelik eğitim amacıyla
+        hazırlanmıştır ve bireysel hastanın muayenesi,
+        tanısal değerlendirmesi veya veteriner hekimin klinik
+        kararının yerine geçmez. Tedavi ve takip planı hastaya
+        özel olarak oluşturulmalıdır.
+
+        <br><br>
+
+        <strong>
+          VetWel® ürünleri ilaç değildir, tamamlayıcı yemdir.
+        </strong>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <footer class="clinical-footer">
+
+    <strong>VetWel® Veterinary Wellness</strong>
+    <br>
+    Eğitim Merkezi · Veteriner Profesyonelleri
+
+  </footer>
+
+
+</body>
+</html>

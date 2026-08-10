@@ -52,12 +52,27 @@
       gap: 24px;
     }
 
-    .product-training-card {
-      background: white;
-      border-radius: 18px;
-      padding: 28px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-    }
+   .product-training-card {
+  background: white;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  border-top: 5px solid #173f6b;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-training-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 34px rgba(0,0,0,0.10);
+}
+
+.kidneywel { border-top-color: #b63b46; }
+.breathe { border-top-color: #7653a6; }
+.skinwel { border-top-color: #3478b8; }
+.liverwel { border-top-color: #4b8b5a; }
+.heartwel { border-top-color: #c84d67; }
+.dentawel { border-top-color: #3d9165; }
+    
 
     .product-training-card h2 {
       color: #173f6b;
@@ -115,7 +130,7 @@
 
     <section class="products-grid">
 
-      <article class="product-training-card">
+      <article class="product-training-card kidneywel">
         <h2>KidneyWel®</h2>
         <p>
           Böbrek sağlığı ve renal destek yaklaşımında KidneyWel®'in
@@ -133,7 +148,7 @@
         <a href="#">Eğitime Başla →</a>
       </article>
 
-      <article class="product-training-card">
+     <article class="product-training-card breathe">
         <h2>Breathe Ease®</h2>
         <p>
           Solunum sistemi desteğinde Breathe Ease® içeriğini,
@@ -151,7 +166,7 @@
         <a href="#">Eğitime Başla →</a>
       </article>
 
-      <article class="product-training-card">
+      <article class="product-training-card skinwel">
         <h2>SkinWel®</h2>
         <p>
           Deri ve tüy sağlığının desteklenmesinde SkinWel® içeriğini,
@@ -160,7 +175,7 @@
         <a href="#">Eğitime Başla →</a>
       </article>
 
-      <article class="product-training-card">
+      <article class="product-training-card liverwel">
         <h2>LiverWel®</h2>
         <p>
           Karaciğer fonksiyonlarının desteklenmesinde LiverWel®
@@ -169,7 +184,7 @@
         <a href="#">Eğitime Başla →</a>
       </article>
 
-      <article class="product-training-card">
+     <article class="product-training-card heartwel">
         <h2>HeartWel®</h2>
         <p>
           Kardiyovasküler sistem desteğinde HeartWel® içeriğini,
@@ -178,7 +193,7 @@
         <a href="#">Eğitime Başla →</a>
       </article>
 
-      <article class="product-training-card">
+      <article class="product-training-card dentawel">
         <h2>DentaWel®</h2>
         <p>
           Ağız ve diş sağlığı, plak kontrolü ve gingival destek

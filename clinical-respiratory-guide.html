@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Solunum Yolu Bulgularında Klinik Yaklaşım | VetWel®</title>
+
+  <meta
+    name="description"
+    content="Kedi ve köpeklerde öksürük, solunum güçlüğü, burun akıntısı ve diğer respiratuvar bulguların klinik değerlendirilmesi ve tamamlayıcı solunum desteği."
+  >
+
+  <meta name="theme-color" content="#0b2447">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f8fb;
+      color: #172333;
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+
+    /* HEADER */
+
+    .clinical-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid rgba(11,36,71,0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .clinical-header-inner {
+      max-width: 1150px;
+      min-height: 82px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .clinical-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .clinical-logo-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #0b2447;
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .clinical-logo-text strong {
+      display: block;
+      color: #0b2447;
+      font-size: 23px;
+      line-height: 1;
+    }
+
+    .clinical-logo-text span {
+      display: block;
+      margin-top: 5px;
+      color: #657487;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+    }
+
+    .clinical-nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+    }
+
+    .clinical-nav a {
+      color: #49576a;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .clinical-nav .active {
+      color: #0b2447;
+      border-bottom: 2px solid #7555a5;
+      padding-bottom: 7px;
+    }
+
+    .clinical-contact {
+      padding: 11px 19px;
+      border-radius: 999px;
+      background: #0b2447;
+      color: white !important;
+    }
+
+
+    /* GENERAL */
+
+    .clinical-container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .clinical-main {
+      padding-bottom: 90px;
+    }
+
+    .clinical-back {
+      display: inline-block;
+      margin: 32px 0 24px;
+      color: #294d73;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+
+    /* HERO */
+
+    .clinical-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 62px;
+      border-radius: 28px;
+      color: #ffffff;
+      background:
+        radial-gradient(
+          circle at 85% 17%,
+          rgba(190,155,235,0.27),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #071b35 0%,
+          #152c56 52%,
+          #563b83 100%
+        );
+      box-shadow: 0 22px 55px rgba(11,36,71,0.15);
+    }
+
+    .clinical-eyebrow {
+      margin: 0 0 14px;
+      color: #dcc8ff;
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .clinical-hero h1 {
+      max-width: 850px;
+      margin: 0;
+      font-size: clamp(38px, 5vw, 60px);
+      line-height: 1.06;
+      letter-spacing: -2px;
+    }
+
+    .clinical-hero-lead {
+      max-width: 800px;
+      margin: 24px 0 0;
+      color: rgba(255,255,255,0.82);
+      font-size: 18px;
+    }
+
+    .clinical-author {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.68);
+      font-size: 13px;
+    }
+
+    .clinical-author strong {
+      color: #ffffff;
+    }
+
+
+    /* SUMMARY */
+
+    .clinical-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 30px 0 58px;
+    }
+
+    .clinical-summary-card {
+      padding: 27px;
+      border: 1px solid #dfe7ee;
+      border-radius: 19px;
+      background: #ffffff;
+      box-shadow: 0 8px 25px rgba(11,36,71,0.05);
+    }
+
+    .clinical-summary-number {
+      display: inline-grid;
+      width: 39px;
+      height: 39px;
+      place-items: center;
+      margin-bottom: 15px;
+      border-radius: 50%;
+      background: #f1ebf8;
+      color: #563b83;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .clinical-summary-card h3 {
+      margin: 0 0 8px;
+      color: #0b2447;
+      font-size: 18px;
+    }
+
+    .clinical-summary-card p {
+      margin: 0;
+      color: #657487;
+      font-size: 14px;
+    }
+
+
+    /* SECTIONS */
+
+    .clinical-section {
+      margin-top: 65px;
+    }
+
+    .clinical-section-heading {
+      max-width: 850px;
+      margin-bottom: 28px;
+    }
+
+    .clinical-kicker {
+      margin: 0 0 8px;
+      color: #7555a5;
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .clinical-section h2 {
+      margin: 0;
+      color: #0b2447;
+      font-size: clamp(29px, 4vw, 40px);
+      line-height: 1.12;
+      letter-spacing: -1px;
+    }
+
+    .clinical-section-heading > p:last-child {
+      margin: 14px 0 0;
+      color: #657487;
+      font-size: 16px;
+    }
+
+
+    /* EMERGENCY */
+
+    .clinical-emergency {
+      padding: 32px;
+      border-radius: 20px;
+      background: #fff4f4;
+      border: 1px solid #f0cccc;
+      border-left: 6px solid #a43e3e;
+    }
+
+    .clinical-emergency-label {
+      margin: 0 0 8px;
+      color: #a43e3e;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1.3px;
+    }
+
+    .clinical-emergency h3 {
+      margin: 0 0 13px;
+      color: #782828;
+      font-size: 25px;
+    }
+
+    .clinical-emergency p {
+      margin: 0;
+      color: #694a4a;
+    }
+
+
+    /* FLOW */
+
+    .clinical-flow {
+      display: grid;
+      gap: 13px;
+    }
+
+    .clinical-flow-item {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 22px 24px;
+      border: 1px solid #dfe7ee;
+      border-radius: 17px;
+      background: #ffffff;
+    }
+
+    .clinical-flow-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: #f1ebf8;
+      color: #563b83;
+      font-weight: 850;
+    }
+
+    .clinical-flow-item h3 {
+      margin: 1px 0 5px;
+      color: #0b2447;
+      font-size: 18px;
+    }
+
+    .clinical-flow-item p {
+      margin: 0;
+      color: #657487;
+      font-size: 14px;
+    }
+
+
+    /* TWO COLUMN */
+
+    .clinical-two-column {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 26px;
+    }
+
+    .clinical-panel {
+      padding: 29px;
+      border: 1px solid #dfe7ee;
+      border-radius: 20px;
+      background: #ffffff;
+    }
+
+    .clinical-panel h3 {
+      margin: 0 0 14px;
+      color: #0b2447;
+      font-size: 21px;
+    }
+
+    .clinical-panel p {
+      color: #657487;
+      font-size: 14px;
+    }
+
+    .clinical-panel ul {
+      margin-bottom: 0;
+      padding-left: 20px;
+      color: #596775;
+    }
+
+    .clinical-panel li {
+      margin: 8px 0;
+    }
+
+
+    /* TABLE */
+
+    .clinical-table-wrap {
+      overflow-x: auto;
+      margin-top: 25px;
+      border: 1px solid #dfe7ee;
+      border-radius: 18px;
+      background: #ffffff;
+    }
+
+    .clinical-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+
+    .clinical-table th,
+    .clinical-table td {
+      padding: 17px 18px;
+      border-bottom: 1px solid #e5ebf0;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .clinical-table th {
+      background: #0b2447;
+      color: #ffffff;
+      font-size: 13px;
+    }
+
+    .clinical-table td {
+      color: #4e5d6c;
+      font-size: 14px;
+    }
+
+    .clinical-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .clinical-table strong {
+      color: #0b2447;
+    }
+
+
+    /* MANAGEMENT */
+
+    .clinical-management {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .clinical-management-card {
+      padding: 27px;
+      border-radius: 19px;
+      background: #ffffff;
+      border: 1px solid #dfe7ee;
+    }
+
+    .clinical-management-card span {
+      display: block;
+      margin-bottom: 8px;
+      color: #7555a5;
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .clinical-management-card h3 {
+      margin: 0 0 9px;
+      color: #0b2447;
+      font-size: 19px;
+    }
+
+    .clinical-management-card p {
+      margin: 0;
+      color: #657487;
+      font-size: 14px;
+    }
+
+
+    /* NOTE */
+
+    .clinical-note {
+      margin-top: 25px;
+      padding: 26px 28px;
+      border-radius: 16px;
+      background: #f4f0fa;
+      border-left: 5px solid #7555a5;
+    }
+
+    .clinical-note h3 {
+      margin: 0 0 9px;
+      color: #563b83;
+    }
+
+    .clinical-note p {
+      margin: 0;
+      color: #5f586b;
+      font-size: 14px;
+    }
+
+
+    /* VETWEL */
+
+    .clinical-vetwel {
+      margin-top: 70px;
+      padding: 45px;
+      border-radius: 26px;
+      background:
+        linear-gradient(
+          135deg,
+          #0b2447,
+          #563b83
+        );
+      color: #ffffff;
+    }
+
+    .clinical-vetwel-label {
+      margin: 0 0 11px;
+      color: #ddcaff;
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .clinical-vetwel h2 {
+      margin: 0;
+      color: #ffffff;
+      font-size: clamp(30px, 4vw, 41px);
+    }
+
+    .clinical-vetwel > p {
+      max-width: 860px;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .clinical-vetwel-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-top: 28px;
+      max-width: 650px;
+    }
+
+    .clinical-vetwel-card {
+      padding: 26px;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 17px;
+      background: rgba(255,255,255,0.07);
+    }
+
+    .clinical-vetwel-card h3 {
+      margin: 0 0 8px;
+      font-size: 21px;
+    }
+
+    .clinical-vetwel-card p {
+      margin: 0 0 18px;
+      color: rgba(255,255,255,0.74);
+      font-size: 14px;
+    }
+
+    .clinical-pdf-button {
+      display: inline-flex;
+      padding: 11px 17px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #0b2447;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+
+    /* FOLLOWUP */
+
+    .clinical-followup {
+      padding: 30px;
+      border: 1px solid #dfe7ee;
+      border-radius: 20px;
+      background: #ffffff;
+    }
+
+    .clinical-followup h3 {
+      margin-top: 0;
+      color: #0b2447;
+    }
+
+    .clinical-followup ul {
+      margin-bottom: 0;
+      padding-left: 21px;
+      color: #596775;
+    }
+
+    .clinical-followup li {
+      margin: 8px 0;
+    }
+
+
+    /* REFERENCES */
+
+    .clinical-references {
+      margin-top: 70px;
+      padding-top: 30px;
+      border-top: 1px solid #dfe7ee;
+    }
+
+    .clinical-references h2 {
+      font-size: 25px;
+    }
+
+    .clinical-references li {
+      margin-bottom: 11px;
+      color: #657487;
+      font-size: 13px;
+    }
+
+    .clinical-references a {
+      color: #7555a5;
+    }
+
+
+    /* DISCLAIMER */
+
+    .clinical-disclaimer {
+      margin-top: 35px;
+      padding: 22px 25px;
+      border-radius: 15px;
+      background: #edf2f7;
+      color: #566473;
+      font-size: 12px;
+    }
+
+    .clinical-disclaimer strong {
+      color: #0b2447;
+    }
+
+
+    /* FOOTER */
+
+    .clinical-footer {
+      padding: 32px 20px;
+      background: #071b35;
+      color: rgba(255,255,255,0.62);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .clinical-footer strong {
+      color: #ffffff;
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+
+      .clinical-nav {
+        display: none;
+      }
+
+      .clinical-hero {
+        padding: 38px 28px;
+      }
+
+      .clinical-summary-grid,
+      .clinical-two-column,
+      .clinical-management {
+        grid-template-columns: 1fr;
+      }
+
+      .clinical-flow-item {
+        grid-template-columns: 45px 1fr;
+        padding: 19px;
+      }
+
+      .clinical-flow-icon {
+        width: 42px;
+        height: 42px;
+      }
+
+      .clinical-vetwel {
+        padding: 32px 25px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- HEADER -->
+
+  <header class="clinical-header">
+
+    <div class="clinical-header-inner">
+
+      <a class="clinical-logo" href="index.html">
+
+        <span class="clinical-logo-mark">✚</span>
+
+        <span class="clinical-logo-text">
+          <strong>VetWel®</strong>
+          <span>VETERINARY WELLNESS</span>
+        </span>
+
+      </a>
+
+
+      <nav class="clinical-nav">
+
+        <a href="index.html#neden-vetwel">
+          Neden VetWel?
+        </a>
+
+        <a href="index.html#cozumler">
+          Çözümler
+        </a>
+
+        <a href="index.html#urunler">
+          Ürünler
+        </a>
+
+        <a
+          class="active"
+          href="education.html"
+        >
+          Eğitim Merkezi
+        </a>
+
+        <a
+          class="clinical-contact"
+          href="index.html#iletisim"
+        >
+          İletişim
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+
+  <main class="clinical-main">
+
+    <div class="clinical-container">
+
+
+      <a
+        href="education-resources.html#clinical-guides"
+        class="clinical-back"
+      >
+        ← Klinik Kullanım Rehberleri
+      </a>
+
+
+      <!-- HERO -->
+
+      <section class="clinical-hero">
+
+        <p class="clinical-eyebrow">
+          VETWEL® KLİNİK KULLANIM REHBERİ
+        </p>
+
+        <h1>
+          Kedi ve Köpeklerde
+          Solunum Yolu Bulgularında
+          Klinik Yaklaşım
+        </h1>
+
+        <p class="clinical-hero-lead">
+          Öksürük, burun akıntısı, hapşırma, hırıltı,
+          egzersiz intoleransı ve solunum güçlüğü tek bir
+          hastalığı ifade etmez. İlk klinik hedef hastanın
+          stabilitesini belirlemek, solunum problemini
+          anatomik ve patofizyolojik olarak lokalize etmek
+          ve altta yatan nedeni sistematik biçimde
+          değerlendirmektir.
+        </p>
+
+        <div class="clinical-author">
+          Hazırlayan:
+          <strong>
+            Veteriner Hekimi Nazif Oben Akşemsettinoğlu
+          </strong>
+          · VetWel® Eğitim Merkezi
+        </div>
+
+      </section>
+
+
+
+      <!-- SUMMARY -->
+
+      <section class="clinical-summary-grid">
+
+        <article class="clinical-summary-card">
+
+          <span class="clinical-summary-number">01</span>
+
+          <h3>Önce stabilite</h3>
+
+          <p>
+            Belirgin solunum eforu veya hipoksemi şüphesinde
+            ayrıntılı tanısal işlemlerden önce hastanın
+            stabilizasyonu öncelik taşır.
+          </p>
+
+        </article>
+
+
+        <article class="clinical-summary-card">
+
+          <span class="clinical-summary-number">02</span>
+
+          <h3>Problemi lokalize et</h3>
+
+          <p>
+            Üst hava yolu, alt hava yolu, pulmoner parankim,
+            plevral boşluk veya kardiyovasküler kaynaklı
+            tablolar birbirinden ayrılmalıdır.
+          </p>
+
+        </article>
+
+
+        <article class="clinical-summary-card">
+
+          <span class="clinical-summary-number">03</span>
+
+          <h3>Nedene yönelik yönet</h3>
+
+          <p>
+            Öksürüğü veya solunum sesini tek başına tedavi
+            etmek yerine enfeksiyöz, inflamatuar, kardiyak,
+            yapısal ve diğer nedenler araştırılır.
+          </p>
+
+        </article>
+
+      </section>
+
+
+
+      <!-- EMERGENCY -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-emergency">
+
+          <p class="clinical-emergency-label">
+            ACİL AYIRICI NOKTA
+          </p>
+
+          <h3>
+            Solunum güçlüğü önce stabilizasyon gerektirir
+          </h3>
+
+          <p>
+            Belirgin artmış solunum eforu, ortopne,
+            açık ağız solunumu özellikle kedide,
+            siyanoz, ciddi hipoksemi şüphesi,
+            hızla kötüleşen genel durum veya bilinç
+            değişikliği olan hastalarda gereksiz stres
+            ve manipülasyondan kaçınılmalı; oksijen desteği
+            ve gerekli acil stabilizasyon tanısal
+            işlemlerden önce değerlendirilmelidir.
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- FLOW -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            KLİNİK AKIŞ
+          </p>
+
+          <h2>
+            Solunum bulgusundan tanısal plana
+          </h2>
+
+          <p>
+            Respiratuvar hastada değerlendirme; hastanın
+            stabilitesi, anatomik lokalizasyon, öykü,
+            fizik muayene ve seçilmiş tanısal testlerin
+            birlikte yorumlanmasına dayanır.
+          </p>
+
+        </div>
+
+
+        <div class="clinical-flow">
+
+
+          <article class="clinical-flow-item">
+
+            <div class="clinical-flow-icon">
+              1
+            </div>
+
+            <div>
+
+              <h3>
+                Solunum sıkıntısı var mı?
+              </h3>
+
+              <p>
+                Solunum sayısı kadar solunum eforu,
+                postür, mukozal renk, mental durum ve
+                hastanın manipülasyonu tolere edip
+                edemediği değerlendirilmelidir.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="clinical-flow-item">
+
+            <div class="clinical-flow-icon">
+              2
+            </div>
+
+            <div>
+
+              <h3>
+                Bulguyu anatomik olarak lokalize et
+              </h3>
+
+              <p>
+                Üst hava yolu, trakeobronşiyal sistem,
+                pulmoner parankim, plevral boşluk ve
+                kardiyovasküler sistem olasılıkları
+                solunum paterni ve oskültasyonla
+                önceliklendirilir.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="clinical-flow-item">
+
+            <div class="clinical-flow-icon">
+              3
+            </div>
+
+            <div>
+
+              <h3>
+                Öyküyü ayrıntılandır
+              </h3>
+
+              <p>
+                Bulguların başlangıcı ve süresi,
+                enfeksiyon maruziyeti, seyahat,
+                aşı durumu, çevresel irritanlar,
+                egzersiz ilişkisi, kilo kaybı,
+                eş zamanlı hastalıklar ve kullanılan
+                ilaçlar sorgulanmalıdır.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="clinical-flow-item">
+
+            <div class="clinical-flow-icon">
+              4
+            </div>
+
+            <div>
+
+              <h3>
+                Tanısal testleri hastaya göre seç
+              </h3>
+
+              <p>
+                Toraks radyografisi, ultrasonografi,
+                ekokardiyografi, hematoloji/biyokimya,
+                enfeksiyöz hastalık testleri, hava yolu
+                örneklemesi veya ileri görüntüleme
+                klinik şüpheye göre kullanılabilir.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="clinical-flow-item">
+
+            <div class="clinical-flow-icon">
+              5
+            </div>
+
+            <div>
+
+              <h3>
+                Nedene yönelik tedavi planına geç
+              </h3>
+
+              <p>
+                Enfeksiyon, inflamatuar hava yolu hastalığı,
+                kardiyak hastalık, pulmoner parankim
+                hastalığı, plevral hastalık veya yapısal
+                problem belirlendikten sonra hasta bazlı
+                tedavi planlanır.
+              </p>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </section>
+
+
+
+      <!-- LOCALISATION -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            LOKALİZASYON
+          </p>
+
+          <h2>
+            Solunum paternini klinik ipucu olarak kullan
+          </h2>
+
+          <p>
+            Solunum paterni kesin tanı sağlamaz ancak
+            ilk tanısal yönlendirmede önemli bir araçtır.
+          </p>
+
+        </div>
+
+
+        <div class="clinical-table-wrap">
+
+          <table class="clinical-table">
+
+            <thead>
+
+              <tr>
+                <th>Olası Lokalizasyon</th>
+                <th>Klinik İpuçları</th>
+                <th>Değerlendirilebilecek Nedenler</th>
+              </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+              <tr>
+
+                <td>
+                  <strong>Üst hava yolu</strong>
+                </td>
+
+                <td>
+                  Stridor, stertor, inspiratuvar efor,
+                  burun akıntısı veya değişmiş ses.
+                </td>
+
+                <td>
+                  Nazal hastalık, larengeal bozukluklar,
+                  brachycephalic airway problemleri,
+                  yabancı cisim, kitle veya inflamasyon.
+                </td>
+
+              </tr>
+
+
+              <tr>
+
+                <td>
+                  <strong>Alt hava yolu</strong>
+                </td>
+
+                <td>
+                  Öksürük, wheezing, ekspiratuvar efor
+                  veya uzamış ekspirasyon.
+                </td>
+
+                <td>
+                  Bronşiyal inflamasyon, enfeksiyon,
+                  kollaps veya diğer trakeobronşiyal
+                  hastalıklar.
+                </td>
+
+              </tr>
+
+
+              <tr>
+
+                <td>
+                  <strong>Pulmoner parankim</strong>
+                </td>
+
+                <td>
+                  Takipne, solunum eforu,
+                  anormal akciğer sesleri,
+                  hipoksemi olasılığı.
+                </td>
+
+                <td>
+                  Pnömoni, pulmoner ödem,
+                  interstisyel hastalık,
+                  hemoraji veya neoplazi.
+                </td>
+
+              </tr>
+
+
+              <tr>
+
+                <td>
+                  <strong>Plevral boşluk</strong>
+                </td>
+
+                <td>
+                  Hızlı yüzeysel solunum,
+                  belirgin solunum eforu,
+                  ventral akciğer seslerinde azalma.
+                </td>
+
+                <td>
+                  Plevral efüzyon, pnömotoraks,
+                  hemotoraks veya pyotoraks.
+                </td>
+
+              </tr>
+
+
+              <tr>
+
+                <td>
+                  <strong>Kardiyovasküler</strong>
+                </td>
+
+                <td>
+                  Takipne, egzersiz intoleransı,
+                  senkop öyküsü veya konjestif
+                  kalp yetmezliği bulguları.
+                </td>
+
+                <td>
+                  Kardiyak hastalık,
+                  pulmoner hipertansiyon veya
+                  kardiyojenik pulmoner ödem.
+                </td>
+
+              </tr>
+
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- COUGH -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            ÖKSÜRÜK
+          </p>
+
+          <h2>
+            Öksürük bir tanı değil, klinik bulgudur
+          </h2>
+
+        </div>
+
+
+        <div class="clinical-two-column">
+
+          <article class="clinical-panel">
+
+            <h3>
+              Öyküde sorgulanabilecekler
+            </h3>
+
+            <ul>
+              <li>Akut veya kronik başlangıç</li>
+              <li>Gün içindeki paterni</li>
+              <li>Egzersizle ilişkisi</li>
+              <li>Heyecan veya tasma basıncıyla ilişkisi</li>
+              <li>Produktif görünüm</li>
+              <li>Öğürmeyle karışıp karışmadığı</li>
+              <li>Enfeksiyon maruziyeti</li>
+              <li>Seyahat öyküsü</li>
+              <li>Kalp kurdu / parazit riski</li>
+              <li>Çevresel duman ve irritanlar</li>
+            </ul>
+
+          </article>
+
+
+          <article class="clinical-panel">
+
+            <h3>
+              Ayırıcı tanıda
+            </h3>
+
+            <ul>
+              <li>Enfeksiyöz trakeobronşit</li>
+              <li>Kronik bronşiyal hastalık</li>
+              <li>Trakeal / bronşiyal kollaps</li>
+              <li>Pnömoni</li>
+              <li>Paraziter hastalıklar</li>
+              <li>Pulmoner hipertansiyon</li>
+              <li>Yabancı cisim</li>
+              <li>Neoplazi</li>
+              <li>Kardiyopulmoner hastalıklar</li>
+            </ul>
+
+          </article>
+
+        </div>
+
+
+        <div class="clinical-note">
+
+          <h3>
+            Öksürüğü bastırmadan önce nedenini belirle
+          </h3>
+
+          <p>
+            Özellikle pnömoni, yabancı cisim veya
+            produktif hava yolu hastalığı olasılığında
+            yalnızca öksürüğü baskılamaya yönelik yaklaşım
+            uygun olmayabilir. Tedavi klinik tanıya göre
+            planlanmalıdır.
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- DIAGNOSTIC -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            TANISAL DEĞERLENDİRME
+          </p>
+
+          <h2>
+            Pratik respiratuvar kontrol listesi
+          </h2>
+
+        </div>
+
+
+        <div class="clinical-two-column">
+
+          <article class="clinical-panel">
+
+            <h3>
+              Klinik değerlendirme
+            </h3>
+
+            <ul>
+              <li>Solunum sayısı</li>
+              <li>Solunum eforu ve paterni</li>
+              <li>Postür</li>
+              <li>Mukozal renk</li>
+              <li>Akciğer ve kalp oskültasyonu</li>
+              <li>Üst hava yolu sesleri</li>
+              <li>Vücut sıcaklığı</li>
+              <li>Hidrasyon durumu</li>
+              <li>Vücut ağırlığı trendi</li>
+              <li>Genel aktivite ve egzersiz toleransı</li>
+            </ul>
+
+          </article>
+
+
+          <article class="clinical-panel">
+
+            <h3>
+              Gerektiğinde tanısal testler
+            </h3>
+
+            <ul>
+              <li>Pulse oksimetri</li>
+              <li>Kan gazı değerlendirmesi</li>
+              <li>Toraks radyografisi</li>
+              <li>Toraks ultrasonografisi</li>
+              <li>Ekokardiyografi</li>
+              <li>Hemogram ve biyokimya</li>
+              <li>Enfeksiyöz hastalık testleri</li>
+              <li>Trakeal wash / bronkoalveolar lavaj</li>
+              <li>Sitoloji ve kültür</li>
+              <li>CT / bronkoskopi gibi ileri yöntemler</li>
+            </ul>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- MANAGEMENT -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            KLİNİK YÖNETİM
+          </p>
+
+          <h2>
+            Tedavi klinik nedene göre şekillenir
+          </h2>
+
+        </div>
+
+
+        <div class="clinical-management">
+
+
+          <article class="clinical-management-card">
+
+            <span>01 · ACİL DURUM</span>
+
+            <h3>
+              Oksijenasyon ve stabilizasyon
+            </h3>
+
+            <p>
+              Respiratuvar distreste minimum stres,
+              uygun oksijen desteği ve gerekli acil
+              girişimler öncelik taşır. Tanısal
+              işlemlerin zamanlaması hastanın
+              stabilitesine göre belirlenir.
+            </p>
+
+          </article>
+
+
+          <article class="clinical-management-card">
+
+            <span>02 · ENFEKSİYON</span>
+
+            <h3>
+              Antimikrobiyali seçici kullan
+            </h3>
+
+            <p>
+              Her öksürük veya burun akıntısı bakteriyel
+              enfeksiyon anlamına gelmez. Antimikrobiyal
+              tedavi klinik tablo, enfeksiyon olasılığı
+              ve gerektiğinde örnekleme sonuçlarına
+              göre planlanmalıdır.
+            </p>
+
+          </article>
+
+
+          <article class="clinical-management-card">
+
+            <span>03 · HAVA YOLU</span>
+
+            <h3>
+              İnflamatuar ve yapısal nedenler
+            </h3>
+
+            <p>
+              Kronik bronşiyal inflamasyon,
+              trakeobronşiyal kollaps veya üst hava
+              yolu problemlerinde tedavi anatomik
+              lokalizasyon ve hastalığın nedenine
+              göre bireyselleştirilir.
+            </p>
+
+          </article>
+
+
+          <article class="clinical-management-card">
+
+            <span>04 · PULMONER</span>
+
+            <h3>
+              Parankimal hastalıkları ayır
+            </h3>
+
+            <p>
+              Pnömoni, pulmoner ödem, interstisyel
+              hastalık veya diğer parankimal
+              hastalıklarda görüntüleme ve klinik
+              bulgular tedavi yönünü belirler.
+            </p>
+
+          </article>
+
+
+          <article class="clinical-management-card">
+
+            <span>05 · KARDİYAK</span>
+
+            <h3>
+              Kalp ve akciğeri birlikte düşün
+            </h3>
+
+            <p>
+              Takipne ve solunum güçlüğü yalnızca
+              primer respiratuvar hastalıktan
+              kaynaklanmayabilir. Kardiyak hastalık
+              ve pulmoner hipertansiyon uygun
+              hastalarda değerlendirilmelidir.
+            </p>
+
+          </article>
+
+
+          <article class="clinical-management-card">
+
+            <span>06 · ÇEVRESEL</span>
+
+            <h3>
+              İrritan yükünü azalt
+            </h3>
+
+            <p>
+              Sigara dumanı, aerosol ürünler,
+              yoğun parfüm, toz ve diğer çevresel
+              irritanların azaltılması hassas hava
+              yolu bulunan hastalarda destekleyici
+              çevresel yönetimin parçasıdır.
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </section>
+
+
+
+      <!-- RED FLAGS -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            KIRMIZI BAYRAKLAR
+          </p>
+
+          <h2>
+            Tamamlayıcı desteğin ötesinde değerlendirme gerektiren durumlar
+          </h2>
+
+        </div>
+
+
+        <div class="clinical-emergency">
+
+          <h3>
+            Gecikmeden ileri değerlendirme
+          </h3>
+
+          <p>
+            İstirahatte belirgin solunum eforu,
+            açık ağız solunumu, siyanoz,
+            hemoptizi, senkop, hızlı klinik kötüleşme,
+            ciddi letarji, devam eden yüksek ateş,
+            oksijenasyon bozukluğu şüphesi veya
+            plevral hastalık bulguları rutin
+            tamamlayıcı destek olgusu olarak
+            değerlendirilmemelidir.
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- VETWEL -->
+
+      <section class="clinical-vetwel">
+
+        <p class="clinical-vetwel-label">
+          TAMAMLAYICI SOLUNUM DESTEĞİ
+        </p>
+
+        <h2>
+          Breathe Ease® klinik plana nerede dahil edilir?
+        </h2>
+
+        <p>
+          Breathe Ease®, öksürüğün veya solunum hastalığının
+          tanı ve tedavisinin yerine geçmez. Altta yatan
+          neden değerlendirildikten ve gerekli temel tedavi
+          planlandıktan sonra; solunum yolu mukozasının,
+          normal respiratuvar fonksiyonların ve antioksidan
+          savunmanın tamamlayıcı beslenme desteği kapsamında
+          desteklenmesinin uygun görüldüğü hastalarda
+          veteriner hekim tarafından klinik plana
+          dahil edilebilir.
+        </p>
+
+
+        <div class="clinical-vetwel-grid">
+
+          <article class="clinical-vetwel-card">
+
+            <h3>
+              Breathe Ease®
+            </h3>
+
+            <p>
+              Kedi ve köpeklerde solunum sistemi ve
+              mukozal destek amacıyla geliştirilmiş
+              tamamlayıcı beslenme desteği.
+              İçerik, doz ve kullanım bilgileri için
+              veteriner profesyonel broşürünü inceleyin.
+            </p>
+
+            <a
+              class="clinical-pdf-button"
+              href="Breathe_Ease_VetWel_Veteriner_Profesyonel_Brosur_FINAL.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              Profesyonel Broşürü Aç →
+            </a>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- FOLLOW UP -->
+
+      <section class="clinical-section">
+
+        <div class="clinical-section-heading">
+
+          <p class="clinical-kicker">
+            KLİNİK TAKİP
+          </p>
+
+          <h2>
+            Bulguların seyrini takip et
+          </h2>
+
+        </div>
+
+
+        <div class="clinical-followup">
+
+          <h3>
+            Kontrollerde değerlendirilebilecek göstergeler
+          </h3>
+
+          <ul>
+            <li>Öksürüğün sıklığı ve şiddeti</li>
+            <li>İstirahat solunum paterni</li>
+            <li>Solunum eforunda değişiklik</li>
+            <li>Burun / göz akıntısının seyri</li>
+            <li>Egzersiz toleransı</li>
+            <li>İştah ve aktivite</li>
+            <li>Vücut sıcaklığı</li>
+            <li>Oksijenasyon gerektiğinde</li>
+            <li>Kontrol radyografisi gerektiğinde</li>
+            <li>Temel hastalığa özgü takip parametreleri</li>
+          </ul>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- REFERENCES -->
+
+      <section class="clinical-section clinical-references">
+
+        <p class="clinical-kicker">
+          BİLİMSEL KAYNAKLAR
+        </p>
+
+        <h2>
+          Referanslar
+        </h2>
+
+        <ol>
+
+          <li>
+            Lappin MR, Blondeau J, Boothe D, et al.
+            Antimicrobial use Guidelines for Treatment of
+            Respiratory Tract Disease in Dogs and Cats.
+            Journal of Veterinary Internal Medicine. 2017.
+
+            <a
+              href="https://pubmed.ncbi.nlm.nih.gov/28185306/"
+              target="_blank"
+              rel="noopener"
+            >
+              PubMed
+            </a>
+          </li>
+
+
+          <li>
+            Balakrishnan A, Silverstein DC,
+            Bedenice D, et al.
+            Acute Respiratory Distress Syndrome in
+            Veterinary Medicine — The ARDSVet Definitions.
+            Journal of Veterinary Emergency and Critical Care.
+            2025.
+
+            <a
+              href="https://pubmed.ncbi.nlm.nih.gov/40838381/"
+              target="_blank"
+              rel="noopener"
+            >
+              PubMed
+            </a>
+          </li>
+
+
+          <li>
+            Reinero C, Visser LC, Kellihan HB, et al.
+            ACVIM consensus statement guidelines for
+            the diagnosis, classification, treatment,
+            and monitoring of pulmonary hypertension
+            in dogs.
+            Journal of Veterinary Internal Medicine. 2020.
+
+            <a
+              href="https://pubmed.ncbi.nlm.nih.gov/32065428/"
+              target="_blank"
+              rel="noopener"
+            >
+              PubMed
+            </a>
+          </li>
+
+
+        </ol>
+
+      </section>
+
+
+
+      <!-- DISCLAIMER -->
+
+      <div class="clinical-disclaimer">
+
+        <strong>Profesyonel kullanım notu:</strong>
+        Bu içerik veteriner hekimlere yönelik eğitim
+        amacıyla hazırlanmıştır ve bireysel hastanın
+        muayenesi, tanısal değerlendirmesi veya
+        veteriner hekimin klinik kararının yerine geçmez.
+
+        <br><br>
+
+        Solunum güçlüğü veya hipoksemi şüphesinde
+        tamamlayıcı ürün uygulaması acil stabilizasyonu
+        geciktirmemelidir.
+
+        <br><br>
+
+        <strong>
+          VetWel® ürünleri ilaç değildir, tamamlayıcı yemdir.
+        </strong>
+
+      </div>
+
+
+    </div>
+
+  </main>
+
+
+
+  <footer class="clinical-footer">
+
+    <strong>
+      VetWel® Veterinary Wellness
+    </strong>
+
+    <br>
+
+    Eğitim Merkezi · Veteriner Profesyonelleri
+
+  </footer>
+
+
+</body>
+</html>

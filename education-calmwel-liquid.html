@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="CalmWel® Liquid ürün bilgisi: kedi ve köpeklerde stres, korku yanıtı, davranış dengesi ve çevresel adaptasyon desteğine yönelik bitkisel sıvı form.">
+
+  <title>CalmWel® Liquid Ürün Bilgisi | VetWel® Bilgi Merkezi</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #f7f9fc;
+      color: #24384d;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .product-page {
+      min-height: 100vh;
+      padding: 60px 20px 80px;
+    }
+
+    .product-container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .product-back {
+      display: inline-block;
+      margin-bottom: 28px;
+      color: #294d73;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .product-back:hover {
+      text-decoration: underline;
+    }
+
+    .product-hero {
+      background: #173f6b;
+      color: white;
+      border-radius: 24px;
+      padding: 48px;
+      margin-bottom: 30px;
+      border-top: 6px solid #2f918c;
+      box-shadow: 0 15px 40px rgba(23,63,107,0.12);
+    }
+
+    .product-kicker {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+      color: #cce8e5;
+    }
+
+    .product-hero h1 {
+      margin: 8px 0 15px;
+      font-size: 38px;
+      line-height: 1.15;
+    }
+
+    .product-hero p {
+      max-width: 850px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.87);
+      margin-bottom: 0;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .product-card {
+      background: white;
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      border: 1px solid #e8eef5;
+    }
+
+    .product-card h2 {
+      color: #173f6b;
+      margin-top: 0;
+      margin-bottom: 14px;
+    }
+
+    .product-card p,
+    .product-card li {
+      color: #596775;
+      line-height: 1.7;
+    }
+
+    .product-card ul {
+      padding-left: 22px;
+    }
+
+    .product-section {
+      margin-top: 28px;
+    }
+
+    .formula-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 15px;
+      margin-top: 22px;
+    }
+
+    .formula-item {
+      background: #f3f9f8;
+      border: 1px solid #d9ecea;
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .formula-item strong {
+      display: block;
+      color: #23756f;
+      margin-bottom: 7px;
+    }
+
+    .formula-item p {
+      margin: 0;
+      color: #596775;
+      line-height: 1.65;
+    }
+
+    .formula-note {
+      margin-top: 20px;
+      background: #f2f9f8;
+      border-left: 5px solid #2f918c;
+      border-radius: 14px;
+      padding: 18px 20px;
+      color: #596775;
+      line-height: 1.7;
+    }
+
+    .ingredient-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .ingredient-item {
+      background: #f7f9fc;
+      border: 1px solid #e3eaf2;
+      border-radius: 14px;
+      padding: 15px 16px;
+      color: #516579;
+      line-height: 1.5;
+    }
+
+    .ingredient-item strong {
+      display: block;
+      color: #173f6b;
+      margin-bottom: 3px;
+    }
+
+    .clinical-note,
+    .usage-box,
+    .safety-note {
+      margin-top: 28px;
+      background: white;
+      border-radius: 18px;
+      padding: 28px;
+      border: 1px solid #dce6f0;
+    }
+
+    .clinical-note h2,
+    .usage-box h2,
+    .safety-note h2 {
+      margin-top: 0;
+      color: #173f6b;
+    }
+
+    .clinical-note p,
+    .clinical-note li,
+    .usage-box p,
+    .usage-box li,
+    .safety-note p,
+    .safety-note li {
+      color: #596775;
+      line-height: 1.7;
+    }
+
+    .clinical-note ul,
+    .usage-box ul,
+    .safety-note ul {
+      padding-left: 22px;
+    }
+
+    .usage-step {
+      background: #f3f7fb;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 15px;
+    }
+
+    .usage-step strong {
+      color: #173f6b;
+    }
+
+    .product-note {
+      margin-top: 28px;
+      background: #eef3f8;
+      border-left: 5px solid #2f918c;
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .product-note h2 {
+      color: #173f6b;
+      margin-top: 0;
+    }
+
+    .product-note p {
+      color: #526678;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 600px) {
+      .product-page {
+        padding: 40px 16px 60px;
+      }
+
+      .product-hero {
+        padding: 30px 24px;
+      }
+
+      .product-hero h1 {
+        font-size: 30px;
+      }
+
+      .product-card,
+      .usage-box,
+      .clinical-note,
+      .safety-note,
+      .product-note {
+        padding: 24px 22px;
+      }
+    }
+  </style>
+
+</head>
+
+
+<body>
+
+<main class="product-page">
+
+  <div class="product-container">
+
+    <a href="education-products.html" class="product-back">
+      ← Ürün Bilgilerine Dön
+    </a>
+
+
+    <!-- HERO -->
+
+    <section class="product-hero">
+
+      <p class="product-kicker">
+        VETWEL® ÜRÜN BİLGİSİ
+      </p>
+
+      <h1>CalmWel® Liquid</h1>
+
+      <p>
+        CalmWel® Liquid; kedi ve köpeklerde çevresel stres,
+        korku, huzursuzluk ve stresle ilişkili davranış
+        değişikliklerinin destekleyici yönetimine yönelik
+        çok bileşenli bitkisel sıvı formüldür.
+      </p>
+
+    </section>
+
+
+    <!-- ANA DESTEK ALANLARI -->
+
+    <section class="product-grid">
+
+      <article class="product-card">
+
+        <h2>Ne İçin Kullanılır?</h2>
+
+        <p>
+          CalmWel® Liquid, stresli veya değişken çevresel
+          koşullarda sakin davranışın, korku ve stres yanıtının,
+          davranış dengesinin ve çevresel adaptasyonun
+          desteklenmesine yönelik tamamlayıcı yaklaşım sunar.
+        </p>
+
+      </article>
+
+
+      <article class="product-card">
+
+        <h2>Stres Yükü</h2>
+
+        <p>
+          Seyahat, ayrılık, veteriner ziyareti, yeni ortam,
+          yüksek ses ve diğer çevresel uyaranlara bağlı
+          huzursuzluk dönemlerinde sakin davranışın
+          desteklenmesine yardımcı olur.
+        </p>
+
+      </article>
+
+
+      <article class="product-card">
+
+        <h2>Korku Yanıtı</h2>
+
+        <p>
+          Çok bileşenli bitkisel fitokompleks, korku ve stres
+          uyaranlarına karşı daha dengeli davranış yanıtının
+          desteklenmesine yönelik formüle edilmiştir.
+        </p>
+
+      </article>
+
+
+      <article class="product-card">
+
+        <h2>Davranış Dengesi</h2>
+
+        <p>
+          Huzursuzluk, aşırı uyarılma ve stresle ilişkili
+          davranış değişikliklerinde daha yönetilebilir ve
+          dengeli davranış profilinin desteklenmesine yardımcı olur.
+        </p>
+
+      </article>
+
+
+      <article class="product-card">
+
+        <h2>Çevresel Adaptasyon</h2>
+
+        <p>
+          Taşınma, pansiyon, kuaför, seyahat, veteriner
+          ziyareti ve günlük rutindeki değişikliklere uyumun
+          desteklenmesine yönelik bitkisel bileşenler içerir.
+        </p>
+
+      </article>
+
+
+      <article class="product-card">
+
+        <h2>Pratik Sıvı Form</h2>
+
+        <p>
+          Sıvı yapısı sayesinde doğrudan ağızdan uygulanabilir
+          veya uygun durumlarda içme suyuna eklenerek verilebilir.
+        </p>
+
+      </article>
+
+    </section>
+
+
+    <!-- HANGİ DURUMLARDA -->
+
+    <section class="product-section product-card">
+
+      <h2>Hangi Durumlarda Düşünülür?</h2>
+
+      <ul>
+        <li>Seyahat ve taşıma dönemlerinde</li>
+        <li>Veteriner ziyareti öncesinde</li>
+        <li>Kuaför veya pansiyon gibi yeni ortamlarda</li>
+        <li>Taşınma ve çevre değişikliklerinde</li>
+        <li>Gürültü korkusu ve aşırı uyarılmada</li>
+        <li>Yalnız kalmaya bağlı huzursuzlukta</li>
+        <li>Stresle ilişkili aşırı havlama ve hiperaktivitede</li>
+        <li>Stresle ilişkili kompulsif yalama davranışında</li>
+        <li>Stres dönemlerinde görülen iştah değişikliklerinde</li>
+        <li>Stresle ilişkili aşırı tüy dökme dönemlerinde</li>
+        <li>İşaretleme ve uygunsuz eliminasyon davranışlarının çok yönlü yönetiminde</li>
+        <li>Çiftleşme dönemine bağlı huzursuzlukta veteriner değerlendirmesiyle</li>
+      </ul>
+
+    </section>
+
+
+    <!-- FORMÜLASYON MANTIĞI -->
+
+    <section class="product-section product-card">
+
+      <h2>İçerik ve Formülasyon Mantığı</h2>
+
+      <p>
+        CalmWel® Liquid tek bir sakinleştirici bitkiye dayalı
+        değildir. Formül; stres yanıtı, korku, aşırı uyarılma,
+        davranış dengesi, fiziksel gerginlik ve çevresel
+        adaptasyon gibi birbirini etkileyen alanları birlikte
+        destekleyen çok bileşenli bir fitokompleks yaklaşımına sahiptir.
+      </p>
+
+
+      <div class="formula-grid">
+
+
+        <div class="formula-item">
+
+          <strong>Sakinlik & Gerginlik</strong>
+
+          <p>
+            Valeriana officinalis, Humulus lupulus ve
+            Melissa officinalis; sakin davranışın ve
+            rahatlamanın desteklenmesine yönelik temel
+            bitkisel eksenlerden birini oluşturur.
+          </p>
+
+        </div>
+
+
+        <div class="formula-item">
+
+          <strong>Stres & Aşırı Uyarılma</strong>
+
+          <p>
+            Valeriana, Humulus, Leonurus ve diğer tamamlayıcı
+            botanik bileşenler stresli uyaranlara verilen aşırı
+            yanıtın daha dengeli hale gelmesine yönelik
+            formülasyon yaklaşımını destekler.
+          </p>
+
+        </div>
+
+
+        <div class="formula-item">
+
+          <strong>Davranış Dengesi</strong>
+
+          <p>
+            Melissa, Valeriana, Leonurus ve fitokompleksin
+            diğer bileşenleri huzursuzluk ve stresle ilişkili
+            davranışsal değişikliklerin destekleyici yönetiminde
+            birbirini tamamlar.
+          </p>
+
+        </div>
+
+
+        <div class="formula-item">
+
+          <strong>Adaptasyon</strong>
+
+          <p>
+            Alıç, melisa ve formülün diğer botanikleri
+            seyahat, çevre değişikliği ve öngörülebilir
+            stres faktörlerine uyum yaklaşımını tamamlar.
+          </p>
+
+        </div>
+
+
+        <div class="formula-item">
+
+          <strong>Somatik Rahatlama</strong>
+
+          <p>
+            Şakayık, melisa, kedi otu, şerbetçi otu ve
+            diğer bitkisel bileşenler stresle birlikte
+            görülebilen fiziksel gerginliğin destekleyici
+            yönetimine katkı sağlar.
+          </p>
+
+        </div>
+
+
+        <div class="formula-item">
+
+          <strong>Sıvı Form Avantajı</strong>
+
+          <p>
+            Sıvı form; tablet uygulamasının zor olduğu
+            hastalarda alternatif uygulama seçeneği sağlar
+            ve dozun hastaya göre düzenlenmesini kolaylaştırır.
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="formula-note">
+
+        <strong>Formülasyon yaklaşımı:</strong>
+
+        CalmWel® Liquid'in temel hedefi hayvanı uyutmak
+        veya belirgin sedasyon oluşturmak değildir.
+
+        <br><br>
+
+        Ana eksen:
+        <strong>
+          stres → korku → aşırı uyarılma → davranış dengesi
+        </strong>
+
+        <br><br>
+
+        Amaç, stresli uyaranlar karşısında daha dengeli ve
+        yönetilebilir davranış yanıtının desteklenmesine
+        yardımcı olmaktır.
+
+      </div>
+
+    </section>
+
+
+    <!-- GENEL İÇERİKLER -->
+
+    <section class="product-section product-card">
+
+      <h2>Genel İçerikler</h2>
+
+      <p>
+        CalmWel® Liquid, davranış ve stres desteğine yönelik
+        14 bitkisel bileşenden oluşan geniş bir fitokompleks içerir.
+      </p>
+
+
+      <div class="ingredient-grid">
+
+        <div class="ingredient-item">
+          <strong>1. Kekik</strong>
+          Thymus vulgaris L.
+        </div>
+
+        <div class="ingredient-item">
+          <strong>2. Kedi Otu</strong>
+          Valeriana officinalis L.
+        </div>
+
+        <div class="ingredient-item">
+          <strong>3. Alıç</strong>
+          Crataegus oxyacantha
+        </div>
+
+        <div class="ingredient-item">
+          <strong>4. Kantaron</strong>
+          Hypericum perforatum L.
+        </div>
+
+        <div class="ingredient-item">
+          <strong>5. Şerbetçi Otu</strong>
+          Humulus lupulus L.
+        </div>
+
+        <div class="ingredient-item">
+          <strong>6. Nane</strong>
+          Mentha pulegium L.
+        </div>
+
+        <div class="ingredient-item">
+          <strong>7. Melisa</strong>
+          Melissa officinalis L.
+        </div>
+
+        <div class="ingredient-item">
+          <strong>8. Tekesakalı Otu</strong>
+          Filipendula ulmaria
+        </div>
+
+        <div class="ingredient-item">
+          <strong>9. Isırgan Otu</strong>
+          Urtica dioica
+        </div>
+
+        <div class="ingredient-item">
+          <strong>10. Şakayık Otu</strong>
+          Paeonia lactiflora L.
+        </div>
+
+        <div class="ingredient-item">
+          <strong>11. Sarı Yonca</strong>
+          Melilotus officinalis L.
+        </div>
+
+        <div class="ingredient-item">
+          <strong>12. Bozağan Otu</strong>
+          Gnaphalium uliginosum L.
+        </div>
+
+        <div class="ingredient-item">
+          <strong>13. Aslan Otu</strong>
+          Leonurus cardiaca L.
+        </div>
+
+        <div class="ingredient-item">
+          <strong>14. Yer Sarmaşığı</strong>
+          Glechoma hederacea L.
+        </div>
+
+      </div>
+
+
+      <div class="formula-note">
+        Bitkisel bileşenler formül içinde birbirinden bağımsız
+        tekil etkiler oluşturmak amacıyla değil; sakinlik,
+        davranış dengesi, gerginlik ve çevresel adaptasyon
+        eksenlerini tamamlayan çok bileşenli bir yapı
+        oluşturmak amacıyla birlikte kullanılır.
+      </div>
+
+    </section>
+
+
+    <!-- KLİNİK YAKLAŞIM -->
+
+    <section class="clinical-note">
+
+      <h2>Klinik Yaklaşım</h2>
+
+      <p>
+        Davranış değişiklikleri yalnızca stres veya korkuya
+        bağlanmamalıdır. Ağrı, endokrin hastalıklar,
+        nörolojik sorunlar, üriner veya gastrointestinal
+        rahatsızlıklar ve çevresel faktörler benzer belirtilere
+        neden olabilir.
+      </p>
+
+      <p>
+        Tekrarlayan, ani başlayan veya şiddetli davranış
+        değişikliklerinde altta yatan neden veteriner hekim
+        tarafından değerlendirilmelidir.
+      </p>
+
+    </section>
+
+
+    <!-- DAVRANIŞ YÖNETİMİ -->
+
+    <section class="clinical-note">
+
+      <h2>Davranış Yönetimi</h2>
+
+      <p>
+        CalmWel® Liquid, özellikle şiddetli korku, fobi,
+        agresyon veya kompulsif davranışlarda tek başına bir
+        çözüm olarak değerlendirilmemelidir.
+      </p>
+
+      <p>
+        Gerekli hastalarda çevresel düzenleme,
+        davranış modifikasyonu ve veteriner hekimin uygun
+        gördüğü diğer yaklaşımlarla birlikte kullanılmalıdır.
+      </p>
+
+    </section>
+
+
+    <!-- GÜVENLİK -->
+
+    <section class="safety-note">
+
+      <h2>Kullanım & Güvenlik Notu</h2>
+
+      <ul>
+
+        <li>
+          Bileşenlere karşı bireysel hassasiyet gelişmesi
+          durumunda kullanım durdurulmalıdır.
+        </li>
+
+        <li>
+          Gebelik ve laktasyon döneminde kullanım öncesinde
+          veteriner hekim değerlendirmesi önerilir.
+        </li>
+
+        <li>
+          Çok genç hayvanlarda kullanım veteriner hekimin
+          değerlendirmesine göre planlanmalıdır.
+        </li>
+
+        <li>
+          Eş zamanlı ilaç veya davranış düzenleyici ürün
+          kullanılıyorsa veteriner hekime bilgi verilmelidir.
+        </li>
+
+        <li>
+          Hypericum perforatum içeriği nedeniyle eş zamanlı
+          ilaç kullanımı bulunan hastalarda olası etkileşimler
+          veteriner hekim tarafından değerlendirilmelidir.
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <!-- KULLANIM -->
+
+    <section class="usage-box">
+
+      <h2>Nasıl Kullanılır?</h2>
+
+      <p>
+        CalmWel® Liquid sıvı formdadır.
+      </p>
+
+
+      <div class="usage-step">
+
+        <strong>Kediler</strong>
+
+        <p>
+          Her uygulamada <strong>2 mL</strong>.
+        </p>
+
+      </div>
+
+
+      <div class="usage-step">
+
+        <strong>10 kg'a Kadar Köpekler</strong>
+
+        <p>
+          Her uygulamada <strong>2–4 mL</strong>.
+        </p>
+
+      </div>
+
+
+      <div class="usage-step">
+
+        <strong>10 kg Üzeri Köpekler</strong>
+
+        <p>
+          Her <strong>10 kg canlı ağırlık için 4 mL</strong>.
+        </p>
+
+        <p>
+          Örnek:
+        </p>
+
+        <ul>
+          <li>20 kg: 8 mL</li>
+          <li>30 kg: 12 mL</li>
+          <li>40 kg: 16 mL</li>
+        </ul>
+
+      </div>
+
+
+      <div class="usage-step">
+
+        <strong>Genel Kullanım Sıklığı</strong>
+
+        <p>
+          Günde <strong>2 kez</strong>.
+        </p>
+
+      </div>
+
+
+      <div class="usage-step">
+
+        <strong>Öngörülebilir Stres Durumlarında</strong>
+
+        <p>
+          Veteriner ziyareti, kuaför, pansiyon veya seyahat
+          gibi öngörülebilir stres durumlarında uygun doz,
+          olaydan yaklaşık <strong>2 saat önce</strong>
+          uygulanabilir.
+        </p>
+
+      </div>
+
+
+      <div class="usage-step">
+
+        <strong>Uygulama Şekli</strong>
+
+        <p>
+          Doğrudan ağızdan uygulanabilir veya uygun
+          durumlarda içme suyuna eklenerek verilebilir.
+        </p>
+
+      </div>
+
+
+      <p>
+        <strong>Kullanım süresi:</strong>
+        Hayvanın klinik ve davranışsal durumuna göre
+        veteriner hekimin önerisiyle belirlenmelidir.
+      </p>
+
+      <p>
+        Yetersiz yanıtta doz artışı yalnızca veteriner
+        hekimin değerlendirmesiyle yapılmalıdır.
+      </p>
+
+    </section>
+
+
+    <!-- KISA ÜRÜN ÖZETİ -->
+
+    <section class="product-note">
+
+      <h2>Kısa Ürün Özeti</h2>
+
+      <p>
+        <strong>
+          CalmWel® Liquid, stres ve davranış dengesini yalnızca
+          sedasyon üzerinden ele almayan çok bileşenli bitkisel
+          sıvı formüldür. Sakinlik, korku ve stres yanıtı,
+          aşırı uyarılma, davranış dengesi ve çevresel adaptasyonu
+          birlikte desteklemeyi amaçlar. Sıvı formu pratik ve
+          bireyselleştirilebilir uygulama avantajı sağlar.
+          Şiddetli veya tekrarlayan davranış sorunlarında
+          klinik değerlendirme, çevresel düzenleme ve davranış
+          yönetiminin yerine geçmez.
+        </strong>
+      </p>
+
+    </section>
+
+
+  </div>
+
+</main>
+
+</body>
+
+</html>

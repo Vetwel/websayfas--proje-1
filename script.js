@@ -147,9 +147,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const kidneyProductCards = document.querySelectorAll(".product-kidney");
     const kidneyTabletLink = kidneyProductCards[0]?.querySelector("a");
+    const kidneyLiquidLink = kidneyProductCards[1]?.querySelector("a");
 
     if (kidneyTabletLink) {
       kidneyTabletLink.href = "education-kidneywel.html";
+    }
+
+    if (kidneyLiquidLink) {
+      kidneyLiquidLink.href = "education-kidneywel-liquid.html";
     }
   }
 

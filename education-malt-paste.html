@@ -5,14 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description"
-        content="VetWel® Malt Paste ürün bilgisi: kedi ve gelinciklerde tüy yumağı pasajı, normal bağırsak motilitesi ve prebiyotik mikrobiyota desteği; seçilmiş köpek olgularında gastrointestinal pasaj desteği.">
+  <meta
+    name="description"
+    content="VetWel® Malt Paste ürün bilgisi: kedilerde tüy yumağı geçişi, normal bağırsak hareketleri ve prebiyotik bağırsak desteğine yönelik tamamlayıcı malt macunu."
+  >
 
-  <title>Malt Paste® Ürün Bilgisi | VetWel® Bilgi Merkezi</title>
+  <title>VetWel® Malt Paste Ürün Bilgisi | VetWel® Bilgi Merkezi</title>
 
   <link rel="stylesheet" href="style.css">
 
   <style>
+
     body {
       margin: 0;
       background: #f7f9fc;
@@ -42,14 +45,25 @@
       text-decoration: underline;
     }
 
+
+    /* HERO */
+
     .product-hero {
       background: #173f6b;
       color: white;
       border-radius: 24px;
       padding: 48px;
       margin-bottom: 30px;
-      border-top: 6px solid #3f7eb8;
+      border-top: 6px solid #c89145;
       box-shadow: 0 15px 40px rgba(23,63,107,0.12);
+      overflow: hidden;
+    }
+
+    .product-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 44px;
+      align-items: center;
     }
 
     .product-kicker {
@@ -57,21 +71,56 @@
       font-size: 13px;
       font-weight: 800;
       letter-spacing: 1.3px;
-      color: #d8e9f7;
+      color: #f1dfc4;
+    }
+
+    .product-form-badge {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
     }
 
     .product-hero h1 {
-      margin: 8px 0 15px;
+      margin: 10px 0 15px;
       font-size: 38px;
       line-height: 1.15;
     }
 
     .product-hero p {
-      max-width: 860px;
+      max-width: 850px;
       line-height: 1.7;
       color: rgba(255,255,255,0.87);
       margin-bottom: 0;
     }
+
+    .product-hero-image {
+      background: white;
+      border-radius: 20px;
+      min-height: 310px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.17);
+    }
+
+    .product-hero-image img {
+      display: block;
+      width: 100%;
+      max-width: 330px;
+      max-height: 330px;
+      object-fit: contain;
+    }
+
+
+    /* KARTLAR */
 
     .product-grid {
       display: grid;
@@ -107,6 +156,9 @@
       margin-top: 28px;
     }
 
+
+    /* FORMÜL */
+
     .formula-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
@@ -115,15 +167,15 @@
     }
 
     .formula-item {
-      background: #f3f8fc;
-      border: 1px solid #dce9f4;
+      background: #fbf7f1;
+      border: 1px solid #eadfce;
       border-radius: 14px;
       padding: 18px;
     }
 
     .formula-item strong {
       display: block;
-      color: #326b9e;
+      color: #95682e;
       margin-bottom: 7px;
     }
 
@@ -135,13 +187,16 @@
 
     .formula-note {
       margin-top: 20px;
-      background: #f2f7fb;
-      border-left: 5px solid #3f7eb8;
+      background: #fff9f1;
+      border-left: 5px solid #c89145;
       border-radius: 14px;
       padding: 18px 20px;
       color: #596775;
       line-height: 1.7;
     }
+
+
+    /* İÇERİKLER */
 
     .ingredient-grid {
       display: grid;
@@ -165,9 +220,12 @@
       margin-bottom: 3px;
     }
 
+
+    /* KLİNİK */
+
     .clinical-note,
-    .usage-box,
-    .safety-note {
+    .safety-note,
+    .usage-box {
       margin-top: 28px;
       background: white;
       border-radius: 18px;
@@ -176,26 +234,31 @@
     }
 
     .clinical-note h2,
-    .usage-box h2,
-    .safety-note h2 {
+    .safety-note h2,
+    .usage-box h2 {
       margin-top: 0;
       color: #173f6b;
     }
 
     .clinical-note p,
     .clinical-note li,
-    .usage-box p,
-    .usage-box li,
     .safety-note p,
-    .safety-note li {
+    .safety-note li,
+    .usage-box p,
+    .usage-box li {
       color: #596775;
       line-height: 1.7;
     }
 
     .clinical-note ul,
-    .usage-box ul,
-    .safety-note ul {
+    .safety-note ul,
+    .usage-box ul {
       padding-left: 22px;
+    }
+
+    .safety-note {
+      background: #fff9ef;
+      border-left: 5px solid #c89145;
     }
 
     .usage-step {
@@ -209,20 +272,13 @@
       color: #173f6b;
     }
 
-    .warning-box {
-      margin-top: 20px;
-      background: #fff4f2;
-      border-left: 5px solid #b84b3c;
-      border-radius: 14px;
-      padding: 18px 20px;
-      color: #596775;
-      line-height: 1.7;
-    }
+
+    /* ÖZET */
 
     .product-note {
       margin-top: 28px;
       background: #eef3f8;
-      border-left: 5px solid #3f7eb8;
+      border-left: 5px solid #c89145;
       border-radius: 18px;
       padding: 28px;
     }
@@ -238,7 +294,11 @@
       margin-bottom: 0;
     }
 
-    @media (max-width: 600px) {
+
+    /* MOBİL */
+
+    @media (max-width: 760px) {
+
       .product-page {
         padding: 40px 16px 60px;
       }
@@ -247,19 +307,36 @@
         padding: 30px 24px;
       }
 
+      .product-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
       .product-hero h1 {
         font-size: 30px;
       }
 
+      .product-hero-image {
+        min-height: 240px;
+        padding: 20px;
+      }
+
+      .product-hero-image img {
+        max-height: 270px;
+      }
+
       .product-card,
-      .usage-box,
       .clinical-note,
       .safety-note,
+      .usage-box,
       .product-note {
         padding: 24px 22px;
       }
+
     }
+
   </style>
+
 </head>
 
 
@@ -268,6 +345,7 @@
 <main class="product-page">
 
   <div class="product-container">
+
 
     <a href="education-products.html" class="product-back">
       ← Ürün Bilgilerine Dön
@@ -278,23 +356,41 @@
 
     <section class="product-hero">
 
-      <p class="product-kicker">
-        VETWEL® ÜRÜN BİLGİSİ
-      </p>
+      <div class="product-hero-grid">
 
-      <h1>Malt Paste®</h1>
+        <div>
 
-      <p>
-        VetWel® Malt Paste; kedi, yavru kedi ve gelinciklerde
-        tüy yumaklarının ve sindirilemeyen küçük partiküllerin
-        doğal gastrointestinal pasajını destekleyen; yağ bazlı
-        bileşenler, bitkisel lif, malt ekstraktı ve prebiyotik
-        bileşenleri bir araya getiren 75 mL pasta formudur.
-        Seçilmiş köpek olgularında ise veteriner hekim
-        değerlendirmesiyle küçük ve künt yabancı materyallerin
-        doğal gastrointestinal geçişine destek amacıyla
-        değerlendirilebilir.
-      </p>
+          <p class="product-kicker">
+            VETWEL® ÜRÜN BİLGİSİ
+          </p>
+
+          <span class="product-form-badge">
+            MALT PASTE
+          </span>
+
+          <h1>VetWel® Malt Paste</h1>
+
+          <p>
+            VetWel® Malt Paste, özellikle kedilerde yutulan tüylerin
+            gastrointestinal sistemden doğal geçişini, normal bağırsak
+            hareketlerini ve bağırsak mikrobiyotasını desteklemeye
+            yönelik yağ, lif ve prebiyotik bileşenleri bir araya
+            getiren tamamlayıcı bakım ürünüdür.
+          </p>
+
+        </div>
+
+
+        <div class="product-hero-image">
+
+          <img
+            src="assets/images/products/VetWel Malte Paste.jpeg"
+            alt="VetWel Malt Paste ürün ambalajı"
+          >
+
+        </div>
+
+      </div>
 
     </section>
 
@@ -305,13 +401,13 @@
 
       <article class="product-card">
 
-        <h2>Tüy Yumağı Pasajı</h2>
+        <h2>Ne İçin Kullanılır?</h2>
 
         <p>
-          Yağ bazlı taşıyıcılar ve bitkisel lifler,
-          yutulan tüylerin gastrointestinal sistem
-          boyunca doğal ilerleyişinin desteklenmesine
-          yardımcı olur.
+          Kedilerin yalanma sırasında yuttuğu tüylerin
+          gastrointestinal sistemden daha kolay ilerlemesine
+          ve doğal yollarla uzaklaştırılmasına yardımcı olmak
+          amacıyla geliştirilmiştir.
         </p>
 
       </article>
@@ -319,12 +415,24 @@
 
       <article class="product-card">
 
-        <h2>Bağırsak Hareketleri</h2>
+        <h2>Tüy Yumağı Desteği</h2>
 
         <p>
-          Lif ve yağ bazlı bileşenler dışkı pasajının,
-          normal bağırsak motilitesinin ve gastrointestinal
-          konforun desteklenmesine katkı sağlar.
+          Yağ ve lif kombinasyonu, yutulan tüylerin bağırsak
+          içeriğiyle birlikte ilerlemesini ve dışkıyla
+          uzaklaştırılmasını destekler.
+        </p>
+
+      </article>
+
+
+      <article class="product-card">
+
+        <h2>Normal Bağırsak Hareketleri</h2>
+
+        <p>
+          Bitkisel lifler dışkı hacminin ve normal intestinal
+          motilitenin desteklenmesine yardımcı olur.
         </p>
 
       </article>
@@ -335,10 +443,9 @@
         <h2>Prebiyotik Destek</h2>
 
         <p>
-          Mısır dekstrini, normal bağırsak
-          mikrobiyotasındaki yararlı bakteriler için
-          besinsel substrat sağlayarak mikrobiyal
-          dengenin desteklenmesine yardımcı olur.
+          Mısır dekstrini, bağırsak mikrobiyotasına yönelik
+          prebiyotik substrat sağlayarak gastrointestinal
+          destek yaklaşımını tamamlar.
         </p>
 
       </article>
@@ -346,13 +453,12 @@
 
       <article class="product-card">
 
-        <h2>Kaplama & Yumuşatma</h2>
+        <h2>Lezzetlilik</h2>
 
         <p>
-          Bitkisel yağ, hint yağı ve vazelin yağı;
-          tüy kitlelerinin ve sindirilemeyen küçük
-          partiküllerin kaplanmasına, yumuşamasına
-          ve doğal pasajın kolaylaşmasına destek olur.
+          Malt ekstraktı, protein hidrolizatı ve kedi nanesi
+          ürünün kabul edilebilirliğini ve günlük kullanım
+          kolaylığını destekler.
         </p>
 
       </article>
@@ -360,108 +466,48 @@
 
       <article class="product-card">
 
-        <h2>Sindirim Desteği</h2>
+        <h2>Hangi Durumlarda Düşünülür?</h2>
 
-        <p>
-          Malt ekstraktı ve lif yapısı, gastrointestinal
-          fonksiyonların ve düzenli dışkı pasajının
-          desteklenmesine yönelik formülasyon
-          yaklaşımını tamamlar.
-        </p>
-
-      </article>
-
-
-      <article class="product-card">
-
-        <h2>Kolay Kullanım</h2>
-
-        <p>
-          Malt ekstraktı, protein hidrolizatı ve
-          kedi nanesi ekstraktı günlük kullanımda
-          ürün kabulünün ve uygulama kolaylığının
-          desteklenmesini amaçlar.
-        </p>
+        <ul>
+          <li>Tüy yumağı oluşum eğilimi bulunan kedilerde</li>
+          <li>Yoğun tüy dökme dönemlerinde</li>
+          <li>Uzun tüylü kedilerde günlük bakım desteğinde</li>
+          <li>Normal bağırsak hareketlerinin desteklenmesinde</li>
+          <li>Bağırsak mikrobiyotasına prebiyotik destek amacıyla</li>
+          <li>Veteriner hekimin uygun gördüğü seçilmiş köpek olgularında</li>
+        </ul>
 
       </article>
 
     </section>
 
 
-    <!-- HANGİ DURUMLARDA -->
-
-    <section class="product-section product-card">
-
-      <h2>Hangi Durumlarda Düşünülür?</h2>
-
-      <ul>
-
-        <li>
-          Yoğun yalanma ve tüy yutmanın arttığı
-          uzun tüylü veya sık tüy döken kedilerde
-        </li>
-
-        <li>
-          İlkbahar ve sonbahar gibi mevsimsel
-          tüy döküm dönemlerinde
-        </li>
-
-        <li>
-          Tekrarlayan tüy yumağı çıkarma eğilimi
-          bulunan kedilerde klinik değerlendirme sonrasında
-        </li>
-
-        <li>
-          Kedi ve gelinciklerde normal dışkı pasajı
-          ve gastrointestinal konforun desteklenmesinde
-        </li>
-
-        <li>
-          Normal bağırsak mikrobiyotasının prebiyotik
-          lif desteğiyle korunmasının hedeflendiği
-          bakım planlarında
-        </li>
-
-        <li>
-          Köpeklerde veteriner hekimin küçük ve künt
-          yabancı materyalin güvenli şekilde ilerleyebileceğini
-          değerlendirdiği seçilmiş olgularda
-        </li>
-
-      </ul>
-
-    </section>
-
-
-    <!-- FORMÜLASYON MANTIĞI -->
+    <!-- FORMÜLASYON -->
 
     <section class="product-section product-card">
 
       <h2>İçerik ve Formülasyon Mantığı</h2>
 
       <p>
-        Malt Paste® yalnızca kayganlaştırıcı bir macun
-        olarak tasarlanmamıştır. Formülasyon;
-        <strong>yağ bazlı kaplama ve yumuşatma,
-        lif desteği, prebiyotik mikrobiyota desteği,
-        malt bazlı sindirim desteği ve palatabilite</strong>
-        eksenlerini birlikte ele alır.
+        VetWel® Malt Paste yalnızca yağlayıcı bir malt macunu
+        değildir. Formül; yağ, lif ve prebiyotik desteği aynı
+        ürün içerisinde birleştirerek tüylerin gastrointestinal
+        geçişini ve normal bağırsak fonksiyonlarını farklı
+        mekanizmalar üzerinden destekler.
       </p>
 
 
       <div class="formula-grid">
 
-
         <div class="formula-item">
 
-          <strong>1. Kaplama & Yumuşatma</strong>
+          <strong>Yağ &amp; Kaplama Ekseni</strong>
 
           <p>
-            Bitkisel gıda yağı, hint yağı ve vazelin yağı;
-            tüy kitlelerinin ve sindirilemeyen küçük
-            partiküllerin yüzeyinin kaplanmasına ve
-            doğal gastrointestinal pasajın kolaylaşmasına
-            destek sağlar.
+            Bitkisel gıda yağı, hint yağı ve petrolatum yağı;
+            gastrointestinal içerikte kayganlaştırıcı ve
+            yumuşatıcı destek sağlayarak tüylerin doğal
+            geçişini kolaylaştırmaya yardımcı olur.
           </p>
 
         </div>
@@ -469,12 +515,11 @@
 
         <div class="formula-item">
 
-          <strong>2. Lif Ekseni</strong>
+          <strong>Lif Ekseni</strong>
 
           <p>
-            Bitkisel gıda lifleri tüy kitlelerinin
-            gevşemesine, dışkı hacminin ve normal
-            bağırsak hareketlerinin desteklenmesine
+            Bitkisel gıda lifleri, dışkı hacmi ve normal
+            gastrointestinal motilitenin desteklenmesine
             katkı sağlar.
           </p>
 
@@ -483,13 +528,12 @@
 
         <div class="formula-item">
 
-          <strong>3. Prebiyotik Eksen</strong>
+          <strong>Prebiyotik Ekseni</strong>
 
           <p>
-            Mısır dekstrini, yararlı bağırsak
-            bakterileri için besinsel substrat
-            oluşturarak normal mikrobiyal dengenin
-            korunmasına yardımcı olur.
+            Mısır dekstrini, bağırsak mikrobiyotasını
+            desteklemeye yönelik prebiyotik substrat
+            yaklaşımının temel bileşenidir.
           </p>
 
         </div>
@@ -497,40 +541,12 @@
 
         <div class="formula-item">
 
-          <strong>4. Malt & Sindirim</strong>
+          <strong>Ürün Kabulü &amp; Lezzetlilik</strong>
 
           <p>
-            Malt ekstraktı gastrointestinal fonksiyonların
-            desteklenmesine yardımcı olurken formülün
-            günlük kabul edilebilirliğini de tamamlar.
-          </p>
-
-        </div>
-
-
-        <div class="formula-item">
-
-          <strong>5. Palatabilite</strong>
-
-          <p>
-            Protein hidrolizatı ve kedi nanesi ekstraktı,
-            özellikle kedilerde günlük kullanım sırasında
-            tüketim isteği ve uygulama kolaylığının
-            desteklenmesine yardımcı olur.
-          </p>
-
-        </div>
-
-
-        <div class="formula-item">
-
-          <strong>Çok Bileşenli GI Yaklaşım</strong>
-
-          <p>
-            Yağ + lif + prebiyotik kombinasyonu,
-            tüy yumağı yönetimini yalnızca mekanik
-            kayganlaştırmadan daha geniş bir
-            gastrointestinal destek yaklaşımına taşır.
+            Malt ekstraktı, protein hidrolizatı ve kedi nanesi
+            ürünün ağızdan kolay kabul edilmesini destekleyen
+            formül bileşenleridir.
           </p>
 
         </div>
@@ -542,24 +558,20 @@
 
         <strong>Formülasyon yaklaşımı:</strong>
 
-        Malt Paste® için ana mekanizma:
-
-        <br><br>
+        VetWel® Malt Paste'in temel ekseni:
 
         <strong>
-          kaplama / yumuşatma →
-          lif desteği →
-          normal bağırsak motilitesi →
-          prebiyotik mikrobiyota desteği →
-          doğal gastrointestinal pasaj
+          tüylerin yumuşatılması ve kaplanması →
+          lif desteği → normal bağırsak hareketleri →
+          doğal dışkılama
         </strong>
+
+        şeklindedir.
 
         <br><br>
 
-        Ürün bağırsak lümeni içinde destekleyici
-        bakım amacıyla kullanılır. Gerçek mekanik
-        obstrüksiyonun veya yabancı cisim
-        tıkanıklığının tedavisi değildir.
+        Prebiyotik bileşenler ise gastrointestinal destek
+        yaklaşımını tamamlar.
 
       </div>
 
@@ -573,110 +585,67 @@
       <h2>Genel İçerikler</h2>
 
       <p>
-        VetWel® Malt Paste pasta formülünün teknik
-        kompozisyonunda aşağıdaki bileşenler yer alır.
+        VetWel® Malt Paste yağ, lif, prebiyotik ve lezzetlilik
+        bileşenlerini bir araya getirir.
       </p>
 
 
       <div class="ingredient-grid">
 
         <div class="ingredient-item">
-          <strong>1. Bitkisel Gıda Yağı</strong>
-          Yağ bazlı pasaj desteği
+          <strong>Bitkisel Gıda Yağı</strong>
+          Formülün yağ bazlı destek bileşeni
         </div>
 
         <div class="ingredient-item">
-          <strong>2. Protein Hidrolizatı</strong>
-          Palatabilite desteği
+          <strong>Protein Hidrolizatı</strong>
+          Lezzetlilik ve besinsel destek
         </div>
 
         <div class="ingredient-item">
-          <strong>3. Malt Ekstraktı</strong>
-          Sindirim ve ürün kabulü desteği
+          <strong>Malt Ekstraktı</strong>
+          Gastrointestinal destek ve ürün kabulü
         </div>
 
         <div class="ingredient-item">
-          <strong>4. Silikon Dioksit</strong>
-          Teknolojik formülasyon bileşeni
+          <strong>Silicon Dioxide</strong>
+          Teknolojik yardımcı bileşen
         </div>
 
         <div class="ingredient-item">
-          <strong>5. Hint Yağı</strong>
-          Kaplama ve pasaj desteği
+          <strong>Hint Yağı</strong>
+          Castor Oil
         </div>
 
         <div class="ingredient-item">
-          <strong>6. Bitkisel Gıda Lifleri</strong>
-          Lif ve bağırsak hareketleri desteği
+          <strong>Bitkisel Gıda Lifleri</strong>
+          Lif ve motilite desteği
         </div>
 
         <div class="ingredient-item">
-          <strong>7. Mısır Dekstrini</strong>
-          Prebiyotik lif desteği
+          <strong>Mısır Dekstrini</strong>
+          Prebiyotik substrat
         </div>
 
         <div class="ingredient-item">
-          <strong>8. Soya Lesitini</strong>
+          <strong>Soya Lesitini</strong>
           Formülasyon bileşeni
         </div>
 
         <div class="ingredient-item">
-          <strong>9. Vazelin Yağı</strong>
-          Kayganlaştırıcı pasaj desteği
+          <strong>Petrolatum Yağı</strong>
+          Kayganlaştırıcı destek bileşeni
         </div>
 
         <div class="ingredient-item">
-          <strong>10. Kedi Nanesi Ekstraktı</strong>
-          Palatabilite ve kullanım kolaylığı
+          <strong>Kedi Nanesi Ekstresi</strong>
+          Catnip Extract
         </div>
 
         <div class="ingredient-item">
-          <strong>11. Yardımcı Teknolojik Bileşenler</strong>
-          Pasta formunun fiziksel yapısını destekler
+          <strong>Yardımcı Teknolojik Bileşenler</strong>
+          Ürün stabilitesi ve form yapısı
         </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- KÖPEKLER -->
-
-    <section class="clinical-note">
-
-      <h2>Köpeklerde Kullanım Yaklaşımı</h2>
-
-      <p>
-        Malt Paste®'in temel günlük kullanım alanı
-        kedi, yavru kedi ve gelinciklerde tüy yumağı
-        ve gastrointestinal pasaj desteğidir.
-      </p>
-
-      <p>
-        Köpeklerde ise kullanım rutin bir yabancı cisim
-        tedavisi olarak değerlendirilmemelidir.
-        Yalnızca veteriner hekimin, yutulan materyalin
-        küçük, künt ve doğal gastrointestinal pasaj için
-        uygun olduğunu değerlendirdiği seçilmiş olgularda
-        yardımcı destek olarak düşünülebilir.
-      </p>
-
-      <div class="warning-box">
-
-        <strong>Kullanılmaması gereken durumlar:</strong>
-
-        <br><br>
-
-        Keskin veya lineer yabancı cisimler, pil,
-        mıknatıs, perforasyon riski, belirgin
-        gastrointestinal obstrüksiyon şüphesi,
-        şiddetli veya tekrarlayan kusma,
-        abdominal ağrı ya da dışkı yapamama
-        durumlarında Malt Paste kullanılmamalıdır.
-
-        <br><br>
-
-        Bu durumlarda acil veteriner değerlendirmesi gerekir.
 
       </div>
 
@@ -690,18 +659,51 @@
       <h2>Klinik Yaklaşım</h2>
 
       <p>
-        Tekrarlayan öğürme, kusma veya iştahsızlık
-        her zaman yalnızca tüy yumağına bağlı değildir.
-        Gastrointestinal yabancı cisim, gastrik veya
-        intestinal hastalıklar ve mekanik obstrüksiyon
-        benzer klinik bulgular oluşturabilir.
+        Tekrarlayan kusma, iştahsızlık, karın ağrısı,
+        dışkı yapamama veya genel durum bozukluğu yalnızca
+        tüy yumağına bağlanmamalıdır.
       </p>
 
       <p>
-        Özellikle şiddetli veya tekrarlayan kusma,
-        abdominal ağrı, iştahsızlık, dışkı yapamama,
-        belirgin halsizlik veya yabancı cisim şüphesinde
-        veteriner muayenesi geciktirilmemelidir.
+        Gastrointestinal yabancı cisim, konstipasyon,
+        obstrüksiyon veya başka bir hastalık şüphesinde
+        veteriner hekim değerlendirmesi önceliklidir.
+      </p>
+
+      <p>
+        VetWel® Malt Paste mekanik gastrointestinal
+        obstrüksiyonun tedavisi değildir.
+      </p>
+
+    </section>
+
+
+    <!-- GÜVENLİK -->
+
+    <section class="safety-note">
+
+      <h2>Önemli Kullanım ve Güvenlik Notu</h2>
+
+      <p>
+        Aşağıdaki durumlarda Malt Paste uygulanmadan önce
+        veteriner hekim değerlendirmesi yapılmalıdır:
+      </p>
+
+      <ul>
+        <li>Keskin yabancı cisim şüphesi</li>
+        <li>İp, iplik veya lineer yabancı cisim şüphesi</li>
+        <li>Pil yutulması</li>
+        <li>Mıknatıs yutulması</li>
+        <li>Gastrointestinal perforasyon şüphesi</li>
+        <li>Şiddetli veya tekrarlayan kusma</li>
+        <li>Belirgin karın ağrısı</li>
+        <li>Dışkı yapamama</li>
+        <li>Gastrointestinal obstrüksiyon şüphesi</li>
+      </ul>
+
+      <p>
+        Hayvanın sürekli temiz ve taze içme suyuna
+        erişimi bulunmalıdır.
       </p>
 
     </section>
@@ -713,63 +715,37 @@
 
       <h2>Nasıl Kullanılır?</h2>
 
+
       <p>
-        Malt Paste® günlük olarak, tercihen yemlemeden
-        önce doğrudan verilebilir veya mamaya
-        karıştırılarak uygulanabilir.
+        <strong>2 kg üzerindeki kediler:</strong>
+        Günde 1 kez <strong>5 cm</strong>.
+      </p>
+
+
+      <p>
+        <strong>2 kg ve altındaki kediler:</strong>
+        Günde 1 kez <strong>2 cm</strong>.
+      </p>
+
+
+      <p>
+        <strong>Yavru kediler:</strong>
+        Günde <strong>2 cm</strong>.
+      </p>
+
+
+      <p>
+        <strong>Ferretler:</strong>
+        Günde <strong>2 cm</strong>.
       </p>
 
 
       <div class="usage-step">
 
-        <strong>Kediler — 2 kg Üzeri</strong>
+        <strong>Yoğun tüy dökme dönemlerinde</strong>
 
         <p>
-          Günde <strong>1 kez 5 cm pasta</strong>.
-        </p>
-
-      </div>
-
-
-      <div class="usage-step">
-
-        <strong>Kediler — 2 kg ve Altı</strong>
-
-        <p>
-          Günde <strong>1 kez 2 cm pasta</strong>.
-        </p>
-
-      </div>
-
-
-      <div class="usage-step">
-
-        <strong>Yavru Kediler</strong>
-
-        <p>
-          Günde <strong>1 kez 2 cm pasta</strong>.
-        </p>
-
-      </div>
-
-
-      <div class="usage-step">
-
-        <strong>Gelincikler</strong>
-
-        <p>
-          Günde <strong>1 kez 2 cm pasta</strong>.
-        </p>
-
-      </div>
-
-
-      <div class="usage-step">
-
-        <strong>Tüy Döküm Döneminde</strong>
-
-        <p>
-          Kedilerde ihtiyaç halinde günlük miktar
+          Günlük miktar gerektiğinde
           <strong>iki katına çıkarılabilir.</strong>
         </p>
 
@@ -778,12 +754,12 @@
 
       <div class="usage-step">
 
-        <strong>Önerilen Kür</strong>
+        <strong>Kullanım dönemi</strong>
 
         <p>
-          Günlük kullanım <strong>1 ay</strong>
-          sürdürülebilir. İlkbahar ve sonbahar
-          tüy döküm dönemlerinde tekrarlanabilir.
+          Yaklaşık <strong>1 aylık</strong> kullanım programı
+          uygulanabilir ve özellikle ilkbahar / sonbahar
+          tüy değişim dönemlerinde tekrarlanabilir.
         </p>
 
       </div>
@@ -791,68 +767,31 @@
 
       <div class="usage-step">
 
-        <strong>Köpekler</strong>
+        <strong>Köpeklerde kullanım</strong>
 
         <p>
-          Sabit bir VetWel® Malt Paste köpek dozu
-          tanımlanmamıştır.
-        </p>
-
-        <p>
-          Seçilmiş olgularda doz, sıklık ve kullanım
-          süresi veteriner hekim tarafından
-          belirlenmelidir.
+          Köpeklerde rutin tüy yumağı ürünü olarak sabit bir
+          doz önerilmez. Yalnızca veteriner hekimin uygun
+          gördüğü seçilmiş durumlarda değerlendirilmelidir.
         </p>
 
       </div>
 
 
-      <p>
-        Uygulama sırasında hayvanın serbestçe
-        ulaşabileceği <strong>taze su</strong>
-        bulundurulmalıdır.
-      </p>
+      <div class="usage-step">
+
+        <strong>Saklama</strong>
+
+        <p>
+          Açılmış tüp buzdolabında saklanmalıdır.
+        </p>
+
+      </div>
 
     </section>
 
 
-    <!-- SAKLAMA -->
-
-    <section class="safety-note">
-
-      <h2>Saklama & Tolerans</h2>
-
-      <ul>
-
-        <li>
-          Bileşenlere karşı bireysel hassasiyet görülebilir.
-        </li>
-
-        <li>
-          Beklenmeyen gastrointestinal reaksiyonlarda
-          kullanım durdurulmalı ve hayvan değerlendirilmelidir.
-        </li>
-
-        <li>
-          Açılmış tüpün buzdolabında saklanması önerilir.
-        </li>
-
-        <li>
-          Ürün klinik ihtiyaca ve uygun hayvan grubuna
-          göre kullanılmalıdır.
-        </li>
-
-        <li>
-          Köpeklerde kullanım yalnız veteriner hekim
-          değerlendirmesiyle seçilmiş olgularda düşünülmelidir.
-        </li>
-
-      </ul>
-
-    </section>
-
-
-    <!-- KISA ÜRÜN ÖZETİ -->
+    <!-- ÖZET -->
 
     <section class="product-note">
 
@@ -860,33 +799,16 @@
 
       <p>
         <strong>
-          VetWel® Malt Paste; tüy yumağı yönetimini yalnızca
-          kayganlaştırma üzerinden ele almayan, yağ bazlı
-          bileşenler, bitkisel lifler, malt ekstraktı ve
-          prebiyotik desteği bir araya getiren gastrointestinal
-          bakım formülüdür. Kedi ve gelinciklerde tüy yumağı
-          pasajı, normal bağırsak motilitesi ve mikrobiyota
-          desteği sağlar. Köpeklerde ise yalnız veteriner
-          hekimin uygun gördüğü seçilmiş küçük ve künt
-          yabancı materyal olgularında doğal gastrointestinal
-          pasaja yardımcı destek olarak değerlendirilir.
+          VetWel® Malt Paste; özellikle kedilerde yutulan
+          tüylerin gastrointestinal sistemden doğal geçişini
+          destekleyen yağ, lif ve prebiyotik bileşenleri bir
+          araya getiren tamamlayıcı bakım ürünüdür. Bitkisel
+          lifler normal bağırsak hareketlerini, mısır dekstrini
+          ise bağırsak mikrobiyotasını desteklemeye yönelik
+          prebiyotik yaklaşımı tamamlar. Gastrointestinal
+          obstrüksiyon veya tehlikeli yabancı cisim şüphesinde
+          kullanılmamalı ve veteriner değerlendirmesi yapılmalıdır.
         </strong>
-      </p>
-
-    </section>
-
-
-    <!-- ÖNEMLİ NOT -->
-
-    <section class="product-note">
-
-      <h2>Önemli Not</h2>
-
-      <p>
-        Bu bir ilaç değil, tamamlayıcı yemdir.
-        Mekanik obstrüksiyonun veya gastrointestinal
-        yabancı cisim tıkanıklığının tedavisi değildir.
-        Şüpheli olgularda veteriner değerlendirmesi gerekir.
       </p>
 
     </section>

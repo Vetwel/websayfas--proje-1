@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>KidneyWel® Liquid Product Information | VetWel® Education Center</title>
+  <meta name="description" content="KidneyWel® Liquid product information for cats and dogs: multi-botanical renal and urinary support, diuresis, natural elimination, formulation rationale, ingredients, directions for use, and veterinary monitoring considerations.">
+  <meta name="theme-color" content="#0b2447">
+
+  <link rel="canonical" href="https://www.vetwel.us/en/education-kidneywel-liquid.html">
+  <link rel="alternate" hreflang="en" href="https://www.vetwel.us/en/education-kidneywel-liquid.html">
+  <link rel="alternate" hreflang="tr" href="https://www.vetwel.us/education-kidneywel-liquid.html">
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #f7f9fc;
+      color: #24384d;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .product-page { min-height: 100vh; padding: 60px 20px 80px; }
+    .product-container { max-width: 1080px; margin: 0 auto; }
+
+    .language-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 14px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .language-row a,
+    .product-back { color: #294d73; text-decoration: none; font-weight: 700; }
+    .product-back { display: inline-block; margin-bottom: 28px; }
+    .product-back:hover { text-decoration: underline; }
+
+    .product-hero {
+      background: #173f6b;
+      color: white;
+      border-radius: 24px;
+      padding: 48px;
+      margin-bottom: 30px;
+      border-top: 6px solid #b63b46;
+      box-shadow: 0 15px 40px rgba(23,63,107,.12);
+      overflow: hidden;
+    }
+
+    .product-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0,1.2fr) minmax(280px,.8fr);
+      gap: 44px;
+      align-items: center;
+    }
+
+    .product-kicker {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+      color: #f1d8da;
+    }
+
+    .product-form-badge {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.22);
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .product-hero h1 { margin: 10px 0 15px; font-size: 38px; line-height: 1.15; }
+    .product-hero p { max-width: 850px; line-height: 1.7; color: rgba(255,255,255,.87); margin-bottom: 0; }
+
+    .product-hero-image {
+      background: white;
+      border-radius: 20px;
+      min-height: 310px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 42px rgba(0,0,0,.17);
+    }
+
+    .product-hero-image img {
+      display: block;
+      width: 100%;
+      max-width: 330px;
+      max-height: 330px;
+      object-fit: contain;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 22px;
+    }
+
+    .product-card {
+      background: white;
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.06);
+      border: 1px solid #e8eef5;
+    }
+
+    .product-card h2,
+    .clinical-note h2,
+    .usage-box h2,
+    .product-note h2 { color: #173f6b; margin-top: 0; margin-bottom: 14px; }
+
+    .product-card p,
+    .product-card li,
+    .clinical-note p,
+    .clinical-note li,
+    .usage-box p,
+    .usage-box li { color: #596775; line-height: 1.7; }
+
+    .product-card ul,
+    .clinical-note ul,
+    .usage-box ul { padding-left: 22px; }
+
+    .product-section { margin-top: 28px; }
+
+    .formula-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(245px,1fr));
+      gap: 15px;
+      margin-top: 22px;
+    }
+
+    .formula-item {
+      background: #faf5f6;
+      border: 1px solid #eedee1;
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .formula-item strong { display: block; color: #9f3340; margin-bottom: 7px; }
+    .formula-item p { margin: 0; color: #596775; line-height: 1.65; }
+
+    .formula-note {
+      margin-top: 20px;
+      background: #fff7f7;
+      border-left: 5px solid #b63b46;
+      border-radius: 14px;
+      padding: 18px 20px;
+      color: #596775;
+      line-height: 1.7;
+    }
+
+    .ingredient-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .ingredient-item {
+      background: #f7f9fc;
+      border: 1px solid #e3eaf2;
+      border-radius: 14px;
+      padding: 15px 16px;
+      color: #516579;
+      line-height: 1.5;
+    }
+
+    .ingredient-item strong { display: block; color: #173f6b; margin-bottom: 3px; }
+
+    .clinical-note,
+    .usage-box {
+      margin-top: 28px;
+      background: white;
+      border-radius: 18px;
+      padding: 28px;
+      border: 1px solid #dce6f0;
+    }
+
+    .usage-step {
+      background: #f3f7fb;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 15px;
+    }
+
+    .usage-step strong { color: #173f6b; }
+
+    .product-note {
+      margin-top: 28px;
+      background: #eef3f8;
+      border-left: 5px solid #b63b46;
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .product-note p { color: #526678; line-height: 1.7; margin-bottom: 0; }
+
+    @media (max-width:760px) {
+      .product-page { padding: 40px 16px 60px; }
+      .product-hero { padding: 30px 24px; }
+      .product-hero-grid { grid-template-columns: 1fr; gap: 28px; }
+      .product-hero h1 { font-size: 30px; }
+      .product-hero-image { min-height: 240px; padding: 20px; }
+      .product-hero-image img { max-height: 270px; }
+      .product-card,.usage-box,.product-note,.clinical-note { padding: 24px 22px; }
+    }
+  </style>
+</head>
+
+<body>
+<main class="product-page">
+  <div class="product-container">
+
+    <div class="language-row">
+      <a href="../education-kidneywel-liquid.html" aria-label="Türkçe KidneyWel Liquid sayfası">TR</a>
+    </div>
+
+    <a href="education.html" class="product-back">← Back to the Education Center</a>
+
+    <section class="product-hero">
+      <div class="product-hero-grid">
+        <div>
+          <p class="product-kicker">VETWEL® PRODUCT INFORMATION</p>
+          <span class="product-form-badge">LIQUID</span>
+          <h1>KidneyWel®</h1>
+          <p>
+            KidneyWel® Liquid is a multi-botanical complementary liquid formula developed to support renal function, diuresis, natural elimination of nitrogenous metabolites, urinary flow, and urinary comfort in cats and dogs.
+          </p>
+        </div>
+
+        <div class="product-hero-image">
+          <img src="../assets/images/products/KidneyWel Liquid.jpg" alt="VetWel KidneyWel Liquid packaging">
+        </div>
+      </div>
+    </section>
+
+    <section class="product-grid">
+      <article class="product-card">
+        <h2>What Is It Used For?</h2>
+        <p>KidneyWel® Liquid is designed to complement veterinary care by supporting normal renal function, urinary flow, natural elimination processes, and renal metabolic balance.</p>
+      </article>
+
+      <article class="product-card">
+        <h2>Renal Function</h2>
+        <p>Provides multi-botanical nutritional support intended to complement normal renal physiology and renal wellness.</p>
+      </article>
+
+      <article class="product-card">
+        <h2>Diuresis &amp; Natural Elimination</h2>
+        <p>One formulation pathway is designed to support normal urine production and the body's natural urinary elimination of nitrogenous metabolites.</p>
+      </article>
+
+      <article class="product-card">
+        <h2>Urinary System Support</h2>
+        <p>Contains botanical ingredients selected to complement urinary flow, urinary comfort, and mineral/debris management.</p>
+      </article>
+
+      <article class="product-card">
+        <h2>Metabolic &amp; Antioxidant Support</h2>
+        <p>The multi-ingredient approach is designed to complement metabolic balance and normal cellular antioxidant defenses as part of a broader renal wellness plan.</p>
+      </article>
+
+      <article class="product-card">
+        <h2>When May It Be Considered?</h2>
+        <ul>
+          <li>When longer-term renal support is recommended by a veterinarian</li>
+          <li>When diuresis and natural elimination support are desired</li>
+          <li>When urinary flow and urinary-system support are appropriate</li>
+          <li>As complementary support within a veterinarian-directed renal care plan</li>
+          <li>When support for the natural elimination of nitrogenous metabolites is desired</li>
+          <li>Alongside veterinary-directed renal nutrition and treatment plans</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="product-section product-card">
+      <h2>Ingredients &amp; Formulation Rationale</h2>
+      <p>
+        KidneyWel® Liquid is not designed around a single renal mechanism. Its multi-botanical formulation brings together complementary support pathways for renal function, diuresis, natural elimination, urinary flow, urinary comfort, mineral/debris management, and metabolic balance.
+      </p>
+
+      <div class="formula-grid">
+        <div class="formula-item"><strong>Equisetum arvense</strong><p>Included as a core botanical in the formulation's diuresis and urinary-support strategy.</p></div>
+        <div class="formula-item"><strong>Lespedeza capitata</strong><p>Included in the phytotherapeutic approach to renal support and management of nitrogenous metabolic load.</p></div>
+        <div class="formula-item"><strong>Orthosiphon stamineus</strong><p>Complements the formulation's urinary-flow and natural-elimination support pathway.</p></div>
+        <div class="formula-item"><strong>Rubia tinctorum</strong><p>Included as part of the approach to urinary mineral/debris management and normal passage.</p></div>
+        <div class="formula-item"><strong>Phaseolus vulgaris</strong><p>Provides secondary support for reducing gastrointestinal phosphorus absorption as one component of the broader formulation.</p></div>
+        <div class="formula-item"><strong>Berberis vulgaris</strong><p>Included as part of the botanical approach to urinary wellness and normal inflammatory balance.</p></div>
+        <div class="formula-item"><strong>Urtica dioica</strong><p>Complements urinary elimination and botanical antioxidant support.</p></div>
+        <div class="formula-item"><strong>Taraxacum officinale</strong><p>Included as complementary botanical support for fluid balance, natural elimination, and general metabolic wellness.</p></div>
+      </div>
+
+      <p>
+        The core formulation strategy is to support the renal and urinary systems through multiple complementary pathways rather than a single target.
+      </p>
+
+      <div class="formula-note">
+        <strong>Important:</strong> Phosphorus is not the primary formulation target of KidneyWel® Liquid.
+        <br><br>
+        The primary support pathway is:
+        <strong>renal function → diuresis → natural elimination of nitrogenous metabolites → urinary flow and comfort.</strong>
+        <br><br>
+        Support for reducing gastrointestinal phosphorus absorption is a <strong>secondary component</strong> of the broader renal strategy. KidneyWel® is <strong>not a phosphate binder</strong>.
+      </div>
+    </section>
+
+    <section class="product-section product-card">
+      <h2>General Ingredients</h2>
+      <p>KidneyWel® combines a broad botanical phytocomplex designed around several complementary renal and urinary support pathways.</p>
+
+      <div class="ingredient-grid">
+        <div class="ingredient-item"><strong>1. Horsetail</strong><em>Equisetum arvense</em></div>
+        <div class="ingredient-item"><strong>2. Barberry</strong><em>Berberis vulgaris</em></div>
+        <div class="ingredient-item"><strong>3. Dandelion</strong><em>Taraxacum officinale</em></div>
+        <div class="ingredient-item"><strong>4. St. John's Wort</strong><em>Hypericum perforatum</em></div>
+        <div class="ingredient-item"><strong>5. Common Bean</strong><em>Phaseolus vulgaris</em></div>
+        <div class="ingredient-item"><strong>6. Purple Coneflower</strong><em>Echinacea purpurea</em></div>
+        <div class="ingredient-item"><strong>7. Stinging Nettle</strong><em>Urtica dioica</em></div>
+        <div class="ingredient-item"><strong>8. Meadowsweet</strong><em>Filipendula ulmaria</em></div>
+        <div class="ingredient-item"><strong>9. Greater Burdock</strong><em>Arctium majus</em></div>
+        <div class="ingredient-item"><strong>10. Licorice Root</strong><em>Glycyrrhiza glabra</em></div>
+        <div class="ingredient-item"><strong>11. Hops</strong><em>Humulus lupulus</em></div>
+        <div class="ingredient-item"><strong>12. German Chamomile</strong><em>Chamomilla recutita</em></div>
+        <div class="ingredient-item"><strong>13. Thyme</strong><em>Thymus vulgaris L.</em></div>
+        <div class="ingredient-item"><strong>14. Silver Birch</strong><em>Betula pendula</em></div>
+        <div class="ingredient-item"><strong>15. Madder</strong><em>Rubia tinctorum</em></div>
+        <div class="ingredient-item"><strong>16. Common Centaury</strong><em>Centaurium erythraea</em></div>
+        <div class="ingredient-item"><strong>17. Wild Pansy</strong><em>Viola tricolor</em></div>
+        <div class="ingredient-item"><strong>18. Round-Headed Bush Clover</strong><em>Lespedeza capitata</em></div>
+        <div class="ingredient-item"><strong>19. Java Tea</strong><em>Orthosiphon stamineus</em></div>
+        <div class="ingredient-item"><strong>20. Calendula</strong><em>Calendula officinalis</em></div>
+        <div class="ingredient-item"><strong>21. Betony</strong><em>Betonica officinalis</em></div>
+        <div class="ingredient-item"><strong>22. Sweet Flag</strong><em>Acorus calamus</em></div>
+        <div class="ingredient-item"><strong>23. Great Burnet</strong><em>Sanguisorba officinalis</em></div>
+        <div class="ingredient-item"><strong>24. Yarrow</strong><em>Achillea millefolium</em></div>
+        <div class="ingredient-item"><strong>25. Lady's Bedstraw</strong><em>Galium verum</em></div>
+        <div class="ingredient-item"><strong>26. Ground Ivy</strong><em>Glechoma hederacea</em></div>
+      </div>
+    </section>
+
+    <section class="clinical-note">
+      <h2>Veterinary Approach</h2>
+      <p>
+        Complementary renal support should be evaluated together with the patient's renal function, hydration status, nutrition, urine output, concurrent conditions, and current therapies.
+      </p>
+      <p>
+        KidneyWel® Liquid does not replace veterinary diagnosis, renal diets, fluid therapy, prescription medications, or other veterinarian-directed treatment. It should be considered only as complementary support within an individualized renal care plan.
+      </p>
+    </section>
+
+    <section class="clinical-note">
+      <h2>Veterinary Monitoring Considerations</h2>
+      <ul>
+        <li>Hydration status</li>
+        <li>Urine output and urinary signs</li>
+        <li>BUN trend</li>
+        <li>Creatinine and/or SDMA</li>
+        <li>Serum phosphorus</li>
+        <li>Appetite and body weight</li>
+        <li>Urinalysis when indicated</li>
+        <li>Adherence to the prescribed renal diet</li>
+        <li>Overall clinical response</li>
+      </ul>
+    </section>
+
+    <section class="usage-box">
+      <h2>Directions for Use</h2>
+      <p>KidneyWel® Liquid is supplied in liquid form.</p>
+      <p><strong>Cats and dogs:</strong> 0.5 mL/kg body weight per administration.</p>
+
+      <div class="usage-step">
+        <strong>Quick Dose Examples</strong>
+        <ul>
+          <li>2 kg: 1 mL</li>
+          <li>4 kg: 2 mL</li>
+          <li>5 kg: 2.5 mL</li>
+          <li>10 kg: 5 mL</li>
+          <li>20 kg: 10 mL</li>
+        </ul>
+      </div>
+
+      <div class="usage-step">
+        <strong>Frequency</strong>
+        <p>Administer <strong>twice daily</strong>.</p>
+      </div>
+
+      <div class="usage-step">
+        <strong>Administration</strong>
+        <p>May be administered directly by mouth or mixed with food or drinking water.</p>
+      </div>
+
+      <p><strong>Duration of use:</strong> determined by the veterinarian based on clinical evaluation.</p>
+    </section>
+
+    <section class="product-note">
+      <h2>Brief Product Summary</h2>
+      <p>
+        <strong>
+          KidneyWel® Liquid is a multi-botanical liquid formula developed to provide broad renal and urinary support. Its primary formulation pathway focuses on supporting renal function, diuresis, natural elimination of nitrogenous metabolites, urinary flow, and urinary comfort. Support for reducing gastrointestinal phosphorus absorption is secondary; KidneyWel® is not a phosphate binder. It does not replace a renal diet or a veterinarian-directed clinical care plan.
+        </strong>
+      </p>
+    </section>
+
+  </div>
+</main>
+</body>
+</html>

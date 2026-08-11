@@ -5,14 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description"
-        content="Malign Detox® ürün bilgisi: veteriner onkoloji hastalarında mantar ve botanik ekstrelerden oluşan tamamlayıcı destek yaklaşımı, formülasyon mantığı ve klinik kullanım çerçevesi.">
+  <meta
+    name="description"
+    content="Malign Detox® ürün bilgisi: veteriner hekim gözetiminde özel bakım ve onkolojik destek dönemlerinde kullanılmak üzere mantar ve botanik bileşenlerden oluşan tamamlayıcı beslenme formülü."
+  >
 
   <title>Malign Detox® Ürün Bilgisi | VetWel® Bilgi Merkezi</title>
 
   <link rel="stylesheet" href="style.css">
 
   <style>
+
     body {
       margin: 0;
       background: #f7f9fc;
@@ -42,14 +45,25 @@
       text-decoration: underline;
     }
 
+
+    /* HERO */
+
     .product-hero {
       background: #173f6b;
       color: white;
       border-radius: 24px;
       padding: 48px;
       margin-bottom: 30px;
-      border-top: 6px solid #d37832;
+      border-top: 6px solid #775c96;
       box-shadow: 0 15px 40px rgba(23,63,107,0.12);
+      overflow: hidden;
+    }
+
+    .product-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 44px;
+      align-items: center;
     }
 
     .product-kicker {
@@ -57,21 +71,56 @@
       font-size: 13px;
       font-weight: 800;
       letter-spacing: 1.3px;
-      color: #f4dbc5;
+      color: #e2d9ec;
+    }
+
+    .product-form-badge {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
     }
 
     .product-hero h1 {
-      margin: 8px 0 15px;
+      margin: 10px 0 15px;
       font-size: 38px;
       line-height: 1.15;
     }
 
     .product-hero p {
-      max-width: 860px;
+      max-width: 850px;
       line-height: 1.7;
       color: rgba(255,255,255,0.87);
       margin-bottom: 0;
     }
+
+    .product-hero-image {
+      background: white;
+      border-radius: 20px;
+      min-height: 310px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.17);
+    }
+
+    .product-hero-image img {
+      display: block;
+      width: 100%;
+      max-width: 330px;
+      max-height: 330px;
+      object-fit: contain;
+    }
+
+
+    /* KARTLAR */
 
     .product-grid {
       display: grid;
@@ -107,6 +156,9 @@
       margin-top: 28px;
     }
 
+
+    /* FORMÜL */
+
     .formula-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
@@ -115,15 +167,15 @@
     }
 
     .formula-item {
-      background: #fff8f2;
-      border: 1px solid #f0dfcf;
+      background: #f7f4fa;
+      border: 1px solid #e5ddeb;
       border-radius: 14px;
       padding: 18px;
     }
 
     .formula-item strong {
       display: block;
-      color: #b56122;
+      color: #694c87;
       margin-bottom: 7px;
     }
 
@@ -135,13 +187,16 @@
 
     .formula-note {
       margin-top: 20px;
-      background: #fff8f2;
-      border-left: 5px solid #d37832;
+      background: #f8f5fa;
+      border-left: 5px solid #775c96;
       border-radius: 14px;
       padding: 18px 20px;
       color: #596775;
       line-height: 1.7;
     }
+
+
+    /* İÇERİKLER */
 
     .ingredient-grid {
       display: grid;
@@ -165,10 +220,12 @@
       margin-bottom: 3px;
     }
 
+
+    /* KLİNİK */
+
     .clinical-note,
-    .usage-box,
     .safety-note,
-    .evidence-note {
+    .usage-box {
       margin-top: 28px;
       background: white;
       border-radius: 18px;
@@ -177,30 +234,31 @@
     }
 
     .clinical-note h2,
-    .usage-box h2,
     .safety-note h2,
-    .evidence-note h2 {
+    .usage-box h2 {
       margin-top: 0;
       color: #173f6b;
     }
 
     .clinical-note p,
     .clinical-note li,
-    .usage-box p,
-    .usage-box li,
     .safety-note p,
     .safety-note li,
-    .evidence-note p,
-    .evidence-note li {
+    .usage-box p,
+    .usage-box li {
       color: #596775;
       line-height: 1.7;
     }
 
     .clinical-note ul,
-    .usage-box ul,
     .safety-note ul,
-    .evidence-note ul {
+    .usage-box ul {
       padding-left: 22px;
+    }
+
+    .safety-note {
+      background: #fff9ef;
+      border-left: 5px solid #c3943f;
     }
 
     .usage-step {
@@ -214,20 +272,13 @@
       color: #173f6b;
     }
 
-    .warning-box {
-      margin-top: 20px;
-      background: #fff4f2;
-      border-left: 5px solid #b84b3c;
-      border-radius: 14px;
-      padding: 18px 20px;
-      color: #596775;
-      line-height: 1.7;
-    }
+
+    /* ÖZET */
 
     .product-note {
       margin-top: 28px;
       background: #eef3f8;
-      border-left: 5px solid #d37832;
+      border-left: 5px solid #775c96;
       border-radius: 18px;
       padding: 28px;
     }
@@ -243,7 +294,11 @@
       margin-bottom: 0;
     }
 
-    @media (max-width: 600px) {
+
+    /* MOBİL */
+
+    @media (max-width: 760px) {
+
       .product-page {
         padding: 40px 16px 60px;
       }
@@ -252,19 +307,34 @@
         padding: 30px 24px;
       }
 
+      .product-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
       .product-hero h1 {
         font-size: 30px;
       }
 
+      .product-hero-image {
+        min-height: 240px;
+        padding: 20px;
+      }
+
+      .product-hero-image img {
+        max-height: 270px;
+      }
+
       .product-card,
-      .usage-box,
       .clinical-note,
       .safety-note,
-      .evidence-note,
+      .usage-box,
       .product-note {
         padding: 24px 22px;
       }
+
     }
+
   </style>
 
 </head>
@@ -276,6 +346,7 @@
 
   <div class="product-container">
 
+
     <a href="education-products.html" class="product-back">
       ← Ürün Bilgilerine Dön
     </a>
@@ -285,20 +356,42 @@
 
     <section class="product-hero">
 
-      <p class="product-kicker">
-        VETWEL® ÜRÜN BİLGİSİ
-      </p>
+      <div class="product-hero-grid">
 
-      <h1>Malign Detox®</h1>
+        <div>
 
-      <p>
-        Malign Detox®; veteriner hekimlerin profesyonel
-        değerlendirmesine yönelik, mantar ve botanik
-        ekstrelerden oluşan çok bileşenli oral tamamlayıcı
-        formüldür. Onkoloji hastalarında standart bakım planının
-        yanında antioksidan savunma, fizyolojik immün yanıt
-        ve genel kondisyon desteği yaklaşımıyla değerlendirilir.
-      </p>
+          <p class="product-kicker">
+            VETWEL® ÜRÜN BİLGİSİ
+          </p>
+
+          <span class="product-form-badge">
+            ÖZEL BESLENME DESTEĞİ
+          </span>
+
+          <h1>Malign Detox®</h1>
+
+          <p>
+            Malign Detox®, özel bakım gerektiren ve onkolojik
+            tedavi sürecinde bulunan kedi ve köpeklerde genel
+            beslenme desteği, antioksidan savunma ve yaşam
+            kalitesinin desteklenmesine yönelik mantar ve
+            botanik bileşenleri bir araya getiren tamamlayıcı
+            formüldür.
+          </p>
+
+        </div>
+
+
+        <div class="product-hero-image">
+
+          <img
+            src="assets/images/products/MalignDetox.jpg"
+            alt="VetWel Malign Detox ürün ambalajı"
+          >
+
+        </div>
+
+      </div>
 
     </section>
 
@@ -307,15 +400,44 @@
 
     <section class="product-grid">
 
+
       <article class="product-card">
 
         <h2>Ne İçin Kullanılır?</h2>
 
         <p>
-          Malign Detox®, neoplazi tanısı bulunan kedi ve
-          köpeklerde sorumlu veteriner hekimin oluşturduğu
-          bütüncül bakım planına tamamlayıcı botanik ve
-          besinsel destek olarak değerlendirilir.
+          Malign Detox®, veteriner hekimin oluşturduğu onkolojik
+          bakım planına tamamlayıcı olarak genel beslenme
+          durumunun, antioksidan savunmanın ve yaşam kalitesinin
+          desteklenmesine yönelik geliştirilmiştir.
+        </p>
+
+      </article>
+
+
+      <article class="product-card">
+
+        <h2>Mantar Kompleksi</h2>
+
+        <p>
+          Shiitake, Reishi ve Chaga mantarları formülün
+          temel fonksiyonel bileşen grubunu oluşturur.
+          Bu grup, özel bakım dönemlerinde genel fizyolojik
+          ve besinsel desteğin bir parçası olarak değerlendirilir.
+        </p>
+
+      </article>
+
+
+      <article class="product-card">
+
+        <h2>Botanik Destek</h2>
+
+        <p>
+          Geniş botanik içerik grubu; normal metabolik
+          fonksiyonların, antioksidan savunmanın, sindirim
+          sisteminin ve doğal eliminasyon süreçlerinin
+          desteklenmesine yönelik çok yönlü yaklaşımı tamamlar.
         </p>
 
       </article>
@@ -326,25 +448,10 @@
         <h2>Antioksidan Savunma</h2>
 
         <p>
-          Mantar ve botanik bileşenlerden oluşan
-          fitokompleks, normal hücresel antioksidan
-          savunmanın ve oksidatif stres yükünün
-          yönetiminin desteklenmesine yönelik
-          formülasyon ekseni içerir.
-        </p>
-
-      </article>
-
-
-      <article class="product-card">
-
-        <h2>Normal İmmün Yanıt</h2>
-
-        <p>
-          Shiitake ve reishi gibi mantarlarda bulunan
-          polisakkarit ve beta-glukan fraksiyonları,
-          fizyolojik immün yanıtla ilişkili mekanistik
-          araştırmaların odağında yer almaktadır.
+          Özel bakım dönemlerinde oksidatif yük artabilir.
+          Formül içerisindeki mantar ve botanik bileşenler
+          normal hücresel antioksidan savunmanın
+          desteklenmesine yönelik tamamlayıcı yaklaşım sunar.
         </p>
 
       </article>
@@ -355,10 +462,10 @@
         <h2>Genel Kondisyon</h2>
 
         <p>
-          Ürün, hastanın iştah, kilo, aktivite,
-          kas kondisyonu ve genel durumunun yakından
-          izlendiği bütüncül destek planının bir
-          parçası olarak değerlendirilebilir.
+          Malign Detox®'un amacı tümörü doğrudan hedeflemek değil;
+          veteriner hekimin tedavi planı devam ederken genel
+          kondisyonun ve yaşam kalitesinin desteklenmesine
+          katkı sağlamaktır.
         </p>
 
       </article>
@@ -366,87 +473,35 @@
 
       <article class="product-card">
 
-        <h2>Onkolojik Bakım</h2>
+        <h2>Hangi Durumlarda Düşünülür?</h2>
 
-        <p>
-          Kullanım kararı; tanı, tümör tipi ve evresi,
-          cerrahi planı, kemoterapi veya diğer tedaviler
-          ve eşzamanlı ilaçlar birlikte değerlendirilerek
-          veteriner hekim tarafından verilmelidir.
-        </p>
-
-      </article>
-
-
-      <article class="product-card">
-
-        <h2>Tamamlayıcı Yaklaşım</h2>
-
-        <p>
-          Malign Detox®'un hedefi tümörü doğrudan tedavi
-          etmek değildir. Standart veteriner onkoloji
-          yaklaşımının yanında tamamlayıcı destek
-          katmanı olarak değerlendirilir.
-        </p>
+        <ul>
+          <li>Onkolojik bakım sürecinde tamamlayıcı beslenme desteği olarak</li>
+          <li>Özel bakım gerektiren kronik hastalarda</li>
+          <li>Genel kondisyon ve yaşam kalitesinin desteklenmesinde</li>
+          <li>Antioksidan desteğin istendiği dönemlerde</li>
+          <li>Veteriner hekimin bireyselleştirdiği destek programlarında</li>
+        </ul>
 
       </article>
+
 
     </section>
 
 
-    <!-- HANGİ DURUMLARDA -->
-
-    <section class="product-section product-card">
-
-      <h2>Hangi Durumlarda Düşünülür?</h2>
-
-      <ul>
-        <li>
-          Neoplazi tanısı almış kedi ve köpeklerde,
-          standart veteriner onkoloji planının yanında
-          tamamlayıcı destek değerlendirildiğinde
-        </li>
-
-        <li>
-          Hastanın antioksidan ve besinsel destek
-          gereksiniminin veteriner hekim tarafından
-          değerlendirilmesi halinde
-        </li>
-
-        <li>
-          İştah, kilo, kas kondisyonu ve aktivitenin
-          yakından izlendiği uzun dönem bakım süreçlerinde
-        </li>
-
-        <li>
-          Palyatif bakım planının bir parçası olarak,
-          hasta özelinde uygun görüldüğünde
-        </li>
-
-        <li>
-          Kemoterapi, radyoterapi veya diğer onkoloji
-          tedavileri sırasında yalnızca ilaç etkileşimi
-          değerlendirmesinden sonra
-        </li>
-      </ul>
-
-    </section>
-
-
-    <!-- FORMÜLASYON MANTIĞI -->
+    <!-- FORMÜLASYON -->
 
     <section class="product-section product-card">
 
       <h2>İçerik ve Formülasyon Mantığı</h2>
 
       <p>
-        Malign Detox® tek bir mantar veya tek bir bitkiye
-        dayanan bir formül değildir. Formülasyon yaklaşımı;
-        mantar polisakkaritleri, glukozinolat ilişkili
-        bitkisel bileşenler ve geniş bir botanik
-        fitokompleksi birlikte kullanarak antioksidan
-        savunma, fizyolojik immün yanıt ve genel
-        metabolik destek eksenlerini tamamlamaktır.
+        Malign Detox® tek bir mantar ekstraktına veya tek bir
+        bitkisel bileşene dayanan bir formül değildir.
+        Fonksiyonel mantarlar ile geniş botanik fitokompleksin
+        aynı formülde bir araya getirilmesi, özel bakım
+        dönemlerinde birden fazla fizyolojik destek ekseninin
+        birlikte ele alınmasını sağlar.
       </p>
 
 
@@ -455,13 +510,12 @@
 
         <div class="formula-item">
 
-          <strong>Shiitake — Lentinula edodes</strong>
+          <strong>Fonksiyonel Mantar Ekseni</strong>
 
           <p>
-            Lentinan ve diğer beta-glukan/polisakkarit
-            fraksiyonları nedeniyle immün hücre yanıtıyla
-            ilişkili mekanistik araştırmalarda incelenen
-            mantar bileşenlerinden biridir.
+            Shiitake, Reishi ve Chaga; formülün temel mantar
+            kompleksini oluşturur ve genel fizyolojik destek
+            yaklaşımının merkezinde yer alır.
           </p>
 
         </div>
@@ -469,12 +523,13 @@
 
         <div class="formula-item">
 
-          <strong>Reishi — Ganoderma lucidum</strong>
+          <strong>Botanik Antioksidan Ekseni</strong>
 
           <p>
-            Polisakkarit ve triterpen içeriği nedeniyle
-            immün ve inflamatuar sinyal yollarına yönelik
-            preklinik araştırmalarda incelenmiştir.
+            Ekinezya, aynısafa, ısırgan, dulavrat ve diğer
+            seçilmiş botanikler normal hücresel antioksidan
+            savunmanın desteklenmesine yönelik fitokompleksi
+            tamamlar.
           </p>
 
         </div>
@@ -482,14 +537,27 @@
 
         <div class="formula-item">
 
-          <strong>Chaga — Inonotus obliquus</strong>
+          <strong>Metabolik &amp; Eliminasyon Desteği</strong>
 
           <p>
-            Fitokimyasal ve antioksidan profiliyle
-            araştırılan bir mantar bileşenidir.
-            Köpek tümör organoidlerinde preklinik çalışmalar
-            bulunmakla birlikte bu veriler bitmiş ürünün
-            klinik etkinliğini kanıtlamaz.
+            Huş, atkuyruğu, yoğurt otu ve seçilmiş diğer
+            botanikler normal sıvı dengesi ve doğal
+            eliminasyon süreçlerinin desteklenmesine yönelik
+            formülasyon ekseninde yer alır.
+          </p>
+
+        </div>
+
+
+        <div class="formula-item">
+
+          <strong>Gastrointestinal Destek</strong>
+
+          <p>
+            Meyan, melisa, tekesakalı, civanperçemi ve
+            tamamlayıcı bitkisel bileşenler sindirim konforu
+            ve genel beslenme durumunun desteklenmesine
+            yönelik yaklaşımı tamamlar.
           </p>
 
         </div>
@@ -500,43 +568,12 @@
           <strong>Brokoli Tohumu</strong>
 
           <p>
-            Glukozinolat ve sulforafan ekseniyle ilişkili
-            fitokimyasal destek yaklaşımının bir parçasıdır.
-            Köpeklerde sulforafan biyoyararlanımına ilişkin
-            araştırmalar bulunmakla birlikte bunlar
-            Malign Detox® klinik etkinlik çalışmaları değildir.
+            Brokoli tohumu, formülün bitkisel ve fonksiyonel
+            beslenme yaklaşımını tamamlayan bileşenlerden biridir.
           </p>
 
         </div>
 
-
-        <div class="formula-item">
-
-          <strong>Botanik Fitokompleks</strong>
-
-          <p>
-            Kekik, atkuyruğu, agrimony, aynısefa,
-            ekinezya, melisa, meyan ve diğer seçilmiş
-            botanik bileşenler formülün çok yönlü
-            fitokimyasal destek yapısını oluşturur.
-          </p>
-
-        </div>
-
-
-        <div class="formula-item">
-
-          <strong>Çok Bileşenli Yaklaşım</strong>
-
-          <p>
-            Formülün farklı bileşen grupları birbirinden
-            bağımsız bir “kanser tedavisi” oluşturmak için
-            değil, veteriner hekim kontrolündeki bütüncül
-            bakım planına tamamlayıcı destek sağlamak
-            amacıyla birlikte değerlendirilir.
-          </p>
-
-        </div>
 
       </div>
 
@@ -545,25 +582,20 @@
 
         <strong>Formülasyon yaklaşımı:</strong>
 
-        Malign Detox® için uygun anlatım,
-        tümör veya metastaz üzerinde doğrudan tedavi
-        iddiası değildir.
+        Malign Detox® bir kanser tedavisi değildir.
 
         <br><br>
 
-        Ana eksen:
+        Temel yaklaşım:
+
         <strong>
-          mantar + botanik fitokompleks →
-          antioksidan savunma →
-          fizyolojik immün yanıt →
-          genel bakım desteği
+          genel kondisyon → besinsel destek →
+          antioksidan savunma → metabolik denge →
+          yaşam kalitesi
         </strong>
 
-        <br><br>
-
-        Bileşenlere ilişkin mekanistik veya preklinik
-        çalışmalar, bitmiş Malign Detox® ürününün
-        klinik antitümör etkinliğini kanıtlamaz.
+        eksenlerinin veteriner hekimin ana tedavi planına
+        tamamlayıcı olarak desteklenmesidir.
 
       </div>
 
@@ -577,169 +609,149 @@
       <h2>Genel İçerikler</h2>
 
       <p>
-        Mevcut profesyonel teknik materyalde bildirilen
-        mantar ve botanik bileşenler aşağıda yer almaktadır.
+        Malign Detox® fonksiyonel mantarlar, brokoli tohumu
+        ve geniş bir botanik bileşen grubunu bir araya getirir.
       </p>
+
+
+      <h3 style="color:#173f6b; margin-top:28px;">
+        Fonksiyonel Mantarlar
+      </h3>
 
 
       <div class="ingredient-grid">
 
         <div class="ingredient-item">
-          <strong>1. Shiitake</strong>
+          <strong>Shiitake</strong>
           Lentinula edodes
         </div>
 
         <div class="ingredient-item">
-          <strong>2. Reishi</strong>
+          <strong>Reishi</strong>
           Ganoderma lucidum
         </div>
 
         <div class="ingredient-item">
-          <strong>3. Chaga</strong>
+          <strong>Chaga</strong>
           Inonotus obliquus
         </div>
 
         <div class="ingredient-item">
-          <strong>4. Brokoli Tohumu</strong>
-          Brassica türü botanik bileşen
+          <strong>Brokoli Tohumu</strong>
+          Broccoli Seed
+        </div>
+
+      </div>
+
+
+      <h3 style="color:#173f6b; margin-top:32px;">
+        Botanik Bileşenler
+      </h3>
+
+
+      <div class="ingredient-grid">
+
+        <div class="ingredient-item">
+          <strong>Kekik / Oregano</strong>
+          Origanum spp.
         </div>
 
         <div class="ingredient-item">
-          <strong>5. Kekik / Oregano</strong>
-          Botanik fitokompleks
+          <strong>Atkuyruğu</strong>
+          Equisetum spp.
         </div>
 
         <div class="ingredient-item">
-          <strong>6. Atkuyruğu</strong>
-          Equisetum
+          <strong>Koyun Otu</strong>
+          Agrimonia spp.
         </div>
 
         <div class="ingredient-item">
-          <strong>7. Koyun Otu / Agrimony</strong>
-          Agrimonia
+          <strong>Çoban Çantası</strong>
+          Capsella spp.
         </div>
 
         <div class="ingredient-item">
-          <strong>8. Çoban Çantası</strong>
-          Capsella
+          <strong>Ölmezçiçek</strong>
+          Helichrysum spp.
         </div>
 
         <div class="ingredient-item">
-          <strong>9. Ölmezçiçek</strong>
-          Helichrysum
+          <strong>Yoğurt Otu</strong>
+          Galium spp.
         </div>
 
         <div class="ingredient-item">
-          <strong>10. Yoğurt Otu</strong>
-          Galium
+          <strong>Kırlangıç Otu</strong>
+          Chelidonium spp.
         </div>
 
         <div class="ingredient-item">
-          <strong>11. Kırlangıç Otu</strong>
-          Chelidonium
+          <strong>Isırgan</strong>
+          Urtica spp.
         </div>
 
         <div class="ingredient-item">
-          <strong>12. Isırgan</strong>
-          Urtica
+          <strong>Huş</strong>
+          Betula spp.
         </div>
 
         <div class="ingredient-item">
-          <strong>13. Huş</strong>
-          Betula
+          <strong>Yakı Otu</strong>
+          Epilobium spp.
         </div>
 
         <div class="ingredient-item">
-          <strong>14. Yakı Otu</strong>
-          Epilobium
-        </div>
-
-        <div class="ingredient-item">
-          <strong>15. Sarı Kantaron</strong>
+          <strong>Sarı Kantaron</strong>
           Hypericum perforatum
         </div>
 
         <div class="ingredient-item">
-          <strong>16. Ekinezya</strong>
-          Echinacea
+          <strong>Ekinezya</strong>
+          Echinacea spp.
         </div>
 
         <div class="ingredient-item">
-          <strong>17. Karakafes</strong>
-          Symphytum
+          <strong>Karakafes</strong>
+          Symphytum spp.
         </div>
 
         <div class="ingredient-item">
-          <strong>18. Tekesakalı Otu</strong>
-          Filipendula
+          <strong>Tekesakalı Otu</strong>
+          Filipendula spp.
         </div>
 
         <div class="ingredient-item">
-          <strong>19. Melisa</strong>
-          Melissa
+          <strong>Melisa</strong>
+          Melissa officinalis
         </div>
 
         <div class="ingredient-item">
-          <strong>20. Dulavrat Otu</strong>
-          Arctium
+          <strong>Dulavrat Otu</strong>
+          Arctium spp.
         </div>
 
         <div class="ingredient-item">
-          <strong>21. Kırmızı Yonca</strong>
+          <strong>Kırmızı Yonca</strong>
           Trifolium pratense
         </div>
 
         <div class="ingredient-item">
-          <strong>22. Meyan</strong>
-          Glycyrrhiza
+          <strong>Meyan</strong>
+          Glycyrrhiza spp.
         </div>
 
         <div class="ingredient-item">
-          <strong>23. Aynısefa</strong>
-          Calendula
+          <strong>Aynısafa</strong>
+          Calendula spp.
         </div>
 
         <div class="ingredient-item">
-          <strong>24. Çayır Düğmesi</strong>
-          Sanguisorba
+          <strong>Çayır Düğmesi</strong>
+          Sanguisorba spp.
         </div>
 
       </div>
-
-
-      <div class="formula-note">
-
-        <strong>Teknik not:</strong>
-
-        Botanik hammaddelerin kesin tür, ekstrakt oranı,
-        standardizasyon belirteci ve tablet başına miktarları
-        güncel üretici teknik spesifikasyonu ve ürün kalite
-        belgeleriyle birlikte değerlendirilmelidir.
-
-      </div>
-
-    </section>
-
-
-    <!-- KANIT DÜZEYİ -->
-
-    <section class="evidence-note">
-
-      <h2>Bilimsel Kanıtın Sınırı</h2>
-
-      <p>
-        Malign Detox® formülündeki bazı mantar ve botanik
-        bileşenler için mekanistik ve preklinik çalışmalar
-        bulunmaktadır. Bununla birlikte bu çalışmaların
-        sonuçları doğrudan bitmiş ürüne aktarılamaz.
-      </p>
-
-      <p>
-        Bu nedenle Malign Detox® için
-        “tümörü küçültür”, “kanser hücrelerinin büyümesini
-        yavaşlatır”, “metastazı önler” veya benzeri
-        klinik tedavi iddiaları kullanılmamalıdır.
-      </p>
 
     </section>
 
@@ -751,47 +763,18 @@
       <h2>Klinik Yaklaşım</h2>
 
       <p>
-        Neoplazi şüphesi veya tanısı bulunan bir hastada
-        temel yaklaşım; sitoloji ve/veya histopatoloji,
-        uygun evreleme, görüntüleme ve standart veteriner
-        onkoloji değerlendirmesidir.
+        Onkolojik hastalarda destek ürünleri;
+        tümör tipi, hastalığın evresi, organ fonksiyonları,
+        kullanılan ilaçlar, cerrahi planı ve hastanın genel
+        klinik durumu dikkate alınarak değerlendirilmelidir.
       </p>
 
       <p>
         Malign Detox® cerrahi, kemoterapi, radyoterapi,
-        hedefe yönelik tedavi, immünoterapi veya diğer
-        standart onkoloji yaklaşımlarının yerine geçmez.
+        hedefe yönelik tedavi, immünoterapi veya veteriner
+        hekimin önerdiği diğer onkolojik tedavilerin
+        yerine geçmez.
       </p>
-
-      <p>
-        Ürünün kullanılması düşünülüyorsa tedavi planı,
-        eşzamanlı ilaçlar, hastanın karaciğer ve böbrek
-        fonksiyonları ve genel performans durumu birlikte
-        değerlendirilmelidir.
-      </p>
-
-    </section>
-
-
-    <!-- KLİNİK İZLEM -->
-
-    <section class="clinical-note">
-
-      <h2>Klinik İzlem</h2>
-
-      <ul>
-        <li>Tümör tipi, derece ve klinik evre</li>
-        <li>Standart onkoloji tedavi planı</li>
-        <li>İştah ve vücut ağırlığı</li>
-        <li>Kas kondisyonu ve aktivite düzeyi</li>
-        <li>Ağrı ve genel klinik durum</li>
-        <li>CBC / tam kan sayımı</li>
-        <li>Karaciğer parametreleri</li>
-        <li>Böbrek parametreleri</li>
-        <li>Elektrolitler</li>
-        <li>Gerektiğinde koagülasyon parametreleri</li>
-        <li>Beklenmeyen advers bulgular</li>
-      </ul>
 
     </section>
 
@@ -800,66 +783,55 @@
 
     <section class="safety-note">
 
-      <h2>Kritik Güvenlik & İlaç Etkileşimi</h2>
+      <h2>Önemli Güvenlik ve Etkileşim Notları</h2>
 
       <p>
-        Onkoloji hastalarında bitkisel ürün–ilaç
-        etkileşimleri özellikle önemlidir.
+        Malign Detox® çok sayıda botanik ve fonksiyonel
+        bileşen içerdiğinden, özellikle onkolojik hastalarda
+        eş zamanlı ilaçlar mutlaka veteriner hekim tarafından
+        değerlendirilmelidir.
       </p>
-
-      <div class="warning-box">
-
-        <strong>Sarı Kantaron — Hypericum perforatum</strong>
-
-        <br><br>
-
-        İlaç metabolizması ve taşıyıcı sistemleriyle
-        etkileşim potansiyeli bulunduğundan kemoterapi,
-        hedefe yönelik tedavi ve diğer reçeteli ilaçlarla
-        birlikte kullanım öncesinde hastanın tam ilaç
-        listesi veteriner hekim tarafından değerlendirilmelidir.
-
-      </div>
-
 
       <ul>
 
         <li>
-          Cerrahi öncesinde rutin kullanım önerilmemelidir;
-          cerrah ve anestezi ekibi tüm supplement ve
-          ilaç listesini bilmelidir.
+          <strong>Hypericum perforatum:</strong>
+          Çok sayıda ilaçla etkileşim potansiyeli bulunabilir.
         </li>
 
         <li>
-          Kemoterapi, hedefe yönelik tedavi, immünoterapi,
-          antikoagülan, NSAİİ, opioid, antikonvülzan veya
-          sedatif kullanan hastalarda etkileşim
-          değerlendirmesi yapılmalıdır.
+          Kemoterapi, hedefe yönelik tedavi veya immünoterapi
+          alan hastalarda kullanım mutlaka tedaviyi yöneten
+          veteriner hekimle birlikte planlanmalıdır.
         </li>
 
         <li>
-          Kronik böbrek hastalığı, dehidratasyon veya
-          nefrotoksik tedavi alan hastalarda renal durum
-          dikkatle değerlendirilmelidir.
+          Antikoagülan, NSAID, opioid, antikonvülzan veya
+          sedatif kullanan hastalarda etkileşim değerlendirmesi yapılmalıdır.
         </li>
 
         <li>
-          Karaciğer hastalığı veya hepatotoksik tedavi
-          alan hastalarda formül bileşenleri ayrıca
+          Cerrahi planlanan hastalarda kullanım ve olası
+          perioperatif etkiler veteriner hekim tarafından
           değerlendirilmelidir.
         </li>
 
         <li>
-          Hormon duyarlı tümörlerde kırmızı yonca
-          içeriğinin uygunluğu veteriner hekim tarafından
-          ayrıca değerlendirilmelidir.
+          <strong>Chaga:</strong>
+          Böbrek hastalığı bulunan hastalarda özellikle
+          dikkatli değerlendirilmelidir.
         </li>
 
         <li>
-          Ateş, titreme, kusma, ishal, iştahsızlık,
-          kanama, sarılık, nörolojik bulgu veya renal
-          parametrelerde kötüleşme görülürse kullanım
-          durdurulmalı ve hasta yeniden değerlendirilmelidir.
+          <strong>Symphytum:</strong>
+          Karaciğer hastalığı bulunan hastalarda kullanım
+          veteriner hekim gözetiminde değerlendirilmelidir.
+        </li>
+
+        <li>
+          <strong>Trifolium pratense:</strong>
+          Hormona duyarlı tümörlerde veteriner hekim
+          değerlendirmesi özellikle önemlidir.
         </li>
 
       </ul>
@@ -874,18 +846,21 @@
       <h2>Nasıl Kullanılır?</h2>
 
       <p>
-        Malign Detox® tablet formdadır.
+        Malign Detox® özel bakım ve onkolojik destek
+        dönemlerinde kullanılmak üzere geliştirilmiş
+        tamamlayıcı bir üründür.
       </p>
 
 
       <div class="usage-step">
 
-        <strong>Veteriner Hekim Kontrollü Kullanım</strong>
+        <strong>Doz ve kullanım sıklığı</strong>
 
         <p>
-          Onkoloji hastalarında sabit ve tüm hastalara
-          uygulanabilecek standart bir kullanım protokolü
-          önerilmemelidir.
+          Hastanın tümör tipi, mevcut tedavileri,
+          klinik durumu, karaciğer ve böbrek fonksiyonları
+          ile eş zamanlı kullandığı ilaçlar dikkate alınarak
+          <strong>veteriner hekim tarafından bireyselleştirilmelidir.</strong>
         </p>
 
       </div>
@@ -893,43 +868,27 @@
 
       <div class="usage-step">
 
-        <strong>Protokol Belirlenirken</strong>
+        <strong>Kullanım süresi</strong>
 
         <p>
-          Tümör tipi ve evresi, cerrahi planı,
-          kemoterapi/radyoterapi veya diğer onkoloji
-          tedavileri, eşzamanlı ilaçlar, karaciğer ve
-          böbrek fonksiyonları ile hastanın genel
-          klinik durumu birlikte değerlendirilmelidir.
-        </p>
-
-      </div>
-
-
-      <div class="usage-step">
-
-        <strong>Perioperatif Dönem</strong>
-
-        <p>
-          Cerrahi öncesinde otomatik olarak başlanmamalıdır.
-          Kullanım kararı ancak cerrah ve anestezi
-          ekibinin değerlendirmesiyle verilmelidir.
+          Sabit bir kullanım süresi önerilmez.
+          Klinik yanıt ve ana tedavi protokolü doğrultusunda
+          veteriner hekim tarafından belirlenmelidir.
         </p>
 
       </div>
 
 
       <p>
-        Doz, sıklık ve kullanım süresi sorumlu
-        veteriner hekimin hasta özelindeki klinik
-        değerlendirmesine ve güncel ürün teknik
-        spesifikasyonuna göre belirlenmelidir.
+        Özellikle aktif onkolojik tedavi alan hastalarda,
+        ürüne başlanmadan önce tedaviyi yöneten veteriner
+        hekime kullanılan tüm ilaç ve destek ürünleri bildirilmelidir.
       </p>
 
     </section>
 
 
-    <!-- KISA ÜRÜN ÖZETİ -->
+    <!-- ÖZET -->
 
     <section class="product-note">
 
@@ -937,32 +896,18 @@
 
       <p>
         <strong>
-          Malign Detox®, shiitake, reishi ve chaga mantarları
-          ile brokoli tohumu ve geniş bir botanik fitokompleksi
-          bir araya getiren oral tamamlayıcı formüldür.
-          Onkoloji hastalarında antioksidan savunma,
-          fizyolojik immün yanıt ve genel bakım desteği
-          yaklaşımıyla, yalnızca veteriner hekim kontrolünde
-          değerlendirilir. Kanser tedavisinin, cerrahinin,
-          kemoterapinin veya radyoterapinin alternatifi değildir
-          ve bitmiş ürün için antitümör veya antimetastatik
-          klinik etkinlik iddiası yapılmaz.
+          Malign Detox®, Shiitake, Reishi ve Chaga mantarları,
+          brokoli tohumu ve geniş bir botanik fitokompleksi
+          bir araya getiren özel beslenme destek formülüdür.
+          Amaç tümörü veya metastazı tedavi etmek değil;
+          veteriner hekimin oluşturduğu onkolojik bakım planı
+          sırasında genel kondisyonun, besinsel desteğin,
+          antioksidan savunmanın ve yaşam kalitesinin
+          desteklenmesine katkı sağlamaktır. Çok sayıda
+          potansiyel ilaç etkileşimi nedeniyle doz ve kullanım
+          protokolü hastaya özel olarak veteriner hekim
+          tarafından belirlenmelidir.
         </strong>
-      </p>
-
-    </section>
-
-
-    <!-- YASAL / KLİNİK NOT -->
-
-    <section class="product-note">
-
-      <h2>Önemli Not</h2>
-
-      <p>
-        Bu bir ilaç değil, tamamlayıcı yemdir.
-        Hastaya özgü tanı, tedavi ve kullanım kararı
-        veteriner hekime aittir.
       </p>
 
     </section>

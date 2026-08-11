@@ -171,6 +171,24 @@ document.addEventListener("DOMContentLoaded", () => {
     if (liverLiquidLink) {
       liverLiquidLink.href = "education-liverwel-liquid.html";
     }
+
+    const calmSolutionCard = solutionCards.find(
+      (card) => card.querySelector("h3")?.textContent.trim() === "CalmWel"
+    );
+    const calmSolutionLink = calmSolutionCard?.querySelector("a");
+    if (calmSolutionLink) {
+      calmSolutionLink.href = "education-calmwel-tablet.html";
+    }
+
+    const calmProductCards = document.querySelectorAll(".product-calm");
+    const calmTabletLink = calmProductCards[0]?.querySelector("a");
+    const calmLiquidLink = calmProductCards[1]?.querySelector("a");
+    if (calmTabletLink) {
+      calmTabletLink.href = "education-calmwel-tablet.html";
+    }
+    if (calmLiquidLink) {
+      calmLiquidLink.href = "education-calmwel-liquid.html";
+    }
   }
 
   /*

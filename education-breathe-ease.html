@@ -42,6 +42,14 @@
       padding: 48px;
       margin-bottom: 30px;
       border-top: 6px solid #7653a6;
+      overflow: hidden;
+    }
+
+    .product-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(250px, 0.75fr);
+      gap: 42px;
+      align-items: center;
     }
 
     .product-hero h1 {
@@ -61,6 +69,25 @@
       font-weight: 800;
       letter-spacing: 1.3px;
       color: #d8d0ea;
+    }
+
+    .product-hero-image {
+      background: white;
+      border-radius: 20px;
+      min-height: 300px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+    }
+
+    .product-hero-image img {
+      display: block;
+      width: 100%;
+      max-width: 330px;
+      max-height: 330px;
+      object-fit: contain;
     }
 
     .product-grid {
@@ -106,13 +133,31 @@
       line-height: 1.7;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 760px) {
+      .product-page {
+        padding: 40px 16px 60px;
+      }
+
       .product-hero {
         padding: 30px 24px;
       }
 
+      .product-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
       .product-hero h1 {
         font-size: 30px;
+      }
+
+      .product-hero-image {
+        min-height: 240px;
+        padding: 20px;
+      }
+
+      .product-hero-image img {
+        max-height: 270px;
       }
     }
   </style>
@@ -130,18 +175,38 @@
 
     <section class="product-hero">
 
-      <p class="product-kicker">VETWEL® ÜRÜN BİLGİSİ</p>
+      <div class="product-hero-grid">
 
-      <h1>Breathe Ease®</h1>
+        <div class="product-hero-copy">
 
-      <p>
-        Kedi ve köpeklerde solunum sistemi ve bronşiyal fonksiyonların
-        besinsel olarak desteklenmesine yönelik tamamlayıcı bir formüldür.
-        İçerik yapısını, kullanım yaklaşımını ve formülasyon mantığını
-        kısa ve anlaşılır şekilde inceleyin.
-      </p>
+          <p class="product-kicker">
+            VETWEL® ÜRÜN BİLGİSİ
+          </p>
+
+          <h1>Breathe Ease®</h1>
+
+          <p>
+            Kedi ve köpeklerde solunum sistemi ve bronşiyal fonksiyonların
+            besinsel olarak desteklenmesine yönelik tamamlayıcı bir formüldür.
+            İçerik yapısını, kullanım yaklaşımını ve formülasyon mantığını
+            kısa ve anlaşılır şekilde inceleyin.
+          </p>
+
+        </div>
+
+        <div class="product-hero-image">
+
+          <img
+            src="assets/images/products/BREATHE EASE PM.jpeg"
+            alt="VetWel Breathe Ease ürün kutusu ve saşesi"
+          >
+
+        </div>
+
+      </div>
 
     </section>
+
 
     <section class="product-grid">
 
@@ -157,6 +222,7 @@
 
       </article>
 
+
       <article class="product-card">
 
         <h2>Formülasyon Yaklaşımı</h2>
@@ -168,6 +234,7 @@
         </p>
 
       </article>
+
 
       <article class="product-card">
 
@@ -181,6 +248,7 @@
         </ul>
 
       </article>
+
 
       <article class="product-card">
 
@@ -196,100 +264,117 @@
       </article>
 
     </section>
-<section class="product-card" style="margin-top:28px;">
-
-  <h2>İçerik ve Formülasyon Mantığı</h2>
-
-  <p>
-    Breathe Ease® formülü, solunum sistemi ve bronşiyal
-    fonksiyonların tamamlayıcı olarak desteklenmesine yönelik
-    seçilmiş botanik ve besinsel bileşenlerden oluşur.
-  </p>
-
-  <ul>
-    <li>
-      <strong>Propolis:</strong>
-      Botanik kökenli formülasyonun temel bileşenlerinden biridir.
-    </li>
-
-    <li>
-      <strong>Chitosan:</strong>
-      Formülün tamamlayıcı destek yaklaşımına katkı sağlayan
-      fonksiyonel bileşenlerden biridir.
-    </li>
-
-    <li>
-      <strong>Chlorella vulgaris:</strong>
-      Besinsel ve antioksidan destek yaklaşımını tamamlar.
-    </li>
-
-    <li>
-      <strong>Dandelion (Taraxacum):</strong>
-      Formülün botanik destek bileşenlerinden biridir.
-    </li>
-
-    <li>
-      <strong>Pear Extract:</strong>
-      Breathe Ease®'in bitkisel içerik kombinasyonunun
-      bir parçasıdır.
-    </li>
-
-    <li>
-      <strong>Magnesium Oxide:</strong>
-      Formülün mineral bileşenlerinden biridir.
-    </li>
-  </ul>
-
-</section>
-
 
 
     <section class="product-card" style="margin-top:28px;">
 
-  <h2>Nasıl Kullanılır?</h2>
+      <h2>İçerik ve Formülasyon Mantığı</h2>
 
-  <p>
-    Breathe Ease® 15 g saşe formundadır ve kedi ve köpeklerde
-    günlük kullanıma uygun olarak hazırlanmıştır.
-  </p>
+      <p>
+        Breathe Ease® formülü, solunum sistemi ve bronşiyal
+        fonksiyonların tamamlayıcı olarak desteklenmesine yönelik
+        seçilmiş botanik ve besinsel bileşenlerden oluşur.
+      </p>
 
-  <p>
-    <strong>Kediler:</strong>
-    Günde 1 saşe.
-  </p>
+      <ul>
 
-  <p>
-    <strong>Köpekler:</strong>
-    Yaklaşık her 5 kg (11 lb) vücut ağırlığı için günde 1 saşe.
-  </p>
+        <li>
+          <strong>Propolis:</strong>
+          Botanik kökenli formülasyonun temel bileşenlerinden biridir.
+        </li>
 
-  <ul>
-    <li>5 kg'a kadar: 1 saşe</li>
-    <li>5–10 kg: 2 saşe</li>
-    <li>10–15 kg: 3 saşe</li>
-    <li>15–20 kg: 4 saşe</li>
-  </ul>
+        <li>
+          <strong>Chitosan:</strong>
+          Formülün tamamlayıcı destek yaklaşımına katkı sağlayan
+          fonksiyonel bileşenlerden biridir.
+        </li>
 
-  <p>
-    Kullanım süresi ve günlük miktar, hayvanın klinik durumu
-    ve veteriner hekimin değerlendirmesine göre düzenlenebilir.
-  </p>
+        <li>
+          <strong>Chlorella vulgaris:</strong>
+          Besinsel ve antioksidan destek yaklaşımını tamamlar.
+        </li>
 
-</section>
+        <li>
+          <strong>Dandelion (Taraxacum):</strong>
+          Formülün botanik destek bileşenlerinden biridir.
+        </li>
+
+        <li>
+          <strong>Pear Extract:</strong>
+          Breathe Ease®'in bitkisel içerik kombinasyonunun
+          bir parçasıdır.
+        </li>
+
+        <li>
+          <strong>Magnesium Oxide:</strong>
+          Formülün mineral bileşenlerinden biridir.
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <section class="product-card" style="margin-top:28px;">
+
+      <h2>Genel İçerikler</h2>
+
+      <p>
+        Propolis, Chitosan, Chlorella vulgaris, Dandelion
+        (Taraxacum), Pear Extract ve Magnesium Oxide.
+      </p>
+
+    </section>
+
+
+    <section class="product-card" style="margin-top:28px;">
+
+      <h2>Nasıl Kullanılır?</h2>
+
+      <p>
+        Breathe Ease® 15 g saşe formundadır ve kedi ve köpeklerde
+        günlük kullanıma uygun olarak hazırlanmıştır.
+      </p>
+
+      <p>
+        <strong>Kediler:</strong>
+        Günde 1 saşe.
+      </p>
+
+      <p>
+        <strong>Köpekler:</strong>
+        Yaklaşık her 5 kg (11 lb) vücut ağırlığı için günde 1 saşe.
+      </p>
+
+      <ul>
+        <li>5 kg'a kadar: 1 saşe</li>
+        <li>5–10 kg: 2 saşe</li>
+        <li>10–15 kg: 3 saşe</li>
+        <li>15–20 kg: 4 saşe</li>
+      </ul>
+
+      <p>
+        Kullanım süresi ve günlük miktar, hayvanın klinik durumu
+        ve veteriner hekimin değerlendirmesine göre düzenlenebilir.
+      </p>
+
+    </section>
+
+
     <section class="product-note">
 
       <h2>Kısa Ürün Özeti</h2>
 
-     <p>
-  <strong>
-    Breathe Ease®, kedi ve köpeklerde solunum sistemi ve bronşiyal
-    fonksiyonların desteklenmesine yönelik botanik, fonksiyonel ve
-    besinsel bileşenleri bir araya getiren tamamlayıcı bir formüldür.
-    Propolis, chitosan, Chlorella vulgaris, karahindiba, armut ekstresi
-    ve magnezyum oksit içeren formül; genel solunum konforunun
-    desteklenmesine yönelik çok yönlü bir yaklaşım sunar.
-  </strong>
-</p>
+      <p>
+        <strong>
+          Breathe Ease®, kedi ve köpeklerde solunum sistemi ve bronşiyal
+          fonksiyonların desteklenmesine yönelik botanik, fonksiyonel ve
+          besinsel bileşenleri bir araya getiren tamamlayıcı bir formüldür.
+          Propolis, chitosan, Chlorella vulgaris, karahindiba, armut ekstresi
+          ve magnezyum oksit içeren formül; genel solunum konforunun
+          desteklenmesine yönelik çok yönlü bir yaklaşım sunar.
+        </strong>
+      </p>
 
     </section>
 
@@ -298,5 +383,4 @@
 </main>
 
 </body>
-
 </html>

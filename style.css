@@ -2291,3 +2291,25 @@ button {
 .product-card > a {
   margin-top: auto;
 }
+/* Ürün kartlarında küçük kalan ürün görsellerini büyüt */
+
+.product-kidney .product-card-image,
+.product-liver .product-card-image,
+.product-skin .product-card-image,
+.product-calm .product-card-image,
+.product-heart .product-card-image,
+.product-detox .product-card-image,
+.product-malt .product-card-image {
+  overflow: hidden;
+}
+
+.product-kidney .product-card-image img,
+.product-liver .product-card-image img,
+.product-skin .product-card-image img,
+.product-calm .product-card-image img,
+.product-heart .product-card-image img,
+.product-detox .product-card-image img,
+.product-malt .product-card-image img {
+  transform: scale(1.55);
+  transform-origin: center;
+}

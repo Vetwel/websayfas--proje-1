@@ -106,7 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
     passive: true
   });
 
-
   /*
   --------------------------------------------------
   ÇÖZÜMLER → DOĞRU ÜRÜN KARTINA GİT
@@ -125,7 +124,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "Malign Detox": ".product-detox"
   };
 
-
   /*
   --------------------------------------------------
   ENGLISH PRODUCT LINKS
@@ -136,11 +134,12 @@ document.addEventListener("DOMContentLoaded", () => {
   */
 
   if (isEnglish) {
-    const kidneySolutionCard = [...document.querySelectorAll(".solution-card")]
-      .find((card) => card.querySelector("h3")?.textContent.trim() === "KidneyWel");
+    const solutionCards = [...document.querySelectorAll(".solution-card")];
 
+    const kidneySolutionCard = solutionCards.find(
+      (card) => card.querySelector("h3")?.textContent.trim() === "KidneyWel"
+    );
     const kidneySolutionLink = kidneySolutionCard?.querySelector("a");
-
     if (kidneySolutionLink) {
       kidneySolutionLink.href = "education-kidneywel.html";
     }
@@ -148,16 +147,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const kidneyProductCards = document.querySelectorAll(".product-kidney");
     const kidneyTabletLink = kidneyProductCards[0]?.querySelector("a");
     const kidneyLiquidLink = kidneyProductCards[1]?.querySelector("a");
-
     if (kidneyTabletLink) {
       kidneyTabletLink.href = "education-kidneywel.html";
     }
-
     if (kidneyLiquidLink) {
       kidneyLiquidLink.href = "education-kidneywel-liquid.html";
     }
-  }
 
+    const liverSolutionCard = solutionCards.find(
+      (card) => card.querySelector("h3")?.textContent.trim() === "LiverWel"
+    );
+    const liverSolutionLink = liverSolutionCard?.querySelector("a");
+    if (liverSolutionLink) {
+      liverSolutionLink.href = "education-liverwel-tablet.html";
+    }
+
+    const liverProductCards = document.querySelectorAll(".product-liver");
+    const liverTabletLink = liverProductCards[0]?.querySelector("a");
+    const liverLiquidLink = liverProductCards[1]?.querySelector("a");
+    if (liverTabletLink) {
+      liverTabletLink.href = "education-liverwel-tablet.html";
+    }
+    if (liverLiquidLink) {
+      liverLiquidLink.href = "education-liverwel-liquid.html";
+    }
+  }
 
   /*
   --------------------------------------------------
@@ -217,7 +231,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-
   /*
   --------------------------------------------------
   YUKARI ÇIK BUTONU
@@ -232,7 +245,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-
 
   /*
   --------------------------------------------------
@@ -271,7 +283,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-
   /*
   --------------------------------------------------
   SAYFA GÖRÜNÜM ANİMASYONLARI
@@ -302,7 +313,6 @@ document.addEventListener("DOMContentLoaded", () => {
       element.classList.add("visible");
     });
   }
-
 
   /*
   --------------------------------------------------
@@ -342,7 +352,6 @@ document.addEventListener("DOMContentLoaded", () => {
       sectionObserver.observe(section);
     });
   }
-
 
   /*
   --------------------------------------------------

@@ -128,6 +128,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /*
   --------------------------------------------------
+  ENGLISH PRODUCT LINKS
+  --------------------------------------------------
+  English product pages are connected one by one as they are created.
+  Keep untranslated product links unchanged until their English pages
+  are ready.
+  */
+
+  if (isEnglish) {
+    const kidneySolutionCard = [...document.querySelectorAll(".solution-card")]
+      .find((card) => card.querySelector("h3")?.textContent.trim() === "KidneyWel");
+
+    const kidneySolutionLink = kidneySolutionCard?.querySelector("a");
+
+    if (kidneySolutionLink) {
+      kidneySolutionLink.href = "education-kidneywel.html";
+    }
+
+    const kidneyProductCards = document.querySelectorAll(".product-kidney");
+    const kidneyTabletLink = kidneyProductCards[0]?.querySelector("a");
+
+    if (kidneyTabletLink) {
+      kidneyTabletLink.href = "education-kidneywel.html";
+    }
+  }
+
+
+  /*
+  --------------------------------------------------
   SAYFA İÇİ BAĞLANTILAR
   --------------------------------------------------
   */

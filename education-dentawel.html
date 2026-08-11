@@ -5,14 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description"
-        content="DentaWel® ürün bilgisi: kedi ve köpeklerde ağız hijyeni, plak ve dental birikim kontrolü, diş eti ve mukozal bakım desteği.">
+  <meta
+    name="description"
+    content="DentaWel® ürün bilgisi: kedi ve köpeklerde ağız hijyeni, diş eti ve ağız mukozası bakımı, plak ve yumuşak birikimlerin kontrolüne yönelik tamamlayıcı oral bakım formülü."
+  >
 
   <title>DentaWel® Ürün Bilgisi | VetWel® Bilgi Merkezi</title>
 
   <link rel="stylesheet" href="style.css">
 
   <style>
+
     body {
       margin: 0;
       background: #f7f9fc;
@@ -42,6 +45,8 @@
       text-decoration: underline;
     }
 
+    /* HERO */
+
     .product-hero {
       background: #173f6b;
       color: white;
@@ -50,6 +55,14 @@
       margin-bottom: 30px;
       border-top: 6px solid #4b8b5a;
       box-shadow: 0 15px 40px rgba(23,63,107,0.12);
+      overflow: hidden;
+    }
+
+    .product-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 44px;
+      align-items: center;
     }
 
     .product-kicker {
@@ -57,11 +70,24 @@
       font-size: 13px;
       font-weight: 800;
       letter-spacing: 1.3px;
-      color: #d7eadc;
+      color: #d8eadc;
+    }
+
+    .product-form-badge {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
     }
 
     .product-hero h1 {
-      margin: 8px 0 15px;
+      margin: 10px 0 15px;
       font-size: 38px;
       line-height: 1.15;
     }
@@ -72,6 +98,27 @@
       color: rgba(255,255,255,0.87);
       margin-bottom: 0;
     }
+
+    .product-hero-image {
+      background: white;
+      border-radius: 20px;
+      min-height: 310px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.17);
+    }
+
+    .product-hero-image img {
+      display: block;
+      width: 100%;
+      max-width: 330px;
+      max-height: 330px;
+      object-fit: contain;
+    }
+
+    /* KARTLAR */
 
     .product-grid {
       display: grid;
@@ -107,6 +154,8 @@
       margin-top: 28px;
     }
 
+    /* FORMÜL */
+
     .formula-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
@@ -115,8 +164,8 @@
     }
 
     .formula-item {
-      background: #f4f9f5;
-      border: 1px solid #dceadd;
+      background: #f3f8f4;
+      border: 1px solid #dceade;
       border-radius: 14px;
       padding: 18px;
     }
@@ -143,6 +192,8 @@
       line-height: 1.7;
     }
 
+    /* İÇERİKLER */
+
     .ingredient-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -165,9 +216,10 @@
       margin-bottom: 3px;
     }
 
+    /* KLİNİK / KULLANIM */
+
     .clinical-note,
-    .usage-box,
-    .safety-note {
+    .usage-box {
       margin-top: 28px;
       background: white;
       border-radius: 18px;
@@ -176,8 +228,7 @@
     }
 
     .clinical-note h2,
-    .usage-box h2,
-    .safety-note h2 {
+    .usage-box h2 {
       margin-top: 0;
       color: #173f6b;
     }
@@ -185,16 +236,13 @@
     .clinical-note p,
     .clinical-note li,
     .usage-box p,
-    .usage-box li,
-    .safety-note p,
-    .safety-note li {
+    .usage-box li {
       color: #596775;
       line-height: 1.7;
     }
 
     .clinical-note ul,
-    .usage-box ul,
-    .safety-note ul {
+    .usage-box ul {
       padding-left: 22px;
     }
 
@@ -208,6 +256,8 @@
     .usage-step strong {
       color: #173f6b;
     }
+
+    /* ÖZET */
 
     .product-note {
       margin-top: 28px;
@@ -228,7 +278,10 @@
       margin-bottom: 0;
     }
 
-    @media (max-width: 600px) {
+    /* MOBİL */
+
+    @media (max-width: 760px) {
+
       .product-page {
         padding: 40px 16px 60px;
       }
@@ -237,18 +290,33 @@
         padding: 30px 24px;
       }
 
+      .product-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
       .product-hero h1 {
         font-size: 30px;
       }
 
+      .product-hero-image {
+        min-height: 240px;
+        padding: 20px;
+      }
+
+      .product-hero-image img {
+        max-height: 270px;
+      }
+
       .product-card,
-      .usage-box,
       .clinical-note,
-      .safety-note,
+      .usage-box,
       .product-note {
         padding: 24px 22px;
       }
+
     }
+
   </style>
 
 </head>
@@ -260,6 +328,7 @@
 
   <div class="product-container">
 
+
     <a href="education-products.html" class="product-back">
       ← Ürün Bilgilerine Dön
     </a>
@@ -269,18 +338,39 @@
 
     <section class="product-hero">
 
-      <p class="product-kicker">
-        VETWEL® ÜRÜN BİLGİSİ
-      </p>
+      <div class="product-hero-grid">
 
-      <h1>DentaWel®</h1>
+        <div>
 
-      <p>
-        DentaWel®; kedi ve köpeklerde günlük ağız hijyeninin,
-        diş eti ve mukozal bakımın, plak ve dental birikim
-        kontrolünün desteklenmesine yönelik jel formda
-        lokal ağız bakım ürünüdür.
-      </p>
+          <p class="product-kicker">
+            VETWEL® ÜRÜN BİLGİSİ
+          </p>
+
+          <span class="product-form-badge">
+            ORAL BAKIM
+          </span>
+
+          <h1>DentaWel®</h1>
+
+          <p>
+            DentaWel®, kedi ve köpeklerde ağız hijyeninin,
+            diş eti ve ağız mukozası bakımının desteklenmesine
+            yönelik geliştirilmiş topikal oral bakım formülüdür.
+          </p>
+
+        </div>
+
+
+        <div class="product-hero-image">
+
+          <img
+            src="assets/images/products/dentawel.png"
+            alt="VetWel DentaWel ürün ambalajı"
+          >
+
+        </div>
+
+      </div>
 
     </section>
 
@@ -289,14 +379,16 @@
 
     <section class="product-grid">
 
+
       <article class="product-card">
 
-        <h2>Ağız Hijyeni</h2>
+        <h2>Ne İçin Kullanılır?</h2>
 
         <p>
-          Günlük plak ve ağız içi birikimlerin kontrolüne
-          yardımcı olarak düzenli ağız bakımının
-          sürdürülmesini destekler.
+          DentaWel®, günlük ağız bakımının desteklenmesine;
+          diş eti ve ağız mukozasının bakımına ve ağız
+          hijyeninin korunmasına yardımcı olmak amacıyla
+          geliştirilmiştir.
         </p>
 
       </article>
@@ -304,12 +396,12 @@
 
       <article class="product-card">
 
-        <h2>Diş Eti & Mukoza</h2>
+        <h2>Plak &amp; Yumuşak Birikimler</h2>
 
         <p>
-          Diş eti hattının ve ağız mukozasının günlük
-          bakımına, mukozal bütünlüğün ve doğal iyileşme
-          süreçlerinin desteklenmesine yardımcı olur.
+          Düzenli kullanım, ağız yüzeylerinde oluşan plak ve
+          yumuşak birikimlerin kontrolüne yönelik günlük
+          ağız bakım programını destekler.
         </p>
 
       </article>
@@ -317,12 +409,12 @@
 
       <article class="product-card">
 
-        <h2>Dental Birikim</h2>
+        <h2>Diş Eti Bakımı</h2>
 
         <p>
-          Diş yüzeyi ve diş eti hattındaki yumuşak
-          birikimlerin bakımına ve mevcut birikimlerin
-          yumuşamasına yönelik lokal destek sağlar.
+          Botanik bileşenler ve formülün diğer bileşenleri,
+          diş eti dokusunun ve ağız mukozasının günlük
+          bakımının desteklenmesine yönelik birlikte kullanılır.
         </p>
 
       </article>
@@ -330,12 +422,25 @@
 
       <article class="product-card">
 
-        <h2>Ferah Nefes</h2>
+        <h2>Ağız Mukozası</h2>
 
         <p>
-          Ağız hijyeninin korunmasına yardımcı olarak
-          kötü ağız kokusunun kontrolüne yönelik
-          günlük bakım yaklaşımını destekler.
+          DentaWel®, hassas ağız mukozasının bakımına ve
+          normal doku bütünlüğünün korunmasına yönelik
+          tamamlayıcı topikal destek sağlar.
+        </p>
+
+      </article>
+
+
+      <article class="product-card">
+
+        <h2>Ağız Kokusu</h2>
+
+        <p>
+          Ağız hijyeninin ve lokal bakımın desteklenmesi,
+          kötü ağız kokusunun yönetimine yönelik bütüncül
+          ağız bakım yaklaşımının bir parçasıdır.
         </p>
 
       </article>
@@ -346,88 +451,29 @@
         <h2>Profesyonel Temizlik Sonrası</h2>
 
         <p>
-          Veteriner hekim tarafından gerçekleştirilen
-          profesyonel dental temizlik sonrasında diş eti
-          ve ağız mukozasının bakımının sürdürülmesine
-          yardımcı olabilir.
+          Veteriner hekimin uygun gördüğü hastalarda profesyonel
+          diş taşı temizliği sonrasında günlük ağız bakım
+          programına tamamlayıcı olarak kullanılabilir.
         </p>
 
       </article>
 
 
-      <article class="product-card">
-
-        <h2>Pratik Jel Form</h2>
-
-        <p>
-          Jel yapı, aktif bileşenlerin ağız yüzeyinde
-          kalıcılığını ve lokal dağılımını destekler.
-          Fırçalamayı tolere etmeyen hayvanlarda
-          uygulama kolaylığı sağlar.
-        </p>
-
-      </article>
-
     </section>
 
 
-    <!-- HANGİ DURUMLARDA -->
-
-    <section class="product-section product-card">
-
-      <h2>Hangi Durumlarda Düşünülür?</h2>
-
-      <ul>
-        <li>Günlük ağız hijyeninin desteklenmesinde</li>
-
-        <li>
-          Plak ve yumuşak dental birikimlerin
-          kontrolüne yardımcı bakımda
-        </li>
-
-        <li>
-          Kötü ağız kokusunun kontrolüne yönelik
-          günlük bakım yaklaşımında
-        </li>
-
-        <li>
-          Diş eti hassasiyeti bulunan hayvanlarda
-          lokal bakım desteğinde
-        </li>
-
-        <li>
-          Ağız mukozasındaki yüzeysel tahrişlerde
-          destekleyici bakım amacıyla
-        </li>
-
-        <li>
-          Profesyonel diş taşı temizliği sonrasında
-          diş eti ve mukozal bakımın sürdürülmesinde
-        </li>
-
-        <li>
-          Fırçalamayı tolere etmeyen kedi ve köpeklerde
-          alternatif lokal ağız bakım seçeneği olarak
-        </li>
-      </ul>
-
-    </section>
-
-
-    <!-- FORMÜLASYON MANTIĞI -->
+    <!-- FORMÜLASYON -->
 
     <section class="product-section product-card">
 
       <h2>İçerik ve Formülasyon Mantığı</h2>
 
       <p>
-        DentaWel® yalnızca tek bir antiseptik bileşene
-        dayanan bir ağız bakım ürünü değildir. Jel form;
-        bitkisel ekstraktlar, propolis, düşük konsantrasyonlu
-        klorheksidin ve jel taşıyıcı bileşenleri bir araya
-        getirerek ağız hijyeni, mukozal bakım ve lokal
-        kalıcılığı birlikte ele alan çok bileşenli
-        bir yaklaşım oluşturur.
+        DentaWel® yalnızca tek bir antiseptik bileşene dayanan
+        bir ürün değildir. Formül; düşük konsantrasyonda
+        chlorhexidine digluconate, propolis ve geniş bir
+        botanik ekstrakt karışımını topikal taşıyıcı sistemle
+        bir araya getirir.
       </p>
 
 
@@ -436,16 +482,12 @@
 
         <div class="formula-item">
 
-          <strong>%2 Bitkisel Ekstrakt Karışımı</strong>
+          <strong>Ağız Hijyeni Ekseni</strong>
 
           <p>
-            Ekinezya, aynısefa, kantaron, civanperçemi,
-            papatya, sinirli ot, ıhlamur, menekşe,
-            adaçayı, kekik, yabani kekik, karahindiba,
-            ısırgan ve huş yaprağından oluşan
-            çok bileşenli botanik kompleks;
-            ağız hijyeni ve mukozal bakım yaklaşımını
-            tamamlar.
+            %0,04 chlorhexidine digluconate, ağız yüzeylerinin
+            hijyen bakımına yönelik formülasyonun işlevsel
+            bileşenlerinden biridir.
           </p>
 
         </div>
@@ -453,13 +495,13 @@
 
         <div class="formula-item">
 
-          <strong>%0,3 Propolis Ekstraktı</strong>
+          <strong>Botanik Bakım Ekseni</strong>
 
           <p>
-            Ağız hijyeni ve mukozal bariyer bakımına yönelik
-            doğal biyolojik aktif bileşen desteği sağlar
-            ve bitkisel kompleksin lokal bakım yaklaşımını
-            tamamlar.
+            Ekinezya, aynısefa, papatya, adaçayı, kekik,
+            civanperçemi ve diğer bitkisel ekstreler diş eti
+            ve ağız mukozasının bakımına yönelik çok bileşenli
+            botanik grubu oluşturur.
           </p>
 
         </div>
@@ -467,12 +509,12 @@
 
         <div class="formula-item">
 
-          <strong>%0,04 Klorheksidin Diglukonat</strong>
+          <strong>Propolis Desteği</strong>
 
           <p>
-            Düşük konsantrasyonlu antiseptik bileşen olarak
-            lokal ağız hijyeninin desteklenmesine yönelik
-            formülasyon eksenlerinden biridir.
+            %0,3 propolis ekstraktı, formülün doğal kökenli
+            ağız bakım yaklaşımını tamamlayan temel
+            bileşenlerden biridir.
           </p>
 
         </div>
@@ -480,39 +522,13 @@
 
         <div class="formula-item">
 
-          <strong>Hydroxyethyl Cellulose</strong>
+          <strong>Topikal Taşıyıcı Sistem</strong>
 
           <p>
-            Jel yapının oluşmasına ve ürünün ağız
-            yüzeyinde daha uzun süre kalmasına
-            yardımcı olan taşıyıcı bileşendir.
-          </p>
-
-        </div>
-
-
-        <div class="formula-item">
-
-          <strong>PEG-40 Hydrogenated Castor Oil</strong>
-
-          <p>
-            Aktif bileşenlerin jel içinde ve ağız
-            yüzeyinde daha homojen dağılmasına
-            yardımcı olur.
-          </p>
-
-        </div>
-
-
-        <div class="formula-item">
-
-          <strong>Çok Bileşenli Lokal Yaklaşım</strong>
-
-          <p>
-            Botanik kompleks, propolis, klorheksidin
-            ve jel taşıyıcı sistem; ağız hijyeni,
-            mukozal bakım ve lokal uygulama
-            avantajını birlikte destekler.
+            Hydroxyethyl cellulose ve PEG-40 hydrogenated
+            castor oil, ürünün ağız yüzeyine uygulanmasını ve
+            formülün lokal kullanımını destekleyen teknolojik
+            bileşenlerdir.
           </p>
 
         </div>
@@ -525,23 +541,19 @@
 
         <strong>Formülasyon yaklaşımı:</strong>
 
-        DentaWel®'in amacı yalnızca ağız içindeki
-        mikroorganizmalara yönelik bir antiseptik etki
-        oluşturmak değildir.
+        DentaWel®'in temel ekseni:
 
-        <br><br>
-
-        Ana eksen:
         <strong>
-          ağız hijyeni → plak ve birikim kontrolü →
-          diş eti / mukoza bakımı → lokal kalıcılık
+          ağız hijyeni → plak/yumuşak birikim kontrolü →
+          diş eti ve mukozal bakım
         </strong>
 
+        şeklindedir.
+
         <br><br>
 
-        Bu nedenle ürün, günlük ağız bakımı ile
-        profesyonel dental bakım arasında tamamlayıcı
-        bir destek katmanı olarak değerlendirilir.
+        Ürün profesyonel dental muayene ve periodontal
+        tedavinin yerine geçmez.
 
       </div>
 
@@ -555,112 +567,118 @@
       <h2>Genel İçerikler</h2>
 
       <p>
-        DentaWel® jel formülünde bitkisel ekstrakt karışımı,
-        propolis, düşük konsantrasyonlu klorheksidin
-        ve jel yapıyı destekleyen yardımcı bileşenler bulunur.
+        DentaWel® botanik ekstrakt karışımı, propolis,
+        chlorhexidine digluconate ve topikal taşıyıcı
+        bileşenlerden oluşur.
       </p>
+
+
+      <h3 style="color:#173f6b; margin-top:28px;">
+        %2 Botanik Ekstrakt Karışımı
+      </h3>
 
 
       <div class="ingredient-grid">
 
         <div class="ingredient-item">
           <strong>1. Ekinezya</strong>
-          Bitkisel ekstrakt karışımı
+          Echinacea
         </div>
 
         <div class="ingredient-item">
           <strong>2. Aynısefa</strong>
-          Bitkisel ekstrakt karışımı
+          Calendula
         </div>
 
         <div class="ingredient-item">
           <strong>3. Kantaron</strong>
-          Bitkisel ekstrakt karışımı
+          Hypericum
         </div>
 
         <div class="ingredient-item">
           <strong>4. Civanperçemi</strong>
-          Bitkisel ekstrakt karışımı
+          Achillea
         </div>
 
         <div class="ingredient-item">
           <strong>5. Papatya</strong>
-          Bitkisel ekstrakt karışımı
+          Chamomilla
         </div>
 
         <div class="ingredient-item">
           <strong>6. Sinirli Ot</strong>
-          Bitkisel ekstrakt karışımı
+          Plantago
         </div>
 
         <div class="ingredient-item">
           <strong>7. Ihlamur</strong>
-          Bitkisel ekstrakt karışımı
+          Tilia
         </div>
 
         <div class="ingredient-item">
           <strong>8. Menekşe</strong>
-          Bitkisel ekstrakt karışımı
+          Viola
         </div>
 
         <div class="ingredient-item">
           <strong>9. Adaçayı</strong>
-          Bitkisel ekstrakt karışımı
+          Salvia
         </div>
 
         <div class="ingredient-item">
           <strong>10. Kekik</strong>
-          Bitkisel ekstrakt karışımı
+          Thymus
         </div>
 
         <div class="ingredient-item">
           <strong>11. Yabani Kekik</strong>
-          Bitkisel ekstrakt karışımı
+          Origanum
         </div>
 
         <div class="ingredient-item">
           <strong>12. Karahindiba</strong>
-          Bitkisel ekstrakt karışımı
+          Taraxacum
         </div>
 
         <div class="ingredient-item">
           <strong>13. Isırgan</strong>
-          Bitkisel ekstrakt karışımı
+          Urtica
         </div>
 
         <div class="ingredient-item">
           <strong>14. Huş Yaprağı</strong>
-          Bitkisel ekstrakt karışımı
-        </div>
-
-        <div class="ingredient-item">
-          <strong>15. Propolis Ekstraktı</strong>
-          %0,3
-        </div>
-
-        <div class="ingredient-item">
-          <strong>16. Klorheksidin Diglukonat</strong>
-          %0,04
-        </div>
-
-        <div class="ingredient-item">
-          <strong>17. Hydroxyethyl Cellulose</strong>
-          Jel yapısını destekleyen yardımcı bileşen
-        </div>
-
-        <div class="ingredient-item">
-          <strong>18. PEG-40 Hydrogenated Castor Oil</strong>
-          Dağılımı destekleyen yardımcı bileşen
+          Betula
         </div>
 
       </div>
 
 
-      <div class="formula-note">
+      <h3 style="color:#173f6b; margin-top:32px;">
+        Diğer Bileşenler
+      </h3>
 
-        <strong>Bitkisel ekstrakt karışımı:</strong>
-        Formülün toplam %2'lik botanik bölümünü
-        14 farklı bitkisel ekstrakt oluşturur.
+
+      <div class="ingredient-grid">
+
+        <div class="ingredient-item">
+          <strong>Propolis Ekstraktı</strong>
+          %0,3
+        </div>
+
+        <div class="ingredient-item">
+          <strong>Chlorhexidine Digluconate</strong>
+          %0,04
+        </div>
+
+        <div class="ingredient-item">
+          <strong>Hydroxyethyl Cellulose</strong>
+          Topikal taşıyıcı bileşen
+        </div>
+
+        <div class="ingredient-item">
+          <strong>PEG-40 Hydrogenated Castor Oil</strong>
+          Teknolojik yardımcı bileşen
+        </div>
 
       </div>
 
@@ -674,83 +692,17 @@
       <h2>Klinik Yaklaşım</h2>
 
       <p>
-        Kötü ağız kokusu, gingival kızarıklık veya dental
-        birikim yalnızca kozmetik bir sorun olarak
-        değerlendirilmemelidir. Periodontal hastalık,
-        stomatitis, mobil dişler, periodontal cepler,
-        yabancı cisimler veya bazı sistemik hastalıklar
-        benzer belirtilere neden olabilir.
+        Kalıcı ağız kokusu, kanama, ağrı, diş kaybı,
+        belirgin diş taşı, yemede güçlük veya ağız içinde
+        kitle ve ülseratif lezyon bulunması durumunda
+        veteriner dental değerlendirme yapılmalıdır.
       </p>
 
       <p>
-        Belirgin gingivitis, ileri dental birikim,
-        periodontal cep, mobil diş, oral ağrı veya
-        tekrarlayan kötü ağız kokusu bulunan hastalarda
-        profesyonel dental muayene yapılmalıdır.
+        DentaWel® profesyonel diş taşı temizliğinin,
+        dental radyografinin veya periodontal tedavinin
+        yerine geçmez.
       </p>
-
-      <p>
-        DentaWel® dental muayene, profesyonel diş taşı
-        temizliği veya periodontal tedavinin yerine geçmez.
-      </p>
-
-    </section>
-
-
-    <!-- DENTAL BİRİKİM -->
-
-    <section class="clinical-note">
-
-      <h2>Dental Birikim Yönetimi</h2>
-
-      <p>
-        DentaWel® dental yüzeylerdeki yumuşak birikimlerin
-        bakımına ve mevcut birikimlerin yumuşamasına
-        destek olabilir.
-      </p>
-
-      <p>
-        Sertleşmiş diş taşının uzaklaştırılması gerektiğinde
-        mekanik işlem uygun veteriner dental yöntemleriyle
-        gerçekleştirilmelidir. Ürün, profesyonel mekanik
-        temizliğin alternatifi olarak değerlendirilmemelidir.
-      </p>
-
-    </section>
-
-
-    <!-- GÜVENLİK -->
-
-    <section class="safety-note">
-
-      <h2>Kullanım & Güvenlik Notu</h2>
-
-      <ul>
-
-        <li>
-          Yalnızca ağız içi lokal bakım amacıyla
-          kullanılmalıdır.
-        </li>
-
-        <li>
-          İçeriklerden herhangi birine karşı hassasiyet
-          şüphesinde kullanım durdurulmalı ve hasta
-          yeniden değerlendirilmelidir.
-        </li>
-
-        <li>
-          Belirgin ağrı, kanama, periodontal cep,
-          mobil diş veya ileri gingivitis varlığında
-          veteriner dental muayene geciktirilmemelidir.
-        </li>
-
-        <li>
-          Tekrarlayan veya şiddetli ağız kokusunda
-          altta yatan dental veya sistemik nedenler
-          araştırılmalıdır.
-        </li>
-
-      </ul>
 
     </section>
 
@@ -762,20 +714,18 @@
       <h2>Nasıl Kullanılır?</h2>
 
       <p>
-        DentaWel® jel formdadır ve ağız içine
-        lokal olarak uygulanır.
+        DentaWel® problemli veya bakım yapılması istenen
+        ağız bölgesine lokal olarak uygulanır.
       </p>
 
 
       <div class="usage-step">
 
-        <strong>Genel Kullanım</strong>
+        <strong>Günlük kullanım</strong>
 
         <p>
-          Problemli ağız bölgesine
-          <strong>günde 2–3 kez</strong>
-          damlatılarak veya temiz parmakla
-          nazikçe uygulanabilir.
+          İlgili bölgeye günde <strong>2–3 kez</strong>
+          uygulanabilir.
         </p>
 
       </div>
@@ -783,12 +733,15 @@
 
       <div class="usage-step">
 
-        <strong>Fırçalama</strong>
+        <strong>Uygulama şekli</strong>
 
         <p>
-          Uygulama için fırçalama zorunlu değildir.
-          Fırçalamayı tolere etmeyen hayvanlarda
-          lokal olarak uygulanabilir.
+          Doğrudan damlatılabilir veya temiz bir parmakla
+          diş eti ve ağız mukozası üzerine nazikçe uygulanabilir.
+        </p>
+
+        <p>
+          <strong>Fırçalama zorunlu değildir.</strong>
         </p>
 
       </div>
@@ -796,13 +749,12 @@
 
       <div class="usage-step">
 
-        <strong>Mukozal Bakım & Ağız Kokusu</strong>
+        <strong>Değerlendirme süresi</strong>
 
         <p>
-          Diş eti hattına düzenli lokal uygulama yapılabilir.
-          Klinik yanıta göre genellikle
-          <strong>7–10 günlük</strong>
-          değerlendirme süresi kullanılabilir.
+          Genel ağız bakım uygulamalarında ilk klinik
+          değerlendirme yaklaşık <strong>7–10 gün</strong>
+          içinde yapılabilir.
         </p>
 
       </div>
@@ -810,27 +762,13 @@
 
       <div class="usage-step">
 
-        <strong>Dental Birikim Bakımı</strong>
+        <strong>Profesyonel temizlik sonrası</strong>
 
         <p>
-          Diş ve diş eti hattına düzenli uygulama,
-          yumuşak birikimlerin bakımına ve
-          yumuşamasına destek amacıyla kullanılabilir.
-        </p>
-
-      </div>
-
-
-      <div class="usage-step">
-
-        <strong>Profesyonel Temizlik Sonrası</strong>
-
-        <p>
-          Veteriner hekimin değerlendirmesiyle,
-          ultrasonik diş taşı temizliği sonrasında
-          lokal diş ve diş eti bakımının yaklaşık
-          <strong>14 gün</strong>
-          sürdürülmesi düşünülebilir.
+          Ultrasonik diş taşı temizliği sonrasında veteriner
+          hekimin uygun gördüğü hastalarda yaklaşık
+          <strong>14 gün</strong> süreyle ağız bakım
+          programının bir parçası olarak kullanılabilir.
         </p>
 
       </div>
@@ -838,7 +776,7 @@
     </section>
 
 
-    <!-- KISA ÜRÜN ÖZETİ -->
+    <!-- ÖZET -->
 
     <section class="product-note">
 
@@ -846,14 +784,14 @@
 
       <p>
         <strong>
-          DentaWel®, %2 oranında 14 bitkisel ekstrakt,
-          %0,3 propolis ekstraktı ve %0,04 klorheksidin
-          diglukonatı jel taşıyıcı sistem içinde bir araya
-          getiren lokal ağız bakım formülüdür. Günlük ağız
-          hijyeni, plak ve yumuşak dental birikim kontrolü,
-          diş eti ve mukozal bakım ile kötü ağız kokusunun
-          kontrolüne destek sağlar. Profesyonel dental
-          muayene veya periodontal tedavinin yerine geçmez.
+          DentaWel®, kedi ve köpeklerde günlük ağız hijyeninin,
+          diş eti ve ağız mukozası bakımının desteklenmesine
+          yönelik topikal oral bakım formülüdür. %2 botanik
+          ekstrakt karışımı, %0,3 propolis ve %0,04
+          chlorhexidine digluconate içerir. Plak ve yumuşak
+          birikimlerin kontrolüne yönelik günlük bakımda ve
+          veteriner hekimin uygun gördüğü durumlarda profesyonel
+          dental temizlik sonrası tamamlayıcı olarak kullanılabilir.
         </strong>
       </p>
 

@@ -28,7 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
 
       menuToggle.setAttribute("aria-expanded", String(!isOpen));
-      menuToggle.setAttribute("aria-label", isOpen ? "Menüyü aç" : "Menüyü kapat");
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Menüyü aç" : "Menüyü kapat"
+      );
+
       navigation.classList.toggle("open", !isOpen);
       document.body.classList.toggle("menu-open", !isOpen);
     });
@@ -57,34 +61,114 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   updateScrollState();
-  window.addEventListener("scroll", updateScrollState, { passive: true });
-  // Aynı sayfa içindeki bağlantıları sabit ve tutarlı konuma kaydır
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
-  link.addEventListener("click", (event) => {
-    const targetId = link.getAttribute("href");
 
-    if (!targetId || targetId === "#") return;
-
-    const target = document.querySelector(targetId);
-    if (!target) return;
-
-    event.preventDefault();
-
-    const headerHeight = header ? header.offsetHeight : 0;
-    const targetPosition =
-      target.getBoundingClientRect().top +
-      window.scrollY -
-      headerHeight -
-      24;
-
-    window.scrollTo({
-      top: targetPosition,
-      behavior: "smooth"
-    });
-
-    history.replaceState(null, "", targetId);
+  window.addEventListener("scroll", updateScrollState, {
+    passive: true
   });
-});
+
+
+  /*
+  --------------------------------------------------
+  ÇÖZÜMLER → DOĞRU ÜRÜN KARTINA GİT
+  --------------------------------------------------
+  */
+
+  const productTargets = {
+    KidneyWel: ".product-kidney",
+    LiverWel: ".product-liver",
+    SkinWel: ".product-skin",
+    HeartWel: ".product-heart",
+    LactoWel: ".product-lacto",
+    CalmWel: ".product-calm",
+    DentaWel: ".product-denta",
+    "VetWel Malt Paste": ".product-malt",
+    "Malign Detox": ".product-detox"
+  };
+
+
+  /*
+  --------------------------------------------------
+  SAYFA İÇİ BAĞLANTILAR
+  --------------------------------------------------
+  */
+
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const targetId = link.getAttribute("href");
+
+      if (!targetId || targetId === "#") return;
+
+      let target = null;
+
+
+      /*
+      Çözümler bölümündeki kartlardan biri
+      #urunler bağlantısını kullanıyorsa,
+      ilgili ürün kartını bul.
+      */
+
+      if (
+        targetId === "#urunler" &&
+        link.closest(".solution-card")
+      ) {
+        const solutionCard = link.closest(".solution-card");
+        const productName =
+          solutionCard.querySelector("h3")?.textContent.trim();
+
+        const productSelector = productTargets[productName];
+
+        if (productSelector) {
+          target = document.querySelector(
+            `#urunler ${productSelector}`
+          );
+        }
+      }
+
+
+      /*
+      Normal bağlantılarda standart hedefi kullan.
+      Örneğin:
+      #neden-vetwel
+      #cozumler
+      #urunler
+      #cleanse
+      #breathe-ease
+      #iletisim
+      */
+
+      if (!target) {
+        target = document.querySelector(targetId);
+      }
+
+      if (!target) return;
+
+      event.preventDefault();
+
+      const headerHeight = header ? header.offsetHeight : 0;
+
+      const targetPosition =
+        target.getBoundingClientRect().top +
+        window.scrollY -
+        headerHeight -
+        24;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth"
+      });
+
+      if (!link.closest(".solution-card") || targetId !== "#urunler") {
+        history.replaceState(null, "", targetId);
+      }
+    });
+  });
+
+
+  /*
+  --------------------------------------------------
+  YUKARI ÇIK BUTONU
+  --------------------------------------------------
+  */
 
   if (backToTopButton) {
     backToTopButton.addEventListener("click", () => {
@@ -95,9 +179,18 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     });
   }
 
+
+  /*
+  --------------------------------------------------
+  AKORDİYONLAR
+  --------------------------------------------------
+  */
+
   accordionButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const isExpanded = button.getAttribute("aria-expanded") === "true";
+      const isExpanded =
+        button.getAttribute("aria-expanded") === "true";
+
       const panel = button.nextElementSibling;
 
       accordionButtons.forEach((otherButton) => {
@@ -106,18 +199,30 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
         otherButton.setAttribute("aria-expanded", "false");
 
         const otherPanel = otherButton.nextElementSibling;
+
         if (otherPanel) {
           otherPanel.style.maxHeight = null;
         }
       });
 
-      button.setAttribute("aria-expanded", String(!isExpanded));
+      button.setAttribute(
+        "aria-expanded",
+        String(!isExpanded)
+      );
 
       if (panel) {
-        panel.style.maxHeight = isExpanded ? null : `${panel.scrollHeight}px`;
+        panel.style.maxHeight =
+          isExpanded ? null : `${panel.scrollHeight}px`;
       }
     });
   });
+
+
+  /*
+  --------------------------------------------------
+  SAYFA GÖRÜNÜM ANİMASYONLARI
+  --------------------------------------------------
+  */
 
   if ("IntersectionObserver" in window) {
     const revealObserver = new IntersectionObserver(
@@ -144,9 +249,21 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     });
   }
 
-  const pageSections = [...document.querySelectorAll("main section[id]")];
 
-  if ("IntersectionObserver" in window && pageSections.length > 0) {
+  /*
+  --------------------------------------------------
+  MENÜDE AKTİF BÖLÜM
+  --------------------------------------------------
+  */
+
+  const pageSections = [
+    ...document.querySelectorAll("main section[id]")
+  ];
+
+  if (
+    "IntersectionObserver" in window &&
+    pageSections.length > 0
+  ) {
     const sectionObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -154,7 +271,11 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 
           navigationLinks.forEach((link) => {
             const targetId = link.getAttribute("href");
-            link.classList.toggle("active", targetId === `#${entry.target.id}`);
+
+            link.classList.toggle(
+              "active",
+              targetId === `#${entry.target.id}`
+            );
           });
         });
       },
@@ -168,8 +289,16 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     });
   }
 
+
+  /*
+  --------------------------------------------------
+  İLETİŞİM FORMU
+  --------------------------------------------------
+  */
+
   if (contactForm && formStatus) {
-    const requiredFields = contactForm.querySelectorAll("[required]");
+    const requiredFields =
+      contactForm.querySelectorAll("[required]");
 
     requiredFields.forEach((field) => {
       field.addEventListener("input", () => {
@@ -195,7 +324,8 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
         }
 
         if (field.type === "email" && value) {
-          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
           if (!emailPattern.test(value)) {
             formIsValid = false;
@@ -205,25 +335,37 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
       });
 
       if (!formIsValid) {
-        formStatus.textContent = "Lütfen gerekli alanları doğru şekilde doldurun.";
-        formStatus.className = "form-status error";
+        formStatus.textContent =
+          "Lütfen gerekli alanları doğru şekilde doldurun.";
+
+        formStatus.className =
+          "form-status error";
+
         return;
       }
 
       const formData = new FormData(contactForm);
+
       const name = formData.get("name");
       const email = formData.get("email");
       const subject = formData.get("subject");
       const message = formData.get("message");
 
-      const mailSubject = encodeURIComponent(`VetWel Web Sitesi: ${subject}`);
-      const mailBody = encodeURIComponent(
-        `Ad: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`
-      );
+      const mailSubject =
+        encodeURIComponent(
+          `VetWel Web Sitesi: ${subject}`
+        );
+
+      const mailBody =
+        encodeURIComponent(
+          `Ad: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`
+        );
 
       formStatus.textContent =
         "E-posta uygulamanız açılıyor. Mesajınızı oradan gönderebilirsiniz.";
-      formStatus.className = "form-status success";
+
+      formStatus.className =
+        "form-status success";
 
       window.location.href =
         `mailto:info@vetwel.us?subject=${mailSubject}&body=${mailBody}`;

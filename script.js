@@ -72,21 +72,35 @@ document.addEventListener("DOMContentLoaded", () => {
       if (link) link.href = href;
     };
 
+    setSolutionLink("Breathe Ease", "education-breathe-ease.html");
+    setSolutionLink("Cleanse", "education-cleanse.html");
     setSolutionLink("KidneyWel", "education-kidneywel.html");
+    setSolutionLink("LiverWel", "education-liverwel-tablet.html");
+    setSolutionLink("SkinWel", "education-skinwel.html");
+    setSolutionLink("HeartWel", "education-heartwel.html");
+    setSolutionLink("LactoWel", "education-lactowel.html");
+    setSolutionLink("CalmWel", "education-calmwel-tablet.html");
+    setSolutionLink("DentaWel", "education-dentawel.html");
+    setSolutionLink("VetWel Malt Paste", "education-malt-paste.html");
+    setSolutionLink("Malign Detox", "education-malign-detox.html");
+
+    const cleanseFeaturedLink = document.querySelector("#cleanse a.button");
+    if (cleanseFeaturedLink) cleanseFeaturedLink.href = "education-cleanse.html";
+    const breatheFeaturedLink = document.querySelector("#breathe-ease a.button");
+    if (breatheFeaturedLink) breatheFeaturedLink.href = "education-breathe-ease.html";
+
     setProductLink(".product-kidney", "education-kidneywel.html", 0);
     setProductLink(".product-kidney", "education-kidneywel-liquid.html", 1);
-    setSolutionLink("LiverWel", "education-liverwel-tablet.html");
     setProductLink(".product-liver", "education-liverwel-tablet.html", 0);
     setProductLink(".product-liver", "education-liverwel-liquid.html", 1);
-    setSolutionLink("CalmWel", "education-calmwel-tablet.html");
     setProductLink(".product-calm", "education-calmwel-tablet.html", 0);
     setProductLink(".product-calm", "education-calmwel-liquid.html", 1);
-    setSolutionLink("SkinWel", "education-skinwel.html");
     setProductLink(".product-skin", "education-skinwel.html");
-    setSolutionLink("HeartWel", "education-heartwel.html");
     setProductLink(".product-heart", "education-heartwel.html");
-    setSolutionLink("LactoWel", "education-lactowel.html");
     setProductLink(".product-lacto", "education-lactowel.html");
+    setProductLink(".product-denta", "education-dentawel.html");
+    setProductLink(".product-malt", "education-malt-paste.html");
+    setProductLink(".product-detox", "education-malign-detox.html");
   }
 
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -95,8 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!targetId || targetId === "#") return;
       let target = null;
       if (targetId === "#urunler" && link.closest(".solution-card")) {
-        const solutionCard = link.closest(".solution-card");
-        const productName = solutionCard.querySelector("h3")?.textContent.trim();
+        const productName = link.closest(".solution-card").querySelector("h3")?.textContent.trim();
         const productSelector = productTargets[productName];
         if (productSelector) target = document.querySelector(`#urunler ${productSelector}`);
       }
@@ -104,8 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!target) return;
       event.preventDefault();
       const headerHeight = header ? header.offsetHeight : 0;
-      const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight - 24;
-      window.scrollTo({ top: targetPosition, behavior: "smooth" });
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - headerHeight - 24, behavior: "smooth" });
       if (!link.closest(".solution-card") || targetId !== "#urunler") history.replaceState(null, "", targetId);
     });
   });
@@ -143,10 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        navigationLinks.forEach((link) => {
-          const targetId = link.getAttribute("href");
-          link.classList.toggle("active", targetId === `#${entry.target.id}`);
-        });
+        navigationLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`));
       });
     }, { threshold: 0.35 });
     pageSections.forEach((section) => sectionObserver.observe(section));
@@ -164,10 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
       requiredFields.forEach((field) => {
         const value = field.value.trim();
         if (!value) { formIsValid = false; field.classList.add("invalid"); }
-        if (field.type === "email" && value) {
-          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailPattern.test(value)) { formIsValid = false; field.classList.add("invalid"); }
-        }
+        if (field.type === "email" && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) { formIsValid = false; field.classList.add("invalid"); }
       });
       if (!formIsValid) {
         formStatus.textContent = isEnglish ? "Please complete all required fields correctly." : "Lütfen gerekli alanları doğru şekilde doldurun.";

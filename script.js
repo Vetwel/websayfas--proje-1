@@ -189,6 +189,20 @@ document.addEventListener("DOMContentLoaded", () => {
     if (calmLiquidLink) {
       calmLiquidLink.href = "education-calmwel-liquid.html";
     }
+
+    const skinSolutionCard = solutionCards.find(
+      (card) => card.querySelector("h3")?.textContent.trim() === "SkinWel"
+    );
+    const skinSolutionLink = skinSolutionCard?.querySelector("a");
+    if (skinSolutionLink) {
+      skinSolutionLink.href = "education-skinwel.html";
+    }
+
+    const skinProductCard = document.querySelector(".product-skin");
+    const skinProductLink = skinProductCard?.querySelector("a");
+    if (skinProductLink) {
+      skinProductLink.href = "education-skinwel.html";
+    }
   }
 
   /*

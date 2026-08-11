@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>VetWel Education Center | Pet Health & Veterinary Wellness</title>
+  <meta name="description" content="Explore science-based pet health education, veterinary insights, product guidance, preventive wellness information, and VetWel resources for pet owners and veterinary professionals.">
+  <meta name="theme-color" content="#0b2447">
+
+  <link rel="canonical" href="https://www.vetwel.us/en/education.html">
+  <link rel="alternate" hreflang="en" href="https://www.vetwel.us/en/education.html">
+  <link rel="alternate" hreflang="tr" href="https://www.vetwel.us/education.html">
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+    :root {
+      --edu-navy: #0b2447;
+      --edu-navy-light: #153b67;
+      --edu-blue: #2c78a8;
+      --edu-cyan: #75c9d8;
+      --edu-bg: #f4f7fa;
+      --edu-white: #ffffff;
+      --edu-text: #172333;
+      --edu-muted: #657487;
+      --edu-border: #dfe7ee;
+      --edu-shadow: 0 18px 45px rgba(11, 36, 71, 0.11);
+      --edu-radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--edu-bg);
+      color: var(--edu-text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .edu-container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .edu-skip {
+      position: absolute; top: -100px; left: 20px; z-index: 9999;
+      padding: 12px 18px; background: #fff; color: var(--edu-navy);
+      border-radius: 10px; font-weight: 700;
+    }
+    .edu-skip:focus { top: 20px; }
+
+    .edu-header {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(255,255,255,.95);
+      border-bottom: 1px solid rgba(11,36,71,.08);
+      backdrop-filter: blur(14px);
+    }
+    .edu-header-inner {
+      min-height: 82px; display: flex; align-items: center;
+      justify-content: space-between; gap: 26px;
+    }
+    .edu-logo { display: inline-flex; align-items: center; gap: 12px; }
+    .edu-logo-mark {
+      width: 42px; height: 42px; display: grid; place-items: center;
+      border-radius: 50%; background: var(--edu-navy); color: #fff;
+      font-size: 24px; font-weight: 800;
+    }
+    .edu-logo-text strong { display: block; color: var(--edu-navy); font-size: 23px; line-height: 1; }
+    .edu-logo-text span { display: block; margin-top: 5px; color: var(--edu-muted); font-size: 9px; font-weight: 700; letter-spacing: 1.8px; }
+    .edu-nav { display: flex; align-items: center; gap: 24px; font-size: 14px; font-weight: 700; }
+    .edu-nav a { color: #49576a; }
+    .edu-nav a:hover { color: var(--edu-blue); }
+    .edu-nav .active { color: var(--edu-navy); border-bottom: 2px solid var(--edu-blue); padding-bottom: 7px; }
+    .edu-nav .contact { padding: 12px 20px; border-radius: 999px; background: var(--edu-navy); color: #fff; }
+
+    .edu-hero {
+      position: relative; overflow: hidden; padding: 100px 0 92px; color: #fff;
+      background:
+        radial-gradient(circle at 80% 18%, rgba(117,201,216,.23), transparent 25%),
+        radial-gradient(circle at 15% 90%, rgba(44,120,168,.25), transparent 28%),
+        linear-gradient(135deg, #071b35 0%, #0b2c55 55%, #0e416d 100%);
+    }
+    .edu-hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 70px; align-items: center; }
+    .edu-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px;
+      color: #9de3ec; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+    }
+    .edu-eyebrow::before { content: ""; width: 34px; height: 2px; background: var(--edu-cyan); }
+    .edu-hero h1 { max-width: 720px; margin: 0; font-size: clamp(44px,6vw,76px); line-height: 1.03; letter-spacing: -3px; }
+    .edu-hero p { max-width: 650px; margin: 27px 0 0; color: rgba(255,255,255,.78); font-size: 18px; }
+    .edu-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+    .edu-button {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 50px; padding: 13px 22px; border: 1px solid transparent;
+      border-radius: 999px; font-size: 14px; font-weight: 800;
+    }
+    .edu-button-primary { background: #fff; color: var(--edu-navy); }
+    .edu-button-secondary { border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.07); color: #fff; }
+    .edu-expert {
+      overflow: hidden; border: 1px solid rgba(255,255,255,.13); border-radius: 28px;
+      background: rgba(255,255,255,.08); box-shadow: 0 24px 60px rgba(0,0,0,.18);
+    }
+    .edu-expert img { width: 100%; height: 330px; object-fit: cover; object-position: center top; }
+    .edu-expert-body { padding: 26px 28px 30px; }
+    .edu-expert-label { color: #9de3ec; font-size: 11px; font-weight: 800; letter-spacing: 1.3px; text-transform: uppercase; }
+    .edu-expert h2 { margin: 10px 0 0; color: #fff; font-size: 25px; line-height: 1.25; }
+    .edu-expert-role { margin-top: 9px !important; color: #9de3ec !important; font-size: 14px !important; font-weight: 700; }
+    .edu-expert-copy { margin-top: 17px !important; font-size: 13px !important; line-height: 1.7; }
+
+    .edu-section { padding: 92px 0; }
+    .edu-section.white { background: #fff; }
+    .edu-heading { max-width: 740px; margin-bottom: 42px; }
+    .edu-kicker { margin: 0 0 9px; color: var(--edu-blue); font-size: 12px; font-weight: 850; letter-spacing: 1.5px; text-transform: uppercase; }
+    .edu-heading h2 { margin: 0; color: var(--edu-navy); font-size: clamp(32px,4vw,48px); line-height: 1.1; letter-spacing: -1.7px; }
+    .edu-heading p { margin: 17px 0 0; color: var(--edu-muted); font-size: 17px; }
+
+    .edu-grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .edu-card {
+      min-height: 250px; padding: 30px; border: 1px solid var(--edu-border);
+      border-radius: var(--edu-radius); background: #fff; transition: .2s ease;
+    }
+    .edu-card:hover { transform: translateY(-5px); box-shadow: var(--edu-shadow); }
+    .edu-icon { width: 56px; height: 56px; display: grid; place-items: center; margin-bottom: 24px; border-radius: 17px; background: #e9f4f8; font-size: 24px; }
+    .edu-card h3 { margin: 0; color: var(--edu-navy); font-size: 21px; }
+    .edu-card p { margin: 12px 0 18px; color: var(--edu-muted); font-size: 14px; }
+    .edu-link { color: var(--edu-blue); font-size: 14px; font-weight: 800; }
+
+    .edu-feature-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 26px; }
+    .edu-feature-main {
+      min-height: 430px; display: flex; align-items: flex-end; padding: 38px;
+      border-radius: 28px; color: #fff;
+      background: linear-gradient(0deg, rgba(4,22,42,.96), rgba(4,22,42,.2)), linear-gradient(135deg,#467596,#9ed0d7);
+      box-shadow: var(--edu-shadow);
+    }
+    .edu-feature-main span { font-size: 11px; font-weight: 850; letter-spacing: 1px; text-transform: uppercase; }
+    .edu-feature-main h3 { max-width: 590px; margin: 16px 0 12px; font-size: 35px; line-height: 1.12; }
+    .edu-feature-main p { max-width: 560px; margin: 0 0 23px; color: rgba(255,255,255,.75); }
+    .edu-small { display: grid; gap: 20px; }
+    .edu-small article { padding: 27px; border: 1px solid var(--edu-border); border-radius: 22px; background: #fff; }
+    .edu-small span { color: var(--edu-blue); font-size: 11px; font-weight: 850; letter-spacing: 1px; text-transform: uppercase; }
+    .edu-small h3 { margin: 11px 0 10px; color: var(--edu-navy); font-size: 20px; line-height: 1.25; }
+    .edu-small p { margin: 0; color: var(--edu-muted); font-size: 13px; }
+
+    .edu-products { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .edu-product { padding: 24px; border: 1px solid var(--edu-border); border-radius: 20px; background: #fff; }
+    .edu-bar { height: 7px; margin-bottom: 22px; border-radius: 999px; background: var(--edu-blue); }
+    .purple { background:#70559a; } .green { background:#65a36d; } .red { background:#bc6270; }
+    .gold { background:#c9a04c; } .teal { background:#3e9a92; }
+    .edu-product h3 { margin: 0; color: var(--edu-navy); font-size: 20px; }
+    .edu-product p { margin: 9px 0 16px; color: var(--edu-muted); font-size: 13px; }
+
+    .edu-audience { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+    .edu-audience article { padding: 42px; border-radius: 26px; }
+    .edu-audience .vet { background: var(--edu-navy); color: #fff; }
+    .edu-audience .owner { border: 1px solid var(--edu-border); background: #fff; }
+    .edu-audience h3 { margin: 0 0 14px; font-size: 28px; }
+    .edu-audience .owner h3 { color: var(--edu-navy); }
+    .edu-audience p { margin: 0 0 23px; opacity: .76; }
+
+    .edu-faq { display: grid; gap: 14px; }
+    .edu-faq details { border: 1px solid var(--edu-border); border-radius: 17px; background: #fff; overflow: hidden; }
+    .edu-faq summary { padding: 21px 24px; color: var(--edu-navy); cursor: pointer; font-weight: 800; }
+    .edu-faq p { margin: 0; padding: 0 24px 23px; color: var(--edu-muted); font-size: 14px; }
+
+    .edu-cta { padding: 0 0 92px; }
+    .edu-cta-inner {
+      display: grid; grid-template-columns: 1fr auto; gap: 35px; align-items: center;
+      padding: 48px; border-radius: 28px; color: #fff; background: var(--edu-navy);
+    }
+    .edu-cta h2 { margin: 0; font-size: 34px; line-height: 1.15; }
+    .edu-cta p { max-width: 660px; margin: 13px 0 0; color: rgba(255,255,255,.72); }
+
+    .edu-footer { padding: 55px 0 30px; color: rgba(255,255,255,.75); background: #07192f; }
+    .edu-footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 60px; }
+    .edu-footer h3, .edu-footer h4 { margin-top: 0; color: #fff; }
+    .edu-footer-links { display: grid; gap: 10px; font-size: 14px; }
+    .edu-footer-bottom { margin-top: 45px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.1); font-size: 12px; }
+
+    @media (max-width: 960px) {
+      .edu-nav { display: none; }
+      .edu-hero-grid, .edu-feature-grid, .edu-audience, .edu-cta-inner { grid-template-columns: 1fr; }
+      .edu-grid-3, .edu-products { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 640px) {
+      .edu-container { width: min(100% - 28px,1180px); }
+      .edu-hero { padding: 75px 0; }
+      .edu-hero h1 { font-size: 45px; letter-spacing: -2px; }
+      .edu-grid-3, .edu-products, .edu-footer-grid { grid-template-columns: 1fr; }
+      .edu-section { padding: 70px 0; }
+      .edu-feature-main { min-height: 390px; padding: 28px; }
+      .edu-audience article, .edu-cta-inner { padding: 30px; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="edu-skip" href="#main">Skip to main content</a>
+
+  <header class="edu-header">
+    <div class="edu-container edu-header-inner">
+      <a class="edu-logo" href="index.html" aria-label="VetWel home">
+        <span class="edu-logo-mark">✚</span>
+        <span class="edu-logo-text">
+          <strong>VetWel<sup>®</sup></strong>
+          <span>VETERINARY WELLNESS</span>
+        </span>
+      </a>
+
+      <nav class="edu-nav" aria-label="Primary navigation">
+        <a href="index.html#why-vetwel">Why VetWel?</a>
+        <a href="index.html#solutions">Solutions</a>
+        <a href="index.html#products">Products</a>
+        <a class="active" href="education.html">Education Center</a>
+        <a class="contact" href="index.html#contact">Contact</a>
+        <a href="../education.html" aria-label="Türkçe Bilgi Merkezi">TR</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="edu-hero">
+      <div class="edu-container edu-hero-grid">
+        <div>
+          <span class="edu-eyebrow">VetWel Education Center</span>
+          <h1>More informed care starts with better information.</h1>
+          <p>
+            Explore clear, science-based educational content for veterinary professionals and pet owners, including wellness topics, product guidance, preventive care, and veterinary perspectives.
+          </p>
+          <div class="edu-actions">
+            <a class="edu-button edu-button-primary" href="#categories">Explore Content</a>
+            <a class="edu-button edu-button-secondary" href="#product-guides">Product Guides</a>
+          </div>
+        </div>
+
+        <aside class="edu-expert" aria-label="VetWel veterinary expert">
+          <img src="../assets/images/dr-oben-avatar.png" alt="Veterinarian Nazif Oben Akşemsettinoğlu">
+          <div class="edu-expert-body">
+            <span class="edu-expert-label">VetWel Expert Perspective</span>
+            <h2>Veterinarian<br>Nazif Oben Akşemsettinoğlu</h2>
+            <p class="edu-expert-role">VetWel Founder • Phytotherapy &amp; Wellness Consultant</p>
+            <p class="edu-expert-copy">Science-based veterinary information focused on clinical nutrition, preventive wellness, and practical pet care.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="edu-section" id="categories">
+      <div class="edu-container">
+        <div class="edu-heading">
+          <p class="edu-kicker">Information Categories</p>
+          <h2>Find the information you need quickly.</h2>
+          <p>Content is organized to help veterinary professionals and pet owners navigate VetWel education efficiently.</p>
+        </div>
+
+        <div class="edu-grid-3">
+          <article class="edu-card">
+            <div class="edu-icon">▶</div><h3>Veterinary Videos</h3>
+            <p>Veterinary explanations, practical education, and clinically relevant wellness topics.</p>
+            <a class="edu-link" href="#featured">Explore videos →</a>
+          </article>
+          <article class="edu-card">
+            <div class="edu-icon">▤</div><h3>Health Articles</h3>
+            <p>Accessible information on respiratory, kidney, liver, skin, heart, digestive, and other wellness areas.</p>
+            <a class="edu-link" href="#featured">Explore articles →</a>
+          </article>
+          <article class="edu-card">
+            <div class="edu-icon">✚</div><h3>Clinical Information</h3>
+            <p>Professional-oriented product rationale, clinical considerations, and educational materials.</p>
+            <a class="edu-link" href="#audiences">Professional content →</a>
+          </article>
+          <article class="edu-card">
+            <div class="edu-icon">✓</div><h3>Product Guides</h3>
+            <p>Intended use, formulation context, and practical product information for the VetWel portfolio.</p>
+            <a class="edu-link" href="#product-guides">Explore guides →</a>
+          </article>
+          <article class="edu-card">
+            <div class="edu-icon">⬇</div><h3>Downloadable Resources</h3>
+            <p>Product brochures, professional materials, and educational resources as English versions become available.</p>
+            <a class="edu-link" href="#downloads">View resources →</a>
+          </article>
+          <article class="edu-card">
+            <div class="edu-icon">?</div><h3>Frequently Asked Questions</h3>
+            <p>Answers to common questions about VetWel education, product information, and responsible use.</p>
+            <a class="edu-link" href="#faq">View questions →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="edu-section white" id="featured">
+      <div class="edu-container">
+        <div class="edu-heading">
+          <p class="edu-kicker">Featured Education</p>
+          <h2>Health and wellness topics that matter.</h2>
+          <p>English articles and professional resources will be added here as each section of the English site is completed.</p>
+        </div>
+
+        <div class="edu-feature-grid">
+          <article class="edu-feature-main">
+            <div>
+              <span>Respiratory Wellness</span>
+              <h3>Supporting respiratory health in cats and dogs</h3>
+              <p>Learn how everyday care, environmental factors, nutrition, and veterinary evaluation work together to support respiratory wellness.</p>
+              <a class="edu-button edu-button-primary" href="index.html#breathe-ease">Explore Breathe Ease →</a>
+            </div>
+          </article>
+
+          <div class="edu-small">
+            <article><span>Kidney Health</span><h3>The role of nutritional support in kidney wellness</h3><p>Hydration, nutrition, monitoring, and veterinary follow-up are important parts of long-term kidney care.</p></article>
+            <article><span>Preventive Wellness</span><h3>Why routine veterinary checkups matter</h3><p>Regular examinations can help identify changes early and support proactive health decisions.</p></article>
+            <article><span>Skin &amp; Coat Health</span><h3>Daily habits that support the skin barrier</h3><p>Nutrition, grooming, and environmental management all contribute to healthy skin and coat.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="edu-section" id="product-guides">
+      <div class="edu-container">
+        <div class="edu-heading">
+          <p class="edu-kicker">Product Guides</p>
+          <h2>Get to know the VetWel product family.</h2>
+          <p>English product information pages are being added one by one. Until then, each guide keeps you within the English VetWel experience.</p>
+        </div>
+
+        <div class="edu-products">
+          <article class="edu-product"><div class="edu-bar purple"></div><h3>Breathe Ease</h3><p>Respiratory wellness and normal immune-function support.</p><a class="edu-link" href="index.html#breathe-ease">View product →</a></article>
+          <article class="edu-product"><div class="edu-bar"></div><h3>Cleanse</h3><p>Veterinary-use liquid support for urinary tract care.</p><a class="edu-link" href="index.html#cleanse">View product →</a></article>
+          <article class="edu-product"><div class="edu-bar gold"></div><h3>KidneyWel</h3><p>Kidney function and mineral-balance support in tablet and liquid formats.</p><a class="edu-link" href="index.html#products">View product →</a></article>
+          <article class="edu-product"><div class="edu-bar green"></div><h3>LiverWel</h3><p>Liver wellness and antioxidant support in tablet and liquid formats.</p><a class="edu-link" href="index.html#products">View product →</a></article>
+          <article class="edu-product"><div class="edu-bar red"></div><h3>HeartWel</h3><p>Nutritional support for normal cardiovascular and heart function.</p><a class="edu-link" href="index.html#products">View product →</a></article>
+          <article class="edu-product"><div class="edu-bar teal"></div><h3>SkinWel</h3><p>Skin-barrier, coat-quality, and everyday skin wellness support.</p><a class="edu-link" href="index.html#products">View product →</a></article>
+          <article class="edu-product"><div class="edu-bar green"></div><h3>DentaWel</h3><p>Everyday oral hygiene and support for gums and oral mucosa.</p><a class="edu-link" href="index.html#products">View product →</a></article>
+          <article class="edu-product"><div class="edu-bar teal"></div><h3>LactoWel</h3><p>Digestive health, intestinal microbiota, and gut-barrier support.</p><a class="edu-link" href="index.html#products">View product →</a></article>
+          <article class="edu-product"><div class="edu-bar purple"></div><h3>CalmWel</h3><p>Calming and behavioral support during stressful periods.</p><a class="edu-link" href="index.html#products">View product →</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="edu-section white" id="audiences">
+      <div class="edu-container">
+        <div class="edu-heading">
+          <p class="edu-kicker">Content for Your Needs</p>
+          <h2>Dedicated information pathways for professionals and pet owners.</h2>
+        </div>
+
+        <div class="edu-audience">
+          <article class="vet">
+            <h3>For Veterinary Professionals</h3>
+            <p>Product rationale, formulation information, professional materials, clinical-use context, and educational content.</p>
+            <a class="edu-button edu-button-primary" href="#product-guides">Professional resources</a>
+          </article>
+          <article class="owner">
+            <h3>For Pet Owners</h3>
+            <p>Clear information on everyday care, preventive wellness, nutrition, and responsible product use.</p>
+            <a class="edu-button" style="background:#0b2447;color:#fff;" href="#featured">Health guides</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="edu-section" id="downloads">
+      <div class="edu-container">
+        <div class="edu-heading">
+          <p class="edu-kicker">Resource Center</p>
+          <h2>Brochures and downloadable guides.</h2>
+          <p>English brochures and professional resources will be published here as they are finalized.</p>
+        </div>
+
+        <div class="edu-grid-3">
+          <article class="edu-card"><div class="edu-icon">PDF</div><h3>Product Catalog</h3><p>English overview of the VetWel product family.</p><span class="edu-link">Coming soon</span></article>
+          <article class="edu-card"><div class="edu-icon">PDF</div><h3>Use Guides</h3><p>Product-specific English application and use materials.</p><span class="edu-link">Coming soon</span></article>
+          <article class="edu-card"><div class="edu-icon">PDF</div><h3>Veterinary Brochures</h3><p>Professional educational materials for veterinary practices.</p><span class="edu-link">Coming soon</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="edu-section white" id="faq">
+      <div class="edu-container">
+        <div class="edu-heading">
+          <p class="edu-kicker">Frequently Asked Questions</p>
+          <h2>Essential information about the Education Center.</h2>
+        </div>
+
+        <div class="edu-faq">
+          <details><summary>Who is the VetWel Education Center for?</summary><p>It is designed for both veterinary professionals and pet owners looking for clear, responsible pet-health information.</p></details>
+          <details><summary>Does this information replace a veterinary examination?</summary><p>No. Educational content is provided for general information and is not a substitute for veterinary examination, diagnosis, or treatment.</p></details>
+          <details><summary>Where can I find product-use information?</summary><p>English product guides will be added to the Product Guides section as each product information page is completed.</p></details>
+          <details><summary>Will new articles and videos be added?</summary><p>Yes. The English Education Center will expand with veterinary insights, health articles, product guides, and downloadable professional resources.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="edu-cta">
+      <div class="edu-container">
+        <div class="edu-cta-inner">
+          <div>
+            <h2>Need more information about VetWel?</h2>
+            <p>Contact us about products, veterinary partnerships, distribution opportunities, or educational resources.</p>
+          </div>
+          <a class="edu-button edu-button-primary" href="index.html#contact">Contact VetWel</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="edu-footer">
+    <div class="edu-container">
+      <div class="edu-footer-grid">
+        <div>
+          <h3>VetWel<sup>®</sup></h3>
+          <p>Science-based veterinary nutritional and wellness solutions designed to support healthier lives for cats and dogs.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <div class="edu-footer-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#products">Products</a>
+            <a href="education.html">Education Center</a>
+            <a href="index.html#contact">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <div class="edu-footer-links">
+            <a href="mailto:info@vetwel.us">info@vetwel.us</a>
+            <a href="https://www.vetwel.us/en/">www.vetwel.us</a>
+          </div>
+        </div>
+      </div>
+      <div class="edu-footer-bottom">© 2026 VetWel. All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>

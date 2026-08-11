@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <meta name="description"
+        content="LactoWel® ürün bilgisi: bağırsak mikrobiyotası, sindirim düzeni, normal bağışıklık fonksiyonu, formülasyon yaklaşımı ve kullanım bilgileri.">
+
   <title>LactoWel® Ürün Bilgisi | VetWel® Bilgi Merkezi</title>
 
   <link rel="stylesheet" href="style.css">
@@ -35,6 +38,10 @@
       font-weight: 700;
     }
 
+    .product-back:hover {
+      text-decoration: underline;
+    }
+
     .product-hero {
       background: #173f6b;
       color: white;
@@ -42,6 +49,7 @@
       padding: 48px;
       margin-bottom: 30px;
       border-top: 6px solid #4b8b5a;
+      box-shadow: 0 15px 40px rgba(23, 63, 107, 0.12);
     }
 
     .product-kicker {
@@ -55,12 +63,14 @@
     .product-hero h1 {
       margin: 8px 0 15px;
       font-size: 38px;
+      line-height: 1.15;
     }
 
     .product-hero p {
       max-width: 800px;
       line-height: 1.7;
       color: rgba(255,255,255,0.86);
+      margin-bottom: 0;
     }
 
     .product-grid {
@@ -80,12 +90,21 @@
     .product-card h2 {
       color: #173f6b;
       margin-top: 0;
+      margin-bottom: 14px;
     }
 
     .product-card p,
     .product-card li {
       color: #596775;
       line-height: 1.7;
+    }
+
+    .product-card ul {
+      padding-left: 22px;
+    }
+
+    .product-section {
+      margin-top: 28px;
     }
 
     .product-note {
@@ -104,15 +123,56 @@
     .product-note p {
       color: #526678;
       line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .usage-box {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 28px;
+      border: 1px solid #e8eef5;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    }
+
+    .usage-box h2 {
+      color: #173f6b;
+      margin-top: 0;
+    }
+
+    .usage-box p,
+    .usage-box li {
+      color: #596775;
+      line-height: 1.7;
+    }
+
+    .usage-highlight {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 8px 14px;
+      background: #eef6f0;
+      color: #3f7050;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
     }
 
     @media (max-width: 600px) {
+      .product-page {
+        padding: 40px 16px 60px;
+      }
+
       .product-hero {
         padding: 30px 24px;
       }
 
       .product-hero h1 {
         font-size: 30px;
+      }
+
+      .product-card,
+      .usage-box,
+      .product-note {
+        padding: 24px 22px;
       }
     }
   </style>
@@ -128,6 +188,7 @@
     <a href="education-products.html" class="product-back">
       ← Ürün Bilgilerine Dön
     </a>
+
 
     <section class="product-hero">
 
@@ -154,10 +215,10 @@
         <h2>Ne İçin Kullanılır?</h2>
 
         <p>
-          LactoWel®, bağırsak mikrobiyotasının dengelenmesine,
-          sindirim sisteminin normal fonksiyonlarının desteklenmesine
-          ve bağırsak–bağışıklık ekseninin korunmasına yardımcı
-          olmak amacıyla geliştirilmiştir.
+          LactoWel®, bağırsak mikrobiyotasının desteklenmesine,
+          sindirim sisteminin normal fonksiyonlarının korunmasına
+          ve bağırsak–bağışıklık ekseninin tamamlayıcı olarak
+          desteklenmesine yardımcı olmak amacıyla geliştirilmiştir.
         </p>
 
       </article>
@@ -169,8 +230,8 @@
 
         <p>
           Formülde yer alan probiyotik bakteriler, bağırsak
-          mikrobiyotasının desteklenmesine ve sindirim düzeninin
-          korunmasına yardımcı olur.
+          mikrobiyotasının dengelenmesine ve sindirim düzeninin
+          desteklenmesine yardımcı olur.
         </p>
 
         <p>
@@ -188,8 +249,8 @@
         <p>
           LactoWel® yalnızca probiyotik içeren bir ürün değildir.
           Seçilmiş bitkisel bileşenlerden oluşan botanik karışım,
-          normal bağışıklık fonksiyonunun ve gastrointestinal
-          sistemin bütüncül olarak desteklenmesine katkı sağlar.
+          gastrointestinal sistemin bütüncül olarak desteklenmesine
+          ve normal bağışıklık fonksiyonunun korunmasına katkı sağlar.
         </p>
 
       </article>
@@ -242,29 +303,72 @@
     </section>
 
 
-    <section class="product-card" style="margin-top:28px;">
+    <section class="product-section product-card">
 
       <h2>Formülasyon Mantığı</h2>
 
       <p>
         LactoWel®'in temel farkı, probiyotik bakterileri
-        botanik bileşenlerle aynı formül içerisinde bir araya
-        getirmesidir.
+        seçilmiş botanik bileşenlerle aynı formül içerisinde
+        bir araya getirmesidir.
       </p>
 
       <p>
-        <strong>Probiyotik bileşenler</strong> bağırsak mikrobiyotasını
-        ve sindirim düzenini desteklerken,
-        <strong>botanik karışım</strong> gastrointestinal sistemin
-        bütüncül desteğine ve normal bağışıklık fonksiyonunun
-        korunmasına katkı sağlar.
+        <strong>Probiyotik bileşenler</strong>, bağırsak
+        mikrobiyotasının ve sindirim düzeninin desteklenmesine
+        yardımcı olurken; <strong>botanik karışım</strong>,
+        gastrointestinal sistemin bütüncül desteğine ve normal
+        bağışıklık fonksiyonunun korunmasına katkı sağlar.
       </p>
 
       <p>
-        Bu yaklaşım LactoWel®'i yalnızca klasik bir probiyotik
-        üründen daha geniş kapsamlı bir bağırsak ve bağışıklık
-        destek formülüne dönüştürür.
+        Bu çok yönlü yaklaşım, LactoWel®'i yalnızca klasik bir
+        probiyotik üründen daha geniş kapsamlı bir bağırsak
+        ve bağışıklık destek formülü haline getirir.
       </p>
+
+    </section>
+
+
+    <section class="product-section usage-box">
+
+      <h2>Nasıl Kullanılır?</h2>
+
+      <p>
+        LactoWel® tablet formundadır.
+      </p>
+
+      <p>
+        <strong>Kediler:</strong>
+        Sabah ve akşam 1 tablet.
+      </p>
+
+      <p>
+        <strong>Köpekler:</strong>
+        Her 10 kg vücut ağırlığı için sabah ve akşam 1 tablet.
+      </p>
+
+      <ul>
+        <li>10 kg'a kadar: Sabah 1 tablet + akşam 1 tablet</li>
+        <li>10–20 kg: Sabah 2 tablet + akşam 2 tablet</li>
+        <li>20–30 kg: Sabah 3 tablet + akşam 3 tablet</li>
+        <li>30–40 kg: Sabah 4 tablet + akşam 4 tablet</li>
+        <li>40–50 kg: Sabah 5 tablet + akşam 5 tablet</li>
+      </ul>
+
+      <p>
+        <strong>Kullanım sıklığı:</strong>
+        Günde 2 kez, sabah ve akşam.
+      </p>
+
+      <p>
+        <strong>Kullanım süresi:</strong>
+        Veteriner hekimin önerisine göre belirlenir.
+      </p>
+
+      <span class="usage-highlight">
+        Tablet Form
+      </span>
 
     </section>
 
@@ -285,6 +389,7 @@
       </p>
 
     </section>
+
 
   </div>
 

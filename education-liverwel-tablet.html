@@ -5,8 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description"
-        content="LiverWel® Tablet ürün bilgisi: kedi ve köpeklerde karaciğer, safra sistemi, antioksidan savunma ve metabolik destek; 21 bitkisel ekstrakt, kullanım protokolü ve klinik yaklaşım.">
+  <meta
+    name="description"
+    content="LiverWel® Tablet ürün bilgisi: kedi ve köpeklerde karaciğer, safra sistemi, antioksidan savunma ve metabolik destek; 21 bitkisel ekstrakt, kullanım protokolü ve klinik yaklaşım."
+  >
 
   <title>LiverWel® Tablet Ürün Bilgisi | VetWel® Bilgi Merkezi</title>
 
@@ -43,6 +45,8 @@
       text-decoration: underline;
     }
 
+    /* HERO */
+
     .product-hero {
       background: #173f6b;
       color: white;
@@ -51,6 +55,14 @@
       margin-bottom: 30px;
       border-top: 6px solid #4b8b5a;
       box-shadow: 0 15px 40px rgba(23,63,107,0.12);
+      overflow: hidden;
+    }
+
+    .product-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 44px;
+      align-items: center;
     }
 
     .product-kicker {
@@ -61,8 +73,21 @@
       color: #d8eadc;
     }
 
+    .product-form-badge {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
     .product-hero h1 {
-      margin: 8px 0 15px;
+      margin: 10px 0 15px;
       font-size: 38px;
       line-height: 1.15;
     }
@@ -73,6 +98,27 @@
       color: rgba(255,255,255,0.87);
       margin-bottom: 0;
     }
+
+    .product-hero-image {
+      background: white;
+      border-radius: 20px;
+      min-height: 310px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.17);
+    }
+
+    .product-hero-image img {
+      display: block;
+      width: 100%;
+      max-width: 330px;
+      max-height: 330px;
+      object-fit: contain;
+    }
+
+    /* KARTLAR */
 
     .product-grid {
       display: grid;
@@ -107,6 +153,8 @@
     .product-section {
       margin-top: 28px;
     }
+
+    /* FORMÜL */
 
     .formula-grid {
       display: grid;
@@ -144,6 +192,8 @@
       line-height: 1.7;
     }
 
+    /* İÇERİKLER */
+
     .ingredient-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -165,6 +215,8 @@
       color: #173f6b;
       margin-bottom: 3px;
     }
+
+    /* KLİNİK */
 
     .clinical-note {
       margin-top: 28px;
@@ -189,6 +241,8 @@
       padding-left: 22px;
     }
 
+    /* GÜVENLİK */
+
     .safety-note {
       margin-top: 28px;
       background: #fff9ef;
@@ -206,6 +260,8 @@
       color: #596775;
       line-height: 1.7;
     }
+
+    /* KULLANIM */
 
     .usage-box {
       margin-top: 28px;
@@ -238,6 +294,8 @@
       color: #173f6b;
     }
 
+    /* ÖZET */
+
     .product-note {
       margin-top: 28px;
       background: #eef3f8;
@@ -257,7 +315,9 @@
       margin-bottom: 0;
     }
 
-    @media (max-width: 600px) {
+    /* MOBİL */
+
+    @media (max-width: 760px) {
 
       .product-page {
         padding: 40px 16px 60px;
@@ -267,8 +327,22 @@
         padding: 30px 24px;
       }
 
+      .product-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
       .product-hero h1 {
         font-size: 30px;
+      }
+
+      .product-hero-image {
+        min-height: 240px;
+        padding: 20px;
+      }
+
+      .product-hero-image img {
+        max-height: 270px;
       }
 
       .product-card,
@@ -285,12 +359,12 @@
 
 </head>
 
+
 <body>
 
 <main class="product-page">
 
   <div class="product-container">
-
 
     <a href="education-products.html" class="product-back">
       ← Ürün Bilgilerine Dön
@@ -301,20 +375,42 @@
 
     <section class="product-hero">
 
-      <p class="product-kicker">
-        VETWEL® ÜRÜN BİLGİSİ
-      </p>
+      <div class="product-hero-grid">
 
-      <h1>LiverWel® Tablet</h1>
+        <div>
 
-      <p>
-        LiverWel® Tablet, kedi ve köpeklerde karaciğer
-        fonksiyonlarının; safra sistemi, antioksidan savunma,
-        metabolik denge, sindirim ve doğal eliminasyon
-        süreçleriyle birlikte desteklenmesine yönelik
-        21 bitkisel ekstrakt içeren çok yönlü bir
-        tamamlayıcı formüldür.
-      </p>
+          <p class="product-kicker">
+            VETWEL® ÜRÜN BİLGİSİ
+          </p>
+
+          <span class="product-form-badge">
+            TABLET
+          </span>
+
+          <h1>LiverWel®</h1>
+
+          <p>
+            LiverWel® Tablet, kedi ve köpeklerde karaciğer
+            fonksiyonlarının; safra sistemi, antioksidan savunma,
+            metabolik denge, sindirim ve doğal eliminasyon
+            süreçleriyle birlikte desteklenmesine yönelik
+            21 bitkisel ekstrakt içeren çok yönlü bir
+            tamamlayıcı formüldür.
+          </p>
+
+        </div>
+
+
+        <div class="product-hero-image">
+
+          <img
+            src="assets/images/products/LiverWel Tablet.jpg"
+            alt="VetWel LiverWel Tablet ürün ambalajı"
+          >
+
+        </div>
+
+      </div>
 
     </section>
 
@@ -322,7 +418,6 @@
     <!-- ANA DESTEK ALANLARI -->
 
     <section class="product-grid">
-
 
       <article class="product-card">
 
@@ -355,7 +450,7 @@
 
       <article class="product-card">
 
-        <h2>Safra & Sindirim</h2>
+        <h2>Safra &amp; Sindirim</h2>
 
         <p>
           Formülün hepatobiliyer ekseni, safra sistemi
@@ -383,7 +478,7 @@
 
       <article class="product-card">
 
-        <h2>Eliminasyon & Metabolik Denge</h2>
+        <h2>Eliminasyon &amp; Metabolik Denge</h2>
 
         <p>
           LiverWel® karaciğeri yalnızca “detoks” kavramı
@@ -401,16 +496,15 @@
         <h2>Hangi Durumlarda Düşünülür?</h2>
 
         <ul>
-          <li>Karaciğer enzimlerinde yükselme veya hepatik stres bulgularında tamamlayıcı destek olarak</li>
-          <li>İlaç veya anestezi sonrasında hepatik destek gerektiğinde</li>
+          <li>Hepatik desteğe ihtiyaç duyulan dönemlerde</li>
+          <li>Veteriner hekimin hepatik bakım programına tamamlayıcı olarak</li>
           <li>Metabolik yükün arttığı bakım dönemlerinde</li>
           <li>Safra ve sindirim fonksiyonlarının desteklenmesinde</li>
-          <li>Yaşlı veya kronik hastalığı bulunan kedi ve köpeklerde uzun dönem hepatik bakımda</li>
+          <li>Yaşlı veya kronik hastalığı bulunan kedi ve köpeklerde hepatik bakımda</li>
           <li>İştah ve sindirim konforunun desteklenmesinin istendiği dönemlerde</li>
         </ul>
 
       </article>
-
 
     </section>
 
@@ -450,7 +544,7 @@
 
         <div class="formula-item">
 
-          <strong>Safra & Sindirim Ekseni</strong>
+          <strong>Safra &amp; Sindirim Ekseni</strong>
 
           <p>
             Helichrysum arenarium, Taraxacum officinale,
@@ -470,9 +564,9 @@
           <p>
             Urtica dioica, Echinacea purpurea,
             Viola tricolor ve Glechoma hederacea;
-            oksidatif yük karşısında doğal hücresel
-            savunmanın desteklenmesine yönelik
-            tamamlayıcı botanik grupta yer alır.
+            doğal hücresel antioksidan savunmanın
+            desteklenmesine yönelik tamamlayıcı
+            botanik grupta yer alır.
           </p>
 
         </div>
@@ -480,7 +574,7 @@
 
         <div class="formula-item">
 
-          <strong>Eliminasyon & Metabolik Denge</strong>
+          <strong>Eliminasyon &amp; Metabolik Denge</strong>
 
           <p>
             Betula pendula, Galium aparine ve Urtica dioica;
@@ -494,7 +588,7 @@
 
         <div class="formula-item">
 
-          <strong>İştah & Sindirim Konforu</strong>
+          <strong>İştah &amp; Sindirim Konforu</strong>
 
           <p>
             Centaurium erythraea, Chamomilla recutita,
@@ -505,7 +599,6 @@
           </p>
 
         </div>
-
 
       </div>
 
@@ -523,12 +616,15 @@
       <div class="formula-note">
 
         <strong>Formülasyon yaklaşımı:</strong>
+
         LiverWel® Tablet yalnızca “detoks” amacıyla
         konumlandırılmaz. Temel yaklaşım;
+
         <strong>
           hepatik fonksiyon → safra ve sindirim →
           antioksidan savunma → eliminasyon ve metabolik denge
         </strong>
+
         eksenlerinin birlikte desteklenmesidir.
 
       </div>
@@ -551,132 +647,110 @@
 
       <div class="ingredient-grid">
 
-
         <div class="ingredient-item">
           <strong>1. Papatya</strong>
           Chamomilla recutita
         </div>
-
 
         <div class="ingredient-item">
           <strong>2. Nane</strong>
           Mentha pulegium L.
         </div>
 
-
         <div class="ingredient-item">
           <strong>3. Isırgan Otu</strong>
           Urtica dioica
         </div>
-
 
         <div class="ingredient-item">
           <strong>4. Sarı Kantaron</strong>
           Hypericum perforatum L.
         </div>
 
-
         <div class="ingredient-item">
           <strong>5. Ekinezya</strong>
           Echinacea purpurea
         </div>
-
 
         <div class="ingredient-item">
           <strong>6. Rezene</strong>
           Foeniculum vulgare Mill.
         </div>
 
-
         <div class="ingredient-item">
           <strong>7. Tekesakalı Otu</strong>
           Filipendula ulmaria
         </div>
-
 
         <div class="ingredient-item">
           <strong>8. Sinirli Ot</strong>
           Plantago afra L.
         </div>
 
-
         <div class="ingredient-item">
           <strong>9. Meyan Kökü</strong>
           Glycyrrhiza glabra
         </div>
-
 
         <div class="ingredient-item">
           <strong>10. Hindiba</strong>
           Taraxacum officinale
         </div>
 
-
         <div class="ingredient-item">
           <strong>11. Koyun Otu</strong>
           Agrimonia eupatoria L.
         </div>
-
 
         <div class="ingredient-item">
           <strong>12. Altın Otu</strong>
           Helichrysum arenarium
         </div>
 
-
         <div class="ingredient-item">
           <strong>13. Bozağan Otu</strong>
           Gnaphalium dioicum L.
         </div>
-
 
         <div class="ingredient-item">
           <strong>14. Civan Perçemi</strong>
           Achillea millefolium L.
         </div>
 
-
         <div class="ingredient-item">
           <strong>15. Sarı Yoğurt Otu</strong>
           Galium aparine
         </div>
-
 
         <div class="ingredient-item">
           <strong>16. Huş</strong>
           Betula pendula Roth
         </div>
 
-
         <div class="ingredient-item">
           <strong>17. Küpe Çiçeği</strong>
           Epilobium montanum
         </div>
-
 
         <div class="ingredient-item">
           <strong>18. Kestere Otu</strong>
           Betonica officinalis L.
         </div>
 
-
         <div class="ingredient-item">
           <strong>19. Yer Sarmaşığı</strong>
           Glechoma hederacea L.
         </div>
-
 
         <div class="ingredient-item">
           <strong>20. Menekşe</strong>
           Viola tricolor L.
         </div>
 
-
         <div class="ingredient-item">
           <strong>21. Kızıl Kantaron</strong>
           Centaurium erythraea Rafn
         </div>
-
 
       </div>
 
@@ -737,7 +811,7 @@
 
     <section class="safety-note">
 
-      <h2>Formül & Güvenlik Notu</h2>
+      <h2>Formül &amp; Güvenlik Notu</h2>
 
       <p>
         LiverWel® formülünde bulunan
@@ -771,12 +845,10 @@
         LiverWel® Tablet, tablet formundadır.
       </p>
 
-
       <p>
         <strong>Kediler:</strong>
         Her uygulamada 1 tablet.
       </p>
-
 
       <p>
         <strong>Köpekler:</strong>
@@ -820,7 +892,6 @@
         <strong>Minimum kullanım süresi:</strong>
         En az 21 gün.
       </p>
-
 
       <p>
         Kullanım süresi, hastanın klinik durumu ve

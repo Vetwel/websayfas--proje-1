@@ -58,6 +58,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateScrollState();
   window.addEventListener("scroll", updateScrollState, { passive: true });
+  // Aynı sayfa içindeki bağlantıları sabit ve tutarlı konuma kaydır
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const targetId = link.getAttribute("href");
+
+    if (!targetId || targetId === "#") return;
+
+    const target = document.querySelector(targetId);
+    if (!target) return;
+
+    event.preventDefault();
+
+    const headerHeight = header ? header.offsetHeight : 0;
+    const targetPosition =
+      target.getBoundingClientRect().top +
+      window.scrollY -
+      headerHeight -
+      24;
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: "smooth"
+    });
+
+    history.replaceState(null, "", targetId);
+  });
+});
 
   if (backToTopButton) {
     backToTopButton.addEventListener("click", () => {

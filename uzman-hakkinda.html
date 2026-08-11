@@ -1,38 +1,470 @@
-<section class="expert-card">
-  <img src="dr-oben.png"
-     alt="Veteriner Hekimi Nazif Oben Akşemsettinoğlu"
-     style="
-       width:160px;
-       height:160px;
-       object-fit:cover;
-       border-radius:50%;
-       margin-bottom:24px;
-     ">
+<!DOCTYPE html>
+<html lang="tr">
 
-  <h1>Veteriner Hekimi Nazif Oben Akşemsettinoğlu</h1>
+<head>
+  <meta charset="UTF-8">
 
-  <p class="expert-role">
-    VetWel Kurucusu • Fitoterapi & Wellness Danışmanı
-  </p>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-  <p>
-    İstanbul Üniversitesi Veteriner Fakültesi 1999 mezunudur.
-    27 yıllık klinik deneyimi boyunca kedi ve köpek sağlığı,
-    koruyucu hekimlik, klinik beslenme, fitoterapi ve
-    tamamlayıcı beslenme alanlarında çalışmıştır.
-  </p>
+  <meta name="description"
+        content="Veteriner Hekimi Nazif Oben Akşemsettinoğlu hakkında profesyonel bilgiler, klinik deneyim ve çalışma alanları.">
 
-  <p>
-    VetWel’in kurucusu olan Akşemsettinoğlu; pet supplementleri,
-    fitoterapi ve wellness alanlarında çalışmalarını sürdürmektedir.
-    ABD ve Türkiye’deki veteriner klinikleri ve hayvan hastanelerine
-    fitoterapi ve wellness alanlarında danışmanlık hizmetleri vermektedir.
-  </p>
+  <title>
+    Uzman Hakkında | VetWel® Bilgi Merkezi
+  </title>
 
-  <p>
-    VetWel Bilgi Merkezi’nde yer alan içeriklerin veteriner hekimlik
-    perspektifiyle hazırlanmasına ve klinik kullanım açısından
-    değerlendirilmesine katkı sağlamaktadır.
-  </p>
+  <link rel="stylesheet" href="style.css">
 
-</section>
+  <style>
+
+    body {
+      margin: 0;
+      background: #f5f8fc;
+      color: #24384d;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+    /* SAYFA */
+
+    .expert-page {
+      min-height: 100vh;
+      padding: 55px 20px 80px;
+    }
+
+    .expert-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+
+    /* GERİ DÖN */
+
+    .expert-back {
+      display: inline-block;
+      margin-bottom: 28px;
+      color: #294d73;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .expert-back:hover {
+      text-decoration: underline;
+    }
+
+
+    /* HERO */
+
+    .expert-hero {
+      background: #173f6b;
+      border-radius: 26px;
+      padding: 48px;
+      color: white;
+
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 38px;
+      align-items: center;
+
+      box-shadow: 0 15px 40px rgba(23, 63, 107, 0.16);
+
+      margin-bottom: 28px;
+    }
+
+
+    /* FOTOĞRAF */
+
+    .expert-photo {
+      width: 175px;
+      height: 175px;
+      border-radius: 50%;
+      object-fit: cover;
+
+      border: 5px solid rgba(255,255,255,0.95);
+
+      box-shadow: 0 8px 25px rgba(0,0,0,0.20);
+
+      background: white;
+    }
+
+
+    /* HERO YAZILARI */
+
+    .expert-kicker {
+      margin: 0 0 8px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+      color: #cbd9e8;
+    }
+
+    .expert-hero h1 {
+      margin: 0 0 12px;
+      font-size: 36px;
+      line-height: 1.15;
+    }
+
+    .expert-role {
+      margin: 0 0 18px;
+      font-size: 17px;
+      font-weight: 700;
+      color: #e9f1f8;
+    }
+
+    .expert-intro {
+      margin: 0;
+      max-width: 720px;
+      line-height: 1.75;
+      font-size: 16px;
+      color: rgba(255,255,255,0.86);
+    }
+
+
+    /* KÜÇÜK BİLGİ ETİKETLERİ */
+
+    .expert-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 22px;
+    }
+
+    .expert-tag {
+      display: inline-block;
+
+      padding: 7px 13px;
+
+      background: rgba(255,255,255,0.12);
+
+      border: 1px solid rgba(255,255,255,0.22);
+
+      border-radius: 30px;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      color: white;
+    }
+
+
+    /* ANA İÇERİK */
+
+    .expert-content {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 24px;
+    }
+
+
+    /* KART */
+
+    .expert-card {
+      background: white;
+      border-radius: 20px;
+      padding: 34px;
+
+      box-shadow: 0 8px 30px rgba(0,0,0,0.055);
+
+      border: 1px solid #e8eef5;
+    }
+
+    .expert-card h2 {
+      margin: 0 0 18px;
+      color: #173f6b;
+      font-size: 23px;
+    }
+
+    .expert-card p {
+      margin: 0 0 18px;
+      color: #58697a;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .expert-card p:last-child {
+      margin-bottom: 0;
+    }
+
+
+    /* ÇALIŞMA ALANLARI */
+
+    .expert-list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .expert-list li {
+      position: relative;
+      padding: 10px 0 10px 24px;
+      color: #58697a;
+      line-height: 1.5;
+      border-bottom: 1px solid #edf1f5;
+    }
+
+    .expert-list li:last-child {
+      border-bottom: none;
+    }
+
+    .expert-list li::before {
+      content: "•";
+      position: absolute;
+      left: 3px;
+      top: 9px;
+      color: #173f6b;
+      font-weight: 900;
+      font-size: 20px;
+    }
+
+
+    /* ALT BİLGİ */
+
+    .expert-note {
+      margin-top: 25px;
+
+      padding: 26px 30px;
+
+      background: #eef3f8;
+
+      border-left: 5px solid #173f6b;
+
+      border-radius: 16px;
+    }
+
+    .expert-note p {
+      margin: 0;
+      color: #465c72;
+      line-height: 1.7;
+    }
+
+
+    /* MOBİL */
+
+    @media (max-width: 760px) {
+
+      .expert-page {
+        padding: 35px 16px 60px;
+      }
+
+      .expert-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 34px 24px;
+      }
+
+      .expert-photo {
+        margin: 0 auto;
+        width: 145px;
+        height: 145px;
+      }
+
+      .expert-hero h1 {
+        font-size: 29px;
+      }
+
+      .expert-intro {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .expert-tags {
+        justify-content: center;
+      }
+
+      .expert-content {
+        grid-template-columns: 1fr;
+      }
+
+      .expert-card {
+        padding: 27px 23px;
+      }
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+<main class="expert-page">
+
+  <div class="expert-container">
+
+
+    <!-- GERİ DÖN -->
+
+    <a href="education.html"
+       class="expert-back">
+      ← Bilgi Merkezi'ne Dön
+    </a>
+
+
+
+    <!-- ÜST PROFİL ALANI -->
+
+    <section class="expert-hero">
+
+
+      <div>
+
+       <img src="assets/images/dr-oben-avatar.png"
+             alt="Veteriner Hekimi Nazif Oben Akşemsettinoğlu"
+             class="expert-photo">
+
+      </div>
+
+
+      <div>
+
+        <p class="expert-kicker">
+          VETWEL® BİLGİ MERKEZİ
+        </p>
+
+        <h1>
+          Veteriner Hekimi<br>
+          Nazif Oben Akşemsettinoğlu
+        </h1>
+
+        <p class="expert-role">
+          VetWel Kurucusu • Fitoterapi & Wellness Danışmanı
+        </p>
+
+        <p class="expert-intro">
+          27 yıllık klinik deneyimiyle kedi ve köpek sağlığı,
+          koruyucu hekimlik, klinik beslenme, fitoterapi ve
+          tamamlayıcı beslenme alanlarında çalışmalarını sürdürmektedir.
+        </p>
+
+
+        <div class="expert-tags">
+
+          <span class="expert-tag">
+            27 Yıllık Klinik Deneyim
+          </span>
+
+          <span class="expert-tag">
+            Fitoterapi
+          </span>
+
+          <span class="expert-tag">
+            Klinik Beslenme
+          </span>
+
+          <span class="expert-tag">
+            Wellness
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ANA İÇERİK -->
+
+    <section class="expert-content">
+
+
+      <!-- ÖZGEÇMİŞ -->
+
+      <article class="expert-card">
+
+        <h2>
+          Profesyonel Özgeçmiş
+        </h2>
+
+        <p>
+          İstanbul Üniversitesi Veteriner Fakültesi 1999 mezunudur.
+          27 yıllık klinik deneyimi boyunca kedi ve köpek sağlığı,
+          koruyucu hekimlik, klinik beslenme, fitoterapi ve
+          tamamlayıcı beslenme alanlarında çalışmıştır.
+        </p>
+
+        <p>
+          VetWel’in kurucusu olan Akşemsettinoğlu; pet supplementleri,
+          fitoterapi ve wellness alanlarında çalışmalarını sürdürmektedir.
+        </p>
+
+        <p>
+          ABD ve Türkiye’deki veteriner klinikleri ve hayvan
+          hastanelerine fitoterapi ve wellness alanlarında
+          danışmanlık hizmetleri vermektedir.
+        </p>
+
+        <p>
+          VetWel Bilgi Merkezi’nde yer alan içeriklerin veteriner
+          hekimlik perspektifiyle hazırlanmasına ve klinik kullanım
+          açısından değerlendirilmesine katkı sağlamaktadır.
+        </p>
+
+      </article>
+
+
+
+      <!-- ÇALIŞMA ALANLARI -->
+
+      <aside class="expert-card">
+
+        <h2>
+          Çalışma Alanları
+        </h2>
+
+        <ul class="expert-list">
+
+          <li>
+            Kedi ve Köpek Sağlığı
+          </li>
+
+          <li>
+            Koruyucu Hekimlik
+          </li>
+
+          <li>
+            Klinik Beslenme
+          </li>
+
+          <li>
+            Fitoterapi
+          </li>
+
+          <li>
+            Tamamlayıcı Beslenme
+          </li>
+
+          <li>
+            Pet Supplementleri
+          </li>
+
+          <li>
+            Wellness Danışmanlığı
+          </li>
+
+        </ul>
+
+      </aside>
+
+    </section>
+
+
+
+    <!-- ALT NOT -->
+
+    <section class="expert-note">
+
+      <p>
+        VetWel® Bilgi Merkezi, evcil hayvan sağlığı konusunda
+        bilim temelli, anlaşılır ve klinik pratiğe yardımcı
+        bilgiler sunmayı amaçlamaktadır.
+      </p>
+
+    </section>
+
+
+  </div>
+
+</main>

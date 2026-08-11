@@ -1,14 +1,45 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const isEnglish = document.documentElement.lang === "en";
   const header = document.querySelector(".site-header");
   const menuToggle = document.querySelector(".menu-toggle");
   const navigation = document.querySelector(".primary-navigation");
-  const navigationLinks = document.querySelectorAll(".primary-navigation a");
   const backToTopButton = document.querySelector(".back-to-top");
   const currentYear = document.querySelector("#current-year");
   const accordionButtons = document.querySelectorAll(".accordion-button");
   const revealElements = document.querySelectorAll(".reveal");
   const contactForm = document.querySelector("#contact-form");
   const formStatus = document.querySelector("#form-status");
+
+  /*
+  --------------------------------------------------
+  LANGUAGE SWITCH
+  --------------------------------------------------
+  Add an EN link only to the Turkish homepage. The English homepage
+  already contains its own TR link in the HTML.
+  */
+
+  const isTurkishHomepage =
+    !isEnglish &&
+    (window.location.pathname.endsWith("/") ||
+      window.location.pathname.endsWith("/index.html"));
+
+  if (navigation && isTurkishHomepage) {
+    const existingLanguageLink = navigation.querySelector(
+      'a[href="en/index.html"]'
+    );
+
+    if (!existingLanguageLink) {
+      const languageLink = document.createElement("a");
+      languageLink.href = "en/index.html";
+      languageLink.textContent = "EN";
+      languageLink.setAttribute("aria-label", "English site");
+      navigation.appendChild(languageLink);
+    }
+  }
+
+  const navigationLinks = document.querySelectorAll(
+    ".primary-navigation a"
+  );
 
   if (currentYear) {
     currentYear.textContent = new Date().getFullYear();
@@ -18,7 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!menuToggle || !navigation) return;
 
     menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Menüyü aç");
+    menuToggle.setAttribute(
+      "aria-label",
+      isEnglish ? "Open menu" : "Menüyü aç"
+    );
     navigation.classList.remove("open");
     document.body.classList.remove("menu-open");
   };
@@ -30,7 +64,13 @@ document.addEventListener("DOMContentLoaded", () => {
       menuToggle.setAttribute("aria-expanded", String(!isOpen));
       menuToggle.setAttribute(
         "aria-label",
-        isOpen ? "Menüyü aç" : "Menüyü kapat"
+        isEnglish
+          ? isOpen
+            ? "Open menu"
+            : "Close menu"
+          : isOpen
+            ? "Menüyü aç"
+            : "Menüyü kapat"
       );
 
       navigation.classList.toggle("open", !isOpen);
@@ -100,13 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let target = null;
 
-
-      /*
-      Çözümler bölümündeki kartlardan biri
-      #urunler bağlantısını kullanıyorsa,
-      ilgili ürün kartını bul.
-      */
-
       if (
         targetId === "#urunler" &&
         link.closest(".solution-card")
@@ -123,18 +156,6 @@ document.addEventListener("DOMContentLoaded", () => {
           );
         }
       }
-
-
-      /*
-      Normal bağlantılarda standart hedefi kullan.
-      Örneğin:
-      #neden-vetwel
-      #cozumler
-      #urunler
-      #cleanse
-      #breathe-ease
-      #iletisim
-      */
 
       if (!target) {
         target = document.querySelector(targetId);
@@ -335,8 +356,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (!formIsValid) {
-        formStatus.textContent =
-          "Lütfen gerekli alanları doğru şekilde doldurun.";
+        formStatus.textContent = isEnglish
+          ? "Please complete all required fields correctly."
+          : "Lütfen gerekli alanları doğru şekilde doldurun.";
 
         formStatus.className =
           "form-status error";
@@ -353,16 +375,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const mailSubject =
         encodeURIComponent(
-          `VetWel Web Sitesi: ${subject}`
+          isEnglish
+            ? `VetWel Website: ${subject}`
+            : `VetWel Web Sitesi: ${subject}`
         );
 
       const mailBody =
         encodeURIComponent(
-          `Ad: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`
+          isEnglish
+            ? `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+            : `Ad: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`
         );
 
-      formStatus.textContent =
-        "E-posta uygulamanız açılıyor. Mesajınızı oradan gönderebilirsiniz.";
+      formStatus.textContent = isEnglish
+        ? "Your email application is opening. You can send your message from there."
+        : "E-posta uygulamanız açılıyor. Mesajınızı oradan gönderebilirsiniz.";
 
       formStatus.className =
         "form-status success";

@@ -5,14 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description"
-        content="HeartWel® ürün bilgisi: kedi ve köpeklerde kalp fonksiyonları, dolaşım, antioksidan savunma, sıvı dengesi ve kardiyovasküler destek.">
+  <meta
+    name="description"
+    content="HeartWel® ürün bilgisi: kedi ve köpeklerde normal kalp fonksiyonları, dolaşım, antioksidan savunma ve sıvı dengesi desteği."
+  >
 
   <title>HeartWel® Ürün Bilgisi | VetWel® Bilgi Merkezi</title>
 
   <link rel="stylesheet" href="style.css">
 
   <style>
+
     body {
       margin: 0;
       background: #f7f9fc;
@@ -42,14 +45,25 @@
       text-decoration: underline;
     }
 
+
+    /* HERO */
+
     .product-hero {
       background: #173f6b;
       color: white;
       border-radius: 24px;
       padding: 48px;
       margin-bottom: 30px;
-      border-top: 6px solid #b93d63;
+      border-top: 6px solid #c94f63;
       box-shadow: 0 15px 40px rgba(23,63,107,0.12);
+      overflow: hidden;
+    }
+
+    .product-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 44px;
+      align-items: center;
     }
 
     .product-kicker {
@@ -57,11 +71,24 @@
       font-size: 13px;
       font-weight: 800;
       letter-spacing: 1.3px;
-      color: #f1cfda;
+      color: #f2d8dd;
+    }
+
+    .product-form-badge {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
     }
 
     .product-hero h1 {
-      margin: 8px 0 15px;
+      margin: 10px 0 15px;
       font-size: 38px;
       line-height: 1.15;
     }
@@ -72,6 +99,28 @@
       color: rgba(255,255,255,0.87);
       margin-bottom: 0;
     }
+
+    .product-hero-image {
+      background: white;
+      border-radius: 20px;
+      min-height: 310px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.17);
+    }
+
+    .product-hero-image img {
+      display: block;
+      width: 100%;
+      max-width: 330px;
+      max-height: 330px;
+      object-fit: contain;
+    }
+
+
+    /* KARTLAR */
 
     .product-grid {
       display: grid;
@@ -107,6 +156,9 @@
       margin-top: 28px;
     }
 
+
+    /* FORMÜL */
+
     .formula-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
@@ -115,15 +167,15 @@
     }
 
     .formula-item {
-      background: #fcf5f7;
-      border: 1px solid #eedde3;
+      background: #fbf5f6;
+      border: 1px solid #eedde1;
       border-radius: 14px;
       padding: 18px;
     }
 
     .formula-item strong {
       display: block;
-      color: #a83358;
+      color: #a53e51;
       margin-bottom: 7px;
     }
 
@@ -135,13 +187,16 @@
 
     .formula-note {
       margin-top: 20px;
-      background: #fff6f8;
-      border-left: 5px solid #b93d63;
+      background: #fff6f7;
+      border-left: 5px solid #c94f63;
       border-radius: 14px;
       padding: 18px 20px;
       color: #596775;
       line-height: 1.7;
     }
+
+
+    /* İÇERİKLER */
 
     .ingredient-grid {
       display: grid;
@@ -165,9 +220,12 @@
       margin-bottom: 3px;
     }
 
+
+    /* KLİNİK */
+
     .clinical-note,
-    .usage-box,
-    .safety-note {
+    .safety-note,
+    .usage-box {
       margin-top: 28px;
       background: white;
       border-radius: 18px;
@@ -176,25 +234,25 @@
     }
 
     .clinical-note h2,
-    .usage-box h2,
-    .safety-note h2 {
+    .safety-note h2,
+    .usage-box h2 {
       margin-top: 0;
       color: #173f6b;
     }
 
     .clinical-note p,
     .clinical-note li,
-    .usage-box p,
-    .usage-box li,
     .safety-note p,
-    .safety-note li {
+    .safety-note li,
+    .usage-box p,
+    .usage-box li {
       color: #596775;
       line-height: 1.7;
     }
 
     .clinical-note ul,
-    .usage-box ul,
-    .safety-note ul {
+    .safety-note ul,
+    .usage-box ul {
       padding-left: 22px;
     }
 
@@ -209,10 +267,13 @@
       color: #173f6b;
     }
 
+
+    /* ÖZET */
+
     .product-note {
       margin-top: 28px;
       background: #eef3f8;
-      border-left: 5px solid #b93d63;
+      border-left: 5px solid #c94f63;
       border-radius: 18px;
       padding: 28px;
     }
@@ -228,7 +289,11 @@
       margin-bottom: 0;
     }
 
-    @media (max-width: 600px) {
+
+    /* MOBİL */
+
+    @media (max-width: 760px) {
+
       .product-page {
         padding: 40px 16px 60px;
       }
@@ -237,19 +302,36 @@
         padding: 30px 24px;
       }
 
+      .product-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
       .product-hero h1 {
         font-size: 30px;
       }
 
+      .product-hero-image {
+        min-height: 240px;
+        padding: 20px;
+      }
+
+      .product-hero-image img {
+        max-height: 270px;
+      }
+
       .product-card,
-      .usage-box,
       .clinical-note,
       .safety-note,
+      .usage-box,
       .product-note {
         padding: 24px 22px;
       }
+
     }
+
   </style>
+
 </head>
 
 
@@ -258,6 +340,7 @@
 <main class="product-page">
 
   <div class="product-container">
+
 
     <a href="education-products.html" class="product-back">
       ← Ürün Bilgilerine Dön
@@ -268,17 +351,40 @@
 
     <section class="product-hero">
 
-      <p class="product-kicker">
-        VETWEL® ÜRÜN BİLGİSİ
-      </p>
+      <div class="product-hero-grid">
 
-      <h1>HeartWel®</h1>
+        <div>
 
-      <p>
-        HeartWel®; kedi ve köpeklerde normal kalp fonksiyonlarının,
-        dolaşımın, antioksidan savunmanın ve sağlıklı sıvı dengesinin
-        desteklenmesine yönelik çok bileşenli tamamlayıcı formüldür.
-      </p>
+          <p class="product-kicker">
+            VETWEL® ÜRÜN BİLGİSİ
+          </p>
+
+          <span class="product-form-badge">
+            TABLET
+          </span>
+
+          <h1>HeartWel®</h1>
+
+          <p>
+            HeartWel®, kedi ve köpeklerde normal kalp fonksiyonlarının,
+            dolaşım sisteminin, antioksidan savunmanın ve sıvı
+            dengesinin desteklenmesine yönelik çok bileşenli
+            bitkisel tamamlayıcı formüldür.
+          </p>
+
+        </div>
+
+
+        <div class="product-hero-image">
+
+          <img
+            src="assets/images/products/HeartWel Tablet.jpg"
+            alt="VetWel HeartWel ürün ambalajı"
+          >
+
+        </div>
+
+      </div>
 
     </section>
 
@@ -287,129 +393,102 @@
 
     <section class="product-grid">
 
+
       <article class="product-card">
+
         <h2>Ne İçin Kullanılır?</h2>
 
         <p>
-          HeartWel®, kalp ve dolaşım sistemini tek bir mekanizma
-          üzerinden değil; kardiyak fonksiyon, periferik dolaşım,
-          antioksidan savunma, stres yanıtı ve sıvı dengesi
-          eksenlerinde birlikte desteklemeyi amaçlar.
+          HeartWel®, kalp ve dolaşım sisteminin normal fizyolojik
+          fonksiyonlarının tamamlayıcı olarak desteklenmesine
+          yönelik geliştirilmiştir.
         </p>
+
       </article>
 
 
       <article class="product-card">
-        <h2>Kalp Fonksiyonu</h2>
+
+        <h2>Kalp Fonksiyonları</h2>
 
         <p>
-          Normal miyokard fonksiyonlarının ve kardiyovasküler
-          performansın sürdürülmesine yönelik tamamlayıcı
-          destek yaklaşımı sağlar.
+          Formüldeki seçilmiş botanik bileşenler normal kardiyak
+          fonksiyonların ve kardiyovasküler performansın
+          desteklenmesine yönelik yaklaşımın temelini oluşturur.
         </p>
+
       </article>
 
 
       <article class="product-card">
-        <h2>Dolaşım</h2>
+
+        <h2>Dolaşım Desteği</h2>
 
         <p>
-          Periferik ve koroner dolaşımın normal işleyişinin
-          desteklenmesine yönelik seçilmiş botanik
-          bileşenlerden yararlanır.
+          Kardiyovasküler sistem yalnızca kalpten oluşmaz.
+          HeartWel® dolaşım fonksiyonlarını ve periferik dolaşım
+          dengesini de tamamlayıcı olarak desteklemeyi amaçlar.
         </p>
+
       </article>
 
 
       <article class="product-card">
+
         <h2>Antioksidan Savunma</h2>
 
         <p>
-          Kardiyovasküler dokuda normal hücresel antioksidan
+          Bitkisel bileşenler normal hücresel antioksidan
           savunmanın desteklenmesine ve oksidatif yükün
-          yönetimine yardımcı yaklaşım sunar.
+          yönetilmesine yönelik formülasyon yaklaşımını tamamlar.
         </p>
+
       </article>
 
 
       <article class="product-card">
+
         <h2>Sıvı Dengesi</h2>
 
         <p>
-          Normal sıvı dengesinin korunmasına yönelik botanik
-          destek ile kardiyovasküler sistem üzerindeki
-          dolaşım yükünün yönetimine yardımcı olur.
+          Formüldeki bazı botanik bileşenler normal sıvı
+          dengesinin ve doğal eliminasyon süreçlerinin
+          desteklenmesine katkı sağlar.
         </p>
+
       </article>
 
 
       <article class="product-card">
-        <h2>Stres & Otonom Denge</h2>
 
-        <p>
-          Stresle ilişkili otonom yükün ve huzursuzluğun
-          yönetimine yönelik sakinleştirici ve adaptif
-          botanik ekseni kardiyovasküler yaklaşımı tamamlar.
-        </p>
+        <h2>Hangi Durumlarda Düşünülür?</h2>
+
+        <ul>
+          <li>Normal kalp fonksiyonlarının desteklenmesinde</li>
+          <li>Kardiyovasküler bakım programlarına tamamlayıcı olarak</li>
+          <li>Yaşlı kedi ve köpeklerde kalp sağlığı desteğinde</li>
+          <li>Dolaşım fonksiyonlarının desteklenmesi gerektiğinde</li>
+          <li>Antioksidan desteğin istendiği bakım dönemlerinde</li>
+          <li>Veteriner hekimin oluşturduğu kardiyak bakım planına ek olarak</li>
+        </ul>
+
       </article>
 
-    </section>
-
-
-    <!-- HANGİ DURUMLARDA -->
-
-    <section class="product-section product-card">
-
-      <h2>Hangi Durumlarda Düşünülür?</h2>
-
-      <ul>
-        <li>
-          Kalp ve dolaşım sistemi fonksiyonlarının tamamlayıcı
-          olarak desteklenmesi gereken kedi ve köpeklerde
-        </li>
-
-        <li>
-          Yaşlı hayvanlarda kardiyovasküler dayanıklılık ve
-          genel canlılığın desteklenmesinde
-        </li>
-
-        <li>
-          Egzersiz toleransı azalmış hastalarda veteriner
-          hekim değerlendirmesiyle
-        </li>
-
-        <li>
-          Strese duyarlı hastalarda kardiyovasküler ve otonom
-          dengenin desteklenmesinde
-        </li>
-
-        <li>
-          Dolaşım ve sağlıklı sıvı dengesinin desteklenmesinin
-          yararlı görüldüğü durumlarda
-        </li>
-
-        <li>
-          Kardiyovasküler hastalık tanısı bulunan hastalarda
-          standart tedaviye ek tamamlayıcı bakım yaklaşımında
-        </li>
-      </ul>
 
     </section>
 
 
-    <!-- FORMÜLASYON MANTIĞI -->
+    <!-- FORMÜLASYON -->
 
     <section class="product-section product-card">
 
       <h2>İçerik ve Formülasyon Mantığı</h2>
 
       <p>
-        HeartWel® tek bir “kalp bitkisine” dayanan bir formül
-        değildir. Bileşenler; normal kardiyak fonksiyon,
-        dolaşım, vasküler destek, antioksidan savunma,
-        sıvı dengesi ve stresle ilişkili otonom yük gibi
-        birbirini etkileyen kardiyovasküler alanları
-        tamamlayacak şekilde bir araya getirilmiştir.
+        HeartWel® tek bir kardiyak bileşene dayanan bir ürün
+        değildir. Formül; normal kalp fonksiyonları, dolaşım,
+        antioksidan savunma, stres yanıtı ve sıvı dengesini
+        birbirini tamamlayan destek eksenleri olarak ele alır.
       </p>
 
 
@@ -418,13 +497,12 @@
 
         <div class="formula-item">
 
-          <strong>Kardiyak Fonksiyon & Dolaşım</strong>
+          <strong>Kalp &amp; Dolaşım Ekseni</strong>
 
           <p>
-            Alıç (Crataegus), normal kardiyak fonksiyon,
-            periferik ve koroner dolaşım ile antioksidan
-            savunma yaklaşımının merkezindeki
-            botanik bileşenlerden biridir.
+            Crataegus oxyacantha ve Leonurus cardiaca;
+            kalp ve dolaşım fonksiyonlarının desteklenmesine
+            yönelik formülasyonun temel botanik grubundadır.
           </p>
 
         </div>
@@ -432,12 +510,13 @@
 
         <div class="formula-item">
 
-          <strong>Kardiyovasküler Tonus</strong>
+          <strong>Sakinlik &amp; Adaptasyon</strong>
 
           <p>
-            Aslan otu (Leonurus cardiaca), kardiyovasküler
-            tonus ve stresle ilişkili otonom yanıtın
-            dengelenmesine yönelik botanik destek sağlar.
+            Melissa officinalis ve Valeriana officinalis,
+            stresli dönemlerde davranışsal rahatlamanın ve
+            kardiyovasküler yükün yönetilmesine yönelik
+            tamamlayıcı destek yaklaşımında yer alır.
           </p>
 
         </div>
@@ -445,13 +524,13 @@
 
         <div class="formula-item">
 
-          <strong>Stres & Adaptasyon</strong>
+          <strong>Sıvı Dengesi &amp; Eliminasyon</strong>
 
           <p>
-            Melisa ve kedi otu; stres kaynaklı otonom yükün
-            azaltılmasına, sakin davranışın ve çevresel
-            adaptasyonun desteklenmesine yönelik
-            tamamlayıcı eksen oluşturur.
+            Achillea millefolium, Polygonum aviculare ve
+            Gnaphalium dioicum; doğal sıvı dengesi ve
+            eliminasyon süreçlerinin desteklenmesine yönelik
+            formülasyon eksenini tamamlar.
           </p>
 
         </div>
@@ -459,42 +538,16 @@
 
         <div class="formula-item">
 
-          <strong>Vasküler Destek</strong>
+          <strong>Antioksidan Destek</strong>
 
           <p>
-            Sarı yonca ve civanperçemi; periferik dolaşım
-            ve normal vasküler fonksiyonun desteklenmesine
-            yönelik formülasyon yaklaşımını tamamlar.
+            Propolis, arı ekstraktı ve seçilmiş botanikler,
+            normal hücresel antioksidan savunmanın
+            desteklenmesine katkı sağlar.
           </p>
 
         </div>
 
-
-        <div class="formula-item">
-
-          <strong>Sıvı Dengesi</strong>
-
-          <p>
-            Çoban değneği ve bozağan otu; doğal sıvı
-            dengesi ve dolaşım yükünün yönetimine yönelik
-            fitoterapötik desteğin bir parçasıdır.
-          </p>
-
-        </div>
-
-
-        <div class="formula-item">
-
-          <strong>Antioksidan & Metabolik Destek</strong>
-
-          <p>
-            Arı ekstresi ve propolis; biyolojik aktif
-            bileşenler ve antioksidan destek yoluyla
-            genel kardiyovasküler ve metabolik
-            dayanıklılık yaklaşımını tamamlar.
-          </p>
-
-        </div>
 
       </div>
 
@@ -503,22 +556,19 @@
 
         <strong>Formülasyon yaklaşımı:</strong>
 
-        HeartWel®'in ana mantığı kalp sağlığını yalnızca
-        tek bir parametre üzerinden değerlendirmek değildir.
+        HeartWel®'in temel amacı bir kalp hastalığını tedavi
+        etmek değildir.
 
         <br><br>
 
-        Ana eksen:
+        Ana yaklaşım:
+
         <strong>
-          kardiyak fonksiyon → dolaşım → antioksidan savunma →
-          sıvı dengesi → otonom stres yükü
+          normal kalp fonksiyonu → dolaşım →
+          antioksidan savunma → sıvı dengesi
         </strong>
 
-        <br><br>
-
-        Bu çok bileşenli yapı, veteriner hekimin kardiyovasküler
-        bakım planına tamamlayıcı destek sağlamak amacıyla
-        oluşturulmuştur.
+        eksenlerinin birlikte desteklenmesidir.
 
       </div>
 
@@ -532,9 +582,8 @@
       <h2>Genel İçerikler</h2>
 
       <p>
-        HeartWel® botanik bileşenler ve arı ürünlerini
-        bir araya getiren çok bileşenli bir
-        kardiyovasküler destek formülüdür.
+        HeartWel® formülü 12 tamamlayıcı botanik ve doğal
+        bileşenden oluşur.
       </p>
 
 
@@ -552,17 +601,17 @@
 
         <div class="ingredient-item">
           <strong>3. Kedi Otu</strong>
-          Valeriana officinalis L.
+          Valeriana officinalis
         </div>
 
         <div class="ingredient-item">
           <strong>4. Nane</strong>
-          Mentha pulegium L.
+          Mentha pulegium
         </div>
 
         <div class="ingredient-item">
           <strong>5. Aslan Otu</strong>
-          Leonurus cardiaca L.
+          Leonurus cardiaca
         </div>
 
         <div class="ingredient-item">
@@ -572,22 +621,22 @@
 
         <div class="ingredient-item">
           <strong>7. Civanperçemi</strong>
-          Achillea millefolium L.
+          Achillea millefolium
         </div>
 
         <div class="ingredient-item">
-          <strong>8. Çoban Değneği Otu</strong>
+          <strong>8. Çoban Değneği</strong>
           Polygonum aviculare
         </div>
 
         <div class="ingredient-item">
           <strong>9. Bozağan Otu</strong>
-          Gnaphalium dioicum L.
+          Gnaphalium dioicum
         </div>
 
         <div class="ingredient-item">
           <strong>10. Kestere Otu</strong>
-          Betonica officinalis L.
+          Betonica officinalis
         </div>
 
         <div class="ingredient-item">
@@ -612,26 +661,22 @@
       <h2>Klinik Yaklaşım</h2>
 
       <p>
-        Egzersiz intoleransı, solunum sayısında artış,
-        öksürük, senkop, taşikardi, ritim değişiklikleri,
-        abdominal distansiyon veya ödem gibi bulgular
-        yalnızca tamamlayıcı ürün yaklaşımıyla
-        değerlendirilmemelidir.
+        Öksürük, egzersiz intoleransı, solunum güçlüğü,
+        bayılma, karın şişliği veya belirgin halsizlik gibi
+        belirtiler kalp hastalığı dahil farklı nedenlerle
+        ilişkili olabilir.
       </p>
 
       <p>
-        Kardiyovasküler hastalık şüphesinde fizik muayene,
-        kan basıncı, uygun laboratuvar incelemeleri,
-        toraks görüntüleme, elektrokardiyografi ve/veya
-        ekokardiyografi klinik gereksinime göre
-        değerlendirilmelidir.
+        Bu tür bulguların bulunduğu hastalarda veteriner
+        hekim muayenesi ve gerekli kardiyolojik değerlendirme
+        önceliklidir.
       </p>
 
       <p>
-        HeartWel® kardiyak tanı veya standart medikal
-        tedavinin yerine geçmez. Veteriner hekimin
-        oluşturduğu bakım planına tamamlayıcı destek
-        olarak değerlendirilmelidir.
+        HeartWel® tanı veya kardiyak tedavinin yerine geçmez.
+        Veteriner hekimin oluşturduğu klinik bakım planına
+        tamamlayıcı destek olarak değerlendirilmelidir.
       </p>
 
     </section>
@@ -644,15 +689,13 @@
       <h2>Klinik İzlem</h2>
 
       <ul>
-        <li>İstirahat kalp hızı ve ritmi</li>
-        <li>Gerektiğinde kan basıncı</li>
-        <li>İstirahat solunum sayısı</li>
-        <li>Egzersiz toleransı ve genel aktivite</li>
-        <li>Öksürük veya senkop öyküsü</li>
-        <li>Vücut ağırlığı ve vücut kondisyonu</li>
-        <li>Ödem veya abdominal sıvı birikimi bulguları</li>
-        <li>Hidrasyon ve sıvı dengesi</li>
-        <li>Gerektiğinde ekokardiyografi ve toraks görüntüleme</li>
+        <li>Dinlenme solunum sayısı</li>
+        <li>Kalp hızı ve ritmi</li>
+        <li>Egzersiz toleransı</li>
+        <li>Öksürük veya solunum değişiklikleri</li>
+        <li>Vücut ağırlığı ve kondisyon</li>
+        <li>Kan basıncı</li>
+        <li>Gerektiğinde ekokardiyografi ve elektrokardiyografi</li>
         <li>Kullanılan kardiyak ilaçlara klinik yanıt</li>
       </ul>
 
@@ -663,42 +706,24 @@
 
     <section class="safety-note">
 
-      <h2>Kullanım & Güvenlik Notu</h2>
+      <h2>Kullanım &amp; Güvenlik Notu</h2>
 
       <p>
-        Kardiyovasküler hastalığı bulunan hayvanlarda
-        HeartWel® kullanımı mevcut ilaçlar ve hastanın
-        klinik durumu birlikte değerlendirilerek planlanmalıdır.
+        Kalp hastalığı bulunan hayvanlar sıklıkla diüretik,
+        ACE inhibitörü, pimobendan, antiaritmik veya başka
+        kardiyovasküler ilaçlar kullanabilir.
       </p>
 
-      <ul>
-        <li>
-          Diüretik kullanan hastalarda sıvı dengesi ve
-          hidrasyon yakından değerlendirilmelidir.
-        </li>
+      <p>
+        Bu nedenle HeartWel®'in reçeteli ilaçlarla birlikte
+        kullanımı veteriner hekim tarafından değerlendirilmelidir.
+      </p>
 
-        <li>
-          ACE inhibitörü, ARB, pimobendan veya
-          antihipertansif kullanan hastalarda eş zamanlı
-          kullanım veteriner hekim tarafından değerlendirilmelidir.
-        </li>
-
-        <li>
-          Antiaritmik veya antitrombotik tedavi alan
-          hastalarda tam ilaç listesi gözden geçirilmelidir.
-        </li>
-
-        <li>
-          Arı ürünlerine karşı bilinen hassasiyeti bulunan
-          hayvanlarda kullanım öncesinde dikkatli
-          değerlendirme yapılmalıdır.
-        </li>
-
-        <li>
-          Yeni veya kötüleşen kardiyopulmoner belirtilerde
-          yalnızca destek ürününe güvenilmemelidir.
-        </li>
-      </ul>
+      <p>
+        Özellikle kan basıncını, sıvı dengesini veya
+        kardiyak ritmi etkileyen ilaç kullanan hastalarda
+        klinik takip önemlidir.
+      </p>
 
     </section>
 
@@ -710,7 +735,7 @@
       <h2>Nasıl Kullanılır?</h2>
 
       <p>
-        HeartWel® tablet formdadır.
+        HeartWel® tablet formundadır.
       </p>
 
 
@@ -736,11 +761,11 @@
 
       <div class="usage-step">
 
-        <strong>İlk 3 Gün</strong>
+        <strong>İlk 3 gün</strong>
 
         <p>
           Günde <strong>3 kez</strong>:
-          Sabah – Öğle – Akşam.
+          Sabah – Öğlen – Akşam.
         </p>
 
       </div>
@@ -748,7 +773,7 @@
 
       <div class="usage-step">
 
-        <strong>3. Günden Sonra</strong>
+        <strong>4. günden itibaren</strong>
 
         <p>
           Günde <strong>2 kez</strong>:
@@ -759,16 +784,14 @@
 
 
       <p>
-        <strong>Kullanım süresi:</strong>
-        Hastanın kardiyovasküler durumu, kullanılan ilaçlar
-        ve klinik yanıta göre veteriner hekim tarafından
-        belirlenmelidir.
+        Kullanım süresi, hastanın klinik durumu ve veteriner
+        hekimin değerlendirmesine göre planlanır.
       </p>
 
     </section>
 
 
-    <!-- KISA ÜRÜN ÖZETİ -->
+    <!-- ÖZET -->
 
     <section class="product-note">
 
@@ -776,15 +799,12 @@
 
       <p>
         <strong>
-          HeartWel®, kalp ve dolaşım sistemini tek bir
-          mekanizma üzerinden değil; normal kardiyak fonksiyon,
-          periferik dolaşım, antioksidan savunma, sıvı dengesi
-          ve stresle ilişkili otonom yük eksenlerinde birlikte
-          destekleyen çok bileşenli tamamlayıcı formüldür.
-          Kardiyak hastalığın tanı ve standart tedavisinin
-          yerine geçmez; veteriner hekimin oluşturduğu
-          kardiyovasküler bakım planına tamamlayıcı destek
-          olarak değerlendirilir.
+          HeartWel®, kedi ve köpeklerde normal kalp fonksiyonları,
+          dolaşım, antioksidan savunma ve sıvı dengesinin
+          desteklenmesine yönelik 12 bileşenli tamamlayıcı
+          formüldür. Kardiyak hastalıkların tedavisinin yerine
+          geçmez; veteriner hekimin oluşturduğu kardiyovasküler
+          bakım planına tamamlayıcı destek olarak değerlendirilir.
         </strong>
       </p>
 

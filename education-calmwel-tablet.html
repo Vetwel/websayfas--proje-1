@@ -5,14 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description"
-        content="CalmWel® Tablet ürün bilgisi: kedi ve köpeklerde sakinlik, stres ve korku yanıtı, davranış dengesi ve çevresel adaptasyon desteği.">
+  <meta
+    name="description"
+    content="CalmWel® Tablet ürün bilgisi: kedi ve köpeklerde sakinlik, stres ve korku yanıtı, davranış dengesi ve çevresel adaptasyon desteği."
+  >
 
   <title>CalmWel® Tablet Ürün Bilgisi | VetWel® Bilgi Merkezi</title>
 
   <link rel="stylesheet" href="style.css">
 
   <style>
+
     body {
       margin: 0;
       background: #f7f9fc;
@@ -42,6 +45,9 @@
       text-decoration: underline;
     }
 
+
+    /* HERO */
+
     .product-hero {
       background: #173f6b;
       color: white;
@@ -50,6 +56,14 @@
       margin-bottom: 30px;
       border-top: 6px solid #2f918c;
       box-shadow: 0 15px 40px rgba(23,63,107,0.12);
+      overflow: hidden;
+    }
+
+    .product-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 44px;
+      align-items: center;
     }
 
     .product-kicker {
@@ -60,8 +74,21 @@
       color: #cce8e5;
     }
 
+    .product-form-badge {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
     .product-hero h1 {
-      margin: 8px 0 15px;
+      margin: 10px 0 15px;
       font-size: 38px;
       line-height: 1.15;
     }
@@ -72,6 +99,28 @@
       color: rgba(255,255,255,0.87);
       margin-bottom: 0;
     }
+
+    .product-hero-image {
+      background: white;
+      border-radius: 20px;
+      min-height: 310px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.17);
+    }
+
+    .product-hero-image img {
+      display: block;
+      width: 100%;
+      max-width: 330px;
+      max-height: 330px;
+      object-fit: contain;
+    }
+
+
+    /* KARTLAR */
 
     .product-grid {
       display: grid;
@@ -106,6 +155,9 @@
     .product-section {
       margin-top: 28px;
     }
+
+
+    /* FORMÜL */
 
     .formula-grid {
       display: grid;
@@ -143,6 +195,9 @@
       line-height: 1.7;
     }
 
+
+    /* İÇERİKLER */
+
     .ingredient-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -164,6 +219,9 @@
       color: #173f6b;
       margin-bottom: 3px;
     }
+
+
+    /* KLİNİK / GÜVENLİK / KULLANIM */
 
     .clinical-note,
     .usage-box,
@@ -209,6 +267,9 @@
       color: #173f6b;
     }
 
+
+    /* KISA ÖZET */
+
     .product-note {
       margin-top: 28px;
       background: #eef3f8;
@@ -228,7 +289,11 @@
       margin-bottom: 0;
     }
 
-    @media (max-width: 600px) {
+
+    /* MOBİL */
+
+    @media (max-width: 760px) {
+
       .product-page {
         padding: 40px 16px 60px;
       }
@@ -237,8 +302,22 @@
         padding: 30px 24px;
       }
 
+      .product-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
       .product-hero h1 {
         font-size: 30px;
+      }
+
+      .product-hero-image {
+        min-height: 240px;
+        padding: 20px;
+      }
+
+      .product-hero-image img {
+        max-height: 270px;
       }
 
       .product-card,
@@ -248,10 +327,13 @@
       .safety-note {
         padding: 24px 22px;
       }
+
     }
+
   </style>
 
 </head>
+
 
 <body>
 
@@ -259,33 +341,65 @@
 
   <div class="product-container">
 
+
     <a href="education-products.html" class="product-back">
       ← Ürün Bilgilerine Dön
     </a>
 
 
+    <!-- HERO -->
+
     <section class="product-hero">
 
-      <p class="product-kicker">
-        VETWEL® ÜRÜN BİLGİSİ
-      </p>
+      <div class="product-hero-grid">
 
-      <h1>CalmWel® Tablet</h1>
+        <div>
 
-      <p>
-        CalmWel® Tablet; stresli ve değişken çevresel koşullarda
-        sakin davranışın, korku ve stres yanıtının, davranış
-        dengesinin ve çevresel adaptasyonun desteklenmesine
-        yönelik çok bileşenli bitkisel tamamlayıcı formüldür.
-      </p>
+          <p class="product-kicker">
+            VETWEL® ÜRÜN BİLGİSİ
+          </p>
+
+          <span class="product-form-badge">
+            TABLET
+          </span>
+
+          <h1>
+            CalmWel®
+          </h1>
+
+          <p>
+            CalmWel® Tablet; stresli ve değişken çevresel koşullarda
+            sakin davranışın, korku ve stres yanıtının, davranış
+            dengesinin ve çevresel adaptasyonun desteklenmesine
+            yönelik çok bileşenli bitkisel tamamlayıcı formüldür.
+          </p>
+
+        </div>
+
+
+        <div class="product-hero-image">
+
+          <img
+            src="assets/images/products/CalmWel Tablet.jpg"
+            alt="VetWel CalmWel Tablet ürün ambalajı"
+          >
+
+        </div>
+
+      </div>
 
     </section>
 
 
+    <!-- ANA DESTEK ALANLARI -->
+
     <section class="product-grid">
 
+
       <article class="product-card">
+
         <h2>Ne İçin Kullanılır?</h2>
+
         <p>
           CalmWel® Tablet, davranışsal desteği yalnızca
           “sakinleştirme” üzerinden ele almaz. Stres ve korku
@@ -293,62 +407,81 @@
           adaptasyonun birlikte desteklenmesine yönelik
           çok yönlü bir yaklaşım sunar.
         </p>
+
       </article>
 
 
       <article class="product-card">
-        <h2>Stres & Korku Yanıtı</h2>
+
+        <h2>Stres &amp; Korku Yanıtı</h2>
+
         <p>
           Gürültü, seyahat, veteriner ziyareti, yalnız kalma,
           taşınma ve yeni çevre gibi tetikleyicilere verilen
           aşırı davranışsal yanıtların yumuşatılmasına ve
           sakinliğin desteklenmesine yardımcı olur.
         </p>
+
       </article>
 
 
       <article class="product-card">
+
         <h2>Davranış Dengesi</h2>
+
         <p>
           Huzursuzluk, aşırı uyarılma ve stresle ilişkili
           davranışlarda daha dengeli ve yönetilebilir davranış
           yanıtının desteklenmesine yönelik tamamlayıcı yaklaşım sunar.
         </p>
+
       </article>
 
 
       <article class="product-card">
+
         <h2>Çevresel Adaptasyon</h2>
+
         <p>
           Yeni ortam, seyahat, pansiyon, kuaför, veteriner
           ziyareti ve günlük rutindeki değişikliklere uyumun
           desteklenmesine yönelik botanik bileşenler içerir.
         </p>
+
       </article>
 
 
       <article class="product-card">
-        <h2>Gerginlik & Rahatlama</h2>
+
+        <h2>Gerginlik &amp; Rahatlama</h2>
+
         <p>
           Çok bileşenli bitkisel yapı; davranışsal huzursuzlukla
-          birlikte görülebilen gerginlik ve rahatsızlık hissinin
-          azaltılmasına yönelik rahatlatıcı destek yaklaşımı sağlar.
+          birlikte görülebilen gerginlik ve rahatsızlık hissine
+          yönelik rahatlatıcı destek yaklaşımı sağlar.
         </p>
+
       </article>
 
 
       <article class="product-card">
+
         <h2>Non-Drowsy Yaklaşım</h2>
+
         <p>
           Formülasyonun temel amacı belirgin sedasyon oluşturmak
           değildir. Hedef, günlük aktiviteyi mümkün olduğunca
           korurken daha sakin ve dengeli davranış yanıtını
           desteklemektir.
         </p>
+
       </article>
+
 
     </section>
 
+
+    <!-- HANGİ DURUMLARDA -->
 
     <section class="product-section product-card">
 
@@ -370,6 +503,8 @@
     </section>
 
 
+    <!-- İÇERİK VE FORMÜLASYON MANTIĞI -->
+
     <section class="product-section product-card">
 
       <h2>İçerik ve Formülasyon Mantığı</h2>
@@ -382,58 +517,76 @@
         tamamlayacak şekilde desteklenmesi yaklaşımıyla oluşturulmuştur.
       </p>
 
+
       <div class="formula-grid">
 
+
         <div class="formula-item">
+
           <strong>Sakinlik Ekseni</strong>
+
           <p>
             Valeriana officinalis, Humulus lupulus ve
             Melissa officinalis; sakin davranışın,
             rahatlamanın ve gerginlik yanıtının
             desteklenmesine yönelik temel botanik grubu oluşturur.
           </p>
+
         </div>
 
 
         <div class="formula-item">
-          <strong>Korku & Aşırı Uyarılma</strong>
+
+          <strong>Korku &amp; Aşırı Uyarılma</strong>
+
           <p>
             Geniş fitokompleks, öngörülebilir veya çevresel
             stres faktörlerine verilen aşırı yanıtın
             yumuşatılmasına yönelik çoklu botanik destek sağlar.
           </p>
+
         </div>
 
 
         <div class="formula-item">
+
           <strong>Davranış Dengesi</strong>
+
           <p>
             Leonurus, Humulus, Valeriana ve diğer tamamlayıcı
             botanikler; huzursuzluk ve aşırı uyarılmayla ilişkili
             davranış yanıtlarının dengelenmesine yardımcı olur.
           </p>
+
         </div>
 
 
         <div class="formula-item">
+
           <strong>Adaptasyon Ekseni</strong>
+
           <p>
             Melissa officinalis, Nepeta cataria ve
             Crataegus bileşenleri çevresel değişikliklere
             uyum ve davranışsal rahatlama yaklaşımını tamamlar.
           </p>
+
         </div>
 
 
         <div class="formula-item">
-          <strong>Rahatlama & Gerginlik</strong>
+
+          <strong>Rahatlama &amp; Gerginlik</strong>
+
           <p>
             Formüldeki Valeriana, Humulus, Melissa,
             Leonurus ve diğer botanik bileşenler fiziksel
             ve davranışsal gerginliğe yönelik destek ekseninde
             birlikte değerlendirilir.
           </p>
+
         </div>
+
 
       </div>
 
@@ -447,6 +600,7 @@
         <br><br>
 
         Ana yaklaşım:
+
         <strong>
           sakinlik → korku ve stres yanıtı → davranış dengesi →
           çevresel adaptasyon
@@ -462,6 +616,8 @@
     </section>
 
 
+    <!-- GENEL İÇERİKLER -->
+
     <section class="product-section product-card">
 
       <h2>Genel İçerikler</h2>
@@ -472,97 +628,118 @@
         çok sayıda bitkisel bileşen birlikte kullanılır.
       </p>
 
+
       <div class="ingredient-grid">
+
 
         <div class="ingredient-item">
           <strong>1. Dost Otu / Oregano</strong>
           Origanum vulgare
         </div>
 
+
         <div class="ingredient-item">
           <strong>2. Sarı Yonca</strong>
           Melilotus officinalis
         </div>
+
 
         <div class="ingredient-item">
           <strong>3. Kedi Otu</strong>
           Valeriana officinalis
         </div>
 
+
         <div class="ingredient-item">
           <strong>4. Alıç</strong>
           Crataegus spp.
         </div>
+
 
         <div class="ingredient-item">
           <strong>5. Şerbetçi Otu</strong>
           Humulus lupulus
         </div>
 
+
         <div class="ingredient-item">
           <strong>6. Aslan Otu</strong>
           Leonurus cardiaca
         </div>
+
 
         <div class="ingredient-item">
           <strong>7. Nane</strong>
           Mentha piperita
         </div>
 
+
         <div class="ingredient-item">
           <strong>8. Yer Sarmaşığı</strong>
           Glechoma hederacea
         </div>
+
 
         <div class="ingredient-item">
           <strong>9. Kedi Nanesi</strong>
           Nepeta cataria
         </div>
 
+
         <div class="ingredient-item">
           <strong>10. Melisa</strong>
           Melissa officinalis
         </div>
+
 
         <div class="ingredient-item">
           <strong>11. Tekesakalı Otu</strong>
           Filipendula ulmaria
         </div>
 
+
         <div class="ingredient-item">
           <strong>12. Sarı Kantaron</strong>
           Hypericum perforatum
         </div>
+
 
         <div class="ingredient-item">
           <strong>13. Kekik</strong>
           Thymus spp.
         </div>
 
+
         <div class="ingredient-item">
           <strong>14. Bozağan Otu</strong>
           Gnaphalium uliginosum
         </div>
+
 
         <div class="ingredient-item">
           <strong>15. Salsola</strong>
           Salsola spp.
         </div>
 
+
         <div class="ingredient-item">
           <strong>16. Isırgan Otu</strong>
           Urtica dioica
         </div>
+
 
         <div class="ingredient-item">
           <strong>17. Şakayık</strong>
           Paeonia spp.
         </div>
 
+
       </div>
 
     </section>
 
+
+    <!-- KLİNİK YAKLAŞIM -->
 
     <section class="clinical-note">
 
@@ -585,6 +762,8 @@
     </section>
 
 
+    <!-- DAVRANIŞ YÖNETİMİ -->
+
     <section class="clinical-note">
 
       <h2>Davranış Yönetimi</h2>
@@ -605,11 +784,14 @@
     </section>
 
 
+    <!-- GÜVENLİK -->
+
     <section class="safety-note">
 
-      <h2>Kullanım & Güvenlik Notu</h2>
+      <h2>Kullanım &amp; Güvenlik Notu</h2>
 
       <ul>
+
         <li>
           Bileşenlere karşı bireysel hassasiyet gelişmesi
           durumunda kullanım durdurulmalıdır.
@@ -630,10 +812,13 @@
           sistemini etkileyen ürün/ilaç kullanılıyorsa
           veteriner hekime bilgi verilmelidir.
         </li>
+
       </ul>
 
     </section>
 
+
+    <!-- KULLANIM -->
 
     <section class="usage-box">
 
@@ -678,7 +863,7 @@
 
       <div class="usage-step">
 
-        <strong>3. Günden Sonra</strong>
+        <strong>4. Günden İtibaren</strong>
 
         <p>
           Günde <strong>2 kez</strong>:
@@ -707,6 +892,8 @@
 
     </section>
 
+
+    <!-- KISA ÜRÜN ÖZETİ -->
 
     <section class="product-note">
 

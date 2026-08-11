@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta name="description"
-        content="SkinWel® ürün bilgisi: kedi ve köpeklerde deri bariyeri, cilt ve tüy sağlığı, 20 bitkisel bileşen, kullanım protokolü ve dermatolojik destek yaklaşımı.">
+        content="SkinWel® ürün bilgisi: kedi ve köpeklerde deri bariyeri, cilt konforu, tüy sağlığı, 20 bitkisel bileşen, formülasyon mantığı ve kullanım protokolü.">
 
   <title>SkinWel® Ürün Bilgisi | VetWel® Bilgi Merkezi</title>
 
@@ -67,7 +67,7 @@
     }
 
     .product-hero p {
-      max-width: 820px;
+      max-width: 840px;
       line-height: 1.7;
       color: rgba(255,255,255,0.87);
       margin-bottom: 0;
@@ -107,6 +107,32 @@
       margin-top: 28px;
     }
 
+    .formula-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 15px;
+      margin-top: 22px;
+    }
+
+    .formula-item {
+      background: #f4f8fc;
+      border: 1px solid #dce9f5;
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .formula-item strong {
+      display: block;
+      color: #24679f;
+      margin-bottom: 7px;
+    }
+
+    .formula-item p {
+      margin: 0;
+      color: #596775;
+      line-height: 1.65;
+    }
+
     .ingredient-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -127,6 +153,39 @@
       display: block;
       color: #173f6b;
       margin-bottom: 3px;
+    }
+
+    .formula-note {
+      margin-top: 20px;
+      background: #f3f8fc;
+      border-left: 5px solid #3478b8;
+      border-radius: 14px;
+      padding: 18px 20px;
+      color: #596775;
+      line-height: 1.7;
+    }
+
+    .clinical-note {
+      margin-top: 28px;
+      background: white;
+      border-radius: 18px;
+      padding: 28px;
+      border: 1px solid #dce6f0;
+    }
+
+    .clinical-note h2 {
+      margin-top: 0;
+      color: #173f6b;
+    }
+
+    .clinical-note p,
+    .clinical-note li {
+      color: #596775;
+      line-height: 1.7;
+    }
+
+    .clinical-note ul {
+      padding-left: 22px;
     }
 
     .usage-box {
@@ -179,24 +238,6 @@
       margin-bottom: 0;
     }
 
-    .clinical-note {
-      margin-top: 28px;
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 28px;
-      border: 1px solid #dce6f0;
-    }
-
-    .clinical-note h2 {
-      margin-top: 0;
-      color: #173f6b;
-    }
-
-    .clinical-note p {
-      color: #596775;
-      line-height: 1.7;
-    }
-
     @media (max-width: 600px) {
       .product-page {
         padding: 40px 16px 60px;
@@ -232,6 +273,8 @@
     </a>
 
 
+    <!-- HERO -->
+
     <section class="product-hero">
 
       <p class="product-kicker">
@@ -242,13 +285,15 @@
 
       <p>
         SkinWel®, kedi ve köpeklerde deri bariyerinin,
-        sağlıklı cilt yapısının ve tüy kalitesinin desteklenmesine
+        cilt konforunun ve sağlıklı tüy yapısının desteklenmesine
         yönelik 20 bitkisel bileşenden oluşan çok yönlü
         dermatolojik destek formülüdür.
       </p>
 
     </section>
 
+
+    <!-- ANA DESTEK ALANLARI -->
 
     <section class="product-grid">
 
@@ -258,7 +303,7 @@
 
         <p>
           SkinWel®, deri sağlığının ve bariyer bütünlüğünün
-          desteklenmesine, kızarıklık, kaşıntı ve irritasyon
+          desteklenmesine, kaşıntı, kızarıklık ve irritasyon
           dönemlerinde cilt konforunun korunmasına ve sağlıklı
           tüy yapısının desteklenmesine yardımcı olmak amacıyla
           geliştirilmiştir.
@@ -272,10 +317,11 @@
         <h2>Deri Bariyeri Desteği</h2>
 
         <p>
-          Deri bariyeri, dış çevresel etkenlere karşı doğal
-          korumanın sürdürülmesinde önemli rol oynar.
-          SkinWel® formülü deri yüzey bütünlüğünü ve normal
-          bariyer fonksiyonlarını tamamlayıcı olarak destekler.
+          Sağlıklı deri bariyeri; nem kaybının sınırlandırılması,
+          çevresel etkenlere karşı doğal savunmanın korunması ve
+          cilt bütünlüğünün sürdürülmesinde önemli rol oynar.
+          SkinWel® bu bariyer yapısının tamamlayıcı olarak
+          desteklenmesine yönelik botanik bileşenler içerir.
         </p>
 
       </article>
@@ -286,9 +332,10 @@
         <h2>Kaşıntı & İrritasyon</h2>
 
         <p>
-          Çok bileşenli botanik formül, kaşıntı, kızarıklık ve
-          deri hassasiyetinin bulunduğu dönemlerde dermatolojik
-          konforun desteklenmesine yönelik bütüncül bir yaklaşım sunar.
+          Çok bileşenli fitokompleks, kaşıntı, kızarıklık ve
+          deri hassasiyetinin bulunduğu dönemlerde cilt konforunun
+          ve normal inflamatuar yanıtın desteklenmesine yönelik
+          tamamlayıcı bir yaklaşım sunar.
         </p>
 
       </article>
@@ -299,9 +346,10 @@
         <h2>Epitel & Yenilenme</h2>
 
         <p>
-          Calendula, Plantago ve Achillea gibi seçilmiş botanik
-          bileşenler formülün deri yüzey bütünlüğü ve normal
-          epitel yenilenme süreçlerini destekleyen kısmını oluşturur.
+          Formülde yer alan seçilmiş bitkiler deri yüzey
+          bütünlüğünün, normal epitel yenilenmesinin ve
+          cildin doğal onarım süreçlerinin desteklenmesine
+          yönelik formülasyonun bir parçasıdır.
         </p>
 
       </article>
@@ -312,9 +360,10 @@
         <h2>Tüy Sağlığı</h2>
 
         <p>
-          SkinWel® yalnızca deri yüzeyine yönelik değildir.
-          Formül, deri bariyeri ile birlikte sağlıklı ve güçlü
-          tüy yapısının korunmasına yönelik tamamlayıcı destek sağlar.
+          Deri bariyerinin sağlıklı olması tüy yapısını da
+          doğrudan etkiler. SkinWel® deri ile birlikte sağlıklı,
+          güçlü ve canlı tüy görünümünün korunmasını da
+          tamamlayıcı olarak destekler.
         </p>
 
       </article>
@@ -328,9 +377,10 @@
           <li>Kaşıntı ve deri hassasiyeti bulunan olgularda</li>
           <li>Kızarıklık ve irritasyon dönemlerinde</li>
           <li>Deri bariyerinin desteklenmesi gerektiğinde</li>
+          <li>Kuru ve hassas deri yapısında</li>
           <li>Tüy kalitesinin desteklenmesinde</li>
           <li>Tekrarlayan dermatolojik problemlerde tamamlayıcı destek olarak</li>
-          <li>Deri ve tüy sağlığının uzun dönem desteklenmesinde</li>
+          <li>Uzun dönem deri ve tüy sağlığı desteğinde</li>
         </ul>
 
       </article>
@@ -338,14 +388,119 @@
     </section>
 
 
+    <!-- FORMÜLASYON MANTIĞI -->
+
     <section class="product-section product-card">
 
-      <h2>20 Bitkisel Bileşen</h2>
+      <h2>İçerik ve Formülasyon Mantığı</h2>
 
       <p>
-        SkinWel® formülü, dermatolojik desteğe yönelik
-        20 farklı botanik bileşeni bir araya getirir.
+        SkinWel® yalnızca tek bir dermatolojik mekanizmaya
+        odaklanan bir ürün değildir. 20 bitkisel bileşenden oluşan
+        fitokompleks; deri bariyeri, cilt konforu, normal
+        inflamatuar yanıt, epitel yenilenmesi, lokal savunma
+        ve tüy sağlığının birlikte desteklenmesi yaklaşımıyla
+        geliştirilmiştir.
       </p>
+
+
+      <div class="formula-grid">
+
+        <div class="formula-item">
+
+          <strong>İnflamasyon & İrritasyon Ekseni</strong>
+
+          <p>
+            Calendula officinalis, Chamomilla recutita,
+            Glycyrrhiza glabra ve Filipendula ulmaria gibi
+            bileşenler; hassas, kızarık ve irrite ciltte normal
+            inflamatuar yanıtın ve cilt konforunun
+            desteklenmesine yönelik formülasyon eksenini oluşturur.
+          </p>
+
+        </div>
+
+
+        <div class="formula-item">
+
+          <strong>Epitelizasyon & Deri Bütünlüğü</strong>
+
+          <p>
+            Calendula officinalis, Plantago afra ve
+            Achillea millefolium; deri yüzey bütünlüğünün
+            ve normal epitel yenilenme süreçlerinin
+            desteklenmesine yönelik botanik grubun
+            öne çıkan bileşenleridir.
+          </p>
+
+        </div>
+
+
+        <div class="formula-item">
+
+          <strong>Deri Bariyeri & Tüy Ekseni</strong>
+
+          <p>
+            Arctium majus, Equisetum arvense ve Betula pendula;
+            deri bariyeri, bağ dokusu ve sağlıklı tüy yapısının
+            korunmasına yönelik formülasyon yaklaşımını tamamlar.
+          </p>
+
+        </div>
+
+
+        <div class="formula-item">
+
+          <strong>Lokal Savunma & Antioksidan Destek</strong>
+
+          <p>
+            Echinacea purpurea, Urtica dioica, Glechoma hederacea
+            ve Bidens pilosa gibi bileşenler cildin doğal savunma
+            mekanizmalarının ve bitkisel antioksidan desteğin
+            tamamlayıcı olarak korunmasına katkı sağlayan
+            fitokompleks grubunda yer alır.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <p>
+        Formülde ayrıca Hypericum perforatum, Valeriana officinalis,
+        Quercus robur, Sanguisorba officinalis ve diğer seçilmiş
+        bitkisel bileşenler bulunur. Bu geniş botanik yapı,
+        SkinWel®'in tek bir içerik veya tek bir mekanizma yerine
+        dermatolojik sağlığı farklı destek eksenlerinden ele alan
+        çok yönlü bir formül olmasını sağlar.
+      </p>
+
+
+      <div class="formula-note">
+
+        <strong>Formülasyon yaklaşımı:</strong>
+        SkinWel® yalnızca “tüy desteği” amacıyla geliştirilmiş
+        basit bir supplement değildir. Formülün temel yaklaşımı;
+        deri bariyerinin, cilt konforunun, epitel bütünlüğünün,
+        lokal savunmanın ve sağlıklı tüy yapısının birlikte
+        desteklenmesidir.
+
+      </div>
+
+    </section>
+
+
+    <!-- GENEL İÇERİKLER -->
+
+    <section class="product-section product-card">
+
+      <h2>Genel İçerikler</h2>
+
+      <p>
+        SkinWel® formülü 20 farklı bitkisel bileşeni bir araya
+        getiren geniş bir dermatolojik fitokompleks yapıya sahiptir.
+      </p>
+
 
       <div class="ingredient-grid">
 
@@ -415,7 +570,7 @@
         </div>
 
         <div class="ingredient-item">
-          <strong>14. Kırlangıç Otu</strong>
+          <strong>14. Eğir Otu</strong>
           Acorus calamus L.
         </div>
 
@@ -454,24 +609,60 @@
     </section>
 
 
+    <!-- KLİNİK YAKLAŞIM -->
+
     <section class="clinical-note">
 
       <h2>Klinik Yaklaşım</h2>
 
       <p>
-        Kaşıntılı ve tekrarlayan dermatolojik olgularda ektoparazit,
-        enfeksiyon, alerji, endokrin hastalıklar, beslenme ve çevresel
-        faktörler ayırıcı tanıda değerlendirilmelidir.
+        Kaşıntı, kızarıklık, tüy dökülmesi veya tekrarlayan
+        dermatolojik problemlerde altta yatan nedenin belirlenmesi
+        önemlidir.
+      </p>
+
+      <p>
+        Ektoparazitler, bakteriyel veya fungal enfeksiyonlar,
+        alerjik hastalıklar, beslenme faktörleri, endokrin
+        hastalıklar ve çevresel tetikleyiciler veteriner hekim
+        tarafından ayırıcı tanıda değerlendirilmelidir.
       </p>
 
       <p>
         SkinWel® primer dermatolojik tedavinin yerine geçmez;
-        veteriner hekimin oluşturduğu tanı ve tedavi planına
+        veteriner hekimin oluşturduğu klinik yönetim planına
         tamamlayıcı destek olarak değerlendirilmelidir.
       </p>
 
     </section>
 
+
+    <!-- KLİNİK İZLEM -->
+
+    <section class="clinical-note">
+
+      <h2>Klinik İzlem</h2>
+
+      <p>
+        Kullanım süresince hastanın dermatolojik yanıtına göre
+        aşağıdaki başlıklar değerlendirilebilir:
+      </p>
+
+      <ul>
+        <li>Kaşıntı şiddeti ve sıklığı</li>
+        <li>Kızarıklık ve irritasyon düzeyi</li>
+        <li>Deri bariyerinin genel görünümü</li>
+        <li>Kuruluk ve pullanma</li>
+        <li>Tüy dökülmesi ve tüy kalitesi</li>
+        <li>Lezyonların yaygınlığı</li>
+        <li>Sekonder enfeksiyon bulguları</li>
+        <li>Genel hasta konforu</li>
+      </ul>
+
+    </section>
+
+
+    <!-- KULLANIM -->
 
     <section class="usage-box">
 
@@ -481,23 +672,25 @@
         SkinWel® tablet formundadır.
       </p>
 
+
       <p>
         <strong>Kediler:</strong>
         Her uygulamada 1 tablet.
       </p>
+
 
       <p>
         <strong>Köpekler:</strong>
         Her 10 kg canlı ağırlık için her uygulamada 1 tablet.
       </p>
 
+
       <ul>
-        <li>10 kg'a kadar: 1 tablet</li>
+        <li>1–10 kg: 1 tablet</li>
         <li>10–20 kg: 2 tablet</li>
         <li>20–30 kg: 3 tablet</li>
         <li>30–40 kg: 4 tablet</li>
         <li>40–50 kg: 5 tablet</li>
-        <li>50 kg üzeri: Her ilave 10 kg için 1 tablet</li>
       </ul>
 
 
@@ -531,12 +724,15 @@
       </p>
 
       <p>
-        Kullanım süresi, veteriner hekimin değerlendirmesine bağlı
-        olarak 21 günden daha uzun süre devam ettirilebilir.
+        Kullanım süresi, veteriner hekimin hastanın dermatolojik
+        durumu ve klinik yanıtına ilişkin değerlendirmesine bağlı
+        olarak uzatılabilir.
       </p>
 
     </section>
 
+
+    <!-- KISA ÜRÜN ÖZETİ -->
 
     <section class="product-note">
 
@@ -544,12 +740,14 @@
 
       <p>
         <strong>
-          SkinWel®, 20 bitkisel bileşeni bir araya getiren çok yönlü
-          dermatolojik destek formülüdür. Deri bariyerinin, normal
-          epitel yenilenmesinin, cilt konforunun ve sağlıklı tüy
-          yapısının desteklenmesine yönelik bütüncül bir yaklaşım sunar.
-          Primer dermatolojik tedavilerin yerine değil, klinik yönetimin
-          tamamlayıcı bir parçası olarak değerlendirilir.
+          SkinWel®, 20 bitkisel bileşenden oluşan çok yönlü
+          dermatolojik destek formülüdür. Formül; deri bariyeri,
+          cilt konforu, normal inflamatuar yanıt, epitel yenilenmesi,
+          lokal savunma ve sağlıklı tüy yapısını birlikte
+          desteklemeye yönelik geliştirilmiştir. Tek bir dermatolojik
+          mekanizmaya odaklanmak yerine cilt sağlığını farklı
+          destek eksenlerinden ele alır ve veteriner hekimin
+          dermatolojik yönetim planına tamamlayıcı destek sağlar.
         </strong>
       </p>
 

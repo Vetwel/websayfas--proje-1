@@ -5,14 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description"
-        content="LiverWel® Liquid ürün bilgisi: kedi ve köpeklerde karaciğer, safra sistemi, antioksidan savunma ve metabolik destek; 21 bitkisel ekstrakt ve sıvı kullanım protokolü.">
+  <meta
+    name="description"
+    content="LiverWel® Liquid ürün bilgisi: kedi ve köpeklerde karaciğer, safra sistemi, antioksidan savunma ve metabolik destek; 21 bitkisel ekstrakt ve sıvı kullanım protokolü."
+  >
 
   <title>LiverWel® Liquid Ürün Bilgisi | VetWel® Bilgi Merkezi</title>
 
   <link rel="stylesheet" href="style.css">
 
   <style>
+
     body {
       margin: 0;
       background: #f7f9fc;
@@ -42,6 +45,9 @@
       text-decoration: underline;
     }
 
+
+    /* HERO */
+
     .product-hero {
       background: #173f6b;
       color: white;
@@ -50,6 +56,14 @@
       margin-bottom: 30px;
       border-top: 6px solid #4b8b5a;
       box-shadow: 0 15px 40px rgba(23,63,107,0.12);
+      overflow: hidden;
+    }
+
+    .product-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 44px;
+      align-items: center;
     }
 
     .product-kicker {
@@ -60,8 +74,21 @@
       color: #d8eadc;
     }
 
+    .product-form-badge {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
     .product-hero h1 {
-      margin: 8px 0 15px;
+      margin: 10px 0 15px;
       font-size: 38px;
       line-height: 1.15;
     }
@@ -72,6 +99,28 @@
       color: rgba(255,255,255,0.87);
       margin-bottom: 0;
     }
+
+    .product-hero-image {
+      background: white;
+      border-radius: 20px;
+      min-height: 310px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.17);
+    }
+
+    .product-hero-image img {
+      display: block;
+      width: 100%;
+      max-width: 330px;
+      max-height: 330px;
+      object-fit: contain;
+    }
+
+
+    /* KARTLAR */
 
     .product-grid {
       display: grid;
@@ -106,6 +155,9 @@
     .product-section {
       margin-top: 28px;
     }
+
+
+    /* FORMÜL */
 
     .formula-grid {
       display: grid;
@@ -143,6 +195,9 @@
       line-height: 1.7;
     }
 
+
+    /* İÇERİKLER */
+
     .ingredient-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -165,9 +220,11 @@
       margin-bottom: 3px;
     }
 
+
+    /* KLİNİK */
+
     .clinical-note,
-    .usage-box,
-    .safety-note {
+    .usage-box {
       margin-top: 28px;
       background: white;
       border-radius: 18px;
@@ -176,8 +233,7 @@
     }
 
     .clinical-note h2,
-    .usage-box h2,
-    .safety-note h2 {
+    .usage-box h2 {
       margin-top: 0;
       color: #173f6b;
     }
@@ -185,11 +241,18 @@
     .clinical-note p,
     .clinical-note li,
     .usage-box p,
-    .usage-box li,
-    .safety-note p {
+    .usage-box li {
       color: #596775;
       line-height: 1.7;
     }
+
+    .clinical-note ul,
+    .usage-box ul {
+      padding-left: 22px;
+    }
+
+
+    /* KULLANIM */
 
     .usage-step {
       background: #f3f7fb;
@@ -197,6 +260,13 @@
       padding: 18px;
       margin-top: 15px;
     }
+
+    .usage-step strong {
+      color: #173f6b;
+    }
+
+
+    /* KISA ÖZET */
 
     .product-note {
       margin-top: 28px;
@@ -217,7 +287,11 @@
       margin-bottom: 0;
     }
 
-    @media (max-width: 600px) {
+
+    /* MOBİL */
+
+    @media (max-width: 760px) {
+
       .product-page {
         padding: 40px 16px 60px;
       }
@@ -226,21 +300,37 @@
         padding: 30px 24px;
       }
 
+      .product-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
       .product-hero h1 {
         font-size: 30px;
+      }
+
+      .product-hero-image {
+        min-height: 240px;
+        padding: 20px;
+      }
+
+      .product-hero-image img {
+        max-height: 270px;
       }
 
       .product-card,
       .usage-box,
       .product-note,
-      .clinical-note,
-      .safety-note {
+      .clinical-note {
         padding: 24px 22px;
       }
+
     }
+
   </style>
 
 </head>
+
 
 <body>
 
@@ -248,34 +338,71 @@
 
   <div class="product-container">
 
+
     <a href="education-products.html" class="product-back">
       ← Ürün Bilgilerine Dön
     </a>
 
 
+    <!-- HERO -->
+
     <section class="product-hero">
 
-      <p class="product-kicker">
-        VETWEL® ÜRÜN BİLGİSİ
-      </p>
+      <div class="product-hero-grid">
 
-      <h1>LiverWel® Liquid</h1>
 
-      <p>
-        LiverWel® Liquid, kedi ve köpeklerde karaciğer
-        fonksiyonlarının, safra sistemi fizyolojisinin,
-        antioksidan savunmanın, sindirim ve doğal eliminasyon
-        süreçlerinin desteklenmesine yönelik 21 bitkisel
-        ekstrakt içeren sıvı tamamlayıcı formüldür.
-      </p>
+        <div>
+
+          <p class="product-kicker">
+            VETWEL® ÜRÜN BİLGİSİ
+          </p>
+
+          <span class="product-form-badge">
+            LIQUID
+          </span>
+
+          <h1>
+            LiverWel®
+          </h1>
+
+          <p>
+            LiverWel® Liquid, kedi ve köpeklerde karaciğer
+            fonksiyonlarının, safra sistemi fizyolojisinin,
+            antioksidan savunmanın, sindirim ve doğal eliminasyon
+            süreçlerinin desteklenmesine yönelik 21 bitkisel
+            ekstrakt içeren sıvı tamamlayıcı formüldür.
+          </p>
+
+        </div>
+
+
+        <div class="product-hero-image">
+
+          <img
+            src="assets/images/products/VETWEL_LIVER Sıvı.jpg"
+            alt="VetWel LiverWel Liquid ürün ambalajı"
+          >
+
+        </div>
+
+
+      </div>
 
     </section>
 
 
+
+    <!-- ANA DESTEK ALANLARI -->
+
     <section class="product-grid">
 
+
       <article class="product-card">
-        <h2>Ne İçin Kullanılır?</h2>
+
+        <h2>
+          Ne İçin Kullanılır?
+        </h2>
+
         <p>
           LiverWel® Liquid, karaciğerin normal metabolik
           ve işlevsel kapasitesini desteklerken safra sistemi,
@@ -283,65 +410,121 @@
           süreçlerini birlikte ele alan tamamlayıcı hepatik
           destek yaklaşımı sunar.
         </p>
+
       </article>
 
 
+
       <article class="product-card">
-        <h2>Hepatik Fonksiyon</h2>
+
+        <h2>
+          Hepatik Fonksiyon
+        </h2>
+
         <p>
           Karaciğerin normal metabolik ve işlevsel kapasitesinin
           korunmasına yönelik çok bileşenli botanik destek sağlar.
         </p>
+
       </article>
 
 
+
       <article class="product-card">
-        <h2>Safra Sistemi</h2>
+
+        <h2>
+          Safra Sistemi
+        </h2>
+
         <p>
           Safra oluşumu, akışı ve hepatobiliyer fonksiyonların
           fizyolojik olarak desteklenmesine yönelik seçilmiş
           bitkisel bileşenler içerir.
         </p>
+
       </article>
 
 
+
       <article class="product-card">
-        <h2>Antioksidan Savunma</h2>
+
+        <h2>
+          Antioksidan Savunma
+        </h2>
+
         <p>
           Oksidatif yük karşısında normal hücresel savunma
           mekanizmalarının desteklenmesine katkı sağlar.
         </p>
+
       </article>
 
 
+
       <article class="product-card">
-        <h2>Eliminasyon & Metabolizma</h2>
+
+        <h2>
+          Eliminasyon &amp; Metabolizma
+        </h2>
+
         <p>
           Sindirim, sıvı dengesi ve doğal eliminasyon
           süreçlerinin çok yönlü desteklenmesine yönelik
           formülasyon yaklaşımının bir parçasıdır.
         </p>
+
       </article>
+
 
 
       <article class="product-card">
-        <h2>Hangi Durumlarda Düşünülür?</h2>
+
+        <h2>
+          Hangi Durumlarda Düşünülür?
+        </h2>
+
         <ul>
-          <li>Karaciğer enzimlerinde yükselme veya hepatik stres bulgularında tamamlayıcı destek olarak</li>
-          <li>İlaç veya anestezi sonrası hepatik destek gerektiğinde</li>
-          <li>Metabolik yükün arttığı dönemlerde</li>
-          <li>Safra sistemi ve sindirim fonksiyonlarının desteklenmesinde</li>
-          <li>Yaşlı veya kronik hastalığı bulunan kedi ve köpeklerde</li>
-          <li>İştah ve metabolik toparlanmanın desteklenmesinin hedeflendiği dönemlerde</li>
+          <li>
+            Karaciğer enzimlerinde yükselme veya hepatik stres
+            bulgularında tamamlayıcı destek olarak
+          </li>
+
+          <li>
+            İlaç veya anestezi sonrası hepatik destek gerektiğinde
+          </li>
+
+          <li>
+            Metabolik yükün arttığı dönemlerde
+          </li>
+
+          <li>
+            Safra sistemi ve sindirim fonksiyonlarının desteklenmesinde
+          </li>
+
+          <li>
+            Yaşlı veya kronik hastalığı bulunan kedi ve köpeklerde
+          </li>
+
+          <li>
+            İştah ve metabolik toparlanmanın desteklenmesinin
+            hedeflendiği dönemlerde
+          </li>
         </ul>
+
       </article>
+
 
     </section>
 
 
+
+    <!-- İÇERİK VE FORMÜLASYON MANTIĞI -->
+
     <section class="product-section product-card">
 
-      <h2>İçerik ve Formülasyon Mantığı</h2>
+      <h2>
+        İçerik ve Formülasyon Mantığı
+      </h2>
 
       <p>
         LiverWel® Liquid tek bir “karaciğer vitamini” veya
@@ -352,201 +535,274 @@
         desteklemek üzere oluşturulmuştur.
       </p>
 
+
       <div class="formula-grid">
 
+
         <div class="formula-item">
-          <strong>Hepatik Fonksiyon Ekseni</strong>
+
+          <strong>
+            Hepatik Fonksiyon Ekseni
+          </strong>
+
           <p>
             Taraxacum officinale, Helichrysum arenarium ve
             Glycyrrhiza glabra; normal hepatik metabolizma ve
             karaciğer fonksiyonlarının desteklenmesine yönelik
             temel botanik grubu oluşturur.
           </p>
+
         </div>
 
 
+
         <div class="formula-item">
-          <strong>Safra & Sindirim Ekseni</strong>
+
+          <strong>
+            Safra &amp; Sindirim Ekseni
+          </strong>
+
           <p>
             Helichrysum arenarium, Taraxacum officinale,
             Achillea millefolium ve Foeniculum vulgare;
             safra sistemi ve gastrointestinal fonksiyonların
             desteklenmesine katkı sağlar.
           </p>
+
         </div>
 
 
+
         <div class="formula-item">
-          <strong>Antioksidan Savunma Ekseni</strong>
+
+          <strong>
+            Antioksidan Savunma Ekseni
+          </strong>
+
           <p>
             Urtica dioica, Echinacea purpurea, Viola tricolor
             ve Glechoma hederacea; normal hücresel antioksidan
             savunmanın desteklenmesine yönelik formül grubunda yer alır.
           </p>
+
         </div>
 
 
+
         <div class="formula-item">
-          <strong>Eliminasyon & Metabolik Denge</strong>
+
+          <strong>
+            Eliminasyon &amp; Metabolik Denge
+          </strong>
+
           <p>
             Betula pendula, Galium aparine ve Urtica dioica;
             doğal eliminasyon, sıvı dengesi ve metabolik süreçlerin
             desteklenmesine yönelik yaklaşımı tamamlar.
           </p>
+
         </div>
 
 
+
         <div class="formula-item">
-          <strong>İştah & Sindirim Konforu</strong>
+
+          <strong>
+            İştah &amp; Sindirim Konforu
+          </strong>
+
           <p>
             Centaurium erythraea, Chamomilla recutita,
             Foeniculum vulgare ve Mentha pulegium;
             iştah, sindirim konforu ve oral alımın
             desteklenmesine yönelik tamamlayıcı eksendir.
           </p>
+
         </div>
+
 
       </div>
 
+
       <div class="formula-note">
-        <strong>Formülasyon yaklaşımı:</strong>
+
+        <strong>
+          Formülasyon yaklaşımı:
+        </strong>
+
         LiverWel® Liquid’in ana mantığı
+
         <strong>
           hepatik fonksiyon → safra sistemi → antioksidan savunma →
           metabolik denge
         </strong>
+
         eksenlerini birlikte desteklemektir. Sıvı formu ise oral
         uygulamayı ve mama veya içme suyuna karıştırılarak
         verilmesini kolaylaştırır.
+
       </div>
 
     </section>
 
 
+
+    <!-- GENEL İÇERİKLER -->
+
     <section class="product-section product-card">
 
-      <h2>Genel İçerikler</h2>
+      <h2>
+        Genel İçerikler
+      </h2>
 
       <p>
         LiverWel® Liquid 21 bitkisel ekstrakttan oluşan
         geniş bir hepatik fitokompleks içerir.
       </p>
 
+
       <div class="ingredient-grid">
+
 
         <div class="ingredient-item">
           <strong>1. Papatya</strong>
           Chamomilla recutita
         </div>
 
+
         <div class="ingredient-item">
           <strong>2. Nane</strong>
           Mentha pulegium L.
         </div>
+
 
         <div class="ingredient-item">
           <strong>3. Isırgan Otu</strong>
           Urtica dioica
         </div>
 
+
         <div class="ingredient-item">
           <strong>4. Sarı Kantaron</strong>
           Hypericum perforatum L.
         </div>
+
 
         <div class="ingredient-item">
           <strong>5. Ekinezya</strong>
           Echinacea purpurea
         </div>
 
+
         <div class="ingredient-item">
           <strong>6. Rezene</strong>
           Foeniculum vulgare Mill.
         </div>
+
 
         <div class="ingredient-item">
           <strong>7. Tekesakalı Otu</strong>
           Filipendula ulmaria
         </div>
 
+
         <div class="ingredient-item">
           <strong>8. Sinirli Ot</strong>
           Plantago afra L.
         </div>
+
 
         <div class="ingredient-item">
           <strong>9. Meyan Kökü</strong>
           Glycyrrhiza glabra
         </div>
 
+
         <div class="ingredient-item">
           <strong>10. Hindiba</strong>
           Taraxacum officinale
         </div>
+
 
         <div class="ingredient-item">
           <strong>11. Koyun Otu</strong>
           Agrimonia eupatoria L.
         </div>
 
+
         <div class="ingredient-item">
           <strong>12. Altın Otu</strong>
           Helichrysum arenarium
         </div>
+
 
         <div class="ingredient-item">
           <strong>13. Bozağan Otu</strong>
           Gnaphalium dioicum L.
         </div>
 
+
         <div class="ingredient-item">
           <strong>14. Civan Perçemi</strong>
           Achillea millefolium L.
         </div>
+
 
         <div class="ingredient-item">
           <strong>15. Sarı Yoğurt Otu</strong>
           Galium aparine
         </div>
 
+
         <div class="ingredient-item">
           <strong>16. Huş</strong>
           Betula pendula Roth
         </div>
+
 
         <div class="ingredient-item">
           <strong>17. Küpe Çiçeği</strong>
           Epilobium montanum
         </div>
 
+
         <div class="ingredient-item">
           <strong>18. Kestere Otu</strong>
           Betonica officinalis L.
         </div>
+
 
         <div class="ingredient-item">
           <strong>19. Yer Sarmaşığı</strong>
           Glechoma hederacea L.
         </div>
 
+
         <div class="ingredient-item">
           <strong>20. Menekşe</strong>
           Viola tricolor L.
         </div>
+
 
         <div class="ingredient-item">
           <strong>21. Kızıl Kantaron</strong>
           Centaurium erythraea Rafn
         </div>
 
+
       </div>
 
     </section>
 
 
+
+    <!-- KLİNİK YAKLAŞIM -->
+
     <section class="clinical-note">
 
-      <h2>Klinik Yaklaşım</h2>
+      <h2>
+        Klinik Yaklaşım
+      </h2>
 
       <p>
         Karaciğer enzimi yüksekliği tek başına bir tanı değildir.
@@ -565,9 +821,14 @@
     </section>
 
 
+
+    <!-- KLİNİK İZLEM -->
+
     <section class="clinical-note">
 
-      <h2>Klinik İzlem</h2>
+      <h2>
+        Klinik İzlem
+      </h2>
 
       <ul>
         <li>ALT ve AST eğilimi</li>
@@ -583,18 +844,25 @@
     </section>
 
 
+
+    <!-- KULLANIM -->
+
     <section class="usage-box">
 
-      <h2>Nasıl Kullanılır?</h2>
+      <h2>
+        Nasıl Kullanılır?
+      </h2>
 
       <p>
         LiverWel® Liquid sıvı formdadır.
       </p>
 
+
       <p>
         <strong>Kediler:</strong>
         Her uygulamada 1 cc.
       </p>
+
 
       <p>
         <strong>Köpekler:</strong>
@@ -609,20 +877,33 @@
         <li>50 kg üzeri: 5 cc</li>
       </ul>
 
+
       <div class="usage-step">
-        <strong>Uygulama sıklığı</strong>
+
+        <strong>
+          Uygulama sıklığı
+        </strong>
+
         <p>
           Günde <strong>2–3 kez</strong> verilir.
         </p>
+
       </div>
 
+
       <div class="usage-step">
-        <strong>Uygulama şekli</strong>
+
+        <strong>
+          Uygulama şekli
+        </strong>
+
         <p>
           Doğrudan ağızdan uygulanabilir veya mama / içme suyuna
           karıştırılarak verilebilir.
         </p>
+
       </div>
+
 
       <p>
         <strong>Kullanım süresi:</strong>
@@ -632,9 +913,14 @@
     </section>
 
 
+
+    <!-- KISA ÜRÜN ÖZETİ -->
+
     <section class="product-note">
 
-      <h2>Kısa Ürün Özeti</h2>
+      <h2>
+        Kısa Ürün Özeti
+      </h2>
 
       <p>
         <strong>

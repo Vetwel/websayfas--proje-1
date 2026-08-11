@@ -5,14 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description"
-        content="SkinWel® ürün bilgisi: kedi ve köpeklerde deri bariyeri, cilt konforu, tüy sağlığı, 20 bitkisel bileşen, formülasyon mantığı ve kullanım protokolü.">
+  <meta
+    name="description"
+    content="SkinWel® ürün bilgisi: kedi ve köpeklerde deri bariyeri, cilt konforu, tüy sağlığı, 20 bitkisel bileşen, formülasyon mantığı ve kullanım protokolü."
+  >
 
   <title>SkinWel® Ürün Bilgisi | VetWel® Bilgi Merkezi</title>
 
   <link rel="stylesheet" href="style.css">
 
   <style>
+
     body {
       margin: 0;
       background: #f7f9fc;
@@ -42,6 +45,9 @@
       text-decoration: underline;
     }
 
+
+    /* HERO */
+
     .product-hero {
       background: #173f6b;
       color: white;
@@ -50,6 +56,14 @@
       margin-bottom: 30px;
       border-top: 6px solid #3478b8;
       box-shadow: 0 15px 40px rgba(23,63,107,0.12);
+      overflow: hidden;
+    }
+
+    .product-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 44px;
+      align-items: center;
     }
 
     .product-kicker {
@@ -60,8 +74,21 @@
       color: #d8e8f5;
     }
 
+    .product-form-badge {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
     .product-hero h1 {
-      margin: 8px 0 15px;
+      margin: 10px 0 15px;
       font-size: 38px;
       line-height: 1.15;
     }
@@ -72,6 +99,28 @@
       color: rgba(255,255,255,0.87);
       margin-bottom: 0;
     }
+
+    .product-hero-image {
+      background: white;
+      border-radius: 20px;
+      min-height: 310px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.17);
+    }
+
+    .product-hero-image img {
+      display: block;
+      width: 100%;
+      max-width: 330px;
+      max-height: 330px;
+      object-fit: contain;
+    }
+
+
+    /* KARTLAR */
 
     .product-grid {
       display: grid;
@@ -107,6 +156,9 @@
       margin-top: 28px;
     }
 
+
+    /* FORMÜL */
+
     .formula-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
@@ -133,6 +185,19 @@
       line-height: 1.65;
     }
 
+    .formula-note {
+      margin-top: 20px;
+      background: #f3f8fc;
+      border-left: 5px solid #3478b8;
+      border-radius: 14px;
+      padding: 18px 20px;
+      color: #596775;
+      line-height: 1.7;
+    }
+
+
+    /* İÇERİKLER */
+
     .ingredient-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -155,15 +220,8 @@
       margin-bottom: 3px;
     }
 
-    .formula-note {
-      margin-top: 20px;
-      background: #f3f8fc;
-      border-left: 5px solid #3478b8;
-      border-radius: 14px;
-      padding: 18px 20px;
-      color: #596775;
-      line-height: 1.7;
-    }
+
+    /* KLİNİK */
 
     .clinical-note {
       margin-top: 28px;
@@ -187,6 +245,9 @@
     .clinical-note ul {
       padding-left: 22px;
     }
+
+
+    /* KULLANIM */
 
     .usage-box {
       margin-top: 28px;
@@ -219,6 +280,9 @@
       color: #173f6b;
     }
 
+
+    /* KISA ÖZET */
+
     .product-note {
       margin-top: 28px;
       background: #eef3f8;
@@ -238,7 +302,11 @@
       margin-bottom: 0;
     }
 
-    @media (max-width: 600px) {
+
+    /* MOBİL */
+
+    @media (max-width: 760px) {
+
       .product-page {
         padding: 40px 16px 60px;
       }
@@ -247,8 +315,22 @@
         padding: 30px 24px;
       }
 
+      .product-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
       .product-hero h1 {
         font-size: 30px;
+      }
+
+      .product-hero-image {
+        min-height: 240px;
+        padding: 20px;
+      }
+
+      .product-hero-image img {
+        max-height: 270px;
       }
 
       .product-card,
@@ -257,16 +339,20 @@
       .clinical-note {
         padding: 24px 22px;
       }
+
     }
+
   </style>
 
 </head>
+
 
 <body>
 
 <main class="product-page">
 
   <div class="product-container">
+
 
     <a href="education-products.html" class="product-back">
       ← Ürün Bilgilerine Dön
@@ -277,18 +363,42 @@
 
     <section class="product-hero">
 
-      <p class="product-kicker">
-        VETWEL® ÜRÜN BİLGİSİ
-      </p>
+      <div class="product-hero-grid">
 
-      <h1>SkinWel®</h1>
 
-      <p>
-        SkinWel®, kedi ve köpeklerde deri bariyerinin,
-        cilt konforunun ve sağlıklı tüy yapısının desteklenmesine
-        yönelik 20 bitkisel bileşenden oluşan çok yönlü
-        dermatolojik destek formülüdür.
-      </p>
+        <div>
+
+          <p class="product-kicker">
+            VETWEL® ÜRÜN BİLGİSİ
+          </p>
+
+          <span class="product-form-badge">
+            TABLET
+          </span>
+
+          <h1>SkinWel®</h1>
+
+          <p>
+            SkinWel®, kedi ve köpeklerde deri bariyerinin,
+            cilt konforunun ve sağlıklı tüy yapısının desteklenmesine
+            yönelik 20 bitkisel bileşenden oluşan çok yönlü
+            dermatolojik destek formülüdür.
+          </p>
+
+        </div>
+
+
+        <div class="product-hero-image">
+
+          <img
+            src="assets/images/products/SkinWel Tablet.jpg"
+            alt="VetWel SkinWel ürün ambalajı"
+          >
+
+        </div>
+
+
+      </div>
 
     </section>
 
@@ -296,6 +406,7 @@
     <!-- ANA DESTEK ALANLARI -->
 
     <section class="product-grid">
+
 
       <article class="product-card">
 
@@ -329,7 +440,7 @@
 
       <article class="product-card">
 
-        <h2>Kaşıntı & İrritasyon</h2>
+        <h2>Kaşıntı &amp; İrritasyon</h2>
 
         <p>
           Çok bileşenli fitokompleks, kaşıntı, kızarıklık ve
@@ -343,7 +454,7 @@
 
       <article class="product-card">
 
-        <h2>Epitel & Yenilenme</h2>
+        <h2>Epitel &amp; Yenilenme</h2>
 
         <p>
           Formülde yer alan seçilmiş bitkiler deri yüzey
@@ -385,10 +496,11 @@
 
       </article>
 
+
     </section>
 
 
-    <!-- FORMÜLASYON MANTIĞI -->
+    <!-- İÇERİK VE FORMÜLASYON MANTIĞI -->
 
     <section class="product-section product-card">
 
@@ -406,9 +518,10 @@
 
       <div class="formula-grid">
 
+
         <div class="formula-item">
 
-          <strong>İnflamasyon & İrritasyon Ekseni</strong>
+          <strong>İnflamasyon &amp; İrritasyon Ekseni</strong>
 
           <p>
             Calendula officinalis, Chamomilla recutita,
@@ -423,7 +536,7 @@
 
         <div class="formula-item">
 
-          <strong>Epitelizasyon & Deri Bütünlüğü</strong>
+          <strong>Epitelizasyon &amp; Deri Bütünlüğü</strong>
 
           <p>
             Calendula officinalis, Plantago afra ve
@@ -438,7 +551,7 @@
 
         <div class="formula-item">
 
-          <strong>Deri Bariyeri & Tüy Ekseni</strong>
+          <strong>Deri Bariyeri &amp; Tüy Ekseni</strong>
 
           <p>
             Arctium majus, Equisetum arvense ve Betula pendula;
@@ -451,7 +564,7 @@
 
         <div class="formula-item">
 
-          <strong>Lokal Savunma & Antioksidan Destek</strong>
+          <strong>Lokal Savunma &amp; Antioksidan Destek</strong>
 
           <p>
             Echinacea purpurea, Urtica dioica, Glechoma hederacea
@@ -462,6 +575,7 @@
           </p>
 
         </div>
+
 
       </div>
 
@@ -479,6 +593,7 @@
       <div class="formula-note">
 
         <strong>Formülasyon yaklaşımı:</strong>
+
         SkinWel® yalnızca “tüy desteği” amacıyla geliştirilmiş
         basit bir supplement değildir. Formülün temel yaklaşımı;
         deri bariyerinin, cilt konforunun, epitel bütünlüğünün,
@@ -504,105 +619,126 @@
 
       <div class="ingredient-grid">
 
+
         <div class="ingredient-item">
           <strong>1. Atkuyruğu Otu</strong>
           Equisetum arvense
         </div>
+
 
         <div class="ingredient-item">
           <strong>2. Hindiba</strong>
           Taraxacum officinale
         </div>
 
+
         <div class="ingredient-item">
           <strong>3. Sarı Kantaron</strong>
           Hypericum perforatum L.
         </div>
+
 
         <div class="ingredient-item">
           <strong>4. Ekinezya</strong>
           Echinacea purpurea
         </div>
 
+
         <div class="ingredient-item">
           <strong>5. Isırgan</strong>
           Urtica dioica
         </div>
+
 
         <div class="ingredient-item">
           <strong>6. Tekesakalı Otu</strong>
           Filipendula ulmaria
         </div>
 
+
         <div class="ingredient-item">
           <strong>7. Dulavrat Otu</strong>
           Arctium majus
         </div>
+
 
         <div class="ingredient-item">
           <strong>8. Meyan Otu</strong>
           Glycyrrhiza glabra
         </div>
 
+
         <div class="ingredient-item">
           <strong>9. Papatya</strong>
           Chamomilla recutita
         </div>
+
 
         <div class="ingredient-item">
           <strong>10. Kedi Otu</strong>
           Valeriana officinalis L.
         </div>
 
+
         <div class="ingredient-item">
           <strong>11. Sinirli Ot</strong>
           Plantago afra L.
         </div>
+
 
         <div class="ingredient-item">
           <strong>12. Meşe Yaprağı</strong>
           Quercus robur L.
         </div>
 
+
         <div class="ingredient-item">
           <strong>13. Aynısafa Çiçeği</strong>
           Calendula officinalis L.
         </div>
+
 
         <div class="ingredient-item">
           <strong>14. Eğir Otu</strong>
           Acorus calamus L.
         </div>
 
+
         <div class="ingredient-item">
           <strong>15. Sanguisorba</strong>
           Sanguisorba officinalis L.
         </div>
+
 
         <div class="ingredient-item">
           <strong>16. Civan Perçemi</strong>
           Achillea millefolium L.
         </div>
 
+
         <div class="ingredient-item">
           <strong>17. Yer Sarmaşığı</strong>
           Glechoma hederacea L.
         </div>
+
 
         <div class="ingredient-item">
           <strong>18. Pıtrak</strong>
           Bidens pilosa L.
         </div>
 
+
         <div class="ingredient-item">
           <strong>19. Bozağan Otu</strong>
           Gnaphalium dioicum L.
         </div>
 
+
         <div class="ingredient-item">
           <strong>20. Huş Ağacı Yaprağı</strong>
           Betula pendula Roth
         </div>
+
 
       </div>
 

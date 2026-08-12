@@ -1,9 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   const isEnglish = document.documentElement.lang === "en";
-  const isTurkishHomepage = !isEnglish && (window.location.pathname.endsWith("/") || window.location.pathname.endsWith("/index.html"));
+  const path = window.location.pathname;
+  const isTurkishHomepage = !isEnglish && (path.endsWith("/") || path.endsWith("/index.html"));
+  const isTurkishEducation = !isEnglish && path.endsWith("/education.html");
   const header = document.querySelector(".site-header");
   const menuToggle = document.querySelector(".menu-toggle");
   const navigation = document.querySelector(".primary-navigation");
+  const educationNavigation = document.querySelector(".education-nav");
   const backToTopButton = document.querySelector(".back-to-top");
   const currentYear = document.querySelector("#current-year");
 
@@ -25,6 +28,15 @@ document.addEventListener("DOMContentLoaded", () => {
       if (contactLink) navigation.insertBefore(channelLink, contactLink);
       else navigation.appendChild(channelLink);
     }
+  }
+
+  if (educationNavigation && isTurkishEducation && !educationNavigation.querySelector('a[href="index.html#nereden-alinir"]')) {
+    const channelLink = document.createElement("a");
+    channelLink.href = "index.html#nereden-alinir";
+    channelLink.textContent = "Nereden Alınır?";
+    const contactLink = educationNavigation.querySelector('a[href="index.html#iletisim"]');
+    if (contactLink) educationNavigation.insertBefore(channelLink, contactLink);
+    else educationNavigation.appendChild(channelLink);
   }
 
   if (isTurkishHomepage) {

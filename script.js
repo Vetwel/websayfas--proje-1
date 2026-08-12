@@ -27,6 +27,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  if (isTurkishHomepage) {
+    const purchaseFaqButton = [...document.querySelectorAll(".accordion-button")].find(
+      (button) => button.textContent.includes("VetWel ürünlerini nereden satın alabilirim?")
+    );
+    const purchaseFaqText = purchaseFaqButton?.nextElementSibling?.querySelector("p");
+    if (purchaseFaqText) {
+      purchaseFaqText.textContent = "VetWel® ürünleri yalnızca veteriner klinikleri ve yetkili veteriner satış noktaları aracılığıyla sunulmaktadır. Size en yakın VetWel satış noktası hakkında bilgi almak için bizimle iletişime geçebilirsiniz.";
+    }
+
+    const contactIntro = document.querySelector(".contact-content > p");
+    if (contactIntro) {
+      contactIntro.textContent = "Ürünlerimiz, veteriner iş birlikleri veya yetkili veteriner klinik satış noktaları hakkında bilgi almak için bize ulaşabilirsiniz.";
+    }
+
+    const salesSubjectOption = [...document.querySelectorAll("#subject option")].find(
+      (option) => option.textContent.trim() === "Satış ve dağıtım"
+    );
+    if (salesSubjectOption) salesSubjectOption.textContent = "Veteriner satış noktası / dağıtım";
+  }
+
   if (isTurkishHomepage && !document.querySelector("#nereden-alinir")) {
     const main = document.querySelector("main");
     const insertionPoint = document.querySelector(".education-section") || document.querySelector(".faq-section");

@@ -6,6 +6,16 @@ if(viapet&&!viapet.phone)viapet.phone="05349780038";
 const kori=base.find(x=>x.name==="Köri Veteriner Poliklinik Hizmetleri"&&x.city==="İstanbul"&&x.district==="Tuzla");
 if(kori){kori.phone="05423957634";kori.address="Postane Mah. Manastır Yolu Cad. No:86";}
 const fold=v=>String(v||"").toLocaleLowerCase("tr-TR").replace(/ı/g,"i").replace(/ğ/g,"g").replace(/ü/g,"u").replace(/ş/g,"s").replace(/ö/g,"o").replace(/ç/g,"c").replace(/[^a-z0-9]+/g," ").replace(/\s+/g," ").trim();
+const cleanAddress=v=>{
+ let s=String(v||"").replace(/\s+/g," ").trim();
+ const m=s.match(/\s*\(([^()]*)\)\s*$/);
+ if(!m)return s;
+ const tail=fold(m[1]);
+ const businessWords=["veteriner","vet","klinik","klinigi","poliklinik","poliklinigi","muayenehane","muayenehanesi","hayvan","hastanesi","pet","hizmet","hizmetleri","saglik","ticaret","limited","ltd","sti","sirketi"];
+ if(businessWords.some(w=>tail.split(" ").includes(w)))s=s.slice(0,m.index).trim();
+ return s;
+};
+base.forEach(x=>{x.address=cleanAddress(x.address);});
 const phoneKey=v=>{let n=String(v||"").replace(/\D/g,"");if(n.startsWith("90")&&n.length>=12)n="0"+n.slice(2);return n;};
 const generic=new Set(["veteriner","veterinerlik","klinigi","klinik","muayenehanesi","muayenehane","poliklinigi","poliklinik","hizmetleri","hizmet","saglik","ticaret","sanayi","limited","ltd","sti","sirketi","tip","merkezi","hayvan","hastanesi"]);
 const brandKey=v=>fold(v).split(" ").filter(x=>x&&!generic.has(x)).join(" ");
@@ -20,9 +30,9 @@ const same=(a,b)=>{
 };
 window.VETWEL_MERGE_CLINICS=rows=>{
  const target=window.VETWEL_CLINICS||(window.VETWEL_CLINICS=[]);
- rows.map(r=>({name:r[0],city:r[1],district:r[2],address:r[3]||"",phone:r[4]||""})).forEach(c=>{
+ rows.map(r=>({name:r[0],city:r[1],district:r[2],address:cleanAddress(r[3]),phone:r[4]||""})).forEach(c=>{
   const existing=target.find(x=>same(x,c));
-  if(existing){if(!existing.phone&&c.phone)existing.phone=c.phone;if(!existing.address&&c.address)existing.address=c.address;return;}
+  if(existing){if(!existing.phone&&c.phone)existing.phone=c.phone;if(!existing.address&&c.address)existing.address=c.address;existing.address=cleanAddress(existing.address);return;}
   target.push(c);
  });
 };

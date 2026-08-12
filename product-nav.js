@@ -1,3 +1,4 @@
+// Shared navigation for VetWel Turkish product information pages.
 document.addEventListener("DOMContentLoaded", () => {
   const isTurkish = document.documentElement.lang === "tr";
   const productPage = document.querySelector(".product-page");

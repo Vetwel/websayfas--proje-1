@@ -7,6 +7,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const productContainer = productPage.querySelector(".product-container");
   if (!productContainer || document.querySelector(".product-site-header")) return;
 
+  // Keep Turkish common names aligned with the scientific names shown on product pages.
+  document.querySelectorAll(".ingredient-item").forEach((item) => {
+    const scientificText = item.textContent;
+    const label = item.querySelector("strong");
+    if (!label) return;
+
+    const numberPrefix = label.textContent.match(/^\s*(\d+\.\s*)/)?.[1] || "";
+
+    if (scientificText.includes("Taraxacum officinale") && /\bHindiba\b/.test(label.textContent) && !label.textContent.includes("Karahindiba")) {
+      label.textContent = `${numberPrefix}Karahindiba`;
+    }
+
+    if (scientificText.includes("Lespedeza capitata") && label.textContent.includes("Java Çayı")) {
+      label.textContent = `${numberPrefix}Lespedeza`;
+    }
+
+    if (scientificText.includes("Orthosiphon stamineus") && (label.textContent.includes("Yayla Tütünü") || label.textContent.includes("Orthosiphon"))) {
+      label.textContent = `${numberPrefix}Java Çayı`;
+    }
+  });
+
   const productName = document.querySelector(".product-hero h1")?.textContent.trim() || "Ürün Bilgisi";
 
   const style = document.createElement("style");

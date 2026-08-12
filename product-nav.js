@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="index.html#urunler">Ürünler</a>
         <a href="education.html">Bilgi Merkezi</a>
         <a href="botanik-rehberi.html">Botanik Rehberi</a>
-        <a href="index.html#nereden-alinir">Nereden Alınır?</a>
+        <a href="klinik-bul.html">Nereden Alınır?</a>
         <a class="product-site-clinic" href="index.html#iletisim">İletişim</a>
       </nav>
     </div>`;
@@ -77,11 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
   exitNav.setAttribute("aria-label", "VetWel navigasyon seçenekleri");
   exitNav.innerHTML = `
     <h2>VetWel'de keşfetmeye devam edin</h2>
-    <p>Diğer ürünleri, Botanik Rehberi'ni ve Bilgi Merkezi'ni inceleyebilir veya VetWel ürünlerinin bulunduğu veteriner klinikleri hakkında bilgi alabilirsiniz.</p>
+    <p>Diğer ürünleri, Botanik Rehberi'ni ve Bilgi Merkezi'ni inceleyebilir veya VetWel ürünlerinin bulunduğu veteriner kliniklerini doğrudan bulabilirsiniz.</p>
     <div class="product-exit-actions">
       <a class="product-exit-primary" href="index.html#urunler">Tüm Ürünleri Gör</a>
       <a class="product-exit-secondary" href="botanik-rehberi.html">Botanik Rehberi</a>
-      <a class="product-exit-secondary" href="index.html#nereden-alinir">Nereden Alınır?</a>
+      <a class="product-exit-secondary" href="klinik-bul.html">Nereden Alınır?</a>
       <a class="product-exit-secondary" href="education.html">Bilgi Merkezine Git</a>
     </div>`;
   productContainer.appendChild(exitNav);

@@ -69,9 +69,9 @@ document.addEventListener("DOMContentLoaded", () => {
       section.innerHTML = `
         <div class="container vet-channel-grid">
           <div class="vet-channel-copy reveal">
-            <span class="vet-channel-badge">Veteriner Hekim Kanalında</span>
+            <span class="vet-channel-badge">Yalnızca Veteriner Kliniklerinde</span>
             <h2>Doğru ürünü öğrenin.<br>Veteriner hekiminizle değerlendirin.</h2>
-            <p>VetWel ürünleri Türkiye'de veteriner hekim kanalı üzerinden sunulur. Ürün bilgilerini inceleyebilir, evcil hayvanınız için uygun seçeneği veteriner hekiminizle değerlendirebilir ve bulunduğunuz bölgedeki VetWel satış noktasını bizden öğrenebilirsiniz.</p>
+            <p><strong>VetWel® ürünleri yalnızca veteriner klinikleri ve yetkili veteriner satış noktaları aracılığıyla sunulmaktadır.</strong> Ürün bilgilerini inceleyebilir, evcil hayvanınız için uygun seçeneği veteriner hekiminizle değerlendirebilir ve bulunduğunuz bölgedeki VetWel satış noktasını bizden öğrenebilirsiniz.</p>
             <div class="vet-channel-steps" aria-label="VetWel satın alma adımları">
               <div class="vet-channel-step"><strong>01</strong><span>Ürünü ve kullanım alanını inceleyin</span></div>
               <div class="vet-channel-step"><strong>02</strong><span>Veteriner hekiminizle değerlendirin</span></div>

@@ -347,3 +347,67 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (window.lucide) window.lucide.createIcons();
 });
+
+// Turkish-site entry points for the VetWel Botanical Guide.
+document.addEventListener("DOMContentLoaded", () => {
+  const isEnglish = document.documentElement.lang === "en";
+  if (isEnglish) return;
+
+  const path = window.location.pathname;
+  const isTurkishHomepage = path.endsWith("/") || path.endsWith("/index.html");
+  const isTurkishEducation = path.endsWith("/education.html");
+  const navigation = document.querySelector(".primary-navigation");
+  const educationNavigation = document.querySelector(".education-nav");
+
+  if (navigation && isTurkishHomepage && !navigation.querySelector('a[href="botanik-rehberi.html"]')) {
+    const botanicalLink = document.createElement("a");
+    botanicalLink.href = "botanik-rehberi.html";
+    botanicalLink.textContent = "Botanik Rehberi";
+    const channelLink = navigation.querySelector('a[href="#nereden-alinir"]');
+    const contactLink = navigation.querySelector('a[href="#iletisim"]');
+    navigation.insertBefore(botanicalLink, channelLink || contactLink || null);
+  }
+
+  if (educationNavigation && isTurkishEducation && !educationNavigation.querySelector('a[href="botanik-rehberi.html"]')) {
+    const botanicalLink = document.createElement("a");
+    botanicalLink.href = "botanik-rehberi.html";
+    botanicalLink.textContent = "Botanik Rehberi";
+    const channelLink = educationNavigation.querySelector('a[href="index.html#nereden-alinir"]');
+    const contactLink = educationNavigation.querySelector('a[href="index.html#iletisim"]');
+    educationNavigation.insertBefore(botanicalLink, channelLink || contactLink || null);
+  }
+
+  if (!isTurkishHomepage) return;
+
+  const educationCards = document.querySelector(".education-section .education-cards");
+  if (!educationCards || document.querySelector("#botanical-home-entry")) return;
+
+  if (!document.querySelector("#vetwel-botanical-home-styles")) {
+    const style = document.createElement("style");
+    style.id = "vetwel-botanical-home-styles";
+    style.textContent = `
+      .education-card.botanical-home-entry{position:relative;border-color:#cfe2d3;background:linear-gradient(135deg,#f3faf5 0%,#ffffff 100%);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+      .education-card.botanical-home-entry:hover{transform:translateY(-3px);border-color:#9fc4a8;box-shadow:0 14px 34px rgba(32,92,55,.09)}
+      .education-card.botanical-home-entry>a{position:absolute;inset:0;z-index:2;border-radius:inherit}
+      .education-card.botanical-home-entry h3{color:#174f35}
+      .education-card.botanical-home-entry p{padding-right:26px}
+      .education-card.botanical-home-entry .botanical-home-arrow{position:absolute;right:20px;bottom:20px;color:#34704c;font-size:20px;font-weight:800}
+      .education-card.botanical-home-entry span:first-child{background:#e7f3ea;color:#2f6947}
+    `;
+    document.head.appendChild(style);
+  }
+
+  const card = document.createElement("article");
+  card.className = "education-card botanical-home-entry";
+  card.id = "botanical-home-entry";
+  card.innerHTML = `
+    <a href="botanik-rehberi.html" aria-label="VetWel Botanik Rehberi'ni aç"></a>
+    <span>04</span>
+    <div>
+      <h3>Botanik Rehberi</h3>
+      <p>VetWel formüllerindeki 59 bitkisel içeriği, Latince adlarını ve formülasyondaki rollerini keşfedin.</p>
+    </div>
+    <span class="botanical-home-arrow" aria-hidden="true">→</span>
+  `;
+  educationCards.appendChild(card);
+});

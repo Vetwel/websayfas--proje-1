@@ -1,5 +1,10 @@
 // Shared safe merge helper for VetWel clinic directory.
 (()=>{if(window.VETWEL_MERGE_CLINICS)return;
+const base=window.VETWEL_CLINICS||(window.VETWEL_CLINICS=[]);
+const viapet=base.find(x=>x.name==="Viapet Veteriner Kliniği"&&x.city==="İstanbul"&&x.district==="Pendik");
+if(viapet&&!viapet.phone)viapet.phone="05349780038";
+const kori=base.find(x=>x.name==="Köri Veteriner Poliklinik Hizmetleri"&&x.city==="İstanbul"&&x.district==="Tuzla");
+if(kori){kori.phone="05423957634";kori.address="Postane Mah. Manastır Yolu Cad. No:86";}
 const fold=v=>String(v||"").toLocaleLowerCase("tr-TR").replace(/ı/g,"i").replace(/ğ/g,"g").replace(/ü/g,"u").replace(/ş/g,"s").replace(/ö/g,"o").replace(/ç/g,"c").replace(/[^a-z0-9]+/g," ").replace(/\s+/g," ").trim();
 const phoneKey=v=>{let n=String(v||"").replace(/\D/g,"");if(n.startsWith("90")&&n.length>=12)n="0"+n.slice(2);return n;};
 const generic=new Set(["veteriner","veterinerlik","klinigi","klinik","muayenehanesi","muayenehane","poliklinigi","poliklinik","hizmetleri","hizmet","saglik","ticaret","sanayi","limited","ltd","sti","sirketi","tip","merkezi","hayvan","hastanesi"]);

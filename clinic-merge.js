@@ -26,4 +26,12 @@ window.VETWEL_MERGE_CLINICS=rows=>{
   target.push(c);
  });
 };
+["a","b","c","d","e","f"].forEach(part=>{
+ try{
+  const xhr=new XMLHttpRequest();
+  xhr.open("GET",`clinic-import-2026-${part}.js`,false);
+  xhr.send(null);
+  if(xhr.status>=200&&xhr.status<300)(0,eval)(xhr.responseText);
+ }catch(err){console.error("VetWel clinic import load failed",part,err);}
+});
 })();

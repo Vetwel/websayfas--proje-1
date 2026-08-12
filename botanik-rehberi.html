@@ -88,7 +88,8 @@
         empty.style.display = plants.length ? "none" : "block";
       };
 
-      const plants = window.VETWEL_BOTANICALS || [];
+      const turkishCollator = new Intl.Collator("tr-TR", { sensitivity: "base" });
+      const plants = [...(window.VETWEL_BOTANICALS || [])].sort((a, b) => turkishCollator.compare(a.name, b.name));
       render(plants);
 
       search.addEventListener("input", () => {

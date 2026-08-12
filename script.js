@@ -95,7 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
         .vet-clinic-submit{grid-column:1/-1;border:0;cursor:pointer;margin-top:3px}
         .vet-clinic-note{grid-column:1/-1;margin:0;color:#788695;font-size:12px;line-height:1.55}
         .vet-channel-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
-        .vet-channel-actions .button-secondary{border-color:rgba(255,255,255,.3);color:#fff}
+        .vet-channel-actions .button-secondary{background:#fff;border-color:#fff;color:#0b2447}
+        .vet-channel-actions .button-secondary:hover{background:#eaf4fb;border-color:#eaf4fb;color:#0b2447}
         @media(max-width:900px){.vet-channel-grid{grid-template-columns:1fr}.vet-channel-steps{grid-template-columns:1fr 1fr 1fr}}
         @media(max-width:640px){.vet-channel-steps,.vet-clinic-form{grid-template-columns:1fr}.vet-clinic-field.full,.vet-clinic-submit,.vet-clinic-note{grid-column:1}.vet-clinic-card{padding:24px}.vet-channel-copy h2{letter-spacing:-1px}}
       `;

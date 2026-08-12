@@ -28,6 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (isTurkishHomepage) {
+    document.querySelectorAll(".product-card-tag").forEach((tag) => {
+      tag.textContent = tag.textContent.trim().toLocaleUpperCase("en-US");
+      tag.style.textTransform = "none";
+      tag.setAttribute("lang", "en");
+    });
+
     const purchaseFaqButton = [...document.querySelectorAll(".accordion-button")].find(
       (button) => button.textContent.includes("VetWel ürünlerini nereden satın alabilirim?")
     );

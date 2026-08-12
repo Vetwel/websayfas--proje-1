@@ -1,0 +1,35 @@
+// Interactive botanical explorer for English VetWel product pages.
+(()=>{
+const load=(src)=>new Promise((resolve,reject)=>{const s=document.createElement("script");s.src=src;s.onload=resolve;s.onerror=reject;document.head.appendChild(s)});
+const ready=async()=>{
+ if(document.documentElement.lang!=="en"||!document.querySelector(".product-page"))return;
+ if(!window.VETWEL_BOTANICALS)await load("../botanical-data.js");
+ if(!window.VETWEL_BOTANICALS_EN)await load("botanical-data.js");
+ init();
+};
+const init=()=>{
+ if(!window.VetWelBotanicalEN)return;
+ const items=[...document.querySelectorAll(".ingredient-item")];
+ const matched=[];
+ items.forEach(item=>{
+  const label=item.querySelector("strong");
+  if(!label)return;
+  const plant=window.VetWelBotanicalEN.find(item.textContent,label.textContent);
+  if(!plant)return;
+  matched.push([item,plant]);
+  item.classList.add("botanical-clickable-en");item.tabIndex=0;item.setAttribute("role","button");item.setAttribute("aria-label",`Open botanical information for ${plant.name}`);
+  const hint=document.createElement("span");hint.className="botanical-hint-en";hint.textContent="Explore botanical";item.appendChild(hint);
+ });
+ if(!matched.length)return;
+ const st=document.createElement("style");st.textContent=`
+ .ingredient-item.botanical-clickable-en{position:relative;cursor:pointer;padding-bottom:40px!important;transition:.18s ease}.ingredient-item.botanical-clickable-en:hover,.ingredient-item.botanical-clickable-en:focus{transform:translateY(-2px);border-color:#a9ccb2!important;box-shadow:0 10px 24px rgba(41,94,59,.09);outline:none}.botanical-hint-en{position:absolute;left:16px;bottom:11px;color:#34704c;font-size:9px;font-weight:900;letter-spacing:.35px;text-transform:uppercase}.botanical-hint-en:before{content:"✦ ";}.botanical-modal-en{position:fixed;inset:0;z-index:4000;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(4,19,34,.62);backdrop-filter:blur(7px)}.botanical-modal-en.open{display:flex}.botanical-dialog-en{position:relative;width:min(820px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:26px;box-shadow:0 28px 80px rgba(0,0,0,.28)}.botanical-close-en{position:absolute;right:18px;top:18px;z-index:2;width:42px;height:42px;border:0;border-radius:50%;background:#fff;color:#173f6b;font-size:25px;cursor:pointer;box-shadow:0 6px 18px rgba(11,36,71,.12)}.botanical-grid-en{display:grid;grid-template-columns:310px 1fr}.botanical-visual-en{min-height:410px;padding:42px;display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,#e9f4ec,#f8fbf9);color:#3f7650}.botanical-visual-en svg{width:100%;max-width:255px}.botanical-content-en{padding:42px 40px}.botanical-content-en h2{margin:0;color:#0b2447;font-size:31px}.botanical-latin-en{display:block;margin-top:5px;color:#718091;font-size:13px;font-style:italic}.botanical-content-en h3{margin:23px 0 7px;color:#234e72;font-size:11px;letter-spacing:.6px;text-transform:uppercase}.botanical-content-en p{margin:0;color:#5d6d7d;font-size:13px;line-height:1.7}.botanical-products-en{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.botanical-chip-en{padding:6px 9px;border-radius:999px;background:#edf4f8;color:#345d7e;font-size:10px;font-weight:800}.botanical-caution-en{margin-top:17px!important;padding:12px 14px;border-left:4px solid #c89943;border-radius:10px;background:#fff8ea;color:#6e5c39!important}.botanical-action-en{display:inline-flex;margin-top:24px;padding:11px 17px;border-radius:999px;background:#0b2447;color:#fff!important;text-decoration:none;font-size:11px;font-weight:850}.botanical-callout-en{margin:18px 0;padding:14px 16px;border:1px solid #d8e7dc;border-radius:14px;background:#f1f8f3;color:#496457;font-size:12px;line-height:1.55}.botanical-callout-en a{color:#255d42;font-weight:800;text-decoration:none}@media(max-width:650px){.botanical-modal-en{padding:10px}.botanical-dialog-en{border-radius:20px}.botanical-grid-en{grid-template-columns:1fr}.botanical-visual-en{min-height:210px;height:230px;padding:24px}.botanical-visual-en svg{max-height:190px}.botanical-content-en{padding:28px 22px}.botanical-content-en h2{font-size:26px}}
+ `;document.head.appendChild(st);
+ const modal=document.createElement("div");modal.className="botanical-modal-en";modal.setAttribute("aria-hidden","true");modal.innerHTML=`<div class="botanical-dialog-en" role="dialog" aria-modal="true" aria-labelledby="botanical-title-en"><button class="botanical-close-en" type="button" aria-label="Close">×</button><div class="botanical-grid-en"><div class="botanical-visual-en"></div><div class="botanical-content-en"><h2 id="botanical-title-en"></h2><span class="botanical-latin-en"></span><h3>About the botanical</h3><p class="botanical-about-en"></p><h3>Role in VetWel formulations</h3><p class="botanical-role-en"></p><p class="botanical-caution-en" hidden></p><h3>Found in</h3><div class="botanical-products-en"></div><a class="botanical-action-en" href="botanical-guide.html">View Botanical Guide →</a></div></div></div>`;document.body.appendChild(modal);
+ const open=(plant)=>{modal.querySelector(".botanical-visual-en").innerHTML=window.VetWelBotanicalEN.visual(plant.visual);modal.querySelector("#botanical-title-en").textContent=plant.name;modal.querySelector(".botanical-latin-en").textContent=plant.latin;modal.querySelector(".botanical-about-en").textContent=plant.about;modal.querySelector(".botanical-role-en").textContent=plant.role;modal.querySelector(".botanical-products-en").innerHTML=(plant.products||[]).map(x=>`<span class="botanical-chip-en">${x}</span>`).join("");const c=modal.querySelector(".botanical-caution-en");c.hidden=!plant.caution;c.textContent=plant.caution||"";modal.querySelector(".botanical-action-en").href=`botanical-guide.html#${plant.id}`;modal.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";modal.querySelector(".botanical-close-en").focus()};
+ const close=()=>{modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.style.overflow=""};
+ matched.forEach(([item,plant])=>{item.addEventListener("click",()=>open(plant));item.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open(plant)}})});
+ modal.querySelector(".botanical-close-en").addEventListener("click",close);modal.addEventListener("click",e=>{if(e.target===modal)close()});document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("open"))close()});
+ const first=matched[0][0].closest(".ingredient-grid")||matched[0][0].parentElement;if(first&&!document.querySelector(".botanical-callout-en")){const c=document.createElement("div");c.className="botanical-callout-en";c.innerHTML=`Botanical ingredients on this page are interactive. Select a highlighted ingredient to learn more, or <a href="botanical-guide.html">open the full Botanical Guide</a>.`;first.parentNode.insertBefore(c,first)}
+};
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",()=>ready().catch(()=>{}));else ready().catch(()=>{});
+})();

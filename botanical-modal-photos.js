@@ -59,13 +59,30 @@
     'okaliptus':['Green branch of Eucalyptus.jpg','Mayumi Kataoka · Eucalyptus scoparia yapraklı dal · CC BY-SA 4.0'],
     'cam-yapragi':['Pinus sylvestris.1.jpg','Temsilî tür: Pinus sylvestris · CC0'],
     'akcaagac-yapragi':['Yeelllow maplee leaf.jpg','Maple leaf · CC0'],
-    'armut-ekstresi':['Pears.jpg','Armut / Pyrus communis · Public Domain']
+    'armut-ekstresi':['Pears.jpg','Armut / Pyrus communis · Public Domain'],
+    'shiitake':['Shiitake mushroom.jpg','Keith Weller / USDA-ARS · Public Domain'],
+    'reishi':['Ganoderma lucidum (37502564906).jpg','gailhampshire · CC BY 2.0'],
+    'chaga':['Inonotus obliquus (35578063011).jpg','Björn Sothmann · CC BY-SA 2.0']
+  };
+
+  const mushrooms = {
+    Shiitake:{id:'shiitake',name:'Shiitake',latin:'Lentinula edodes',about:'Odun üzerinde gelişen, kahverengi şapkasıyla tanınan yenilebilir ve fonksiyonel bir mantardır.',role:'Malign Detox® formülündeki fonksiyonel mantar kompleksinin bir parçası olarak genel besinsel ve fizyolojik destek yaklaşımında yer alır.',products:['Malign Detox®']},
+    Reishi:{id:'reishi',name:'Reishi',latin:'Ganoderma lucidum',about:'Parlak, cilalı görünümlü kırmızımsı-kahverengi meyve gövdesiyle tanınan polipor bir mantardır.',role:'Malign Detox® formülündeki fonksiyonel mantar kompleksinin bir parçası olarak genel fizyolojik ve besinsel destek yaklaşımında yer alır.',products:['Malign Detox®']},
+    Chaga:{id:'chaga',name:'Chaga',latin:'Inonotus obliquus',about:'Özellikle huş ağaçlarında koyu renkli, düzensiz kütleler oluşturarak gelişen fonksiyonel bir mantardır.',role:'Malign Detox® formülündeki fonksiyonel mantar kompleksinin bir parçası olarak genel besinsel ve antioksidan destek yaklaşımında yer alır.',products:['Malign Detox®'],caution:'Böbrek hastalığı bulunan hayvanlarda kullanım veteriner hekim tarafından özellikle değerlendirilmelidir.'}
   };
 
   const enc = (s) => encodeURIComponent(s).replace(/%2F/g, '/');
   const style = document.createElement('style');
   style.textContent = `.botanical-modal-visual.vetwel-real-photo{padding:0!important;position:relative;overflow:hidden;background:#e9eef2!important}.botanical-modal-visual.vetwel-real-photo img{width:100%;height:100%;min-height:410px;display:block;object-fit:cover}.botanical-modal-photo-credit{position:absolute;left:10px;right:10px;bottom:10px;padding:7px 9px;border-radius:9px;background:rgba(7,25,47,.82);color:#fff!important;font-size:9px!important;line-height:1.35!important;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;z-index:2}@media(max-width:650px){.botanical-modal-visual.vetwel-real-photo img{min-height:230px;height:230px}}`;
   document.head.appendChild(style);
+
+  const photoMarkup = (id, name, latin) => {
+    const p = files[id];
+    if (!p) return '';
+    const page = `https://commons.wikimedia.org/wiki/File:${enc(p[0].replace(/ /g,'_'))}`;
+    const src = `https://commons.wikimedia.org/wiki/Special:FilePath/${enc(p[0])}?width=900`;
+    return `<img decoding="async" src="${src}" alt="${name} (${latin}) gerçek fotoğrafı"><a class="botanical-modal-photo-credit" href="${page}" target="_blank" rel="noopener noreferrer">${p[1]} · Wikimedia Commons</a>`;
+  };
 
   const replaceVisual = (item) => {
     const id = item?.dataset?.botanicalId;
@@ -75,23 +92,84 @@
       const visual = document.querySelector('.botanical-modal.open .botanical-modal-visual');
       const plant = window.VETWEL_BOTANICALS?.find((entry) => entry.id === id);
       if (!visual || !plant) return;
-      const page = `https://commons.wikimedia.org/wiki/File:${enc(p[0].replace(/ /g,'_'))}`;
-      const src = `https://commons.wikimedia.org/wiki/Special:FilePath/${enc(p[0])}?width=900`;
       visual.classList.add('vetwel-real-photo');
-      visual.innerHTML = `<img decoding="async" src="${src}" alt="${plant.name} (${plant.latin}) gerçek botanik fotoğrafı"><a class="botanical-modal-photo-credit" href="${page}" target="_blank" rel="noopener noreferrer">${p[1]} · Wikimedia Commons</a>`;
+      visual.innerHTML = photoMarkup(id, plant.name, plant.latin);
       const note = document.querySelector('.botanical-modal.open .botanical-schematic-note');
       if (note) note.textContent = 'Gerçek botanik fotoğrafı; kaynak ve lisans bilgisi görsel üzerinde belirtilmiştir.';
     });
   };
 
+  const openMushroom = (mushroom, trigger) => {
+    const modal = document.querySelector('.botanical-modal');
+    const visual = modal?.querySelector('.botanical-modal-visual');
+    const content = modal?.querySelector('.botanical-modal-content');
+    if (!modal || !visual || !content) return;
+    visual.classList.add('vetwel-real-photo');
+    visual.innerHTML = photoMarkup(mushroom.id, mushroom.name, mushroom.latin);
+    content.innerHTML = `
+      <p class="botanical-modal-kicker">VETWEL® BOTANİK & FONKSİYONEL İÇERİK REHBERİ</p>
+      <h2 id="botanical-modal-title">${mushroom.name}</h2>
+      <span class="botanical-modal-latin">${mushroom.latin}</span>
+      <h3>İçerik hakkında</h3><p>${mushroom.about}</p>
+      <h3>VetWel formülasyonundaki rolü</h3><p>${mushroom.role}</p>
+      ${mushroom.caution ? `<p class="botanical-modal-caution"><strong>Dikkat:</strong> ${mushroom.caution}</p>` : ''}
+      <h3>Geçtiği ürünler</h3><div class="botanical-modal-products">${mushroom.products.map((product) => `<span class="botanical-modal-chip">${product}</span>`).join('')}</div>
+      <div class="botanical-modal-actions"><a href="botanik-rehberi.html#${mushroom.id}">Botanik Rehberinde Gör</a><button type="button" class="botanical-modal-secondary-close">Kapat</button></div>
+      <p class="botanical-schematic-note">Gerçek mantar fotoğrafı; kaynak ve lisans bilgisi görsel üzerinde belirtilmiştir.</p>`;
+    content.querySelector('.botanical-modal-secondary-close')?.addEventListener('click', () => modal.querySelector('.botanical-close')?.click());
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    trigger?.setAttribute('aria-expanded','true');
+  };
+
+  const initMushroomCards = () => {
+    const modal = document.querySelector('.botanical-modal');
+    if (!modal) return false;
+    let found = false;
+    document.querySelectorAll('.ingredient-item').forEach((item) => {
+      const label = item.querySelector('strong')?.textContent?.trim();
+      const mushroom = mushrooms[label];
+      if (!mushroom) return;
+      found = true;
+      if (item.dataset.vetwelMushroomReady === '1') return;
+      item.dataset.vetwelMushroomReady = '1';
+      item.dataset.botanicalId = mushroom.id;
+      item.classList.add('botanical-clickable');
+      item.setAttribute('role','button');
+      item.setAttribute('tabindex','0');
+      item.setAttribute('aria-label',`${mushroom.name} hakkında içeriği incele`);
+      const hint = document.createElement('span');
+      hint.className = 'botanical-item-hint';
+      hint.textContent = 'İçeriği incele';
+      item.appendChild(hint);
+      item.addEventListener('click', (event) => { event.stopPropagation(); openMushroom(mushroom, item); });
+      item.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        event.stopPropagation();
+        openMushroom(mushroom, item);
+      });
+    });
+    return found;
+  };
+
   document.addEventListener('click', (event) => {
     const item = event.target.closest?.('.ingredient-item.botanical-clickable');
-    if (item) replaceVisual(item);
+    if (item && !item.dataset.vetwelMushroomReady) replaceVisual(item);
   }, true);
 
   document.addEventListener('keydown', (event) => {
     if (event.key !== 'Enter' && event.key !== ' ') return;
     const item = event.target.closest?.('.ingredient-item.botanical-clickable');
-    if (item) replaceVisual(item);
+    if (item && !item.dataset.vetwelMushroomReady) replaceVisual(item);
   }, true);
+
+  let attempts = 0;
+  const timer = setInterval(() => {
+    attempts += 1;
+    if (initMushroomCards() || attempts > 50) clearInterval(timer);
+  }, 100);
+  if (document.readyState !== 'loading') initMushroomCards();
+  else document.addEventListener('DOMContentLoaded', initMushroomCards);
 })();

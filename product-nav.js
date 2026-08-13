@@ -201,3 +201,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.head.appendChild(botanicalScript);
   }
 });
+
+// Load the shared scientific evidence layer for Turkish product pages.
+(() => {
+  const scientificScript = document.createElement("script");
+  scientificScript.src = "scientific-evidence.js";
+  scientificScript.async = true;
+  scientificScript.onerror = () => console.warn("VetWel scientific evidence data could not be loaded.");
+  document.head.appendChild(scientificScript);
+})();

@@ -379,3 +379,12 @@ document.addEventListener("DOMContentLoaded", () => {
     purchaseFaqText.innerHTML = 'For U.S. availability, use the <a href="where-to-buy.html">Where to Buy</a> page. Verified Amazon and other authorized online or retail channels will be listed there as they become available.';
   }
 });
+
+// Apply the VetWel-aligned visual treatment to the Turkish clinic finder section.
+(() => {
+  const s = document.createElement('script');
+  s.src = 'vet-channel-premium.js';
+  s.defer = true;
+  s.onerror = () => console.warn('VetWel clinic-finder visual layer could not be loaded.');
+  document.head.appendChild(s);
+})();

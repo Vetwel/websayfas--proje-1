@@ -36,6 +36,7 @@ window.VETWEL_MERGE_CLINICS=rows=>{
   if(existing){if(!existing.phone&&c.phone)existing.phone=c.phone;if(!existing.address&&c.address)existing.address=c.address;existing.address=cleanAddress(existing.address);existing.name=upperName(existing.name);return;}
   target.push(c);
  });
+ if(window.VETWEL_APPLY_CLINIC_ENRICHMENT)window.VETWEL_APPLY_CLINIC_ENRICHMENT();
 };
 ["a","b","c","d","e","f"].forEach(part=>{
  try{
@@ -45,4 +46,10 @@ window.VETWEL_MERGE_CLINICS=rows=>{
   if(xhr.status>=200&&xhr.status<300)(0,eval)(xhr.responseText);
  }catch(err){console.error("VetWel clinic import load failed",part,err);}
 });
+try{
+ const xhr=new XMLHttpRequest();
+ xhr.open("GET","clinic-enrichment-2026.js",false);
+ xhr.send(null);
+ if(xhr.status>=200&&xhr.status<300)(0,eval)(xhr.responseText);
+}catch(err){console.error("VetWel clinic enrichment load failed",err);}
 })();

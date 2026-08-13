@@ -1,3 +1,41 @@
+// Shared navigation for VetWel English product information pages.
+(()=>{
+  const initNav=()=>{
+    if(document.documentElement.lang!=="en")return;
+    const page=document.querySelector(".product-page");
+    if(!page||document.querySelector(".vetwel-en-product-header"))return;
+    const container=page.querySelector(".product-container");
+    if(!container)return;
+    const productName=document.querySelector(".product-hero h1")?.textContent.trim()||"Product Information";
+    const st=document.createElement("style");
+    st.textContent=`
+      .vetwel-en-product-header{position:sticky;top:0;z-index:1500;background:rgba(255,255,255,.97);border-bottom:1px solid #e2e8ef;box-shadow:0 8px 28px rgba(11,36,71,.06);backdrop-filter:blur(14px)}
+      .vetwel-en-product-header *{box-sizing:border-box}.vetwel-en-product-inner{width:min(1180px,calc(100% - 40px));min-height:70px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:22px;position:relative}.vetwel-en-brand{display:inline-flex;align-items:center;gap:10px;color:#0b2447;text-decoration:none}.vetwel-en-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:#0b2447;color:#fff;font-size:22px;font-weight:900}.vetwel-en-copy{display:flex;flex-direction:column;line-height:1}.vetwel-en-copy strong{font-size:21px}.vetwel-en-copy small{margin-top:5px;font-size:8px;letter-spacing:1.2px;font-weight:800;color:#6b7888;text-transform:uppercase}.vetwel-en-nav{display:flex;align-items:center;gap:16px}.vetwel-en-nav a{color:#47566a;text-decoration:none;font-size:12px;font-weight:800;white-space:nowrap}.vetwel-en-nav a:hover{color:#0b2447}.vetwel-en-nav .buy{padding:10px 15px;border-radius:999px;background:#0b2447;color:#fff}.vetwel-en-menu{display:none;width:42px;height:42px;border:0;border-radius:10px;background:#f1f5f8;color:#0b2447;font-size:21px;font-weight:900;cursor:pointer}.vetwel-en-breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 18px;color:#7a8796;font-size:12px;font-weight:700}.vetwel-en-breadcrumb a{color:#42688d;text-decoration:none}.vetwel-en-exit{margin-top:34px;padding:30px;border:1px solid #dce5ed;border-radius:22px;background:linear-gradient(135deg,#eef5fa,#f8fbfd);box-shadow:0 10px 30px rgba(11,36,71,.06)}.vetwel-en-exit h2{margin:0 0 8px!important;color:#0b2447!important;font-size:24px!important}.vetwel-en-exit p{margin:0 0 20px!important;color:#667587!important;line-height:1.6!important}.vetwel-en-actions{display:flex;flex-wrap:wrap;gap:11px}.vetwel-en-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 18px;border-radius:999px;text-decoration:none;font-size:13px;font-weight:850}.vetwel-en-primary{background:#0b2447;color:#fff!important}.vetwel-en-secondary{background:#fff;color:#0b2447!important;border:1px solid #ccd8e3}
+      @media(max-width:900px){.vetwel-en-menu{display:block}.vetwel-en-nav{display:none;position:absolute;top:61px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:10px;background:#fff;border:1px solid #e1e8ee;border-radius:16px;box-shadow:0 18px 45px rgba(11,36,71,.14)}.vetwel-en-nav.open{display:flex}.vetwel-en-nav a{padding:12px 14px;border-radius:10px;font-size:13px}.vetwel-en-nav .buy{text-align:center;margin-top:4px}}
+      @media(max-width:560px){.vetwel-en-product-inner{width:min(100% - 24px,1180px);min-height:64px}.vetwel-en-actions{display:grid;grid-template-columns:1fr}.vetwel-en-actions a{width:100%}.vetwel-en-exit{padding:23px 20px}}
+    `;
+    document.head.appendChild(st);
+    const header=document.createElement("header");
+    header.className="vetwel-en-product-header";
+    header.innerHTML=`<div class="vetwel-en-product-inner"><a class="vetwel-en-brand" href="index.html" aria-label="VetWel home"><span class="vetwel-en-mark">+</span><span class="vetwel-en-copy"><strong>VetWel<sup>®</sup></strong><small>Veterinary Wellness</small></span></a><button class="vetwel-en-menu" type="button" aria-label="Open menu" aria-expanded="false">☰</button><nav class="vetwel-en-nav" aria-label="Product page navigation"><a href="index.html">Home</a><a href="index.html#products">Products</a><a href="education.html">Education Center</a><a href="botanical-guide.html">Botanical Guide</a><a class="buy" href="where-to-buy.html">Where to Buy</a><a href="index.html#contact">Contact</a><a href="../index.html">TR</a></nav></div>`;
+    document.body.insertBefore(header,page);
+    const breadcrumb=document.createElement("div");
+    breadcrumb.className="vetwel-en-breadcrumb";
+    breadcrumb.innerHTML=`<a href="index.html">Home</a><span>›</span><a href="index.html#products">Products</a><span>›</span><span>${productName}</span>`;
+    container.insertBefore(breadcrumb,container.firstChild);
+    const oldBack=container.querySelector(".product-back");
+    if(oldBack){oldBack.href="index.html#products";oldBack.textContent="← Back to All Products";}
+    const exit=document.createElement("section");
+    exit.className="vetwel-en-exit";
+    exit.innerHTML=`<h2>Continue exploring VetWel</h2><p>Compare other VetWel products, explore ingredients and scientific context, or check current U.S. purchasing channels.</p><div class="vetwel-en-actions"><a class="vetwel-en-primary" href="index.html#products">View All Products</a><a class="vetwel-en-secondary" href="botanical-guide.html">Botanical Guide</a><a class="vetwel-en-secondary" href="education.html">Education Center</a><a class="vetwel-en-secondary" href="where-to-buy.html">Where to Buy</a></div>`;
+    container.appendChild(exit);
+    const menu=header.querySelector(".vetwel-en-menu"),nav=header.querySelector(".vetwel-en-nav");
+    menu?.addEventListener("click",()=>{const open=menu.getAttribute("aria-expanded")==="true";menu.setAttribute("aria-expanded",String(!open));menu.textContent=open?"☰":"×";nav?.classList.toggle("open",!open)});
+    nav?.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu?.setAttribute("aria-expanded","false");if(menu)menu.textContent="☰"}));
+  };
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",initNav);else initNav();
+})();
+
 // Interactive botanical explorer for English VetWel product pages.
 (()=>{
 const load=(src)=>new Promise((resolve,reject)=>{const s=document.createElement("script");s.src=src;s.onload=resolve;s.onerror=reject;document.head.appendChild(s)});

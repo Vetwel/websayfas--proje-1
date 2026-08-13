@@ -34,7 +34,13 @@ function enhanceProducts(){if(!document.querySelector('.product-page'))return;mo
  const open=x=>{const n=EN?x.nameEn:x.name,a=EN?x.aboutEn:x.about,r=EN?x.roleEn:x.role,note=EN?x.noteEn:x.note;modal.innerHTML=`<div class="vetwel-functional-dialog" role="dialog" aria-modal="true"><button class="vetwel-functional-close" aria-label="${EN?'Close':'Kapat'}">×</button><div class="vetwel-functional-photo"><img src="${fileUrl(x.file)}" alt="${n}"><a class="vetwel-functional-credit" href="${pageUrl(x.file)}" target="_blank" rel="noopener noreferrer">${x.credit} · Wikimedia Commons</a></div><div class="vetwel-functional-copy"><h2>${n}</h2><span class="vetwel-functional-latin">${x.latin}</span><h3>${EN?'About the source':'Kaynak hakkında'}</h3><p>${a}</p><h3>${EN?'Role in VetWel formulations':'VetWel formülasyonundaki rolü'}</h3><p>${r}</p><p class="vetwel-functional-note"><strong>${EN?'Image note:':'Görsel notu:'}</strong> ${note}</p><h3>${EN?'Found in':'Geçtiği ürünler'}</h3><p>${x.products.join(' · ')}</p></div></div>`;modal.classList.add('open');document.body.style.overflow='hidden';modal.querySelector('.vetwel-functional-close').onclick=close};
  matched.forEach(([el,x])=>{el.addEventListener('click',e=>{e.stopPropagation();open(x)});el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();e.stopPropagation();open(x)}})});modal.addEventListener('click',e=>{if(e.target===modal)close()});
 }
-function boot(){addToCore();enhanceGuide();enhanceProducts()}
+function addTurkishMushroomSourceLinks(){
+ if(EN||!document.getElementById('botanical-grid'))return;
+ const mushroomFiles={shiitake:'Shiitake mushroom.jpg',reishi:'Ganoderma lucidum (37502564906).jpg',chaga:'Inonotus obliquus (35578063011).jpg'};
+ const add=()=>Object.entries(mushroomFiles).forEach(([id,file])=>{const card=document.getElementById(id);if(!card)return;const body=card.querySelector('.botanical-card-body');if(!body||body.querySelector('.vetwel-mushroom-source-link'))return;const a=document.createElement('a');a.className='vetwel-mushroom-source-link';a.href=pageUrl(file);a.target='_blank';a.rel='noopener noreferrer';a.textContent='Görsel kaynağı ve lisansı →';a.style.cssText='display:inline-flex;margin-top:16px;color:#2c78a8;font-size:12px;font-weight:800;text-decoration:none';body.appendChild(a);});
+ setTimeout(add,0);new MutationObserver(()=>requestAnimationFrame(add)).observe(document.getElementById('botanical-grid'),{childList:true,subtree:true});
+}
+function boot(){addToCore();enhanceGuide();enhanceProducts();addTurkishMushroomSourceLinks()}
 let tries=0;const timer=setInterval(()=>{tries++;addToCore();if(document.readyState!=='loading'){clearInterval(timer);setTimeout(boot,0)}else if(tries>40)clearInterval(timer)},50);
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(boot,0));else setTimeout(boot,0);
 })();

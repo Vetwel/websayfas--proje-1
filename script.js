@@ -20,6 +20,35 @@ document.addEventListener("DOMContentLoaded", () => {
       navigation.appendChild(languageLink);
     }
 
+    if (!navigation.querySelector('a[href="botanik-rehberi.html"]')) {
+      const botanicalLink = document.createElement("a");
+      botanicalLink.href = "botanik-rehberi.html";
+      botanicalLink.textContent = "Botanik Rehberi";
+      botanicalLink.className = "mobile-nav-only";
+      const contactLink = navigation.querySelector('a[href="#iletisim"]');
+      if (contactLink) navigation.insertBefore(botanicalLink, contactLink);
+      else navigation.appendChild(botanicalLink);
+    }
+
+    if (!document.querySelector("#vetwel-tr-mobile-nav-style")) {
+      const navStyle = document.createElement("style");
+      navStyle.id = "vetwel-tr-mobile-nav-style";
+      navStyle.textContent = `
+        .primary-navigation .mobile-nav-only{display:none!important;}
+        @media(max-width:820px){
+          .primary-navigation .mobile-nav-only{display:block!important;}
+          .primary-navigation.open{
+            max-height:calc(100vh - var(--header-height))!important;
+            max-height:calc(100dvh - var(--header-height))!important;
+            overflow-y:auto!important;
+            overscroll-behavior:contain;
+            -webkit-overflow-scrolling:touch;
+          }
+        }
+      `;
+      document.head.appendChild(navStyle);
+    }
+
     if (!navigation.querySelector('a[href="klinik-bul.html"]')) {
       const channelLink = document.createElement("a");
       channelLink.href = "klinik-bul.html";

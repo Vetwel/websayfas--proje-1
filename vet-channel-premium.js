@@ -124,3 +124,126 @@
   if (document.readyState === 'complete') apply();
   else window.addEventListener('load', apply, { once:true });
 })();
+
+// Benefit-first hierarchy for homepage Solutions cards in both Turkish and English.
+// The original H3 product name is kept in place (but visually secondary) so existing
+// product-link and scrolling logic continues to work without changing navigation behavior.
+(() => {
+  const applySolutionHierarchy = () => {
+    const grid = document.querySelector('.solutions-grid');
+    if (!grid || grid.dataset.vetwelBenefitFirst === '1') return;
+
+    const isEnglish = document.documentElement.lang === 'en';
+    const copy = {
+      '.solution-respiratory': {
+        tr: 'Solunum yolları ve günlük solunum konforu desteği',
+        en: 'Respiratory wellness & everyday breathing comfort'
+      },
+      '.solution-urinary': {
+        tr: 'Üriner sistem bakımı ve normal üriner konfor desteği',
+        en: 'Urinary tract care & normal urinary comfort'
+      },
+      '.solution-kidney': {
+        tr: 'Böbrek fonksiyonları ve mineral dengesi desteği',
+        en: 'Kidney function & mineral balance support'
+      },
+      '.solution-liver': {
+        tr: 'Karaciğer fonksiyonları ve antioksidan destek',
+        en: 'Liver function & antioxidant support'
+      },
+      '.solution-skin': {
+        tr: 'Deri bariyeri ve tüy kalitesi desteği',
+        en: 'Skin barrier & coat quality support'
+      },
+      '.solution-heart': {
+        tr: 'Kalp ve dolaşım fonksiyonlarının desteği',
+        en: 'Heart & circulatory function support'
+      },
+      '.solution-digestive': {
+        tr: 'Sindirim, mikrobiyota ve dışkı kalitesi desteği',
+        en: 'Digestive, microbiota & stool quality support'
+      },
+      '.solution-calm': {
+        tr: 'Sakinlik ve davranış dengesi desteği',
+        en: 'Calm behavior & environmental adaptation support'
+      },
+      '.solution-dental': {
+        tr: 'Ağız hijyeni, diş eti ve mukoza bakımı',
+        en: 'Oral hygiene, gum & mucosal care'
+      },
+      '.solution-daily': {
+        tr: 'Tüy yumağı yönetimi ve sindirim desteği',
+        en: 'Hairball management & digestive support'
+      },
+      '.solution-advanced': {
+        tr: 'Özel bakım dönemlerinde beslenme ve yaşam kalitesi desteği',
+        en: 'Nutritional & quality-of-life support during special-care periods'
+      }
+    };
+
+    if (!document.querySelector('#vetwel-solution-hierarchy-style')) {
+      const style = document.createElement('style');
+      style.id = 'vetwel-solution-hierarchy-style';
+      style.textContent = `
+        .solution-card .solution-main-title{
+          margin:8px 0 7px;
+          color:#0b2447;
+          font-size:clamp(18px,1.55vw,22px);
+          font-weight:800;
+          line-height:1.28;
+          letter-spacing:-.35px;
+        }
+        .solution-card h3.solution-product-name{
+          margin:0 0 11px!important;
+          font-size:13px!important;
+          line-height:1.35!important;
+          font-weight:800!important;
+          letter-spacing:.15px!important;
+          opacity:.78;
+        }
+        .solution-card h3.solution-product-name:before{
+          content:'VetWel®  ·  ';
+          font-size:9px;
+          font-weight:800;
+          letter-spacing:.55px;
+          text-transform:uppercase;
+          opacity:.72;
+        }
+        .solution-card>a{
+          margin-top:2px;
+        }
+        @media(max-width:700px){
+          .solution-card .solution-main-title{font-size:19px;}
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    Object.entries(copy).forEach(([selector, labels]) => {
+      const card = grid.querySelector(selector);
+      if (!card) return;
+      const productName = card.querySelector('h3');
+      const category = card.querySelector('.solution-category');
+      if (!productName || !category || card.querySelector('.solution-main-title')) return;
+
+      const mainTitle = document.createElement('div');
+      mainTitle.className = 'solution-main-title';
+      mainTitle.textContent = isEnglish ? labels.en : labels.tr;
+      productName.before(mainTitle);
+      productName.classList.add('solution-product-name');
+
+      const link = card.querySelector('a');
+      if (link) {
+        link.innerHTML = `${isEnglish ? 'Explore Solution' : 'Çözümü İncele'} <span aria-hidden="true">→</span>`;
+      }
+    });
+
+    grid.dataset.vetwelBenefitFirst = '1';
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applySolutionHierarchy, { once:true });
+  } else {
+    applySolutionHierarchy();
+  }
+})();

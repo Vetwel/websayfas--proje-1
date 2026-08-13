@@ -34,7 +34,7 @@ const files={
 'kizil-kantaron':['Centaurium erythraea 215056939.jpg','Wikimedia Commons · CC0'],
 'papatya':['20160520Matricaria chamomilla1.jpg','Wikimedia Commons · CC0'],
 'kirlangic-otu':['20230527Chelidonium majus.jpg','Temsilî tür: Chelidonium majus · CC0'],
-'alic':['20230501Crataegus monogyna.jpg','Temsilî tür: Crataegus monogyna · CC0'],
+'alic':['Crataegus orientalis 1.jpg','Crataegus orientalis · Public Domain'],
 'ekinezya':['Echinacea purpurea, 2015-07-07, Kane Woods, 01.jpg','Wikimedia Commons · CC0'],
 'atkuyrugu':['20190326 Equisetum arvense 3.jpg','Wikimedia Commons · CC0'],
 'yaki-otu':['Epilobium montanum 307316865.jpg','Wikimedia Commons · CC0'],
@@ -70,15 +70,15 @@ const files={
 'karakafes':['20180920Symphytum officinale.jpg','Temsilî tür: Symphytum officinale · CC0'],
 'karahindiba':['Taraxacum officinale, 2020-04-18, Beechview.jpg','Wikimedia Commons · CC0'],
 'kekik':['Thymus vulgaris 54555.jpg','Temsilî tür: Thymus vulgaris · Public Domain'],
-'ihlamur':['20151012Tilia cordata.jpg','Temsilî tür: Tilia cordata · CC0'],
+'ihlamur':['20161107Tilia cordata.jpg','Linden ağacı · Tilia cordata · CC0'],
 'kirmizi-yonca':['20180510Trifolium pratense1.jpg','Wikimedia Commons · CC0'],
 'isirgan':['Urtica dioica.jpg','Wikimedia Commons · Public Domain'],
 'kedi-otu':['20190929Valeriana officinalis2.jpg','Wikimedia Commons · CC0'],
 'menekse':['Viola tricolor0.jpg','Viola tricolor · CC BY-SA 3.0'],
 'okaliptus':['Eucalyptus globulus - Swedish Museum of Natural History - Stockholm, Sweden - DSC00704.JPG','Temsilî tür: Eucalyptus globulus · CC0'],
 'cam-yapragi':['Pinus sylvestris.1.jpg','Temsilî tür: Pinus sylvestris · CC0'],
-'akcaagac-yapragi':['20181109Acer platanoides4.jpg','Temsilî tür: Acer platanoides · CC0'],
-'armut-ekstresi':['20110816Pyrus communis.jpg','Temsilî tür: Pyrus communis · CC0']
+'akcaagac-yapragi':['Yeelllow maplee leaf.jpg','Maple leaf · CC0'],
+'armut-ekstresi':['Pears.jpg','Armut / Pyrus communis · Public Domain']
 };
 const enc=s=>encodeURIComponent(s).replace(/%2F/g,'/');
 const visual=plant=>{const p=files[plant.id];if(!p)return `<div class="botanical-card-visual">${window.VetWelBotanical.visual(plant.visual)}</div>`;const page=`https://commons.wikimedia.org/wiki/File:${enc(p[0].replace(/ /g,'_'))}`;const src=`https://commons.wikimedia.org/wiki/Special:FilePath/${enc(p[0])}?width=900`;return `<div class="botanical-card-visual has-photo"><img loading="lazy" decoding="async" src="${src}" alt="${plant.name} (${plant.latin}) gerçek botanik fotoğrafı" onerror="this.parentElement.classList.remove('has-photo');this.parentElement.innerHTML=window.VetWelBotanical.visual('${plant.visual}')"><a class="botanical-photo-credit" href="${page}" target="_blank" rel="noopener noreferrer">${p[1]} · Wikimedia Commons</a></div>`};

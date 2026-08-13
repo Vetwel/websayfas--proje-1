@@ -273,3 +273,100 @@
     applyCalmWelOrder();
   }
 })();
+
+// Unify Cleanse and Breathe Ease with the standard product-card system on both homepages.
+(() => {
+  const unifyProductCards = () => {
+    const featuredGrid = document.querySelector('.featured-products-grid');
+    const productGrid = document.querySelector('.product-grid');
+    if (!featuredGrid || !productGrid || productGrid.dataset.vetwelUnifiedProducts === '1') return;
+
+    const isEnglish = document.documentElement.lang === 'en';
+    const imagePrefix = isEnglish ? '../' : '';
+
+    if (!document.querySelector('#vetwel-unified-product-style')) {
+      const style = document.createElement('style');
+      style.id = 'vetwel-unified-product-style';
+      style.textContent = `
+        .product-card.product-featured{position:relative;}
+        .product-feature-badge{
+          position:absolute;
+          top:17px;
+          right:17px;
+          z-index:2;
+          display:inline-flex;
+          align-items:center;
+          min-height:26px;
+          padding:5px 10px;
+          border-radius:999px;
+          background:rgba(255,255,255,.88);
+          border:1px solid rgba(11,36,71,.10);
+          color:#0b2447;
+          font-size:9px;
+          font-weight:800;
+          letter-spacing:.85px;
+          text-transform:uppercase;
+          box-shadow:0 4px 12px rgba(11,36,71,.05);
+          backdrop-filter:blur(7px);
+        }
+        .product-cleanse{background:#f7f3ea;border-color:#e7ddc9;}
+        .product-cleanse .product-card-tag,.product-cleanse>a{color:#9a7445;}
+        .product-breathe{background:#f1ebf8;border-color:#dfd2ee;}
+        .product-breathe .product-card-tag,.product-breathe>a{color:#76549b;}
+        .product-cleanse .product-card-image,.product-breathe .product-card-image{overflow:hidden;}
+        .product-cleanse .product-card-image img,.product-breathe .product-card-image img{
+          transform:scale(1.28);
+          transform-origin:center;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    const products = [
+      {
+        id:'cleanse', cls:'product-cleanse', image:'assets/images/products/Cleans.jpg',
+        alt:isEnglish ? 'VetWel Cleanse box and bottle' : 'VetWel Cleanse ürün kutusu ve şişesi',
+        tag:'Urinary System Support', name:'Cleanse', href:'education-cleanse.html',
+        text:isEnglish
+          ? 'A liquid formulation intended for veterinary use as part of urinary tract care in cats and dogs.'
+          : 'Kedi ve köpeklerin üriner sistem bakımına yönelik, veteriner kullanımına özel sıvı formülasyon.'
+      },
+      {
+        id:'breathe-ease', cls:'product-breathe', image:'assets/images/products/BREATHE EASE PM.jpeg',
+        alt:isEnglish ? 'VetWel Breathe Ease box and sachet' : 'VetWel Breathe Ease ürün kutusu ve saşesi',
+        tag:'Respiratory Health Support', name:'Breathe Ease', href:'education-breathe-ease.html',
+        text:isEnglish
+          ? 'A complementary nutritional product formulated to support respiratory comfort and normal respiratory function.'
+          : 'Solunum yolları, bronş sağlığı ve günlük solunum konforunun desteklenmesine yönelik tamamlayıcı beslenme ürünü.'
+      }
+    ];
+
+    const fragment = document.createDocumentFragment();
+    products.forEach((p) => {
+      const card = document.createElement('article');
+      card.className = `product-card ${p.cls} product-featured`;
+      card.id = p.id;
+      card.innerHTML = `
+        <span class="product-feature-badge">${isEnglish ? 'Featured' : 'Öne Çıkan'}</span>
+        <div class="product-card-image">
+          <img src="${imagePrefix}${p.image}" alt="${p.alt}" loading="lazy">
+        </div>
+        <span class="product-card-tag" lang="en">${p.tag}</span>
+        <h3>${p.name}</h3>
+        <p>${p.text}</p>
+        <a href="${p.href}">${isEnglish ? 'View Product' : 'Ürünü İncele'} <span aria-hidden="true">→</span></a>
+      `;
+      fragment.appendChild(card);
+    });
+
+    productGrid.prepend(fragment);
+    featuredGrid.remove();
+    productGrid.dataset.vetwelUnifiedProducts = '1';
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', unifyProductCards, { once:true });
+  } else {
+    unifyProductCards();
+  }
+})();

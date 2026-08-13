@@ -30,7 +30,10 @@
     {name:"VETALLİCA VETERİNERLİK HİZMETLERİ",city:"İstanbul",district:"Kadıköy",address:"19 Mayıs Mah. Şemsettin Günaltay Cad. No:122B"},
     {name:"VETMOON VETERİNERLİK",city:"Bursa",district:"Osmangazi",address:"Demirtaş Cumhuriyet Mah. Panayır Yolu Cad. No:10D"},
     {name:"PATİMANİA VETERİNER KLİNİĞİ MEHMET ÖZKAN",city:"Çanakkale",district:"Merkez",address:"Cumhuriyet Mah. Atatürk Cad. No:142/D, Kepez",phone:"05467139253"},
-    {name:"FATİH VETERİNER KLİNİĞİ",city:"İstanbul",district:"Fatih",addressIncludes:"Turgut Özal Millet",phone:"02126232321"}
+    {name:"FATİH VETERİNER KLİNİĞİ",city:"İstanbul",district:"Fatih",addressIncludes:"Turgut Özal Millet",phone:"02126232321"},
+    {name:"MİNT VETERİNERLİK HİZMETLERİ",city:"İstanbul",district:"Şişli",address:"Teşvikiye Mah. Ahmet Fetgari Sok. No:60/A",phone:"05426994881"},
+    {name:"İPEK ÖZER-FAUNA",city:"İstanbul",district:"Üsküdar",address:"Ünalan Mah. Çağla Sok. No:2",phone:"05616187261"},
+    {name:"PENDİK VETERİNER KLİNİĞİ - BİROL MUMCU",city:"İstanbul",district:"Pendik",address:"Doğu Mah. 23 Nisan Cad. No:76/B",phone:"05543491501"}
   ];
 
   const apply=()=>{

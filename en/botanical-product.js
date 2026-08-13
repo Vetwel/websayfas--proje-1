@@ -11,3 +11,6 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 
 // Shared Scientific Evidence layer for English product pages.
 (()=>{const s=document.createElement('script');s.src='scientific-evidence.js';s.defer=true;s.onerror=()=>console.warn('VetWel English scientific evidence data could not be loaded.');document.head.appendChild(s)})();
+
+// Shared natural-source functional ingredient layer.
+(()=>{const s=document.createElement('script');s.src='../functional-ingredients.js';s.defer=true;s.onerror=()=>console.warn('VetWel functional ingredient layer could not be loaded.');document.head.appendChild(s)})();

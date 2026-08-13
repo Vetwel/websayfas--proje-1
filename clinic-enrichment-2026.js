@@ -1,7 +1,6 @@
 // Verified public contact enrichment for VetWel clinic directory — 2026-08-13.
 // Safety rule: only fills currently blank address/phone fields; existing distributor data is never overwritten.
 (()=>{
-  const clinics=window.VETWEL_CLINICS||[];
   const fold=v=>String(v||"")
     .toLocaleLowerCase("tr-TR")
     .replace(/ı/g,"i").replace(/ğ/g,"g").replace(/ü/g,"u")
@@ -34,19 +33,25 @@
     {name:"FATİH VETERİNER KLİNİĞİ",city:"İstanbul",district:"Fatih",addressIncludes:"Turgut Özal Millet",phone:"02126232321"}
   ];
 
-  patches.forEach(p=>{
-    const matches=clinics.filter(c=>
-      fold(c.name)===fold(p.name) &&
-      fold(c.city)===fold(p.city) &&
-      fold(c.district)===fold(p.district) &&
-      (!p.addressIncludes || fold(c.address).includes(fold(p.addressIncludes)))
-    );
-    if(matches.length!==1){
-      if(matches.length>1) console.warn("VetWel clinic enrichment ambiguous",p.name,matches.length);
-      return;
-    }
-    const c=matches[0];
-    if(!String(c.address||"").trim() && p.address) c.address=p.address;
-    if(!String(c.phone||"").trim() && p.phone) c.phone=p.phone;
-  });
+  const apply=()=>{
+    const clinics=window.VETWEL_CLINICS||[];
+    patches.forEach(p=>{
+      const matches=clinics.filter(c=>
+        fold(c.name)===fold(p.name) &&
+        fold(c.city)===fold(p.city) &&
+        fold(c.district)===fold(p.district) &&
+        (!p.addressIncludes || fold(c.address).includes(fold(p.addressIncludes)))
+      );
+      if(matches.length!==1){
+        if(matches.length>1) console.warn("VetWel clinic enrichment ambiguous",p.name,matches.length);
+        return;
+      }
+      const c=matches[0];
+      if(!String(c.address||"").trim() && p.address) c.address=p.address;
+      if(!String(c.phone||"").trim() && p.phone) c.phone=p.phone;
+    });
+  };
+
+  window.VETWEL_APPLY_CLINIC_ENRICHMENT=apply;
+  apply();
 })();

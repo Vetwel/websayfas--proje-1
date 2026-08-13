@@ -342,3 +342,40 @@ document.addEventListener("DOMContentLoaded", () => {
   `;
   categoryGrid.appendChild(card);
 });
+
+// English-site navigation: expose Botanical Guide and U.S. purchase channels without Turkish clinic data.
+document.addEventListener("DOMContentLoaded", () => {
+  if (document.documentElement.lang !== "en") return;
+  const nav = document.querySelector(".primary-navigation");
+  if (nav) {
+    const contact = nav.querySelector('a[href="#contact"]');
+    const tr = nav.querySelector('a[href="../index.html"]');
+    if (!nav.querySelector('a[href="botanical-guide.html"]')) {
+      const botanical = document.createElement("a");
+      botanical.href = "botanical-guide.html";
+      botanical.textContent = "Botanical Guide";
+      nav.insertBefore(botanical, contact || tr || null);
+    }
+    if (!nav.querySelector('a[href="where-to-buy.html"]')) {
+      const buy = document.createElement("a");
+      buy.href = "where-to-buy.html";
+      buy.textContent = "Where to Buy";
+      nav.insertBefore(buy, contact || tr || null);
+    }
+  }
+
+  const educationActions = document.querySelector(".education-actions");
+  if (educationActions && !educationActions.querySelector('a[href="botanical-guide.html"]')) {
+    const botanical = document.createElement("a");
+    botanical.className = "button button-light";
+    botanical.href = "botanical-guide.html";
+    botanical.textContent = "Botanical Guide";
+    educationActions.appendChild(botanical);
+  }
+
+  const purchaseFaqButton = [...document.querySelectorAll(".accordion-button")].find((button) => button.textContent.includes("Where can I purchase VetWel products?"));
+  const purchaseFaqText = purchaseFaqButton?.nextElementSibling?.querySelector("p");
+  if (purchaseFaqText) {
+    purchaseFaqText.innerHTML = 'For U.S. availability, use the <a href="where-to-buy.html">Where to Buy</a> page. Verified Amazon and other authorized online or retail channels will be listed there as they become available.';
+  }
+});

@@ -75,3 +75,25 @@
     applyEnglishSolutionLinks();
   }
 })();
+
+// English mobile navigation has more items than Turkish (Botanical Guide + Where to Buy).
+// Let the open menu use the available viewport height so the final TR language link is never clipped.
+(() => {
+  if (document.documentElement.lang !== 'en') return;
+  if (document.querySelector('#vetwel-en-mobile-nav-fix')) return;
+
+  const style = document.createElement('style');
+  style.id = 'vetwel-en-mobile-nav-fix';
+  style.textContent = `
+    @media (max-width: 820px) {
+      .primary-navigation.open {
+        max-height: calc(100vh - var(--header-height)) !important;
+        max-height: calc(100dvh - var(--header-height)) !important;
+        overflow-y: auto !important;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+})();

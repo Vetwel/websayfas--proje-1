@@ -247,3 +247,29 @@
     applySolutionHierarchy();
   }
 })();
+
+// Keep the two CalmWel forms next to each other on the Turkish homepage product grid.
+// Malign Detox is moved immediately before the CalmWel pair, preserving every card's
+// existing content, links, IDs and visual styling.
+(() => {
+  const applyCalmWelOrder = () => {
+    if (document.documentElement.lang === 'en') return;
+    const grid = document.querySelector('#urunler .product-grid');
+    if (!grid || grid.dataset.calmwelGrouped === '1') return;
+
+    const calmTablet = grid.querySelector('a[href="education-calmwel-tablet.html"]')?.closest('.product-card');
+    const calmLiquid = grid.querySelector('a[href="education-calmwel-liquid.html"]')?.closest('.product-card');
+    const malignDetox = grid.querySelector('a[href="education-malign-detox.html"]')?.closest('.product-card');
+
+    if (!calmTablet || !calmLiquid || !malignDetox) return;
+
+    grid.insertBefore(malignDetox, calmTablet);
+    grid.dataset.calmwelGrouped = '1';
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyCalmWelOrder, { once:true });
+  } else {
+    applyCalmWelOrder();
+  }
+})();

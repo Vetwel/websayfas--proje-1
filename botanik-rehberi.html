@@ -1,81 +1,83 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="VetWel Botanik Rehberi: VetWel formüllerinde kullanılan seçilmiş bitkisel içeriklerin Türkçe ve Latince adları, botanik özellikleri ve formülasyondaki rolleri.">
-  <title>VetWel® Botanik Rehberi | Bilgi Merkezi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="botanical-data.js" defer></script>
-  <style>
-    *{box-sizing:border-box}body{margin:0;background:#f5f8fb;color:#24384d;font-family:Manrope,Arial,sans-serif}.botanical-header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.96);border-bottom:1px solid #e1e8ef;backdrop-filter:blur(14px)}.botanical-header-inner{width:min(1180px,calc(100% - 40px));min-height:72px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}.botanical-brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:#0b2447}.botanical-brand-mark{width:39px;height:39px;border-radius:12px;background:#0b2447;color:#fff;display:grid;place-items:center;font-size:22px;font-weight:900}.botanical-brand-copy strong{display:block;font-size:21px;line-height:1}.botanical-brand-copy small{display:block;margin-top:5px;font-size:8px;letter-spacing:1.2px;font-weight:800;color:#718093}.botanical-nav{display:flex;align-items:center;gap:22px}.botanical-nav a{font-size:13px;font-weight:750;color:#526274;text-decoration:none}.botanical-nav a:hover{color:#0b2447}.botanical-main{min-height:100vh}.botanical-hero{background:linear-gradient(135deg,#0b2447 0%,#163f68 72%,#315f7f 100%);color:#fff;padding:78px 20px 64px}.botanical-shell{width:min(1120px,100%);margin:auto}.botanical-eyebrow{display:inline-flex;padding:8px 13px;border-radius:999px;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.18);font-size:11px;letter-spacing:1.2px;font-weight:800}.botanical-hero h1{font-size:clamp(36px,5vw,60px);line-height:1.05;letter-spacing:-2px;margin:20px 0 18px;max-width:760px}.botanical-hero p{max-width:790px;margin:0;color:rgba(255,255,255,.82);font-size:17px;line-height:1.75}.botanical-search-wrap{margin-top:30px;max-width:620px;position:relative}.botanical-search{width:100%;height:56px;border:0;border-radius:16px;padding:0 20px 0 50px;font:inherit;font-size:14px;outline:none;box-shadow:0 14px 35px rgba(0,0,0,.14)}.botanical-search-icon{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:19px;color:#54708a}.botanical-content{padding:54px 20px 82px}.botanical-intro{display:flex;justify-content:space-between;gap:25px;align-items:end;margin-bottom:26px}.botanical-intro h2{font-size:29px;color:#0b2447;margin:0 0 7px}.botanical-intro p{margin:0;color:#69798a;line-height:1.65}.botanical-count{font-size:12px;font-weight:800;color:#3d6689;background:#eaf2f8;padding:8px 12px;border-radius:999px;white-space:nowrap}.botanical-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.botanical-card{scroll-margin-top:96px;background:#fff;border:1px solid #e0e8ef;border-radius:22px;overflow:hidden;box-shadow:0 10px 32px rgba(11,36,71,.055);transition:transform .2s ease,box-shadow .2s ease}.botanical-card:hover{transform:translateY(-3px);box-shadow:0 17px 42px rgba(11,36,71,.09)}.botanical-card-visual{height:205px;position:relative;display:grid;place-items:center;overflow:hidden;background:linear-gradient(145deg,#edf6f0,#f8fbf9);color:#3f7650;padding:24px}.botanical-card-visual svg{width:100%;height:100%;max-width:230px}.botanical-card-visual.has-photo{padding:0;background:#e9eef2}.botanical-card-visual img{width:100%;height:100%;display:block;object-fit:cover}.botanical-photo-credit{position:absolute;left:8px;right:8px;bottom:8px;padding:6px 8px;border-radius:9px;background:rgba(7,25,47,.78);color:#fff!important;font-size:8.5px!important;line-height:1.3!important;text-decoration:none;backdrop-filter:blur(5px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.botanical-photo-credit:hover{text-decoration:underline}.botanical-card-body{padding:23px}.botanical-card h3{font-size:21px;margin:0;color:#0b2447}.botanical-latin{display:block;margin-top:5px;color:#6a7b8d;font-size:12px;font-style:italic}.botanical-card p{color:#5f6f80;line-height:1.65;font-size:13px}.botanical-card h4{margin:18px 0 7px;color:#244e72;font-size:12px;letter-spacing:.5px;text-transform:uppercase}.botanical-products{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}.botanical-chip{font-size:10px;font-weight:800;color:#315a7d;background:#edf4f9;padding:6px 9px;border-radius:999px}.botanical-caution{margin-top:14px;padding:12px 13px;border-radius:12px;background:#fff8eb;border-left:4px solid #c99a42;color:#6c5a36!important}.botanical-empty{display:none;padding:45px 20px;text-align:center;background:#fff;border:1px solid #e0e8ef;border-radius:20px;color:#657587}.botanical-note{margin-top:34px;padding:24px;border-radius:18px;background:#edf3f7;border-left:5px solid #315f7f;color:#5c6b7a;line-height:1.7;font-size:13px}.botanical-note strong{color:#173f6b}.botanical-footer{background:#0b2447;color:rgba(255,255,255,.72);padding:28px 20px;text-align:center;font-size:12px}.botanical-footer a{color:#fff}.botanical-card.flash{animation:botanicalFlash 1.7s ease}@keyframes botanicalFlash{0%,100%{box-shadow:0 10px 32px rgba(11,36,71,.055)}35%{box-shadow:0 0 0 5px rgba(63,118,80,.2),0 18px 48px rgba(11,36,71,.12)}}
-    @media(max-width:940px){.botanical-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.botanical-nav{gap:14px}}
-    @media(max-width:720px){.botanical-header-inner{width:calc(100% - 28px);min-height:65px}.botanical-nav a:nth-child(2),.botanical-nav a:nth-child(3){display:none}.botanical-hero{padding:58px 18px 48px}.botanical-hero h1{letter-spacing:-1.2px}.botanical-content{padding:40px 16px 64px}.botanical-grid{grid-template-columns:1fr}.botanical-intro{align-items:flex-start;flex-direction:column}.botanical-card-visual{height:190px}}
-  </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="VetWel Botanik Rehberi: VetWel formüllerinde kullanılan seçilmiş bitkisel içeriklerin Türkçe ve Latince adları, botanik özellikleri ve formülasyondaki rolleri.">
+<title>VetWel® Botanik Rehberi | Bilgi Merkezi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
+<script src="botanical-data.js" defer></script>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f8fb;color:#24384d;font-family:Manrope,Arial,sans-serif}.botanical-header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.96);border-bottom:1px solid #e1e8ef;backdrop-filter:blur(14px)}.botanical-header-inner{width:min(1180px,calc(100% - 40px));min-height:72px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}.botanical-brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:#0b2447}.botanical-brand-mark{width:39px;height:39px;border-radius:12px;background:#0b2447;color:#fff;display:grid;place-items:center;font-size:22px;font-weight:900}.botanical-brand-copy strong{display:block;font-size:21px;line-height:1}.botanical-brand-copy small{display:block;margin-top:5px;font-size:8px;letter-spacing:1.2px;font-weight:800;color:#718093}.botanical-nav{display:flex;gap:22px}.botanical-nav a{font-size:13px;font-weight:750;color:#526274;text-decoration:none}.botanical-hero{background:linear-gradient(135deg,#0b2447,#163f68 72%,#315f7f);color:#fff;padding:78px 20px 64px}.botanical-shell{width:min(1120px,100%);margin:auto}.botanical-eyebrow{display:inline-flex;padding:8px 13px;border-radius:999px;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.18);font-size:11px;letter-spacing:1.2px;font-weight:800}.botanical-hero h1{font-size:clamp(36px,5vw,60px);line-height:1.05;letter-spacing:-2px;margin:20px 0 18px}.botanical-hero p{max-width:790px;color:rgba(255,255,255,.82);font-size:17px;line-height:1.75}.botanical-search-wrap{margin-top:30px;max-width:620px;position:relative}.botanical-search{width:100%;height:56px;border:0;border-radius:16px;padding:0 20px 0 50px;font:inherit;font-size:14px;outline:none;box-shadow:0 14px 35px rgba(0,0,0,.14)}.botanical-search-icon{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:19px;color:#54708a}.botanical-content{padding:54px 20px 82px}.botanical-intro{display:flex;justify-content:space-between;gap:25px;align-items:end;margin-bottom:26px}.botanical-intro h2{font-size:29px;color:#0b2447;margin:0 0 7px}.botanical-intro p{margin:0;color:#69798a;line-height:1.65}.botanical-count{font-size:12px;font-weight:800;color:#3d6689;background:#eaf2f8;padding:8px 12px;border-radius:999px}.botanical-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.botanical-card{scroll-margin-top:96px;background:#fff;border:1px solid #e0e8ef;border-radius:22px;overflow:hidden;box-shadow:0 10px 32px rgba(11,36,71,.055)}.botanical-card-visual{height:205px;position:relative;display:grid;place-items:center;overflow:hidden;background:linear-gradient(145deg,#edf6f0,#f8fbf9);color:#3f7650;padding:24px}.botanical-card-visual svg{width:100%;height:100%;max-width:230px}.botanical-card-visual.has-photo{padding:0;background:#e9eef2}.botanical-card-visual img{width:100%;height:100%;display:block;object-fit:cover}.botanical-photo-credit{position:absolute;left:8px;right:8px;bottom:8px;padding:6px 8px;border-radius:9px;background:rgba(7,25,47,.8);color:#fff!important;font-size:8.5px!important;line-height:1.3!important;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.botanical-card-body{padding:23px}.botanical-card h3{font-size:21px;margin:0;color:#0b2447}.botanical-latin{display:block;margin-top:5px;color:#6a7b8d;font-size:12px;font-style:italic}.botanical-card p{color:#5f6f80;line-height:1.65;font-size:13px}.botanical-card h4{margin:18px 0 7px;color:#244e72;font-size:12px;letter-spacing:.5px;text-transform:uppercase}.botanical-products{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}.botanical-chip{font-size:10px;font-weight:800;color:#315a7d;background:#edf4f9;padding:6px 9px;border-radius:999px}.botanical-caution{margin-top:14px;padding:12px 13px;border-radius:12px;background:#fff8eb;border-left:4px solid #c99a42;color:#6c5a36!important}.botanical-empty{display:none;padding:45px 20px;text-align:center;background:#fff;border:1px solid #e0e8ef;border-radius:20px;color:#657587}.botanical-note{margin-top:34px;padding:24px;border-radius:18px;background:#edf3f7;border-left:5px solid #315f7f;color:#5c6b7a;line-height:1.7;font-size:13px}.botanical-footer{background:#0b2447;color:rgba(255,255,255,.72);padding:28px 20px;text-align:center;font-size:12px}.botanical-footer a{color:#fff}@media(max-width:940px){.botanical-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:720px){.botanical-header-inner{width:calc(100% - 28px);min-height:65px}.botanical-nav a:nth-child(2),.botanical-nav a:nth-child(3){display:none}.botanical-hero{padding:58px 18px 48px}.botanical-content{padding:40px 16px 64px}.botanical-grid{grid-template-columns:1fr}.botanical-intro{align-items:flex-start;flex-direction:column}.botanical-card-visual{height:190px}}
+</style>
 </head>
 <body>
-  <header class="botanical-header"><div class="botanical-header-inner"><a class="botanical-brand" href="index.html" aria-label="VetWel ana sayfa"><span class="botanical-brand-mark" aria-hidden="true">+</span><span class="botanical-brand-copy"><strong>VetWel<sup>®</sup></strong><small>VETERINARY WELLNESS</small></span></a><nav class="botanical-nav" aria-label="Botanik rehberi menüsü"><a href="index.html">Ana Sayfa</a><a href="index.html#urunler">Ürünler</a><a href="education.html">Bilgi Merkezi</a><a href="index.html#iletisim">İletişim</a></nav></div></header>
-  <main class="botanical-main">
-    <section class="botanical-hero"><div class="botanical-shell"><span class="botanical-eyebrow">VETWEL® BİLGİ MERKEZİ</span><h1>Botanik İçerik Rehberi</h1><p>VetWel formüllerinde yer alan seçilmiş bitkisel içerikleri keşfedin. Her kartta bitkinin temel botanik özelliklerini, Latince adını ve VetWel formülasyonlarındaki destek rolünü görebilirsiniz.</p><div class="botanical-search-wrap"><span class="botanical-search-icon" aria-hidden="true">⌕</span><input id="botanical-search" class="botanical-search" type="search" placeholder="Bitki, Latince ad veya ürün ara…" autocomplete="off" aria-label="Botanik rehberinde ara"></div></div></section>
-    <section class="botanical-content"><div class="botanical-shell"><div class="botanical-intro"><div><h2>Seçilmiş botanik bileşenler</h2><p>Türü doğrulanmış ve telif/lisans ücreti gerektirmeyen açık lisanslı gerçek botanik fotoğraflar kullanılır.</p></div><span class="botanical-count" id="botanical-count">—</span></div><div class="botanical-grid" id="botanical-grid"></div><div class="botanical-empty" id="botanical-empty">Aramanızla eşleşen bir bitki bulunamadı.</div><div class="botanical-note"><strong>Bilgilendirme:</strong> Fotoğraflar yalnızca bilimsel tür eşleşmesi güvenle yapılabilen ve ticari kullanım için ücret gerektirmeyen CC0, Public Domain veya uygun Creative Commons kaynaklardan seçilir. Atıf isteyen lisanslarda fotoğrafçı ve lisans bilgisi görsel üzerinde belirtilir. Tür düzeyi güvenle belirlenemeyen kayıtlarda şematik görsel korunur. Bu bilgiler tanı veya tedavi yerine geçmez.</div></div></section>
-  </main>
-  <footer class="botanical-footer">© VetWel® Veterinary Wellness · <a href="education.html">Bilgi Merkezi</a></footer>
-  <script>
-    document.addEventListener("DOMContentLoaded",()=>{
-      const grid=document.getElementById("botanical-grid"),search=document.getElementById("botanical-search"),count=document.getElementById("botanical-count"),empty=document.getElementById("botanical-empty");
-      const files={
-        "egir-otu":{file:"Acorus Calamus Oulu 20150707.jpg",credit:"Wikimedia Commons · CC0"},
-        "civanpercemi":{file:"20220727 Achillea millefolium.jpg",credit:"Wikimedia Commons · CC0"},
-        "koyun-otu":{file:"20170715Agrimonia eupatoria.jpg",credit:"Wikimedia Commons · CC0"},
-        "dulavrat-otu":{file:"20190512Arctium lappa.jpg",credit:"Wikimedia Commons · CC0"},
-        "kadintuzlugu":{file:"Berberis vulgaris 5878.jpg",credit:"Wikimedia Commons · CC0"},
-        "kestere-otu":{file:"Stachys officinalis.JPG",credit:"Wikimedia Commons · Public Domain"},
-        "hus":{file:"Betula pendula leaves.jpg",credit:"Wikimedia Commons · CC0"},
-        "pitrak":{file:"Bidens pilosa at Elmina West in Seksyen U15, Shah Alam 20231126 101332.jpg",credit:"Wikimedia Commons · CC0"},
-        "brokoli-tohumu":{file:"Brassica oleracea var. italica 01.jpg",credit:"Σ64 · CC BY 4.0 · Wikimedia Commons"},
-        "aynisafa":{file:"20141003Calendula officinalis3.jpg",credit:"Wikimedia Commons · CC0"},
-        "kizil-kantaron":{file:"Centaurium erythraea 215056939.jpg",credit:"Wikimedia Commons · CC0"},
-        "papatya":{file:"20160520Matricaria chamomilla1.jpg",credit:"Wikimedia Commons · CC0"},
-        "kirlangic-otu":{file:"20230527Chelidonium majus.jpg",credit:"Wikimedia Commons · CC0"},
-        "alic":{file:"20230501Crataegus monogyna.jpg",credit:"Wikimedia Commons · CC0"},
-        "ekinezya":{file:"Echinacea purpurea, 2015-07-07, Kane Woods, 01.jpg",credit:"Wikimedia Commons · CC0"},
-        "atkuyrugu":{file:"20190326 Equisetum arvense 3.jpg",credit:"Wikimedia Commons · CC0"},
-        "yaki-otu":{file:"Epilobium montanum 307316865.jpg",credit:"Wikimedia Commons · CC0"},
-        "tekesakali":{file:"20140715Filipendula ulmaria.jpg",credit:"Wikimedia Commons · CC0"},
-        "rezene":{file:"Foeniculum vulgare - Jardim Botânico de Brasília - DSC09655.JPG",credit:"Wikimedia Commons · CC0"},
-        "yer-sarmasigi":{file:"20130424Glechoma hederacea.jpg",credit:"Wikimedia Commons · CC0"},
-        "meyan-koku":{file:"Gycyrrhiza glabra - Christchurch Botanic Gardens - Christchurch, NZ - DSC02097.jpg",credit:"Wikimedia Commons · CC0"},
-        "altin-otu":{file:"20150613Helichrysum arenarium5.jpg",credit:"Wikimedia Commons · CC0"},
-        "serbetci-otu":{file:"20170531Humulus lupulus3.jpg",credit:"Wikimedia Commons · CC0"},
-        "sari-kantaron":{file:"20140629Hypericum perforatum.jpg",credit:"Wikimedia Commons · CC0"},
-        "aslan-otu":{file:"Leonurus cardiaca, Soho, 2025-06-04-1.jpg",credit:"Wikimedia Commons · CC0"},
-        "lespedeza":{file:"Lespedeza capitata habit.jpg",credit:"Wikimedia Commons · Public Domain"},
-        "sari-yonca":{file:"20140517Melilotus officinalis.jpg",credit:"Wikimedia Commons · CC0"},
-        "melisa":{file:"Melissa officinalis, 2020-07-11, Beechview, 01.jpg",credit:"Wikimedia Commons · CC0"},
-        "kedi-nanesi":{file:"Nepeta cataria, 2021-07-04, Bethel Park, 03.jpg",credit:"Wikimedia Commons · CC0"},
-        "tarla-kayiskirani":{file:"Ononis arvensis.jpeg",credit:"Kristian Peters · CC BY-SA 3.0 · Wikimedia Commons"},
-        "java-cayi":{file:"Orthosiphon aristatus at Kepong Botanical Garden 20230625 103153.jpg",credit:"Wikimedia Commons · CC0"},
-        "fasulye":{file:"Phaseolus Vulgaris.jpg",credit:"Wikimedia Commons · CC0"},
-        "kus-otu":{file:"20150803Polygonum aviculare.jpg",credit:"Wikimedia Commons · CC0"},
-        "su-biberi":{file:"Persicaria maculosa - Lady's Thumb 02.jpg",credit:"Wikimedia Commons · CC0"},
-        "mese-yapragi":{file:"20181114Quercus robur2.jpg",credit:"Wikimedia Commons · CC0"},
-        "kokboya":{file:"Rubia tinctorum.jpg",credit:"Janakiraman janaki · CC BY-SA 4.0 · Wikimedia Commons"},
-        "karahindiba":{file:"Taraxacum officinale, 2020-04-18, Beechview.jpg",credit:"Wikimedia Commons · CC0"},
-        "kirmizi-yonca":{file:"20180510Trifolium pratense1.jpg",credit:"Wikimedia Commons · CC0"},
-        "isirgan":{file:"Urtica dioica.jpg",credit:"Wikimedia Commons · Public Domain"},
-        "kedi-otu":{file:"20190929Valeriana officinalis2.jpg",credit:"Wikimedia Commons · CC0"},
-        "menekse":{file:"Viola tricolor 174489616.jpg",credit:"Wikimedia Commons · CC0"}
-      };
-      const esc=s=>encodeURIComponent(s).replace(/%2F/g,"/");
-      const visual=plant=>{const p=files[plant.id];if(!p)return `<div class="botanical-card-visual">${window.VetWelBotanical.visual(plant.visual)}</div>`;const page=`https://commons.wikimedia.org/wiki/File:${esc(p.file.replace(/ /g,"_"))}`;const src=`https://commons.wikimedia.org/wiki/Special:FilePath/${esc(p.file)}?width=900`;return `<div class="botanical-card-visual has-photo"><img loading="lazy" decoding="async" src="${src}" alt="${plant.name} (${plant.latin}) gerçek botanik fotoğrafı" onerror="this.parentElement.classList.remove('has-photo');this.parentElement.innerHTML=window.VetWelBotanical.visual('${plant.visual}')"><a class="botanical-photo-credit" href="${page}" target="_blank" rel="noopener noreferrer">${p.credit}</a></div>`};
-      const render=plants=>{grid.innerHTML=plants.map(plant=>`<article class="botanical-card" id="${plant.id}" data-search="${[plant.name,plant.latin,...(plant.aliases||[]),...(plant.products||[])].join(" ").toLocaleLowerCase("tr-TR")}">${visual(plant)}<div class="botanical-card-body"><h3>${plant.name}</h3><span class="botanical-latin">${plant.latin}</span><h4>Bitki hakkında</h4><p>${plant.about}</p><h4>VetWel formülasyonundaki rolü</h4><p>${plant.role}</p>${plant.caution?`<p class="botanical-caution"><strong>Dikkat:</strong> ${plant.caution}</p>`:""}<h4>Geçtiği ürünler</h4><div class="botanical-products">${plant.products.map(product=>`<span class="botanical-chip">${product}</span>`).join("")}</div></div></article>`).join("");count.textContent=`${plants.length} bitki`;empty.style.display=plants.length?"none":"block";};
-      const collator=new Intl.Collator("tr-TR",{sensitivity:"base"});const plants=[...(window.VETWEL_BOTANICALS||[])].sort((a,b)=>collator.compare(a.name,b.name));render(plants);
-      search.addEventListener("input",()=>{const q=search.value.toLocaleLowerCase("tr-TR").trim();render(!q?plants:plants.filter(plant=>[plant.name,plant.latin,...(plant.aliases||[]),...(plant.products||[])].join(" ").toLocaleLowerCase("tr-TR").includes(q)));});
-      if(location.hash)requestAnimationFrame(()=>{const target=document.querySelector(location.hash);if(target){target.scrollIntoView({behavior:"smooth",block:"start"});target.classList.add("flash");}});
-    });
-  </script>
-</body>
-</html>
+<header class="botanical-header"><div class="botanical-header-inner"><a class="botanical-brand" href="index.html"><span class="botanical-brand-mark">+</span><span class="botanical-brand-copy"><strong>VetWel<sup>®</sup></strong><small>VETERINARY WELLNESS</small></span></a><nav class="botanical-nav"><a href="index.html">Ana Sayfa</a><a href="index.html#urunler">Ürünler</a><a href="education.html">Bilgi Merkezi</a><a href="index.html#iletisim">İletişim</a></nav></div></header>
+<main><section class="botanical-hero"><div class="botanical-shell"><span class="botanical-eyebrow">VETWEL® BİLGİ MERKEZİ</span><h1>Botanik İçerik Rehberi</h1><p>VetWel formüllerinde yer alan seçilmiş bitkisel içerikleri keşfedin. Her kartta bitkinin temel botanik özelliklerini, Latince adını ve VetWel formülasyonlarındaki destek rolünü görebilirsiniz.</p><div class="botanical-search-wrap"><span class="botanical-search-icon">⌕</span><input id="botanical-search" class="botanical-search" type="search" placeholder="Bitki, Latince ad veya ürün ara…"></div></div></section>
+<section class="botanical-content"><div class="botanical-shell"><div class="botanical-intro"><div><h2>Seçilmiş botanik bileşenler</h2><p>Türü doğrulanmış ve telif/lisans ücreti gerektirmeyen açık lisanslı gerçek botanik fotoğraflar kullanılır.</p></div><span class="botanical-count" id="botanical-count">—</span></div><div class="botanical-grid" id="botanical-grid"></div><div class="botanical-empty" id="botanical-empty">Aramanızla eşleşen bir bitki bulunamadı.</div><div class="botanical-note"><strong>Bilgilendirme:</strong> Fotoğraflar bilimsel ad eşleşmesi güvenle yapılabilen ve ticari kullanım için ücret gerektirmeyen CC0, Public Domain veya uygun Creative Commons kaynaklardan seçilir. Cins düzeyinde kalan bazı kayıtlarda gerçek bir temsilî tür kullanılır ve görsel atfında “temsilî tür” belirtilir. Türü güvenle belirlenemeyen içeriklerde şematik görsel korunur.</div></div></section></main>
+<footer class="botanical-footer">© VetWel® Veterinary Wellness · <a href="education.html">Bilgi Merkezi</a></footer>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+const grid=document.getElementById('botanical-grid'),search=document.getElementById('botanical-search'),count=document.getElementById('botanical-count'),empty=document.getElementById('botanical-empty');
+const files={
+'egir-otu':['Acorus Calamus Oulu 20150707.jpg','Wikimedia Commons · CC0'],
+'civanpercemi':['20220727 Achillea millefolium.jpg','Wikimedia Commons · CC0'],
+'koyun-otu':['20170715Agrimonia eupatoria.jpg','Wikimedia Commons · CC0'],
+'dulavrat-otu':['20190512Arctium lappa.jpg','Wikimedia Commons · CC0'],
+'kadintuzlugu':['Berberis vulgaris 5878.jpg','Wikimedia Commons · CC0'],
+'kestere-otu':['Stachys officinalis.JPG','Wikimedia Commons · Public Domain'],
+'hus':['Betula pendula leaves.jpg','Wikimedia Commons · CC0'],
+'pitrak':['Bidens pilosa at Elmina West in Seksyen U15, Shah Alam 20231126 101332.jpg','Wikimedia Commons · CC0'],
+'brokoli-tohumu':['Brassica oleracea var. italica 01.jpg','Σ64 · CC BY 4.0 · Wikimedia Commons'],
+'aynisafa':['20141003Calendula officinalis3.jpg','Wikimedia Commons · CC0'],
+'coban-cantasi':['20150524Capsella bursa-pastoris.jpg','Temsilî tür: Capsella bursa-pastoris · CC0'],
+'kizil-kantaron':['Centaurium erythraea 215056939.jpg','Wikimedia Commons · CC0'],
+'papatya':['20160520Matricaria chamomilla1.jpg','Wikimedia Commons · CC0'],
+'kirlangic-otu':['20230527Chelidonium majus.jpg','Temsilî tür: Chelidonium majus · CC0'],
+'alic':['20230501Crataegus monogyna.jpg','Temsilî tür: Crataegus monogyna · CC0'],
+'ekinezya':['Echinacea purpurea, 2015-07-07, Kane Woods, 01.jpg','Wikimedia Commons · CC0'],
+'atkuyrugu':['20190326 Equisetum arvense 3.jpg','Wikimedia Commons · CC0'],
+'yaki-otu':['Epilobium montanum 307316865.jpg','Wikimedia Commons · CC0'],
+'tekesakali':['20140715Filipendula ulmaria.jpg','Wikimedia Commons · CC0'],
+'rezene':['Foeniculum vulgare - Jardim Botânico de Brasília - DSC09655.JPG','Wikimedia Commons · CC0'],
+'yogurt-otu':['20220624Galium verum.jpg','Tür seçeneklerinden Galium verum · CC0'],
+'yer-sarmasigi':['20130424Glechoma hederacea.jpg','Wikimedia Commons · CC0'],
+'meyan-koku':['Gycyrrhiza glabra - Christchurch Botanic Gardens - Christchurch, NZ - DSC02097.jpg','Wikimedia Commons · CC0'],
+'altin-otu':['20150613Helichrysum arenarium5.jpg','Wikimedia Commons · CC0'],
+'serbetci-otu':['20170531Humulus lupulus3.jpg','Wikimedia Commons · CC0'],
+'sari-kantaron':['20140629Hypericum perforatum.jpg','Wikimedia Commons · CC0'],
+'aslan-otu':['Leonurus cardiaca, Soho, 2025-06-04-1.jpg','Wikimedia Commons · CC0'],
+'lespedeza':['Lespedeza capitata habit.jpg','Wikimedia Commons · Public Domain'],
+'sari-yonca':['20140517Melilotus officinalis.jpg','Wikimedia Commons · CC0'],
+'melisa':['Melissa officinalis, 2020-07-11, Beechview, 01.jpg','Wikimedia Commons · CC0'],
+'kedi-nanesi':['Nepeta cataria, 2021-07-04, Bethel Park, 03.jpg','Wikimedia Commons · CC0'],
+'tarla-kayiskirani':['Ononis arvensis.jpeg','Kristian Peters · CC BY-SA 3.0'],
+'oregano':['20120720Origanum vulgare.jpg','Wikimedia Commons · CC0'],
+'java-cayi':['Orthosiphon aristatus at Kepong Botanical Garden 20230625 103153.jpg','Wikimedia Commons · CC0'],
+'fasulye':['Phaseolus vulgaris 147730856.jpg','Wikimedia Commons · CC0'],
+'kus-otu':['Polygonum aviculare (9056317484).jpg','Kevin Thiele · CC BY 2.0'],
+'su-biberi':['Persicaria maculosa - Lady\'s Thumb 02.jpg','Wikimedia Commons · CC0'],
+'mese-yapragi':['20181114Quercus robur2.jpg','Wikimedia Commons · CC0'],
+'kokboya':['Rubia tinctorum.jpg','Janakiraman janaki · CC BY-SA 4.0'],
+'adacayi':['Salvia officinalis L. 3355742911.jpg','Temsilî tür: Salvia officinalis · CC0'],
+'cayir-dugmesi':['20130712Sanguisorba officinalis1.jpg','Sanguisorba officinalis · CC0'],
+'karakafes':['20180920Symphytum officinale.jpg','Temsilî tür: Symphytum officinale · CC0'],
+'karahindiba':['Taraxacum officinale, 2020-04-18, Beechview.jpg','Wikimedia Commons · CC0'],
+'kekik':['Thymus vulgaris 54555.jpg','Temsilî tür: Thymus vulgaris · Public Domain'],
+'ihlamur':['20151012Tilia cordata.jpg','Temsilî tür: Tilia cordata · CC0'],
+'kirmizi-yonca':['20180510Trifolium pratense1.jpg','Wikimedia Commons · CC0'],
+'isirgan':['Urtica dioica.jpg','Wikimedia Commons · Public Domain'],
+'kedi-otu':['20190929Valeriana officinalis2.jpg','Wikimedia Commons · CC0'],
+'menekse':['Viola tricolor0.jpg','Viola tricolor · CC BY-SA 3.0'],
+'cam-yapragi':['Pinus sylvestris.1.jpg','Temsilî tür: Pinus sylvestris · CC0'],
+'akcaagac-yapragi':['20181109Acer platanoides4.jpg','Temsilî tür: Acer platanoides · CC0']
+};
+const enc=s=>encodeURIComponent(s).replace(/%2F/g,'/');
+const visual=plant=>{const p=files[plant.id];if(!p)return `<div class="botanical-card-visual">${window.VetWelBotanical.visual(plant.visual)}</div>`;const page=`https://commons.wikimedia.org/wiki/File:${enc(p[0].replace(/ /g,'_'))}`;const src=`https://commons.wikimedia.org/wiki/Special:FilePath/${enc(p[0])}?width=900`;return `<div class="botanical-card-visual has-photo"><img loading="lazy" decoding="async" src="${src}" alt="${plant.name} (${plant.latin}) gerçek botanik fotoğrafı" onerror="this.parentElement.classList.remove('has-photo');this.parentElement.innerHTML=window.VetWelBotanical.visual('${plant.visual}')"><a class="botanical-photo-credit" href="${page}" target="_blank" rel="noopener noreferrer">${p[1]} · Wikimedia Commons</a></div>`};
+const render=plants=>{grid.innerHTML=plants.map(plant=>`<article class="botanical-card" id="${plant.id}">${visual(plant)}<div class="botanical-card-body"><h3>${plant.name}</h3><span class="botanical-latin">${plant.latin}</span><h4>Bitki hakkında</h4><p>${plant.about}</p><h4>VetWel formülasyonundaki rolü</h4><p>${plant.role}</p>${plant.caution?`<p class="botanical-caution"><strong>Dikkat:</strong> ${plant.caution}</p>`:''}<h4>Geçtiği ürünler</h4><div class="botanical-products">${plant.products.map(x=>`<span class="botanical-chip">${x}</span>`).join('')}</div></div></article>`).join('');count.textContent=`${plants.length} bitki`;empty.style.display=plants.length?'none':'block'};
+const collator=new Intl.Collator('tr-TR',{sensitivity:'base'});const plants=[...(window.VETWEL_BOTANICALS||[])].sort((a,b)=>collator.compare(a.name,b.name));render(plants);
+search.addEventListener('input',()=>{const q=search.value.toLocaleLowerCase('tr-TR').trim();render(!q?plants:plants.filter(p=>[p.name,p.latin,...(p.aliases||[]),...(p.products||[])].join(' ').toLocaleLowerCase('tr-TR').includes(q)))});
+if(location.hash)requestAnimationFrame(()=>{const t=document.querySelector(location.hash);if(t)t.scrollIntoView({behavior:'smooth',block:'start'})});
+});
+</script>
+</body></html>

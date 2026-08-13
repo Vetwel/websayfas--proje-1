@@ -15,7 +15,8 @@ const cleanAddress=v=>{
  if(businessWords.some(w=>tail.split(" ").includes(w)))s=s.slice(0,m.index).trim();
  return s;
 };
-base.forEach(x=>{x.address=cleanAddress(x.address);});
+const upperName=v=>String(v||"").replace(/\s+/g," ").trim().toLocaleUpperCase("tr-TR");
+base.forEach(x=>{x.address=cleanAddress(x.address);x.name=upperName(x.name);});
 const phoneKey=v=>{let n=String(v||"").replace(/\D/g,"");if(n.startsWith("90")&&n.length>=12)n="0"+n.slice(2);return n;};
 const generic=new Set(["veteriner","veterinerlik","klinigi","klinik","muayenehanesi","muayenehane","poliklinigi","poliklinik","hizmetleri","hizmet","saglik","ticaret","sanayi","limited","ltd","sti","sirketi","tip","merkezi","hayvan","hastanesi"]);
 const brandKey=v=>fold(v).split(" ").filter(x=>x&&!generic.has(x)).join(" ");
@@ -30,9 +31,9 @@ const same=(a,b)=>{
 };
 window.VETWEL_MERGE_CLINICS=rows=>{
  const target=window.VETWEL_CLINICS||(window.VETWEL_CLINICS=[]);
- rows.map(r=>({name:r[0],city:r[1],district:r[2],address:cleanAddress(r[3]),phone:r[4]||""})).forEach(c=>{
+ rows.map(r=>({name:upperName(r[0]),city:r[1],district:r[2],address:cleanAddress(r[3]),phone:r[4]||""})).forEach(c=>{
   const existing=target.find(x=>same(x,c));
-  if(existing){if(!existing.phone&&c.phone)existing.phone=c.phone;if(!existing.address&&c.address)existing.address=c.address;existing.address=cleanAddress(existing.address);return;}
+  if(existing){if(!existing.phone&&c.phone)existing.phone=c.phone;if(!existing.address&&c.address)existing.address=c.address;existing.address=cleanAddress(existing.address);existing.name=upperName(existing.name);return;}
   target.push(c);
  });
 };

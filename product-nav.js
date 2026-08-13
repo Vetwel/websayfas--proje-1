@@ -156,6 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const openModal = (plant, trigger) => {
       lastFocused = trigger;
+      visual.classList.remove("vetwel-real-photo");
       visual.innerHTML = window.VetWelBotanical.visual(plant.visual);
       content.innerHTML = `
         <p class="botanical-modal-kicker">VETWEL® BOTANİK REHBERİ</p>
@@ -209,4 +210,13 @@ document.addEventListener("DOMContentLoaded", () => {
   scientificScript.async = true;
   scientificScript.onerror = () => console.warn("VetWel scientific evidence data could not be loaded.");
   document.head.appendChild(scientificScript);
+})();
+
+// Keep product-page botanical modals aligned with the real photos used in the Botanical Guide.
+(() => {
+  const photoScript = document.createElement("script");
+  photoScript.src = "botanical-modal-photos.js";
+  photoScript.async = true;
+  photoScript.onerror = () => console.warn("VetWel botanical modal photos could not be loaded.");
+  document.head.appendChild(photoScript);
 })();

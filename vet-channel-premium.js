@@ -217,7 +217,8 @@
         .product-breathe{background:#f1ebf8;border-color:#dfd2ee;}
         .product-breathe .product-card-tag,.product-breathe>a{color:#76549b;}
         .product-cleanse .product-card-image,.product-breathe .product-card-image{overflow:hidden;}
-        .product-cleanse .product-card-image img,.product-breathe .product-card-image img{transform:scale(1.28);transform-origin:center;}
+        .product-cleanse .product-card-image img{transform:scale(1.40);transform-origin:center;}
+        .product-breathe .product-card-image img{transform:scale(1.28);transform-origin:center;}
       `;
       document.head.appendChild(style);
     }

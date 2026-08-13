@@ -259,3 +259,40 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', rebalanceTurkishProductGrid, {once:true});
   else rebalanceTurkishProductGrid();
 })();
+
+// Final product-grid order for both Turkish and English homepages.
+// Pair starts are chosen so Tablet + Liquid stay together in both 3-column desktop
+// and 2-column tablet layouts. Single-form products fill the remaining slots.
+(() => {
+  const arrangeProductPairs = () => {
+    const isEnglish = document.documentElement.lang === 'en';
+    const grid = document.querySelector(isEnglish ? '#products .product-grid' : '#urunler .product-grid');
+    if (!grid || grid.dataset.vetwelUnifiedProducts !== '1') return;
+
+    const byHref = (href) => grid.querySelector(`a[href="${href}"]`)?.closest('.product-card');
+    const ordered = [
+      byHref('education-cleanse.html'),
+      byHref('education-breathe-ease.html'),
+      byHref('education-skinwel.html'),
+      byHref('education-malign-detox.html'),
+      byHref('education-kidneywel.html'),
+      byHref('education-kidneywel-liquid.html'),
+      byHref('education-liverwel-tablet.html'),
+      byHref('education-liverwel-liquid.html'),
+      byHref('education-heartwel.html'),
+      byHref('education-lactowel.html'),
+      byHref('education-calmwel-tablet.html'),
+      byHref('education-calmwel-liquid.html'),
+      byHref('education-malt-paste.html'),
+      byHref('education-dentawel.html')
+    ].filter(Boolean);
+
+    const seen = new Set(ordered);
+    const extras = [...grid.children].filter((card) => !seen.has(card));
+    [...ordered, ...extras].forEach((card) => grid.appendChild(card));
+    grid.dataset.vetwelPairedOrder = '1';
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', arrangeProductPairs, {once:true});
+  else arrangeProductPairs();
+})();

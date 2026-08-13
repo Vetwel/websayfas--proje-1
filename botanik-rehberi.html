@@ -51,17 +51,22 @@ const files={
 'lespedeza':['Lespedeza capitata habit.jpg','Wikimedia Commons · Public Domain'],
 'sari-yonca':['20140517Melilotus officinalis.jpg','Wikimedia Commons · CC0'],
 'melisa':['Melissa officinalis, 2020-07-11, Beechview, 01.jpg','Wikimedia Commons · CC0'],
+'nane':['Mentha Pulegium 10.jpg','Mentha pulegium · CC0'],
 'kedi-nanesi':['Nepeta cataria, 2021-07-04, Bethel Park, 03.jpg','Wikimedia Commons · CC0'],
 'tarla-kayiskirani':['Ononis arvensis.jpeg','Kristian Peters · CC BY-SA 3.0'],
 'oregano':['20120720Origanum vulgare.jpg','Wikimedia Commons · CC0'],
+'keklik-otu':['20120720Origanum vulgare.jpg','Temsilî eşleşme: Origanum vulgare · CC0'],
 'java-cayi':['Orthosiphon aristatus at Kepong Botanical Garden 20230625 103153.jpg','Wikimedia Commons · CC0'],
+'sakayik':['Paeonia lactiflora 2025.jpg','Paeonia lactiflora · CC0'],
 'fasulye':['Phaseolus vulgaris 147730856.jpg','Wikimedia Commons · CC0'],
+'sinirli-ot':['Plantago afra kz01.jpg','Krzysztof Ziarnek, Kenraiz · CC BY-SA 4.0'],
 'kus-otu':['Polygonum aviculare (9056317484).jpg','Kevin Thiele · CC BY 2.0'],
 'su-biberi':['Persicaria maculosa - Lady\'s Thumb 02.jpg','Wikimedia Commons · CC0'],
 'mese-yapragi':['20181114Quercus robur2.jpg','Wikimedia Commons · CC0'],
 'kokboya':['Rubia tinctorum.jpg','Janakiraman janaki · CC BY-SA 4.0'],
 'adacayi':['Salvia officinalis L. 3355742911.jpg','Temsilî tür: Salvia officinalis · CC0'],
 'cayir-dugmesi':['20130712Sanguisorba officinalis1.jpg','Sanguisorba officinalis · CC0'],
+'salsola':['20170823Salsola tragus4.jpg','Temsilî tür: Salsola tragus · CC0'],
 'karakafes':['20180920Symphytum officinale.jpg','Temsilî tür: Symphytum officinale · CC0'],
 'karahindiba':['Taraxacum officinale, 2020-04-18, Beechview.jpg','Wikimedia Commons · CC0'],
 'kekik':['Thymus vulgaris 54555.jpg','Temsilî tür: Thymus vulgaris · Public Domain'],
@@ -70,8 +75,10 @@ const files={
 'isirgan':['Urtica dioica.jpg','Wikimedia Commons · Public Domain'],
 'kedi-otu':['20190929Valeriana officinalis2.jpg','Wikimedia Commons · CC0'],
 'menekse':['Viola tricolor0.jpg','Viola tricolor · CC BY-SA 3.0'],
+'okaliptus':['Eucalyptus globulus - Swedish Museum of Natural History - Stockholm, Sweden - DSC00704.JPG','Temsilî tür: Eucalyptus globulus · CC0'],
 'cam-yapragi':['Pinus sylvestris.1.jpg','Temsilî tür: Pinus sylvestris · CC0'],
-'akcaagac-yapragi':['20181109Acer platanoides4.jpg','Temsilî tür: Acer platanoides · CC0']
+'akcaagac-yapragi':['20181109Acer platanoides4.jpg','Temsilî tür: Acer platanoides · CC0'],
+'armut-ekstresi':['20110816Pyrus communis.jpg','Temsilî tür: Pyrus communis · CC0']
 };
 const enc=s=>encodeURIComponent(s).replace(/%2F/g,'/');
 const visual=plant=>{const p=files[plant.id];if(!p)return `<div class="botanical-card-visual">${window.VetWelBotanical.visual(plant.visual)}</div>`;const page=`https://commons.wikimedia.org/wiki/File:${enc(p[0].replace(/ /g,'_'))}`;const src=`https://commons.wikimedia.org/wiki/Special:FilePath/${enc(p[0])}?width=900`;return `<div class="botanical-card-visual has-photo"><img loading="lazy" decoding="async" src="${src}" alt="${plant.name} (${plant.latin}) gerçek botanik fotoğrafı" onerror="this.parentElement.classList.remove('has-photo');this.parentElement.innerHTML=window.VetWelBotanical.visual('${plant.visual}')"><a class="botanical-photo-credit" href="${page}" target="_blank" rel="noopener noreferrer">${p[1]} · Wikimedia Commons</a></div>`};

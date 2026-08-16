@@ -321,3 +321,30 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addUrinarySeoArticle, {once:true});
   else addUrinarySeoArticle();
 })();
+
+// Feature the second symptom-led SEO article in the Turkish Information Center.
+(() => {
+  const addVomitingSeoArticle = () => {
+    if (document.documentElement.lang === 'en') return;
+    if (!window.location.pathname.endsWith('/education.html')) return;
+    const list = document.querySelector('#education-latest .education-small-content');
+    if (!list || document.querySelector('#cat-vomiting-seo-card')) return;
+
+    const card = document.createElement('article');
+    card.className = 'education-content-card';
+    card.id = 'cat-vomiting-seo-card';
+    card.innerHTML = `
+      <span>Sindirim sistemi • Belirti rehberi</span>
+      <h3>Kedim kusuyor: Neden olabilir?</h3>
+      <p>Tüy yumağından sistemik hastalıklara kadar olası nedenleri, hangi belirtilerin veteriner değerlendirmesi gerektirdiğini ve LactoWel ile Malt Paste'in farklı rollerini öğrenin.</p>
+      <a href="kedim-kusuyor-neden.html" style="display:inline-block;margin-top:16px;padding:12px 18px;background:#0b2447;color:#fff;border-radius:999px;text-decoration:none;font-weight:700;">Makaleyi Oku →</a>
+    `;
+
+    const urinary = document.querySelector('#cat-urinary-seo-card');
+    if (urinary && urinary.parentNode === list) urinary.after(card);
+    else list.prepend(card);
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addVomitingSeoArticle, {once:true});
+  else addVomitingSeoArticle();
+})();

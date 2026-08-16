@@ -138,11 +138,72 @@
       }
     }
 
-    // Strengthen crawl paths from the Turkish homepage to high-value informational pages.
+    // Strengthen crawl paths and the conversion hierarchy on the Turkish homepage.
     if (isTurkishRoot) {
       const actions = document.querySelector('.education-actions');
       ensureActionLink(actions, 'saglik-makaleleri.html', 'Sağlık Makaleleri');
       ensureActionLink(actions, 'uzman-hakkinda.html', 'Uzman Profili');
+
+      // Make the veterinary-only channel immediately clear in the first screen.
+      const homepageDescription = 'VetWel®, kedi ve köpeklerin farklı sağlık ihtiyaçları için veteriner hekimlik yaklaşımıyla geliştirilen bilim temelli sağlık ve beslenme çözümlerini yalnızca veteriner klinikleri aracılığıyla sunar.';
+      ensureMeta('description', homepageDescription);
+      ensureProperty('og:description', homepageDescription);
+
+      const heroEyebrow = document.querySelector('.hero .eyebrow');
+      if (heroEyebrow) heroEyebrow.textContent = 'Veteriner Uzmanlığı • Yalnızca Veteriner Kanalında';
+
+      const heroTitle = document.querySelector('.hero h1');
+      if (heroTitle) heroTitle.innerHTML = 'Veteriner hekimlik yaklaşımıyla geliştirilen <span>bilim temelli sağlık çözümleri.</span>';
+
+      const heroDescription = document.querySelector('.hero-description');
+      if (heroDescription) {
+        heroDescription.textContent = 'VetWel®, kedi ve köpeklerin farklı sağlık ihtiyaçları için geliştirilen sağlık ve beslenme çözümlerini yalnızca veteriner klinikleri aracılığıyla sunar. Ürün seçimi ve kullanım planı için veteriner hekiminize danışın.';
+      }
+
+      const heroSecondary = document.querySelector('.hero-actions .button-secondary');
+      if (heroSecondary) {
+        heroSecondary.href = 'klinik-bul.html';
+        heroSecondary.innerHTML = 'Klinik Bul <span aria-hidden="true">→</span>';
+      }
+
+      const heroProofItems = document.querySelectorAll('.hero-proof > div');
+      if (heroProofItems.length >= 3) {
+        heroProofItems[2].innerHTML = '<strong>Veteriner Kanalı</strong><span>Kliniklerde Sunulur</span>';
+      }
+
+      // Turn Clinic Finder into the primary navigation CTA while keeping Contact available.
+      const navigation = document.querySelector('.primary-navigation');
+      const contactLink = navigation?.querySelector('a[href="#iletisim"]');
+      let clinicLink = navigation?.querySelector('a[href="klinik-bul.html"]');
+      if (navigation && !clinicLink) {
+        clinicLink = document.createElement('a');
+        clinicLink.href = 'klinik-bul.html';
+        navigation.insertBefore(clinicLink, contactLink || null);
+      }
+      if (clinicLink) {
+        clinicLink.textContent = 'Klinik Bul';
+        clinicLink.classList.add('nav-cta');
+      }
+      if (contactLink) contactLink.classList.remove('nav-cta');
+
+      // Make the purchase FAQ actionable instead of purely informational.
+      const purchaseFaqButton = [...document.querySelectorAll('.accordion-button')].find(
+        (button) => button.textContent.includes('VetWel ürünlerini nereden satın alabilirim?')
+      );
+      const purchaseFaqText = purchaseFaqButton?.nextElementSibling?.querySelector('p');
+      if (purchaseFaqText) {
+        purchaseFaqText.innerHTML = 'VetWel® ürünleri yalnızca veteriner kliniklerinde satılmaktadır. Size yakın VetWel ürünlerinin bulunduğu veteriner kliniklerini <a href="klinik-bul.html"><strong>Klinik Bulucu</strong></a> üzerinden şehir, ilçe veya klinik adına göre görüntüleyebilirsiniz.';
+      }
+
+      // Add a persistent footer path to the clinic finder.
+      const footerColumns = [...document.querySelectorAll('.footer-column')];
+      const corporateColumn = footerColumns.find((column) => column.querySelector('h3')?.textContent.trim() === 'Kurumsal');
+      if (corporateColumn && !corporateColumn.querySelector('a[href="klinik-bul.html"]')) {
+        const footerClinicLink = document.createElement('a');
+        footerClinicLink.href = 'klinik-bul.html';
+        footerClinicLink.textContent = 'Klinik Bul';
+        corporateColumn.appendChild(footerClinicLink);
+      }
 
       document.querySelectorAll('a[href="https://www.vetwel.us"],a[href="https://www.vetwel.us/"]').forEach((link) => {
         link.href = 'https://vetwel.us/';

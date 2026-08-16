@@ -430,3 +430,14 @@ document.addEventListener("DOMContentLoaded", () => {
   s.onerror = () => console.warn('VetWel clinic-finder visual layer could not be loaded.');
   document.head.appendChild(s);
 })();
+
+// Load the search-authority layer on pages that already use the shared site script.
+(() => {
+  if (document.querySelector('script[data-vetwel-seo-authority]')) return;
+  const s = document.createElement('script');
+  s.dataset.vetwelSeoAuthority = '1';
+  s.src = document.documentElement.lang === 'en' ? '../seo-authority.js' : 'seo-authority.js';
+  s.defer = true;
+  s.onerror = () => console.warn('VetWel SEO authority layer could not be loaded.');
+  document.head.appendChild(s);
+})();

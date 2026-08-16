@@ -297,3 +297,27 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', arrangeProductPairs, {once:true});
   else arrangeProductPairs();
 })();
+
+// Feature the first symptom-led SEO article in the Turkish Information Center.
+(() => {
+  const addUrinarySeoArticle = () => {
+    if (document.documentElement.lang === 'en') return;
+    if (!window.location.pathname.endsWith('/education.html')) return;
+    const list = document.querySelector('#education-latest .education-small-content');
+    if (!list || document.querySelector('#cat-urinary-seo-card')) return;
+
+    const card = document.createElement('article');
+    card.className = 'education-content-card';
+    card.id = 'cat-urinary-seo-card';
+    card.innerHTML = `
+      <span>Üriner sistem • Acil rehber</span>
+      <h3>Kedim idrar yapamıyor: Ne yapmalıyım?</h3>
+      <p>Kum kabına sık gidiyor ama idrar çıkaramıyorsa hangi belirtilerin acil olduğunu ve ne zaman veteriner hekime başvurmanız gerektiğini öğrenin.</p>
+      <a href="kedi-idrar-yapamiyor.html" style="display:inline-block;margin-top:16px;padding:12px 18px;background:#0b2447;color:#fff;border-radius:999px;text-decoration:none;font-weight:700;">Makaleyi Oku →</a>
+    `;
+    list.prepend(card);
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addUrinarySeoArticle, {once:true});
+  else addUrinarySeoArticle();
+})();

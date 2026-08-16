@@ -32,6 +32,16 @@
       node.content = content;
     };
 
+    const ensureProperty = (property, content) => {
+      let node = document.head.querySelector(`meta[property="${property}"]`);
+      if (!node) {
+        node = document.createElement('meta');
+        node.setAttribute('property', property);
+        document.head.appendChild(node);
+      }
+      node.content = content;
+    };
+
     // Do not restrict snippets or image previews in search/AI discovery surfaces.
     ensureMeta('robots', 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1');
 
@@ -40,6 +50,7 @@
       ensureLink('alternate', 'https://vetwel.us/', 'tr');
       ensureLink('alternate', 'https://vetwel.us/en/', 'en');
       ensureLink('alternate', 'https://vetwel.us/', 'x-default');
+      ensureProperty('og:url', 'https://vetwel.us/');
     }
 
     if (isEnglishRoot) {
@@ -47,6 +58,7 @@
       ensureLink('alternate', 'https://vetwel.us/', 'tr');
       ensureLink('alternate', 'https://vetwel.us/en/', 'en');
       ensureLink('alternate', 'https://vetwel.us/', 'x-default');
+      ensureProperty('og:url', 'https://vetwel.us/en/');
     }
 
     if (isTurkishRoot || isEnglishRoot) {
@@ -112,6 +124,11 @@
         health.textContent = 'Sağlık Makaleleri';
         actions.appendChild(health);
       }
+
+      document.querySelectorAll('a[href="https://www.vetwel.us"],a[href="https://www.vetwel.us/"]').forEach((link) => {
+        link.href = 'https://vetwel.us/';
+        if (link.textContent.includes('www.vetwel.us')) link.textContent = link.textContent.replace('www.vetwel.us', 'vetwel.us');
+      });
     }
   };
 

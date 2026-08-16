@@ -36,17 +36,17 @@
     ensureMeta('robots', 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1');
 
     if (isTurkishRoot) {
-      ensureLink('canonical', 'https://www.vetwel.us/');
-      ensureLink('alternate', 'https://www.vetwel.us/', 'tr');
-      ensureLink('alternate', 'https://www.vetwel.us/en/', 'en');
-      ensureLink('alternate', 'https://www.vetwel.us/', 'x-default');
+      ensureLink('canonical', 'https://vetwel.us/');
+      ensureLink('alternate', 'https://vetwel.us/', 'tr');
+      ensureLink('alternate', 'https://vetwel.us/en/', 'en');
+      ensureLink('alternate', 'https://vetwel.us/', 'x-default');
     }
 
     if (isEnglishRoot) {
-      ensureLink('canonical', 'https://www.vetwel.us/en/');
-      ensureLink('alternate', 'https://www.vetwel.us/', 'tr');
-      ensureLink('alternate', 'https://www.vetwel.us/en/', 'en');
-      ensureLink('alternate', 'https://www.vetwel.us/', 'x-default');
+      ensureLink('canonical', 'https://vetwel.us/en/');
+      ensureLink('alternate', 'https://vetwel.us/', 'tr');
+      ensureLink('alternate', 'https://vetwel.us/en/', 'en');
+      ensureLink('alternate', 'https://vetwel.us/', 'x-default');
     }
 
     if (isTurkishRoot || isEnglishRoot) {
@@ -59,30 +59,30 @@
           '@graph': [
             {
               '@type': 'Organization',
-              '@id': 'https://www.vetwel.us/#organization',
+              '@id': 'https://vetwel.us/#organization',
               name: 'VetWel',
               alternateName: 'VetWel Veterinary Wellness',
-              url: 'https://www.vetwel.us/',
+              url: 'https://vetwel.us/',
               email: 'info@vetwel.us',
-              founder: { '@id': 'https://www.vetwel.us/uzman-hakkinda.html#person' }
+              founder: { '@id': 'https://vetwel.us/uzman-hakkinda.html#person' }
             },
             {
               '@type': 'WebSite',
-              '@id': 'https://www.vetwel.us/#website',
-              url: 'https://www.vetwel.us/',
+              '@id': 'https://vetwel.us/#website',
+              url: 'https://vetwel.us/',
               name: 'VetWel',
-              publisher: { '@id': 'https://www.vetwel.us/#organization' },
+              publisher: { '@id': 'https://vetwel.us/#organization' },
               inLanguage: lang === 'en' ? ['en-US', 'tr-TR'] : ['tr-TR', 'en-US']
             },
             {
               '@type': 'Person',
-              '@id': 'https://www.vetwel.us/uzman-hakkinda.html#person',
+              '@id': 'https://vetwel.us/uzman-hakkinda.html#person',
               name: 'Nazif Oben Akşemsettinoğlu',
               honorificPrefix: 'Veteriner Hekimi',
-              url: 'https://www.vetwel.us/uzman-hakkinda.html',
-              image: 'https://www.vetwel.us/assets/images/dr-oben-avatar.png',
+              url: 'https://vetwel.us/uzman-hakkinda.html',
+              image: 'https://vetwel.us/assets/images/dr-oben-avatar.png',
               jobTitle: 'VetWel Kurucusu • Fitoterapi & Wellness Danışmanı',
-              affiliation: { '@id': 'https://www.vetwel.us/#organization' },
+              affiliation: { '@id': 'https://vetwel.us/#organization' },
               alumniOf: {
                 '@type': 'CollegeOrUniversity',
                 name: 'İstanbul Üniversitesi Veteriner Fakültesi'

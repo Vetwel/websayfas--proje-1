@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# OpenAI Search crawler — explicitly allowed so VetWel content can be discovered,
+# summarized, cited and linked in ChatGPT Search when relevant.
+User-agent: OAI-SearchBot
+Allow: /
+
 Sitemap: https://www.vetwel.us/sitemap.xml

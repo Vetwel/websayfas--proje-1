@@ -348,3 +348,13 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addVomitingSeoArticle, {once:true});
   else addVomitingSeoArticle();
 })();
+
+// Load the shared search-authority layer on both Turkish and English homepages.
+(() => {
+  if (document.querySelector('script[data-vetwel-seo-authority]')) return;
+  const s = document.createElement('script');
+  s.dataset.vetwelSeoAuthority = '1';
+  s.src = document.documentElement.lang === 'en' ? '../seo-authority.js' : 'seo-authority.js';
+  s.defer = true;
+  document.head.appendChild(s);
+})();

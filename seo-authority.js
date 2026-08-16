@@ -42,7 +42,16 @@
       node.content = content;
     };
 
-    // Do not restrict snippets or image previews in search/AI discovery surfaces.
+    const ensureActionLink = (container, href, text, className = 'button button-light') => {
+      if (!container || container.querySelector(`a[href="${href}"]`)) return;
+      const link = document.createElement('a');
+      link.className = className;
+      link.href = href;
+      link.textContent = text;
+      container.appendChild(link);
+    };
+
+    // Keep all public pages eligible for rich snippets and large previews.
     ensureMeta('robots', 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1');
 
     if (isTurkishRoot) {
@@ -76,7 +85,15 @@
               alternateName: 'VetWel Veterinary Wellness',
               url: 'https://vetwel.us/',
               email: 'info@vetwel.us',
-              founder: { '@id': 'https://vetwel.us/uzman-hakkinda.html#person' }
+              founder: { '@id': 'https://vetwel.us/uzman-hakkinda.html#person' },
+              publishingPrinciples: 'https://vetwel.us/editorial-policy.html',
+              knowsAbout: [
+                'Kedi ve köpek sağlığı',
+                'Veteriner destek ürünleri',
+                'Klinik beslenme',
+                'Fitoterapi',
+                'Tamamlayıcı beslenme'
+              ]
             },
             {
               '@type': 'WebSite',
@@ -84,7 +101,12 @@
               url: 'https://vetwel.us/',
               name: 'VetWel',
               publisher: { '@id': 'https://vetwel.us/#organization' },
-              inLanguage: lang === 'en' ? ['en-US', 'tr-TR'] : ['tr-TR', 'en-US']
+              inLanguage: lang === 'en' ? ['en-US', 'tr-TR'] : ['tr-TR', 'en-US'],
+              hasPart: [
+                { '@type': 'CollectionPage', '@id': 'https://vetwel.us/saglik-makaleleri.html#collection', url: 'https://vetwel.us/saglik-makaleleri.html', name: 'VetWel Sağlık Makaleleri' },
+                { '@type': 'WebPage', url: 'https://vetwel.us/education.html', name: 'VetWel Bilgi Merkezi' },
+                { '@type': 'ProfilePage', url: 'https://vetwel.us/uzman-hakkinda.html', name: 'VetWel Uzman Profili' }
+              ]
             },
             {
               '@type': 'Person',
@@ -114,16 +136,11 @@
       }
     }
 
-    // Strengthen the crawl path from the Turkish homepage to the health-content hub.
+    // Strengthen crawl paths from the Turkish homepage to high-value informational pages.
     if (isTurkishRoot) {
       const actions = document.querySelector('.education-actions');
-      if (actions && !actions.querySelector('a[href="saglik-makaleleri.html"]')) {
-        const health = document.createElement('a');
-        health.className = 'button button-light';
-        health.href = 'saglik-makaleleri.html';
-        health.textContent = 'Sağlık Makaleleri';
-        actions.appendChild(health);
-      }
+      ensureActionLink(actions, 'saglik-makaleleri.html', 'Sağlık Makaleleri');
+      ensureActionLink(actions, 'uzman-hakkinda.html', 'Uzman Profili');
 
       document.querySelectorAll('a[href="https://www.vetwel.us"],a[href="https://www.vetwel.us/"]').forEach((link) => {
         link.href = 'https://vetwel.us/';

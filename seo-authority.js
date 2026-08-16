@@ -51,7 +51,7 @@
       container.appendChild(link);
     };
 
-    // Keep all public pages eligible for rich snippets and large previews.
+    // Keep public pages eligible for rich snippets and large previews.
     ensureMeta('robots', 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1');
 
     if (isTurkishRoot) {
@@ -60,14 +60,16 @@
       ensureLink('alternate', 'https://vetwel.us/en/', 'en');
       ensureLink('alternate', 'https://vetwel.us/', 'x-default');
       ensureProperty('og:url', 'https://vetwel.us/');
-    }
-
-    if (isEnglishRoot) {
+    } else if (isEnglishRoot) {
       ensureLink('canonical', 'https://vetwel.us/en/');
       ensureLink('alternate', 'https://vetwel.us/', 'tr');
       ensureLink('alternate', 'https://vetwel.us/en/', 'en');
       ensureLink('alternate', 'https://vetwel.us/', 'x-default');
       ensureProperty('og:url', 'https://vetwel.us/en/');
+    } else {
+      const canonicalUrl = `https://vetwel.us${pathname}`;
+      ensureLink('canonical', canonicalUrl);
+      ensureProperty('og:url', canonicalUrl);
     }
 
     if (isTurkishRoot || isEnglishRoot) {

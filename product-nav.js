@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="index.html#urunler">Ürünler</a>
         <a href="education.html">Bilgi Merkezi</a>
         <a href="botanik-rehberi.html">Botanik Rehberi</a>
-        <a href="klinik-bul.html">Nereden Alınır?</a>
-        <a class="product-site-clinic" href="index.html#iletisim">İletişim</a>
+        <a class="product-site-clinic" href="klinik-bul.html">Klinik Bul</a>
+        <a href="index.html#iletisim">İletişim</a>
       </nav>
     </div>`;
   document.body.insertBefore(header, productPage);
@@ -74,14 +74,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const exitNav = document.createElement("section");
   exitNav.className = "product-exit-nav";
-  exitNav.setAttribute("aria-label", "VetWel navigasyon seçenekleri");
+  exitNav.setAttribute("aria-label", "Ürün ve klinik seçenekleri");
   exitNav.innerHTML = `
-    <h2>VetWel'de keşfetmeye devam edin</h2>
-    <p>Diğer ürünleri, Botanik Rehberi'ni ve Bilgi Merkezi'ni inceleyebilir veya VetWel ürünlerinin bulunduğu veteriner kliniklerini doğrudan bulabilirsiniz.</p>
+    <h2>Bu ürün evcil hayvanınız için uygun mu?</h2>
+    <p><strong>Veterinerinize VetWel®’i sorun.</strong> VetWel® ürünleri yalnızca veteriner kliniklerinde sunulur. Ürün seçimi ve kullanım planı için veteriner hekiminize danışın; ardından size en yakın VetWel kliniğini bulun.</p>
     <div class="product-exit-actions">
-      <a class="product-exit-primary" href="index.html#urunler">Tüm Ürünleri Gör</a>
+      <a class="product-exit-primary" href="klinik-bul.html">Klinik Bul</a>
+      <a class="product-exit-secondary" href="index.html#urunler">Tüm Ürünleri Gör</a>
       <a class="product-exit-secondary" href="botanik-rehberi.html">Botanik Rehberi</a>
-      <a class="product-exit-secondary" href="klinik-bul.html">Nereden Alınır?</a>
       <a class="product-exit-secondary" href="education.html">Bilgi Merkezine Git</a>
     </div>`;
   productContainer.appendChild(exitNav);

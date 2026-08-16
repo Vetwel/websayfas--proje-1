@@ -1,0 +1,120 @@
+// VetWel search-authority layer.
+// Adds machine-readable entity signals and stronger internal discovery links
+// without changing the site's existing product or clinical content.
+(() => {
+  const run = () => {
+    const lang = document.documentElement.lang === 'en' ? 'en' : 'tr';
+    const pathname = window.location.pathname;
+    const isRoot = pathname === '/' || pathname.endsWith('/index.html');
+    const isEnglishRoot = lang === 'en' && (pathname.endsWith('/en/') || pathname.endsWith('/en/index.html'));
+    const isTurkishRoot = lang === 'tr' && isRoot;
+
+    const ensureLink = (rel, href, hreflang) => {
+      let selector = `link[rel="${rel}"]`;
+      if (hreflang) selector += `[hreflang="${hreflang}"]`;
+      let node = document.head.querySelector(selector);
+      if (!node) {
+        node = document.createElement('link');
+        node.rel = rel;
+        if (hreflang) node.hreflang = hreflang;
+        document.head.appendChild(node);
+      }
+      node.href = href;
+    };
+
+    const ensureMeta = (name, content) => {
+      let node = document.head.querySelector(`meta[name="${name}"]`);
+      if (!node) {
+        node = document.createElement('meta');
+        node.name = name;
+        document.head.appendChild(node);
+      }
+      node.content = content;
+    };
+
+    // Do not restrict snippets or image previews in search/AI discovery surfaces.
+    ensureMeta('robots', 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1');
+
+    if (isTurkishRoot) {
+      ensureLink('canonical', 'https://www.vetwel.us/');
+      ensureLink('alternate', 'https://www.vetwel.us/', 'tr');
+      ensureLink('alternate', 'https://www.vetwel.us/en/', 'en');
+      ensureLink('alternate', 'https://www.vetwel.us/', 'x-default');
+    }
+
+    if (isEnglishRoot) {
+      ensureLink('canonical', 'https://www.vetwel.us/en/');
+      ensureLink('alternate', 'https://www.vetwel.us/', 'tr');
+      ensureLink('alternate', 'https://www.vetwel.us/en/', 'en');
+      ensureLink('alternate', 'https://www.vetwel.us/', 'x-default');
+    }
+
+    if (isTurkishRoot || isEnglishRoot) {
+      if (!document.querySelector('#vetwel-entity-schema')) {
+        const schema = document.createElement('script');
+        schema.id = 'vetwel-entity-schema';
+        schema.type = 'application/ld+json';
+        schema.textContent = JSON.stringify({
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'Organization',
+              '@id': 'https://www.vetwel.us/#organization',
+              name: 'VetWel',
+              alternateName: 'VetWel Veterinary Wellness',
+              url: 'https://www.vetwel.us/',
+              email: 'info@vetwel.us',
+              founder: { '@id': 'https://www.vetwel.us/uzman-hakkinda.html#person' }
+            },
+            {
+              '@type': 'WebSite',
+              '@id': 'https://www.vetwel.us/#website',
+              url: 'https://www.vetwel.us/',
+              name: 'VetWel',
+              publisher: { '@id': 'https://www.vetwel.us/#organization' },
+              inLanguage: lang === 'en' ? ['en-US', 'tr-TR'] : ['tr-TR', 'en-US']
+            },
+            {
+              '@type': 'Person',
+              '@id': 'https://www.vetwel.us/uzman-hakkinda.html#person',
+              name: 'Nazif Oben Akşemsettinoğlu',
+              honorificPrefix: 'Veteriner Hekimi',
+              url: 'https://www.vetwel.us/uzman-hakkinda.html',
+              image: 'https://www.vetwel.us/assets/images/dr-oben-avatar.png',
+              jobTitle: 'VetWel Kurucusu • Fitoterapi & Wellness Danışmanı',
+              affiliation: { '@id': 'https://www.vetwel.us/#organization' },
+              alumniOf: {
+                '@type': 'CollegeOrUniversity',
+                name: 'İstanbul Üniversitesi Veteriner Fakültesi'
+              },
+              knowsAbout: [
+                'Kedi ve köpek sağlığı',
+                'Koruyucu hekimlik',
+                'Klinik beslenme',
+                'Fitoterapi',
+                'Tamamlayıcı beslenme',
+                'Pet supplementleri'
+              ]
+            }
+          ]
+        });
+        document.head.appendChild(schema);
+      }
+    }
+
+    // Strengthen the crawl path from the Turkish homepage to the health-content hub.
+    if (isTurkishRoot) {
+      const actions = document.querySelector('.education-actions');
+      if (actions && !actions.querySelector('a[href="saglik-makaleleri.html"]')) {
+        const health = document.createElement('a');
+        health.className = 'button button-light';
+        health.href = 'saglik-makaleleri.html';
+        health.textContent = 'Sağlık Makaleleri';
+        actions.appendChild(health);
+      }
+    }
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
+})();

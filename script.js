@@ -372,13 +372,19 @@ document.addEventListener("DOMContentLoaded", () => {
   categoryGrid.appendChild(card);
 });
 
-// English-site navigation: expose Botanical Guide and U.S. purchase channels without Turkish clinic data.
+// English-site navigation: expose U.S. health articles, Botanical Guide and purchase channels without Turkish clinic data.
 document.addEventListener("DOMContentLoaded", () => {
   if (document.documentElement.lang !== "en") return;
   const nav = document.querySelector(".primary-navigation");
   if (nav) {
     const contact = nav.querySelector('a[href="#contact"]');
     const tr = nav.querySelector('a[href="../index.html"]');
+    if (!nav.querySelector('a[href="health-articles.html"]')) {
+      const health = document.createElement("a");
+      health.href = "health-articles.html";
+      health.textContent = "Health Articles";
+      nav.insertBefore(health, contact || tr || null);
+    }
     if (!nav.querySelector('a[href="botanical-guide.html"]')) {
       const botanical = document.createElement("a");
       botanical.href = "botanical-guide.html";
@@ -394,6 +400,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const educationActions = document.querySelector(".education-actions");
+  if (educationActions && !educationActions.querySelector('a[href="health-articles.html"]')) {
+    const health = document.createElement("a");
+    health.className = "button button-light";
+    health.href = "health-articles.html";
+    health.textContent = "U.S. Health Articles";
+    educationActions.appendChild(health);
+  }
   if (educationActions && !educationActions.querySelector('a[href="botanical-guide.html"]')) {
     const botanical = document.createElement("a");
     botanical.className = "button button-light";

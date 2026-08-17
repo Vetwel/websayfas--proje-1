@@ -73,6 +73,20 @@
     }
 
     if (isTurkishRoot || isEnglishRoot) {
+      const expertUrl = isEnglishRoot
+        ? 'https://vetwel.us/en/about-expert.html'
+        : 'https://vetwel.us/uzman-hakkinda.html';
+      const expertId = `${expertUrl}#person`;
+      const educationUrl = isEnglishRoot
+        ? 'https://vetwel.us/en/education.html'
+        : 'https://vetwel.us/education.html';
+      const healthHubUrl = isEnglishRoot
+        ? 'https://vetwel.us/en/health-articles.html'
+        : 'https://vetwel.us/saglik-makaleleri.html';
+      const editorialUrl = isEnglishRoot
+        ? 'https://vetwel.us/en/editorial-policy.html'
+        : 'https://vetwel.us/editorial-policy.html';
+
       if (!document.querySelector('#vetwel-entity-schema')) {
         const schema = document.createElement('script');
         schema.id = 'vetwel-entity-schema';
@@ -87,9 +101,15 @@
               alternateName: 'VetWel Veterinary Wellness',
               url: 'https://vetwel.us/',
               email: 'info@vetwel.us',
-              founder: { '@id': 'https://vetwel.us/uzman-hakkinda.html#person' },
-              publishingPrinciples: 'https://vetwel.us/editorial-policy.html',
-              knowsAbout: [
+              founder: { '@id': expertId },
+              publishingPrinciples: editorialUrl,
+              knowsAbout: isEnglishRoot ? [
+                'Cat and dog health',
+                'Veterinary wellness supplements',
+                'Clinical nutrition',
+                'Phytotherapy',
+                'Complementary nutrition'
+              ] : [
                 'Kedi ve köpek sağlığı',
                 'Veteriner destek ürünleri',
                 'Klinik beslenme',
@@ -105,25 +125,35 @@
               publisher: { '@id': 'https://vetwel.us/#organization' },
               inLanguage: lang === 'en' ? ['en-US', 'tr-TR'] : ['tr-TR', 'en-US'],
               hasPart: [
-                { '@type': 'CollectionPage', '@id': 'https://vetwel.us/saglik-makaleleri.html#collection', url: 'https://vetwel.us/saglik-makaleleri.html', name: 'VetWel Sağlık Makaleleri' },
-                { '@type': 'WebPage', url: 'https://vetwel.us/education.html', name: 'VetWel Bilgi Merkezi' },
-                { '@type': 'ProfilePage', url: 'https://vetwel.us/uzman-hakkinda.html', name: 'VetWel Uzman Profili' }
+                { '@type': 'CollectionPage', url: healthHubUrl, name: isEnglishRoot ? 'VetWel U.S. Pet Health Articles' : 'VetWel Sağlık Makaleleri' },
+                { '@type': 'WebPage', url: educationUrl, name: isEnglishRoot ? 'VetWel Education Center' : 'VetWel Bilgi Merkezi' },
+                { '@type': 'ProfilePage', url: expertUrl, name: isEnglishRoot ? 'VetWel Expert Profile' : 'VetWel Uzman Profili' },
+                { '@type': 'WebPage', url: editorialUrl, name: isEnglishRoot ? 'VetWel Editorial Policy' : 'VetWel Editoryal İlkeleri' }
               ]
             },
             {
               '@type': 'Person',
-              '@id': 'https://vetwel.us/uzman-hakkinda.html#person',
+              '@id': expertId,
               name: 'Nazif Oben Akşemsettinoğlu',
-              honorificPrefix: 'Veteriner Hekimi',
-              url: 'https://vetwel.us/uzman-hakkinda.html',
+              honorificPrefix: isEnglishRoot ? 'Veterinarian' : 'Veteriner Hekimi',
+              url: expertUrl,
               image: 'https://vetwel.us/assets/images/dr-oben-avatar.png',
-              jobTitle: 'VetWel Kurucusu • Fitoterapi & Wellness Danışmanı',
+              jobTitle: isEnglishRoot
+                ? 'VetWel Founder • Phytotherapy & Wellness Consultant'
+                : 'VetWel Kurucusu • Fitoterapi & Wellness Danışmanı',
               affiliation: { '@id': 'https://vetwel.us/#organization' },
               alumniOf: {
                 '@type': 'CollegeOrUniversity',
-                name: 'İstanbul Üniversitesi Veteriner Fakültesi'
+                name: 'Istanbul University Faculty of Veterinary Medicine'
               },
-              knowsAbout: [
+              knowsAbout: isEnglishRoot ? [
+                'Companion-animal health',
+                'Preventive veterinary medicine',
+                'Clinical nutrition',
+                'Phytotherapy',
+                'Complementary nutrition',
+                'Pet nutritional supplements'
+              ] : [
                 'Kedi ve köpek sağlığı',
                 'Koruyucu hekimlik',
                 'Klinik beslenme',
@@ -144,7 +174,6 @@
       ensureActionLink(actions, 'saglik-makaleleri.html', 'Sağlık Makaleleri');
       ensureActionLink(actions, 'uzman-hakkinda.html', 'Uzman Profili');
 
-      // Make the veterinary-only channel immediately clear in the first screen.
       const homepageDescription = 'VetWel®, kedi ve köpeklerin farklı sağlık ihtiyaçları için veteriner hekimlik yaklaşımıyla geliştirilen bilim temelli sağlık ve beslenme çözümlerini yalnızca veteriner klinikleri aracılığıyla sunar.';
       ensureMeta('description', homepageDescription);
       ensureProperty('og:description', homepageDescription);
@@ -171,7 +200,6 @@
         heroProofItems[2].innerHTML = '<strong>Veteriner Kanalı</strong><span>Kliniklerde Sunulur</span>';
       }
 
-      // Turn Clinic Finder into the primary navigation CTA while keeping Contact available.
       const navigation = document.querySelector('.primary-navigation');
       const contactLink = navigation?.querySelector('a[href="#iletisim"]');
       let clinicLink = navigation?.querySelector('a[href="klinik-bul.html"]');
@@ -186,7 +214,6 @@
       }
       if (contactLink) contactLink.classList.remove('nav-cta');
 
-      // Make the purchase FAQ actionable instead of purely informational.
       const purchaseFaqButton = [...document.querySelectorAll('.accordion-button')].find(
         (button) => button.textContent.includes('VetWel ürünlerini nereden satın alabilirim?')
       );
@@ -195,7 +222,6 @@
         purchaseFaqText.innerHTML = 'VetWel® ürünleri yalnızca veteriner kliniklerinde satılmaktadır. Size yakın VetWel ürünlerinin bulunduğu veteriner kliniklerini <a href="klinik-bul.html"><strong>Klinik Bulucu</strong></a> üzerinden şehir, ilçe veya klinik adına göre görüntüleyebilirsiniz.';
       }
 
-      // Add a persistent footer path to the clinic finder.
       const footerColumns = [...document.querySelectorAll('.footer-column')];
       const corporateColumn = footerColumns.find((column) => column.querySelector('h3')?.textContent.trim() === 'Kurumsal');
       if (corporateColumn && !corporateColumn.querySelector('a[href="klinik-bul.html"]')) {
@@ -209,6 +235,83 @@
         link.href = 'https://vetwel.us/';
         if (link.textContent.includes('www.vetwel.us')) link.textContent = link.textContent.replace('www.vetwel.us', 'vetwel.us');
       });
+    }
+
+    // Give the U.S. homepage the same authority, information and conversion hierarchy,
+    // adapted to U.S. availability rather than the Turkish veterinary-clinic directory.
+    if (isEnglishRoot) {
+      const homepageDescription = 'VetWel® develops science-based veterinary wellness and nutritional support solutions for cats and dogs, with responsible product guidance, veterinary context, and U.S. availability information.';
+      ensureMeta('description', homepageDescription);
+      ensureProperty('og:description', homepageDescription);
+
+      const heroEyebrow = document.querySelector('.hero .eyebrow');
+      if (heroEyebrow) heroEyebrow.textContent = 'Veterinary Expertise • Science-Based Wellness';
+
+      const heroTitle = document.querySelector('.hero h1');
+      if (heroTitle) heroTitle.innerHTML = 'Veterinary wellness solutions built around <span>real health needs.</span>';
+
+      const heroDescription = document.querySelector('.hero-description');
+      if (heroDescription) {
+        heroDescription.textContent = 'VetWel® combines veterinary experience with modern nutrition and botanical formulation to support cats and dogs across kidney, urinary, liver, skin, digestive, cardiovascular, respiratory, oral, and behavioral wellness.';
+      }
+
+      const heroSecondary = document.querySelector('.hero-actions .button-secondary');
+      if (heroSecondary) {
+        heroSecondary.href = 'where-to-buy.html';
+        heroSecondary.innerHTML = 'Where to Buy <span aria-hidden="true">→</span>';
+      }
+
+      const heroProofItems = document.querySelectorAll('.hero-proof > div');
+      if (heroProofItems.length >= 3) {
+        heroProofItems[2].innerHTML = '<strong>Responsible Use</strong><span>Veterinary Guidance</span>';
+      }
+
+      const actions = document.querySelector('.education-actions');
+      ensureActionLink(actions, 'health-articles.html', 'Health Articles');
+      ensureActionLink(actions, 'about-expert.html', 'Expert Profile');
+      ensureActionLink(actions, 'editorial-policy.html', 'Editorial Policy');
+
+      const navigation = document.querySelector('.primary-navigation');
+      const contactLink = navigation?.querySelector('a[href="#contact"]');
+      let buyLink = navigation?.querySelector('a[href="where-to-buy.html"]');
+      if (navigation && !buyLink) {
+        buyLink = document.createElement('a');
+        buyLink.href = 'where-to-buy.html';
+        navigation.insertBefore(buyLink, contactLink || null);
+      }
+      if (buyLink) {
+        buyLink.textContent = 'Where to Buy';
+        buyLink.classList.add('nav-cta');
+      }
+      if (contactLink) contactLink.classList.remove('nav-cta');
+
+      const purchaseFaqButton = [...document.querySelectorAll('.accordion-button')].find(
+        (button) => button.textContent.includes('Where can I purchase VetWel products?')
+      );
+      const purchaseFaqText = purchaseFaqButton?.nextElementSibling?.querySelector('p');
+      if (purchaseFaqText) {
+        purchaseFaqText.innerHTML = 'For current U.S. availability, use the <a href="where-to-buy.html"><strong>Where to Buy</strong></a> page. Only verified VetWel purchasing channels are listed as they become available.';
+      }
+
+      const footerColumns = [...document.querySelectorAll('.footer-column')];
+      const companyColumn = footerColumns.find((column) => {
+        const title = column.querySelector('h3')?.textContent.trim().toLowerCase();
+        return title === 'company' || title === 'corporate';
+      });
+      if (companyColumn) {
+        const footerLinks = [
+          ['about-expert.html', 'Expert Profile'],
+          ['editorial-policy.html', 'Editorial Policy'],
+          ['where-to-buy.html', 'Where to Buy']
+        ];
+        footerLinks.forEach(([href, text]) => {
+          if (companyColumn.querySelector(`a[href="${href}"]`)) return;
+          const link = document.createElement('a');
+          link.href = href;
+          link.textContent = text;
+          companyColumn.appendChild(link);
+        });
+      }
     }
   };
 

@@ -1,1 +1,0 @@
-English health SEO strengthening pass: prioritize U.S. search intent, consistent non-www canonicals, Article/Breadcrumb schema, author identity, answer-first intros, descriptive internal links, and visible related-question sections. FAQ rich-result markup is intentionally not used because Google deprecated FAQ rich results in 2026.

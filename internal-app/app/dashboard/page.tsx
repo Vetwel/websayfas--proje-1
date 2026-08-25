@@ -2,6 +2,7 @@ import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import { isClerkConfigured } from "@/lib/internal-config";
 
 const modules = [
   {
@@ -31,6 +32,10 @@ const modules = [
 ];
 
 export default async function DashboardPage() {
+  if (!isClerkConfigured()) {
+    redirect("/setup");
+  }
+
   const { userId } = await auth();
   if (!userId) redirect("/sign-in");
 

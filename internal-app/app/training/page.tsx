@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import { isClerkConfigured } from "@/lib/internal-config";
 
 const products = [
   ["KidneyWel Tablet", "Renal sağlık desteği • tablet form"],
@@ -20,6 +21,10 @@ const products = [
 ];
 
 export default async function TrainingPage() {
+  if (!isClerkConfigured()) {
+    redirect("/setup");
+  }
+
   const { userId } = await auth();
   if (!userId) redirect("/sign-in");
 

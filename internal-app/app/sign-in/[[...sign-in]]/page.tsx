@@ -1,6 +1,12 @@
 import { SignIn } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
+import { isClerkConfigured } from "@/lib/internal-config";
 
 export default function SignInPage() {
+  if (!isClerkConfigured()) {
+    redirect("/setup");
+  }
+
   return (
     <main className="login-page">
       <section className="login-hero">
@@ -17,7 +23,7 @@ export default function SignInPage() {
           <h1>VetWel bilgisini öğren. Sahada daha güçlü ol.</h1>
           <p>
             Ürün eğitimi, veteriner görüşme hazırlığı, satış koçluğu ve çalışan
-            onboarding'i tek güvenli çalışma alanında.
+            onboarding&apos;i tek güvenli çalışma alanında.
           </p>
           <div className="login-points" aria-label="Platform özellikleri">
             <span>Ürün Eğitimi</span>

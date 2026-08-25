@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
+import { isClerkConfigured } from "@/lib/internal-config";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -12,12 +13,22 @@ export const metadata: Metadata = {
   },
 };
 
+function Document({ children }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="tr">
+      <body>{children}</body>
+    </html>
+  );
+}
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  if (!isClerkConfigured()) {
+    return <Document>{children}</Document>;
+  }
+
   return (
     <ClerkProvider>
-      <html lang="tr">
-        <body>{children}</body>
-      </html>
+      <Document>{children}</Document>
     </ClerkProvider>
   );
 }

@@ -1,8 +1,13 @@
 import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import { isClerkConfigured } from "@/lib/internal-config";
 
 export default async function CoachPage() {
+  if (!isClerkConfigured()) {
+    redirect("/setup");
+  }
+
   const { userId } = await auth();
   if (!userId) redirect("/sign-in");
 

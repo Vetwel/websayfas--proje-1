@@ -1,1 +1,1 @@
-Trigger deployment after setting Vercel Root Directory to internal-app.
+Trigger deployment after setting Vercel Root Directory to internal-app and Framework Preset to Next.js.

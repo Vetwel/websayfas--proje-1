@@ -1,6 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
+import { isClerkConfigured } from "@/lib/internal-config";
 
 export const runtime = "nodejs";
 
@@ -52,6 +53,13 @@ function cleanMessages(input: unknown): ClientMessage[] {
 }
 
 export async function POST(request: Request) {
+  if (!isClerkConfigured()) {
+    return NextResponse.json(
+      { error: "Çalışan giriş sistemi henüz yapılandırılmadı." },
+      { status: 503 },
+    );
+  }
+
   const { userId } = await auth();
   if (!userId) {
     return NextResponse.json({ error: "Oturum açmanız gerekiyor." }, { status: 401 });

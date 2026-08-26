@@ -2,7 +2,7 @@ import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import AskClient from "./AskClient";
-import { isClerkConfigured, isOpenAIConfigured } from "@/lib/internal-config";
+import { isClerkConfigured } from "@/lib/internal-config";
 
 export default async function AskPage() {
   if (!isClerkConfigured()) {
@@ -16,26 +16,18 @@ export default async function AskPage() {
     <main className="shell">
       <div className="page">
         <Link className="back-link" href="/dashboard">← Ana panele dön</Link>
-        <span className="eyebrow">VetWel Bilgi Asistanı</span>
+        <span className="eyebrow">VetWel Ekip Asistanı</span>
         <h1 className="module-title">AI&apos;a Sor</h1>
         <p className="module-subtitle">
-          VetWel&apos;in onaylı şirket içi bilgi tabanından ürün, form, doz, konumlandırma
-          ve klinikte kullanılabilecek kontrollü anlatım hakkında yanıt alın.
+          VetWel ürün eğitimi, saha hazırlığı ve doğrulanmış ürün bilgileri için şirket içi asistana sorun.
+          Bu sürüm Cloudflare Workers AI&apos;ın ücretsiz kotasını kullanır; OpenAI API faturası oluşturmaz.
         </p>
 
-        {!isOpenAIConfigured() ? (
-          <section className="placeholder">
-            <h2>AI bağlantısı hazırlanıyor</h2>
-            <p>
-              Çalışan girişi aktif, ancak OpenAI API anahtarı ve özel VetWel Vector Store
-              bağlantısı henüz tamamlanmadı. Bu iki secret eklendiğinde soru-cevap alanı
-              otomatik olarak açılacak.
-            </p>
-            <p className="placeholder-note">Bilgi tabanı public GitHub deposuna konulmamıştır.</p>
-          </section>
-        ) : (
-          <AskClient />
-        )}
+        <AskClient />
+
+        <p className="placeholder-note">
+          Günlük ücretsiz AI kotası dolarsa sistem ücret çıkarmak yerine o gün için AI yanıtını durdurur.
+        </p>
       </div>
     </main>
   );

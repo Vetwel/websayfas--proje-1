@@ -196,7 +196,11 @@ export default function QuizClient() {
       const response = await fetch("/api/progress", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action: "quiz_result", quiz: "basic", percent }),
+        body: JSON.stringify({
+          action: "quiz_result",
+          quiz: "basic",
+          answers: questions.map((_, index) => answers[index]),
+        }),
       });
       if (!response.ok) throw new Error("save failed");
       setSaveState("saved");
@@ -295,7 +299,7 @@ export default function QuizClient() {
             <span>{percent >= 80 ? "Geçti" : "Tekrar eğitim"}</span>
           </div>
           <p className={`quiz-save-state ${saveState === "error" ? "quiz-save-error" : ""}`}>
-            {saveState === "saving" ? "Sonuç hesabına kaydediliyor…" : saveState === "saved" ? "✓ Sonuç VetWel hesabına kaydedildi." : saveState === "error" ? "Sonuç kaydedilemedi; puanın ekranda geçerli ancak ilerleme kaydı için sınavı yeniden gönderebilirsin." : ""}
+            {saveState === "saving" ? "Sonuç sunucuda doğrulanıp hesabına kaydediliyor…" : saveState === "saved" ? "✓ Sonuç sunucuda doğrulandı ve VetWel hesabına kaydedildi." : saveState === "error" ? "Sonuç kaydedilemedi; puanın ekranda geçerli ancak ilerleme kaydı için sınavı yeniden gönderebilirsin." : ""}
           </p>
           <button className="secondary-button" onClick={reset} type="button">Sınavı yeniden başlat</button>
         </section>

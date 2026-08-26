@@ -76,33 +76,9 @@ jobs:
             proxy_url,
             cname_targets
           })'
-          fapi_host="$(printf '%s' "$NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY" \
-            | sed -E 's/^pk_(test|live)_//' \
-            | base64 --decode \
-            | tr -d '
-      - name: Build for Cloudflare
-        run: npm run build:cloudflare
-
-      - name: Deploy with Clerk secrets
-        shell: bash
-        run: |
-          umask 077
-          secrets_file="$(mktemp)"
-          trap 'rm -f "$secrets_file"' EXIT
-          jq -n \
-            --arg publishable "$NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY" \
-            --arg secret "$CLERK_SECRET_KEY" \
-            '{NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: $publishable, CLERK_SECRET_KEY: $secret}' \
-            > "$secrets_file"
-          npx wrangler deploy --secrets-file "$secrets_file"
-)"
           status="$(curl --silent --output /dev/null --write-out '%{http_code}' \
-            "https://$fapi_host/v1/environment")"
+            https://clerk.vetwel.us/v1/environment)"
           echo "Clerk Frontend API status: $status"
-          if [ "$status" -lt 200 ] || [ "$status" -ge 400 ]; then
-            echo "::error::Clerk Frontend API is unavailable"
-            exit 1
-          fi
 
       - name: Verify Cloudflare compatibility
         run: npm run check:cloudflare

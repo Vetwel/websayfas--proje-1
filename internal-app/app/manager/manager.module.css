@@ -24,6 +24,7 @@
   font-size: 36px;
   letter-spacing: -.04em;
 }
+.statusWord { font-size: 27px !important; }
 .tableWrap {
   overflow-x: auto;
   border: 1px solid #dce3ec;
@@ -51,6 +52,8 @@
 .table tr:last-child td { border-bottom: 0; }
 .table td strong { display: block; margin-bottom: 4px; color: #172033; }
 .table td > span:not(.ready):not(.inProgress) { color: #6f7c91; font-size: 12px; }
+.employeeLink { color: #0b2447; text-decoration: none; }
+.employeeLink:hover { text-decoration: underline; text-underline-offset: 3px; }
 .ready, .inProgress {
   display: inline-flex;
   padding: 7px 10px;
@@ -61,5 +64,42 @@
 }
 .ready { background: #edf8f2; color: #1f7a55; }
 .inProgress { background: #fff4dc; color: #8b6417; }
+.detailList {
+  display: grid;
+  gap: 10px;
+}
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 20px;
+  border: 1px solid #dce3ec;
+  border-radius: 16px;
+  background: white;
+}
+.detailRow strong { display: block; margin-bottom: 5px; }
+.detailRow div:first-child span { color: #6f7c91; font-size: 13px; }
+.detailStatus { display: grid; justify-items: end; gap: 6px; }
+.detailStatus small { color: #6f7c91; }
+.examGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 14px;
+}
+.examGrid article {
+  padding: 24px;
+  border: 1px solid #dce3ec;
+  border-radius: 20px;
+  background: white;
+}
+.examGrid article > span { color: #2e6ba6; font-size: 11px; font-weight: 850; text-transform: uppercase; letter-spacing: .08em; }
+.examGrid strong { display: block; margin: 12px 0 8px; color: #0b2447; font-size: 25px; }
+.examGrid p { color: #172033; margin: 0 0 8px; }
+.examGrid small { color: #6f7c91; }
 @media (max-width: 900px) { .summary { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-@media (max-width: 620px) { .summary { grid-template-columns: 1fr; } }
+@media (max-width: 620px) {
+  .summary, .examGrid { grid-template-columns: 1fr; }
+  .detailRow { align-items: flex-start; flex-direction: column; }
+  .detailStatus { justify-items: start; }
+}

@@ -91,7 +91,7 @@ const questions: Question[] = [
     explanation: "CalmWel Tablet sakinlik, davranış dengesi ve çevresel adaptasyon desteği üzerinden anlatılır; sedasyon veya tedavi iddiası yapılmaz.",
   },
   {
-    category: "Veri güvenliği",
+    category: "SkinWel",
     question: "15 kg bir köpek için SkinWel dozu soruldu. Veritabanında her 10 kg için 1 tablet/doz yazıyor ancak ara kilo yuvarlama kuralı yok. Ne yapmalısın?",
     options: [
       "2 tablete yuvarlamalısın.",
@@ -125,6 +125,54 @@ const questions: Question[] = [
     ],
     correct: 2,
     explanation: "VetWel iletişim standardı ürünü tanı veya tedavinin yerine koymaz; destek amacı ve doğrulanmış formülasyon mantığı anlatılır.",
+  },
+  {
+    category: "Breathe Ease",
+    question: "30 lb bir köpek için Breathe Ease dozu sorulduğunda doğru yanıt nedir?",
+    options: [
+      "3 tüp/gün; 11 lb başına 1 tüp diye hesaplanır.",
+      "2 tüp/gün; 22 lb üzerindeki tüm köpekler aynıdır.",
+      "22 lb üzeri resmi doz tablosu doğrulanmadığı için doz tahmin edilmemelidir.",
+      "Kedi dozu olan 1 tüp/gün kullanılır.",
+    ],
+    correct: 2,
+    explanation: "Breathe Ease için 22 lb üzerindeki köpeklerin resmi doz tablosu açık veri boşluğudur; matematiksel genelleme yapılmaz.",
+  },
+  {
+    category: "Breathe Ease",
+    question: "Breathe Ease için doğru iletişim hangisidir?",
+    options: [
+      "Öksürüğü kesin olarak giderir.",
+      "Solunum/breathing wellness desteği için konumlandırılır; güçlü tedavi veya cough relief claim'i kullanılmaz.",
+      "Yalnız köpekler içindir.",
+      "Primer solunum tedavisi yerine geçer.",
+    ],
+    correct: 1,
+    explanation: "Kayıtlı konumlandırma solunum sistemi desteğidir. Güçlü tedavi veya cough relief dili kontrollü tutulmalıdır.",
+  },
+  {
+    category: "LactoWel",
+    question: "LactoWel için kayıtlı kullanım bilgisinden hangisi doğrudur?",
+    options: [
+      "Kedide 1 tablet/doz; köpekte her 10 kg için 1 tablet/doz; günde 2 kez.",
+      "Tüm hayvanlarda 2 tablet günde 1 kez.",
+      "Doz tamamen doğrulanmamıştır ve hiçbir bilgi yoktur.",
+      "Sadece köpeklerde kullanılır.",
+    ],
+    correct: 0,
+    explanation: "Kedide 1 tablet/doz; köpekte her 10 kg için 1 tablet/doz ve günde iki kez kullanım kayıtlıdır. Ara kilo yuvarlama kuralı ise açık değildir.",
+  },
+  {
+    category: "Cleanse claim sınırı",
+    question: "Dahili kayıtta bulunan 'strüvit taşını eritir' ifadesi temsilci tarafından aynen kullanılmalı mı?",
+    options: [
+      "Evet, çünkü dahili kayıtta yazıyor.",
+      "Sadece pet sahibine söylenebilir.",
+      "Hayır; ham claim arka plan bilgisidir ve kontrollü üriner/struvit destek diline dönüştürülür.",
+      "Sadece sosyal medyada kullanılabilir.",
+    ],
+    correct: 2,
+    explanation: "Dahili güçlü claim'ler ürünün kullanım bağlamını anlamak için saklanır; temsilci veya tüketici çıktısında aynen kullanılmaz.",
   },
 ];
 
@@ -222,7 +270,7 @@ export default function QuizClient() {
           <p>
             {percent >= 80
               ? "Temel VetWel bilgi güvenliği ve ürün eğitimi hedefini geçtin. Yanlışlarını yine de gözden geçir."
-              : "Bu aşamada tekrar eğitim önerilir. Özellikle yanlış yaptığın ürün/form sınırlarını yeniden çalış."}
+              : "Bu aşamada tekrar eğitim önerilir. Özellikle yanlış yaptığın ürün/form ve veri sınırlarını yeniden çalış."}
           </p>
           <div className="quiz-result-meta">
             <strong>{score}/{questions.length} doğru</strong>

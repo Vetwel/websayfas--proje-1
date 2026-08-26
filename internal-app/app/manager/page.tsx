@@ -27,7 +27,8 @@ export default async function ManagerPage() {
     const metadata = record(user.privateMetadata);
     const progress = normalizeProgress(metadata.vetwelProgress);
     const completed = trainingModules.filter((module) => Boolean(progress.completedTraining[module.slug])).length;
-    const email = user.primaryEmailAddress?.emailAddress || user.emailAddresses[0]?.emailAddress || "—";
+    const primaryEmail = user.emailAddresses.find((item) => item.id === user.primaryEmailAddressId);
+    const email = primaryEmail?.emailAddress || user.emailAddresses[0]?.emailAddress || "—";
     const name = [user.firstName, user.lastName].filter(Boolean).join(" ") || email;
     return {
       id: user.id,

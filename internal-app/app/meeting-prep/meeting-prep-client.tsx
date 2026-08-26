@@ -7,10 +7,20 @@ type Props = {
   products: string[];
 };
 
+const veterinarianProfiles = [
+  "Genel / bilinmiyor",
+  "Kanıt odaklı",
+  "Zamanı çok kısıtlı",
+  "Şüpheci",
+  "Mevcut ürüne sadık",
+  "Pratik / uygulama odaklı",
+];
+
 export default function MeetingPrepClient({ products }: Props) {
   const [product, setProduct] = useState(products[0] || "");
   const [duration, setDuration] = useState("30 saniye");
   const [goal, setGoal] = useState("İlk kez tanıtım");
+  const [vetProfile, setVetProfile] = useState(veterinarianProfiles[0]);
   const [context, setContext] = useState("");
   const [answer, setAnswer] = useState("");
   const [error, setError] = useState("");
@@ -24,9 +34,11 @@ export default function MeetingPrepClient({ products }: Props) {
       `Bir veteriner görüşmesine hazırlanıyorum. Ürün/form: ${product}.`,
       `Görüşme süresi: ${duration}.`,
       `Görüşme hedefi: ${goal}.`,
+      `Veteriner profili: ${vetProfile}.`,
       context.trim() ? `Ek bağlam: ${context.trim()}.` : "",
       "Bana yalnız doğrulanmış VetWel bilgi tabanını kullanarak şu sırada saha planı hazırla:",
-      "1) Açılış cümlesi, 2) 3 ana mesaj, 3) veterinerin sorabileceği 3 zor soru ve kısa cevap, 4) kesinlikle söylememem gereken 2 ifade, 5) doğal kapanış cümlesi.",
+      "1) Bu veteriner profiline uygun açılış cümlesi, 2) önem sırasına göre 3 ana mesaj, 3) veterinerin sorabileceği 3 zor soru ve kısa cevap, 4) kesinlikle söylememem gereken 2 ifade, 5) veterinerin ihtiyacını anlamak için 1 açık uçlu soru, 6) doğal kapanış cümlesi.",
+      "Seçilen veteriner profilini sadece iletişim tarzı için kullan; ürün hakkında yeni klinik bilgi üretme.",
       "Ürün/form için eksik veya kısmen onaylı veri varsa bunu açıkça göster ve tahmin yapma.",
     ].filter(Boolean).join("\n");
 
@@ -82,6 +94,13 @@ export default function MeetingPrepClient({ products }: Props) {
         </div>
 
         <div className={styles.field}>
+          <label htmlFor="prep-vet-profile">Veteriner profili</label>
+          <select id="prep-vet-profile" value={vetProfile} onChange={(event) => setVetProfile(event.target.value)}>
+            {veterinarianProfiles.map((item) => <option key={item}>{item}</option>)}
+          </select>
+        </div>
+
+        <div className={styles.field}>
           <label htmlFor="prep-context">Ek bağlam <span>opsiyonel</span></label>
           <textarea
             id="prep-context"
@@ -96,7 +115,7 @@ export default function MeetingPrepClient({ products }: Props) {
         <button className="primary-button" disabled={loading || !product} type="submit">
           {loading ? "VetWel bilgi tabanı kontrol ediliyor…" : "Görüşme planını hazırla"}
         </button>
-        <p className={styles.note}>AI yalnız VetWel bilgi tabanındaki doğrulanmış alanları kullanmalı; veri boşluğunda tahmin yapmamalıdır.</p>
+        <p className={styles.note}>AI veteriner profiline göre iletişim biçimini değiştirir; ürün gerçeğini veya doğrulama sınırlarını değiştiremez.</p>
       </form>
 
       <section className={styles.result} aria-live="polite">
@@ -104,10 +123,10 @@ export default function MeetingPrepClient({ products }: Props) {
         {!answer && !error && !loading ? (
           <div className={styles.empty}>
             <strong>Hazırlık planın burada görünecek.</strong>
-            <p>Ürün/formu ve görüşme hedefini seç. AI kısa açılıştan itiraz cevaplarına kadar görüşme akışını hazırlasın.</p>
+            <p>Ürün/formu, görüşme hedefini ve veteriner profilini seç. AI kısa açılıştan itiraz cevaplarına kadar görüşme akışını hazırlasın.</p>
           </div>
         ) : null}
-        {loading ? <div className={styles.empty}><strong>Hazırlanıyor…</strong><p>Doğrulanmış ürün/form kayıtları kontrol ediliyor.</p></div> : null}
+        {loading ? <div className={styles.empty}><strong>Hazırlanıyor…</strong><p>Doğrulanmış ürün/form kayıtları ve görüşme profili birlikte değerlendiriliyor.</p></div> : null}
         {error ? <div className={styles.error}>{error}</div> : null}
         {answer ? <div className={styles.answer}>{answer}</div> : null}
       </section>

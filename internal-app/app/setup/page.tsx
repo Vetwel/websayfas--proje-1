@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { headers } from "next/headers";
 import { getInternalSetupStatus } from "@/lib/internal-config";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 function StatusRow({ label, ready, detail }: { label: string; ready: boolean; detail: string }) {
   return (
@@ -15,7 +17,8 @@ function StatusRow({ label, ready, detail }: { label: string; ready: boolean; de
   );
 }
 
-export default function SetupPage() {
+export default async function SetupPage() {
+  await headers();
   const status = getInternalSetupStatus();
   const aiReady = status.workersAI;
 

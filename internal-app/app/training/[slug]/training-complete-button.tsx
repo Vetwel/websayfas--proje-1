@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { VetWelProgress } from "@/lib/progress";
+import styles from "./training-complete-button.module.css";
 
 type Props = {
   slug: string;
@@ -55,7 +56,7 @@ export default function TrainingCompleteButton({ slug }: Props) {
   }
 
   return (
-    <div className="training-completion">
+    <div className={styles.completion}>
       <div>
         <span className="eyebrow">İlerleme</span>
         <h2>{completed ? "Bu eğitim tamamlandı" : "Modülü tamamladın mı?"}</h2>
@@ -66,14 +67,14 @@ export default function TrainingCompleteButton({ slug }: Props) {
         </p>
       </div>
       <button
-        className={completed ? "completion-button completion-button-done" : "completion-button"}
+        className={`${styles.button} ${completed ? styles.done : ""}`}
         disabled={completed || loading || saving}
         onClick={markComplete}
         type="button"
       >
         {loading ? "Kontrol ediliyor…" : saving ? "Kaydediliyor…" : completed ? "✓ Tamamlandı" : "Eğitimi tamamladım"}
       </button>
-      {error ? <span className="completion-error">{error}</span> : null}
+      {error ? <span className={styles.error}>{error}</span> : null}
     </div>
   );
 }

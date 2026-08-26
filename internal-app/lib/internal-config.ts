@@ -1,4 +1,9 @@
-import { getRuntimeEnvValue } from "@/lib/runtime-env";
+import { env } from "cloudflare:workers";
+
+function getRuntimeEnvValue(name: string) {
+  const value = (env as unknown as Record<string, unknown>)[name];
+  return typeof value === "string" ? value : process.env[name];
+}
 
 function normalize(value: string | undefined) {
   return value?.trim() || "";

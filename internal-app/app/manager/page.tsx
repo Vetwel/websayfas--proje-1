@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { auth, clerkClient } from "@clerk/nextjs/server";
+import { auth, clerkClient } from "@/lib/clerk-server";
 import { redirect } from "next/navigation";
 import { isClerkConfigured } from "@/lib/internal-config";
 import { normalizeProgress } from "@/lib/progress";

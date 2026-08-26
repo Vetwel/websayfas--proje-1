@@ -91,3 +91,5 @@ Private/internal-only claims are intentionally **not** placed in this public Git
 4. Add per-user training progress and quiz scores.
 5. Add private Cloudflare-backed knowledge storage for internal-only training material.
 6. Add admin roles and employee management.
+
+<!-- Cloudflare rebuild trigger: 2026-08-26 -->

@@ -7,13 +7,13 @@ const MAX_REQUESTS_PER_WINDOW = 30;
 const localRate = new Map();
 
 const STOP_WORDS = new Set([
-  've','veya','ile','icin','bir','bu','su','ne','neden','nasil','mi','mu','mı','mü','benim','kedim','kopegim','kedi','kopek','pet','hayvan','evcil','the','a','an','and','or','with','for','my','cat','dog','pet','is','are','what','why','how','does','do','to','of'
+  've','veya','ile','icin','bir','bu','su','ne','neden','nasil','mi','mu','benim','kedim','kopegim','kedi','kopek','pet','hayvan','evcil','the','a','an','and','or','with','for','my','cat','dog','pet','is','are','what','why','how','does','do','to','of'
 ]);
 
 const PRODUCT_INDEX = [
   { title:'Breathe Ease®', tr:'/education-breathe-ease.html', en:'/en/education-breathe-ease.html', keys:'solunum nefes oksuruk öksürük hapsirma hapşırma burun bronş respiratory breathing cough sneeze' },
   { title:'Cleanse®', tr:'/education-cleanse.html', en:'/en/education-cleanse.html', keys:'uriner üriner idrar mesane struvit urinary bladder urine' },
-  { title:'KidneyWel® Tablet', tr:'/education-kidneywel.html', en:'/en/education-kidneywel.html', keys:'bobrek böbrek renal kidney kreatinin sdma fosfor phosphorus su icme içme idrar' },
+  { title:'KidneyWel® Tablet', tr:'/education-kidneywel.html', en:'/en/education-kidneywel.html', keys:'bobrek böbrek renal kidney kreatinin sdma fosfor phosphorus su icme içme idrar tablet' },
   { title:'KidneyWel® Liquid', tr:'/education-kidneywel-liquid.html', en:'/en/education-kidneywel-liquid.html', keys:'bobrek böbrek renal kidney liquid sivi sıvı' },
   { title:'LiverWel® Tablet', tr:'/education-liverwel-tablet.html', en:'/en/education-liverwel-tablet.html', keys:'karaciger karaciğer liver hepatic tablet' },
   { title:'LiverWel® Liquid', tr:'/education-liverwel-liquid.html', en:'/en/education-liverwel-liquid.html', keys:'karaciger karaciğer liver hepatic liquid sivi sıvı' },
@@ -36,7 +36,7 @@ const RED_FLAGS = [
 ];
 
 function normalize(value='') {
-  return String(value).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
+  return String(value).toLowerCase().replace(/ı/g,'i').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
 }
 
 function tokens(value='') {
@@ -146,7 +146,7 @@ async function collectKnowledge(env, request, message, lang, pagePath) {
   const products = relevantProducts(message, lang);
   const selected = [];
   for (const item of rankedArticles.slice(0, 2)) selected.push(item);
-  if (products[0]) selected.push(products[0]);
+  for (const product of products.slice(0, 2)) selected.push(product);
 
   if (pagePath && /^\/(?:en\/)?[^?#]+\.html$/i.test(pagePath) && !selected.some(x => x.path === pagePath)) {
     selected.push({ title:'Current VetWel page', path:pagePath, kind:'page', score:2 });

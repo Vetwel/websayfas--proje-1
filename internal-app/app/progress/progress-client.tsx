@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import type { VetWelProgress } from "@/lib/progress";
 import { trainingModules } from "@/lib/training-content";
+import styles from "./progress.module.css";
 
 export default function ProgressClient() {
   const [progress, setProgress] = useState<VetWelProgress | null>(null);
@@ -34,23 +35,23 @@ export default function ProgressClient() {
 
   return (
     <>
-      <section className="progress-summary-grid">
-        <article className="progress-stat progress-stat-main">
+      <section className={styles.summaryGrid}>
+        <article className={`${styles.stat} ${styles.statMain}`}>
           <span>Genel gelişim</span>
           <strong>%{overall}</strong>
           <p>Eğitim tamamlama + iki sınavın en iyi puanı.</p>
         </article>
-        <article className="progress-stat">
+        <article className={styles.stat}>
           <span>Ürün eğitimleri</span>
           <strong>{completedCount}/{trainingModules.length}</strong>
           <p>%{trainingPercent} tamamlandı</p>
         </article>
-        <article className="progress-stat">
+        <article className={styles.stat}>
           <span>Temel sınav</span>
           <strong>%{basicBest}</strong>
           <p>{progress.basicQuiz?.attempts ?? 0} deneme</p>
         </article>
-        <article className="progress-stat">
+        <article className={styles.stat}>
           <span>Seviye 2</span>
           <strong>%{advancedBest}</strong>
           <p>{progress.advancedQuiz?.attempts ?? 0} deneme</p>
@@ -62,16 +63,16 @@ export default function ProgressClient() {
           <div><span className="eyebrow">Ürün bazlı</span><h2>Eğitim durumu</h2></div>
           <p>{completedCount} tamamlandı</p>
         </div>
-        <div className="progress-module-list">
+        <div className={styles.moduleList}>
           {trainingModules.map((module) => {
             const done = Boolean(progress.completedTraining[module.slug]);
             return (
-              <Link className="progress-module-row" href={`/training/${module.slug}`} key={module.slug}>
+              <Link className={styles.moduleRow} href={`/training/${module.slug}`} key={module.slug}>
                 <div>
                   <strong>{module.product} {module.form}</strong>
                   <span>{module.supportArea}</span>
                 </div>
-                <span className={done ? "progress-pill progress-pill-done" : "progress-pill"}>
+                <span className={`${styles.pill} ${done ? styles.pillDone : ""}`}>
                   {done ? "✓ Tamamlandı" : "Başlanabilir"}
                 </span>
               </Link>

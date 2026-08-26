@@ -12,6 +12,12 @@ const modules = [
     text: "VetWel ürünlerini sıfırdan öğren; kullanım alanı, formülasyon mantığı, doz ve saha anlatımını çalış.",
   },
   {
+    href: "/progress",
+    code: "BEN",
+    title: "İlerlemem",
+    text: "Tamamladığın eğitimleri, temel ve Seviye 2 sınav puanlarını ve sıradaki gelişim adımını gör.",
+  },
+  {
     href: "/meeting-prep",
     code: "HAZ",
     title: "Görüşmeye Hazırlan",
@@ -88,7 +94,7 @@ export default async function DashboardPage() {
             <span className="eyebrow">VetWel Internal</span>
             <h1>Merhaba, {firstName}.</h1>
             <p>
-              Bir ürün öğren, görüşmeye hazırlan, doğru ürün ailesini eşleştir, kliniğe girmeden bilgiyi kontrol et,
+              Bir ürün öğren, ilerlemeni takip et, görüşmeye hazırlan, doğru ürün ailesini eşleştir,
               veteriner itirazlarını çalış veya VetWel bilgi tabanına doğrudan soru sor.
             </p>
           </div>
@@ -111,9 +117,13 @@ export default async function DashboardPage() {
               <span className="eyebrow">Onboarding</span>
               <h2>Eğitim yolculuğun</h2>
             </div>
-            <p>Kullanıcı bazlı kalıcı ilerleme kaydı sonraki fazda eklenecek.</p>
+            <p>Eğitim ve sınav ilerlemesi artık kullanıcı hesabına kalıcı olarak kaydedilir.</p>
           </div>
           <div className="info-panel">
+            <div className="progress-row">
+              <div><strong>Kişisel ilerleme kaydı</strong><span>Tamamlanan eğitimler, en iyi sınav puanı ve deneme sayısı</span></div>
+              <Link className="status" href="/progress">İlerlemem →</Link>
+            </div>
             <div className="progress-row">
               <div><strong>VetWel bilgi güvenliği standardı</strong><span>Onaylı / kısmen onaylı / doğrulama gerekiyor ayrımı</span></div>
               <span className="status">Aktif</span>

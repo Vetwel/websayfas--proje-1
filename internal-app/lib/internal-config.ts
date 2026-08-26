@@ -2,12 +2,43 @@ function normalize(value: string | undefined) {
   return value?.trim() || "";
 }
 
-export function isValidClerkPublishableKey(value = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY) {
-  return /^pk_(test|live)_[A-Za-z0-9_-]+$/.test(normalize(value));
+function extractClerkKey(value: string | undefined, kind: "pk" | "sk") {
+  const raw = normalize(value);
+  if (!raw) return "";
+
+  const pattern = kind === "pk"
+    ? /pk_(?:test|live)_[A-Za-z0-9_+=\/-]+/
+    : /sk_(?:test|live)_[A-Za-z0-9_+=\/-]+/;
+
+  return raw.match(pattern)?.[0] || "";
 }
 
-export function isValidClerkSecretKey(value = process.env.CLERK_SECRET_KEY) {
-  return /^sk_(test|live)_[A-Za-z0-9_-]+$/.test(normalize(value));
+export function getClerkPublishableKey() {
+  return extractClerkKey(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY, "pk");
+}
+
+export function getClerkSecretKey() {
+  return extractClerkKey(process.env.CLERK_SECRET_KEY, "sk");
+}
+
+const normalizedPublishableKey = getClerkPublishableKey();
+const normalizedSecretKey = getClerkSecretKey();
+
+// Vercel values are sometimes pasted as a whole `.env` line/block. Normalize them
+// server-side so Clerk still receives only the actual key token.
+if (normalizedPublishableKey) {
+  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = normalizedPublishableKey;
+}
+if (normalizedSecretKey) {
+  process.env.CLERK_SECRET_KEY = normalizedSecretKey;
+}
+
+export function isValidClerkPublishableKey(value = getClerkPublishableKey()) {
+  return /^pk_(test|live)_/.test(value);
+}
+
+export function isValidClerkSecretKey(value = getClerkSecretKey()) {
+  return /^sk_(test|live)_/.test(value);
 }
 
 export function isClerkConfigured() {

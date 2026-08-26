@@ -1,4 +1,4 @@
-import { auth, clerkClient } from "@clerk/nextjs/server";
+import { auth, clerkClient } from "@/lib/clerk-server";
 import { NextResponse } from "next/server";
 import { isClerkConfigured } from "@/lib/internal-config";
 import { trainingModules } from "@/lib/training-content";

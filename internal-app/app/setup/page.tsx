@@ -34,10 +34,10 @@ export default function SetupPage() {
         <section className="hero-row">
           <div>
             <span className="eyebrow">VetWel Internal</span>
-            <h1>Altyapı hazır, bağlantılar bekleniyor.</h1>
+            <h1>Altyapı hazır, bağlantılar kontrol ediliyor.</h1>
             <p>
-              Uygulama Vercel üzerinde çalışıyor. Giriş sistemi ve özel AI bilgi tabanı
-              anahtarları eklendiğinde çalışan paneli otomatik olarak aktif olacak.
+              Uygulama Vercel üzerinde çalışıyor. Bu ekran gizli anahtarların kendisini göstermez;
+              yalnızca formatlarının geçerli olup olmadığını kontrol eder.
             </p>
           </div>
         </section>
@@ -45,9 +45,19 @@ export default function SetupPage() {
         <section className="info-panel">
           <StatusRow label="Vercel uygulaması" ready detail="Next.js production deployment çalışıyor." />
           <StatusRow
+            label="Clerk Publishable Key"
+            ready={status.clerkPublishableKey}
+            detail={status.clerkPublishableKey ? "pk_live_ / pk_test_ formatı geçerli." : "Publishable Key formatı geçersiz veya eksik."}
+          />
+          <StatusRow
+            label="Clerk Secret Key"
+            ready={status.clerkSecretKey}
+            detail={status.clerkSecretKey ? "sk_live_ / sk_test_ formatı geçerli." : "Secret Key formatı geçersiz veya eksik."}
+          />
+          <StatusRow
             label="Clerk çalışan girişi"
             ready={status.clerk}
-            detail={status.clerk ? "Kimlik doğrulama aktif." : "Publishable Key + Secret Key bekleniyor."}
+            detail={status.clerk ? "Kimlik doğrulama aktif." : "İki Clerk anahtarı da geçerli olmalı."}
           />
           <StatusRow
             label="OpenAI erişimi"
@@ -62,18 +72,15 @@ export default function SetupPage() {
         </section>
 
         <section className="section placeholder">
-          <h2>Şu anda ne tamamlandı?</h2>
+          <h2>Güvenli teşhis modu</h2>
           <p>
-            Dashboard, ürün eğitim alanı, satış koçu, onboarding/sınav alanı ve özel bilgi
-            tabanına bağlanacak AI soru-cevap altyapısı hazır. Gizli VetWel bilgi dosyası
-            public GitHub deposuna konulmadı.
+            Geçersiz Clerk anahtarı artık uygulamayı 500 hatasına düşürmez. Sistem kurulum modunda
+            kalır ve hangi bağlantının düzeltilmesi gerektiğini burada gösterir.
           </p>
           {status.clerk ? (
             <p className="placeholder-note"><Link href="/sign-in">Ekip girişine geç →</Link></p>
           ) : (
-            <p className="placeholder-note">
-              Kurulum modu güvenli biçimde açık. Anahtarlar eklenene kadar özel çalışan alanları açılmaz.
-            </p>
+            <p className="placeholder-note">Clerk anahtar formatlarından biri henüz geçerli değil.</p>
           )}
           {status.clerk && aiReady ? (
             <p><Link className="back-link" href="/dashboard">Ana panele git →</Link></p>

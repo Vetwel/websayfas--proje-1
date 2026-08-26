@@ -19,12 +19,33 @@ export default async function QuizPage() {
         <span className="eyebrow">Modül 03</span>
         <h1 className="module-title">Sınav & Onboarding</h1>
         <p className="module-subtitle">
-          Bu sınav ürün ezberinden çok bilgi güvenliğini ölçer: doğrulanmış dozları bilmek,
-          Tablet/Liquid formlarını ayırmak, kısmen onaylı veride sınırı korumak ve VetWel’in
-          destekleyici iletişim standardını sahada uygulamak.
+          Eğitim iki seviyeli ilerler. Seviye 1 temel ürün bilgisi ve bilgi güvenliğini; Seviye 2 ise gerçek veteriner görüşmesinde doğru saha kararını ölçer.
         </p>
 
-        <section className="info-panel onboarding-summary">
+        <section className="product-grid">
+          <article className="product-card">
+            <div className="product-card-topline">
+              <span className="content-badge content-badge-ready">SEVİYE 1</span>
+              <span className="product-form">14 soru</span>
+            </div>
+            <strong>Temel Yetkinlik</strong>
+            <span>Doz, form ayrımı, veri statüsü ve VetWel iletişim standardı</span>
+            <p>Geçme hedefi %80. Yanlış cevaplarda nedenini ve doğru saha yaklaşımını görürsün.</p>
+          </article>
+
+          <Link className="product-card product-card-link" href="/quiz/advanced">
+            <div className="product-card-topline">
+              <span className="content-badge content-badge-partial">SEVİYE 2</span>
+              <span className="product-form">8 senaryo</span>
+            </div>
+            <strong>Saha Yetkinliği</strong>
+            <span>Gerçek veteriner soruları, ürün/form seçimi ve doğrulama sınırı</span>
+            <p>Bilgiyi ezberlemek yerine gerçek görüşmede doğru kararı verip veremediğini ölçer.</p>
+            <span className="module-cta">Seviye 2&apos;ye geç →</span>
+          </Link>
+        </section>
+
+        <section className="info-panel onboarding-summary section">
           <div className="progress-row">
             <div><strong>1. Onaylı ürün bilgisi</strong><span>KidneyWel Tablet/Liquid, LiverWel Tablet ve CalmWel Tablet temelleri</span></div>
             <span className="status">Aktif</span>
@@ -41,14 +62,6 @@ export default async function QuizPage() {
             <div><strong>4. Saha iletişimi</strong><span>Tedavi iddiası yerine destek amacı, doğrulanmış bilgi ve profesyonel sınır kullanma</span></div>
             <span className="status">Aktif</span>
           </div>
-        </section>
-
-        <section className="section placeholder">
-          <h2>İlk yetkinlik standardı</h2>
-          <p>
-            Sınav 14 sorudan oluşur ve geçme hedefi %80’dir. Yanlış yanıtlar yalnız puan düşürmez;
-            her sorunun altında neden yanlış olduğunu ve doğru saha yaklaşımını gösterir.
-          </p>
         </section>
 
         <section className="section">

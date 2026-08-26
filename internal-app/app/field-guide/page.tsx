@@ -3,6 +3,7 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { isClerkConfigured } from "@/lib/internal-config";
 import { trainingModules, verificationQueue } from "@/lib/training-content";
+import styles from "./field-guide.module.css";
 
 const rules = [
   {
@@ -68,9 +69,9 @@ export default async function FieldGuidePage() {
           durmayı da öğretir.
         </p>
 
-        <section className="field-rule-grid">
+        <section className={styles.rules}>
           {rules.map((rule, index) => (
-            <article className="field-rule" key={rule.title}>
+            <article className={styles.rule} key={rule.title}>
               <span>{String(index + 1).padStart(2, "0")}</span>
               <div>
                 <strong>{rule.title}</strong>
@@ -89,9 +90,9 @@ export default async function FieldGuidePage() {
             <p>{trainingModules.length} eğitim kaydı</p>
           </div>
 
-          <div className="field-product-grid">
+          <div className={styles.products}>
             {trainingModules.map((module) => (
-              <article className="field-product-card" key={module.slug}>
+              <article className={styles.product} key={module.slug}>
                 <div className="product-card-topline">
                   <span className={`content-badge ${module.status === "ONAYLI" ? "content-badge-ready" : "content-badge-partial"}`}>
                     {module.status}
@@ -99,17 +100,17 @@ export default async function FieldGuidePage() {
                   <span className="product-form">{module.form}</span>
                 </div>
                 <h3>{module.product}</h3>
-                <p className="field-support">{module.supportArea}</p>
-                <div className="field-mini-section">
+                <p className={styles.support}>{module.supportArea}</p>
+                <div className={styles.miniSection}>
                   <strong>Doz / kullanım</strong>
                   <p>{module.dose}</p>
                 </div>
-                <div className="field-mini-section">
+                <div className={styles.miniSection}>
                   <strong>Klinikte kısa anlatım</strong>
                   <p>“{module.clinicPitch}”</p>
                 </div>
                 {module.limitations?.length ? (
-                  <div className="field-warning">
+                  <div className={styles.warning}>
                     <strong>Dur ve doğrula</strong>
                     <ul>
                       {module.limitations.map((item) => <li key={item}>{item}</li>)}

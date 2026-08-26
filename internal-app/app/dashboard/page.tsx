@@ -12,6 +12,12 @@ const modules = [
     text: "VetWel ürünlerini sıfırdan öğren; kullanım alanı, formülasyon mantığı, doz ve saha anlatımını çalış.",
   },
   {
+    href: "/field-guide",
+    code: "HIZ",
+    title: "Saha Hızlı Rehber",
+    text: "Klinikte ürün/form statüsünü, kayıtlı doz bilgisini ve hangi noktada durup doğrulama gerektiğini saniyeler içinde kontrol et.",
+  },
+  {
     href: "/ask",
     code: "AI",
     title: "AI'a Sor",
@@ -27,7 +33,7 @@ const modules = [
     href: "/quiz",
     code: "03",
     title: "Sınav & Onboarding",
-    text: "Ürün bilgisini test et; eksik konuları gör ve eğitim ilerlemeni takip et.",
+    text: "Ürün bilgisini test et; eksik konuları gör ve bilgi güvenliği disiplinini ölç.",
   },
 ];
 
@@ -64,8 +70,8 @@ export default async function DashboardPage() {
             <span className="eyebrow">VetWel Internal</span>
             <h1>Merhaba, {firstName}.</h1>
             <p>
-              Bugün bir ürün öğrenebilir, saha görüşmesine hazırlanabilir veya VetWel bilgi
-              tabanına doğrudan soru sorabilirsin.
+              Bir ürün öğren, kliniğe girmeden hızlıca bilgiyi kontrol et, saha görüşmesine
+              hazırlan veya VetWel bilgi tabanına doğrudan soru sor.
             </p>
           </div>
         </section>
@@ -87,20 +93,24 @@ export default async function DashboardPage() {
               <span className="eyebrow">Onboarding</span>
               <h2>Eğitim yolculuğun</h2>
             </div>
-            <p>İlerleme takibi sonraki fazda kullanıcı bazında kaydedilecek.</p>
+            <p>Kullanıcı bazlı kalıcı ilerleme kaydı sonraki fazda eklenecek.</p>
           </div>
           <div className="info-panel">
             <div className="progress-row">
-              <div><strong>VetWel marka ve portföy temelleri</strong><span>Başlangıç modülü</span></div>
-              <span className="status">Hazır</span>
+              <div><strong>VetWel bilgi güvenliği standardı</strong><span>Onaylı / kısmen onaylı / doğrulama gerekiyor ayrımı</span></div>
+              <span className="status">Aktif</span>
             </div>
             <div className="progress-row">
-              <div><strong>Ürün eğitimleri</strong><span>Ürün bazlı öğrenme modülleri</span></div>
-              <span className="status">Kuruluyor</span>
+              <div><strong>Ürün eğitimleri</strong><span>8 ürün/form için eğitim ve saha anlatımı</span></div>
+              <span className="status">Aktif</span>
             </div>
             <div className="progress-row">
-              <div><strong>Saha sınavları</strong><span>Rol bazlı değerlendirme ve puanlama</span></div>
-              <span className="status">Sonraki faz</span>
+              <div><strong>Saha hızlı rehberi</strong><span>Doz, konumlandırma ve doğrulama sınırlarının hızlı kontrolü</span></div>
+              <span className="status">Aktif</span>
+            </div>
+            <div className="progress-row">
+              <div><strong>Saha sınavı</strong><span>14 soruluk temel yetkinlik ve bilgi güvenliği değerlendirmesi</span></div>
+              <span className="status">Aktif</span>
             </div>
           </div>
         </section>

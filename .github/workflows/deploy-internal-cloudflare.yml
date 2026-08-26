@@ -67,7 +67,7 @@ jobs:
           clerk_domains="$(curl --fail --silent --show-error \
             -H "Authorization: Bearer $CLERK_SECRET_KEY" \
             https://api.clerk.com/v1/domains)"
-          echo "$clerk_domains" | jq -c 'map({
+          echo "$clerk_domains" | jq -c '.data | map({
             id,
             name,
             is_satellite,

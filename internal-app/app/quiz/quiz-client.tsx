@@ -179,6 +179,7 @@ const questions: Question[] = [
 export default function QuizClient() {
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
 
   const score = useMemo(
     () => questions.reduce((total, question, index) => total + (answers[index] === question.correct ? 1 : 0), 0),
@@ -188,9 +189,26 @@ export default function QuizClient() {
   const completed = Object.keys(answers).length === questions.length;
   const percent = Math.round((score / questions.length) * 100);
 
+  async function submitQuiz() {
+    setSubmitted(true);
+    setSaveState("saving");
+    try {
+      const response = await fetch("/api/progress", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "quiz_result", quiz: "basic", percent }),
+      });
+      if (!response.ok) throw new Error("save failed");
+      setSaveState("saved");
+    } catch {
+      setSaveState("error");
+    }
+  }
+
   function reset() {
     setAnswers({});
     setSubmitted(false);
+    setSaveState("idle");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -260,7 +278,7 @@ export default function QuizClient() {
       </div>
 
       {!submitted ? (
-        <button className="primary-button" disabled={!completed} onClick={() => setSubmitted(true)} type="button">
+        <button className="primary-button" disabled={!completed} onClick={() => void submitQuiz()} type="button">
           Sınavı değerlendir
         </button>
       ) : (
@@ -276,6 +294,9 @@ export default function QuizClient() {
             <strong>{score}/{questions.length} doğru</strong>
             <span>{percent >= 80 ? "Geçti" : "Tekrar eğitim"}</span>
           </div>
+          <p className={`quiz-save-state ${saveState === "error" ? "quiz-save-error" : ""}`}>
+            {saveState === "saving" ? "Sonuç hesabına kaydediliyor…" : saveState === "saved" ? "✓ Sonuç VetWel hesabına kaydedildi." : saveState === "error" ? "Sonuç kaydedilemedi; puanın ekranda geçerli ancak ilerleme kaydı için sınavı yeniden gönderebilirsin." : ""}
+          </p>
           <button className="secondary-button" onClick={reset} type="button">Sınavı yeniden başlat</button>
         </section>
       )}

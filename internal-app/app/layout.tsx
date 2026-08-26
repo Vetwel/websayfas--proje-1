@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
+import { headers } from "next/headers";
 import { getClerkPublishableKey, isClerkConfigured } from "@/lib/internal-config";
 import "./globals.css";
 
@@ -13,6 +14,9 @@ export const metadata: Metadata = {
   },
 };
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 function Document({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="tr">
@@ -21,7 +25,9 @@ function Document({ children }: Readonly<{ children: React.ReactNode }>) {
   );
 }
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  await headers();
+
   if (!isClerkConfigured()) {
     return <Document>{children}</Document>;
   }

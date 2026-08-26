@@ -18,6 +18,18 @@ const modules = [
     text: "Klinikte ürün/form statüsünü, kayıtlı doz bilgisini ve hangi noktada durup doğrulama gerektiğini saniyeler içinde kontrol et.",
   },
   {
+    href: "/product-match",
+    code: "04",
+    title: "Ürün Eşleştirme",
+    text: "Renal, hepatik, stres, deri, sindirim, solunum veya üriner destek konuşmasında hangi VetWel ürün ailesiyle başlayacağını çalış.",
+  },
+  {
+    href: "/practice",
+    code: "05",
+    title: "Görüşme Simülasyonu",
+    text: "Gerçek veteriner itirazlarını önce kendin yanıtla; sonra ideal cevap ve kırmızı bayraklarla performansını kontrol et.",
+  },
+  {
     href: "/ask",
     code: "AI",
     title: "AI'a Sor",
@@ -70,8 +82,8 @@ export default async function DashboardPage() {
             <span className="eyebrow">VetWel Internal</span>
             <h1>Merhaba, {firstName}.</h1>
             <p>
-              Bir ürün öğren, kliniğe girmeden hızlıca bilgiyi kontrol et, saha görüşmesine
-              hazırlan veya VetWel bilgi tabanına doğrudan soru sor.
+              Bir ürün öğren, doğru ürün ailesini eşleştir, kliniğe girmeden bilgiyi kontrol et,
+              veteriner itirazlarını çalış veya VetWel bilgi tabanına doğrudan soru sor.
             </p>
           </div>
         </section>
@@ -102,6 +114,14 @@ export default async function DashboardPage() {
             </div>
             <div className="progress-row">
               <div><strong>Ürün eğitimleri</strong><span>8 ürün/form için eğitim ve saha anlatımı</span></div>
+              <span className="status">Aktif</span>
+            </div>
+            <div className="progress-row">
+              <div><strong>Ürün eşleştirme</strong><span>7 destek alanında doğru VetWel ürün ailesi ve iletişim sınırı</span></div>
+              <span className="status">Aktif</span>
+            </div>
+            <div className="progress-row">
+              <div><strong>Veteriner görüşmesi simülasyonu</strong><span>Temel, orta ve ileri seviye saha itiraz pratikleri</span></div>
               <span className="status">Aktif</span>
             </div>
             <div className="progress-row">

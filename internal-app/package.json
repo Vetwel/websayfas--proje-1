@@ -1,6 +1,6 @@
 {
   "name": "vetwel-internal-ai",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,10 +9,11 @@
     "start": "next start",
     "check:cloudflare": "vinext check",
     "dev:cloudflare": "vinext dev",
-    "build:cloudflare": "vinext build",
-    "deploy:cloudflare": "vinext build && vinext-cloudflare deploy --skip-build"
+    "build:cloudflare": "npm install --include=dev --no-audit --no-fund && vinext build",
+    "deploy:cloudflare": "vinext build && npx @vinext/cloudflare deploy --skip-build"
   },
   "dependencies": {
+    "@clerk/backend": "^3.16.10",
     "@clerk/nextjs": "^7.0.0",
     "next": "^16.0.0",
     "react": "^19.2.6",

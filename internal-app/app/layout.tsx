@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
-import { isClerkConfigured } from "@/lib/internal-config";
+import { getClerkPublishableKey, isClerkConfigured } from "@/lib/internal-config";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   }
 
   return (
-    <ClerkProvider>
+    <ClerkProvider publishableKey={getClerkPublishableKey()}>
       <Document>{children}</Document>
     </ClerkProvider>
   );

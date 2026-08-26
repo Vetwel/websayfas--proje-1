@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { auth } from "@clerk/nextjs/server";
+import { auth } from "@/lib/clerk-server";
 import { redirect } from "next/navigation";
-import { isClerkConfigured, isOpenAIConfigured } from "@/lib/internal-config";
+import { isClerkConfigured } from "@/lib/internal-config";
 import { trainingModules } from "@/lib/training-content";
 import MeetingPrepClient from "./meeting-prep-client";
 
@@ -22,14 +22,7 @@ export default async function MeetingPrepPage() {
           Kliniğe girmeden önce ürün/formu ve görüşme hedefini seç. VetWel AI sana doğrulanmış bilgi tabanından kısa açılış, ana mesajlar, zor sorular, iletişim sınırları ve kapanış hazırlasın.
         </p>
 
-        {!isOpenAIConfigured() ? (
-          <section className="placeholder">
-            <h2>AI bağlantısı hazırlanıyor</h2>
-            <p>Bu araç OpenAI ve özel VetWel bilgi tabanı bağlantısı aktif olduğunda otomatik olarak çalışacaktır.</p>
-          </section>
-        ) : (
-          <MeetingPrepClient products={products} />
-        )}
+        <MeetingPrepClient products={products} />
 
         <section className="section placeholder">
           <h2>Görüşme standardı</h2>

@@ -1,3 +1,5 @@
+import { getRuntimeEnvValue } from "@/lib/runtime-env";
+
 function normalize(value: string | undefined) {
   return value?.trim() || "";
 }
@@ -7,18 +9,18 @@ function extractClerkKey(value: string | undefined, kind: "pk" | "sk") {
   if (!raw) return "";
 
   const pattern = kind === "pk"
-    ? /pk_(?:test|live)_[A-Za-z0-9_+=\/.$-]+/
-    : /sk_(?:test|live)_[A-Za-z0-9_+=\/.$-]+/;
+    ? /pk_(?:test|live)_[A-Za-z0-9_+=\\/.$-]+/
+    : /sk_(?:test|live)_[A-Za-z0-9_+=\\/.$-]+/;
 
   return raw.match(pattern)?.[0] || "";
 }
 
 export function getClerkPublishableKey() {
-  return extractClerkKey(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY, "pk");
+  return extractClerkKey(getRuntimeEnvValue("NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY"), "pk");
 }
 
 export function getClerkSecretKey() {
-  return extractClerkKey(process.env.CLERK_SECRET_KEY, "sk");
+  return extractClerkKey(getRuntimeEnvValue("CLERK_SECRET_KEY"), "sk");
 }
 
 const normalizedPublishableKey = getClerkPublishableKey();
@@ -44,8 +46,10 @@ export function isClerkConfigured() {
 }
 
 export function getInternalSetupStatus() {
-  const rawPublishable = normalize(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY);
-  const rawSecret = normalize(process.env.CLERK_SECRET_KEY);
+  const rawPublishable = normalize(
+    getRuntimeEnvValue("NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY"),
+  );
+  const rawSecret = normalize(getRuntimeEnvValue("CLERK_SECRET_KEY"));
 
   return {
     clerk: isClerkConfigured(),

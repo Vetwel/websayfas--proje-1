@@ -1,0 +1,62 @@
+.list {
+  display: grid;
+  gap: 18px;
+}
+
+.card {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: white;
+  box-shadow: 0 12px 36px rgba(11, 36, 71, .055);
+}
+
+.head {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.head h2 {
+  margin: 6px 0 0;
+  font-size: 21px;
+  line-height: 1.4;
+  letter-spacing: -.02em;
+}
+
+.task {
+  margin: 20px 0 16px;
+  padding: 16px 18px;
+  border-radius: 15px;
+  background: #f5f8fc;
+}
+
+.task strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--navy);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.task p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.62;
+}
+
+.answer,
+.risks {
+  margin-top: 10px;
+}
+
+.risks summary {
+  color: #994c4c;
+}
+
+@media (max-width: 620px) {
+  .card { padding: 21px; }
+  .head { grid-template-columns: 1fr; }
+}

@@ -84,7 +84,10 @@ export default async function ManagerPage() {
                   const ready = row.completed === trainingModules.length && row.basic >= 80 && row.advanced >= 80;
                   return (
                     <tr key={row.id}>
-                      <td><strong>{row.name}</strong><span>{row.email}</span></td>
+                      <td>
+                        <Link className={styles.employeeLink} href={`/manager/${row.id}`}><strong>{row.name}</strong></Link>
+                        <span>{row.email}</span>
+                      </td>
                       <td>{row.completed}/{trainingModules.length}</td>
                       <td>%{row.basic}</td>
                       <td>%{row.advanced}</td>

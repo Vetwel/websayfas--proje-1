@@ -1,0 +1,50 @@
+name: Deploy VetWel Internal Worker
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - vetwel-rebuild
+    paths:
+      - "internal-app/**"
+      - ".github/workflows/deploy-internal-cloudflare.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vetwel-internal-cloudflare-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build and deploy vetwel-internal-ai
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: internal-app
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: "72994666ab50ebd44473f30ce7c9c054"
+
+    steps:
+      - name: Check out vetwel-rebuild
+        uses: actions/checkout@v4
+        with:
+          ref: vetwel-rebuild
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: internal-app/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify Cloudflare compatibility
+        run: npm run check:cloudflare
+
+      - name: Deploy vetwel-internal-ai
+        run: npm run deploy:cloudflare

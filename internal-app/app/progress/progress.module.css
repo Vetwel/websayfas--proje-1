@@ -1,6 +1,6 @@
 .summaryGrid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 16px;
 }
 
@@ -66,10 +66,6 @@
   font-weight: 850;
 }
 .pillDone { background: #edf8f2; color: #1f7a55; }
-
-@media (max-width: 900px) {
-  .summaryGrid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-}
 
 @media (max-width: 620px) {
   .summaryGrid { grid-template-columns: 1fr; }

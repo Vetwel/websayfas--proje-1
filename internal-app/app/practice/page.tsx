@@ -2,6 +2,7 @@ import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { isClerkConfigured } from "@/lib/internal-config";
+import styles from "./practice.module.css";
 
 const cases = [
   {
@@ -63,25 +64,25 @@ export default async function PracticePage() {
           Önce soruyu kendin cevapla. Sonra ideal cevabı aç ve hangi cümlelerin VetWel bilgi güvenliği standardını ihlal edeceğini kontrol et.
         </p>
 
-        <section className="practice-list">
+        <section className={styles.list}>
           {cases.map((item, index) => (
-            <article className="practice-card" key={item.title}>
-              <div className="practice-head">
+            <article className={styles.card} key={item.title}>
+              <div className={styles.head}>
                 <span className="scenario-index">{String(index + 1).padStart(2, "0")}</span>
                 <div>
                   <span className="eyebrow">{item.level}</span>
                   <h2>{item.title}</h2>
                 </div>
               </div>
-              <div className="practice-task">
+              <div className={styles.task}>
                 <strong>Görev</strong>
                 <p>{item.task}</p>
               </div>
-              <details className="checkpoint practice-answer">
+              <details className={`checkpoint ${styles.answer}`}>
                 <summary>İdeal cevabı göster</summary>
                 <p>{item.ideal}</p>
               </details>
-              <details className="checkpoint practice-risks">
+              <details className={`checkpoint ${styles.risks}`}>
                 <summary>Kırmızı bayrakları göster</summary>
                 <ul className="training-list">
                   {item.redFlags.map((flag) => <li key={flag}>{flag}</li>)}

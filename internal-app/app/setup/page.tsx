@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { getInternalSetupStatus } from "@/lib/internal-config";
 
+export const dynamic = "force-dynamic";
+
 function StatusRow({ label, ready, detail }: { label: string; ready: boolean; detail: string }) {
   return (
     <div className="progress-row">

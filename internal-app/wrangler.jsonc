@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vetwel-internal-ai",
+  "compatibility_date": "2026-08-26",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "vinext/server/app-router-entry",
+  "preview_urls": true,
+  "assets": {
+    "not_found_handling": "none"
+  },
+  "ai": {
+    "binding": "AI",
+    "remote": true
+  }
+}

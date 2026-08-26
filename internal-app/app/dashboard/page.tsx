@@ -21,7 +21,13 @@ const modules = [
     href: "/meeting-prep",
     code: "HAZ",
     title: "Görüşmeye Hazırlan",
-    text: "Ürün, süre ve hedefi seç; AI sana doğrulanmış VetWel bilgisiyle açılış, ana mesajlar, itiraz cevapları ve kapanış hazırlasın.",
+    text: "Ürün, süre, hedef ve veteriner profilini seç; AI sana doğrulanmış VetWel bilgisiyle görüşme planı hazırlasın.",
+  },
+  {
+    href: "/advanced-coach",
+    code: "AI+",
+    title: "İleri AI Rol-Play",
+    text: "Veteriner profilini ve zorluk seviyesini seç; gerçekçi itiraz provası yap ve görüşme sonunda 100 puan üzerinden geri bildirim al.",
   },
   {
     href: "/field-guide",
@@ -109,8 +115,8 @@ export default async function DashboardPage() {
             <span className="eyebrow">VetWel Internal</span>
             <h1>Merhaba, {firstName}.</h1>
             <p>
-              Bir ürün öğren, ilerlemeni takip et, görüşmeye hazırlan, doğru ürün ailesini eşleştir,
-              veteriner itirazlarını çalış veya VetWel bilgi tabanına doğrudan soru sor.
+              Bir ürün öğren, ilerlemeni takip et, veteriner profiline göre görüşmeye hazırlan,
+              canlı AI rol-play yap veya VetWel bilgi tabanına doğrudan soru sor.
             </p>
           </div>
         </section>
@@ -132,7 +138,7 @@ export default async function DashboardPage() {
               <span className="eyebrow">Onboarding</span>
               <h2>Eğitim yolculuğun</h2>
             </div>
-            <p>Eğitim ve sınav ilerlemesi artık kullanıcı hesabına kalıcı olarak kaydedilir.</p>
+            <p>Eğitim ve sınav ilerlemesi kullanıcı hesabına kalıcı olarak kaydedilir.</p>
           </div>
           <div className="info-panel">
             <div className="progress-row">
@@ -148,7 +154,11 @@ export default async function DashboardPage() {
               <span className="status">Aktif</span>
             </div>
             <div className="progress-row">
-              <div><strong>AI görüşme hazırlığı</strong><span>Ürün, süre ve hedefe göre otomatik saha planı</span></div>
+              <div><strong>AI görüşme hazırlığı</strong><span>Ürün, süre, hedef ve veteriner profiline göre otomatik saha planı</span></div>
+              <span className="status">Aktif</span>
+            </div>
+            <div className="progress-row">
+              <div><strong>İleri AI rol-play</strong><span>5 veteriner profili, 3 zorluk seviyesi ve 100 puanlık görüşme değerlendirmesi</span></div>
               <span className="status">Aktif</span>
             </div>
             <div className="progress-row">

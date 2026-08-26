@@ -2,7 +2,7 @@ import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { isClerkConfigured } from "@/lib/internal-config";
-import { verifiedTrainingModules } from "@/lib/training-content";
+import { trainingModules } from "@/lib/training-content";
 
 const scenarios = [
   {
@@ -35,6 +35,24 @@ const scenarios = [
       "Mevcut VetWel kaydı Cleanse’i veteriner klinik protokolü içinde tarif ediyor. Evde kullanım güvenliği veya talimatı ayrıca onaylanmadıkça önerilmez.",
     boundary: "Pet sahibine onaylanmamış ev uygulama protokolü verme.",
   },
+  {
+    title: "“Breathe Ease 30 lb köpekte kaç tüp?”",
+    answer:
+      "22 lb üzerindeki köpekler için resmi doz tablosu henüz doğrulanmış değil. Bu nedenle orantı kurup doz tahmini yapmıyoruz.",
+    boundary: "11 lb başına 1 tüp gibi otomatik matematiksel genelleme yapma.",
+  },
+  {
+    title: "“LactoWel 15 kg köpekte kaç tablet?”",
+    answer:
+      "Kayıt her 10 kg için 1 tablet/doz diyor; ancak ara kilo yuvarlama kuralı doğrulanmadığı için 15 kg için kesin sayı vermiyoruz.",
+    boundary: "Kayıtlı olmayan yuvarlama kuralını saha kolaylığı için uydurma.",
+  },
+  {
+    title: "“CalmWel sedatif mi?”",
+    answer:
+      "CalmWel Tablet sakinlik, davranış dengesi ve çevresel adaptasyon desteği için konumlandırılır. Amaç belirgin sedasyon değildir.",
+    boundary: "Sedatif, tedavi eder veya psikolojik kaşıntıyı tedavi eder gibi claim kullanma.",
+  },
 ];
 
 const coachPrompts = [
@@ -42,6 +60,9 @@ const coachPrompts = [
   "Veteriner rolüne gir. Bana KidneyWel Liquid ile ilgili zor sorular sor; her cevabımdan sonra hatam varsa düzelt.",
   "CalmWel Tablet’i sedasyon iddiasına kaçmadan 30 saniyede nasıl anlatacağımı çalıştır.",
   "LiverWel Tablet görüşmesi için teknik ama kısa bir konuşma akışı hazırla ve sonunda beni sınava çek.",
+  "SkinWel için veteriner rolüne gir; özellikle 15 kg doz sorusuyla beni test et ve tahmin edersem düzelt.",
+  "Breathe Ease için 22 lb üzeri doz sınırını koruyarak bir klinik görüşme provası yaptır.",
+  "Cleanse hakkında pet sahibi evde kullanım sorarsa nasıl profesyonel sınır koyacağımı çalıştır.",
 ];
 
 export default async function CoachPage() {
@@ -60,26 +81,28 @@ export default async function CoachPage() {
         <h1 className="module-title">Satış Koçu</h1>
         <p className="module-subtitle">
           Amaç ezberlenmiş satış cümlesi vermek değil; veteriner görüşmesinde doğru bilgiyi kısa,
-          kontrollü ve güvenilir şekilde aktarabilmek. Koçluk içerikleri yalnız doğrulanmış VetWel
-          kayıtlarından ve onaylı iletişim sınırlarından oluşturulur.
+          kontrollü ve güvenilir şekilde aktarabilmek. Kısmen onaylı ürünlerde iyi temsilci,
+          yalnız bildiğini değil nerede durması gerektiğini de bilir.
         </p>
 
         <section className="section">
           <div className="section-head">
             <div>
               <span className="eyebrow">30 saniyelik ürün anlatımı</span>
-              <h2>Doğrulanmış saha açılışları</h2>
+              <h2>Saha açılışları</h2>
             </div>
-            <p>{verifiedTrainingModules.length} hazır ürün/form</p>
+            <p>{trainingModules.length} aktif ürün/form</p>
           </div>
           <div className="product-grid">
-            {verifiedTrainingModules.map((module) => (
+            {trainingModules.map((module) => (
               <article className="product-card coach-pitch-card" key={module.slug}>
                 <div className="product-card-topline">
-                  <span className="content-badge content-badge-ready">{module.form}</span>
+                  <span className={`content-badge ${module.status === "ONAYLI" ? "content-badge-ready" : "content-badge-partial"}`}>
+                    {module.status}
+                  </span>
                   <Link className="mini-link" href={`/training/${module.slug}`}>Eğitim →</Link>
                 </div>
-                <strong>{module.product}</strong>
+                <strong>{module.product} {module.form}</strong>
                 <p>“{module.clinicPitch}”</p>
               </article>
             ))}
@@ -92,6 +115,7 @@ export default async function CoachPage() {
               <span className="eyebrow">İtiraz provası</span>
               <h2>Gerçek saha sorularına doğru cevap</h2>
             </div>
+            <p>{scenarios.length} kritik senaryo</p>
           </div>
           <div className="scenario-grid">
             {scenarios.map((scenario, index) => (

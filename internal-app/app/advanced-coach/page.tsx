@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { auth } from "@clerk/nextjs/server";
+import { auth } from "@/lib/clerk-server";
 import { redirect } from "next/navigation";
-import { isClerkConfigured, isOpenAIConfigured } from "@/lib/internal-config";
+import { isClerkConfigured } from "@/lib/internal-config";
 import { trainingModules } from "@/lib/training-content";
 import AdvancedRoleplayClient from "./advanced-roleplay-client";
 
@@ -79,11 +79,7 @@ export default async function AdvancedCoachPage() {
             </div>
             <p>Her turda tek itiraz • sonunda puanlama</p>
           </div>
-          {!isOpenAIConfigured() ? (
-            <section className="placeholder"><h2>AI bağlantısı hazırlanıyor</h2><p>OpenAI bağlantısı aktif olduğunda rol-play otomatik çalışır.</p></section>
-          ) : (
-            <AdvancedRoleplayClient products={products} />
-          )}
+          <AdvancedRoleplayClient products={products} />
         </section>
 
         <section className="section coach-framework">

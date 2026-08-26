@@ -144,12 +144,16 @@ button, input, textarea { font: inherit; }
 .product-card-topline { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 18px; }
 .content-badge { display: inline-flex; align-items: center; width: fit-content; padding: 7px 10px; border-radius: 999px; font-size: 10px !important; font-weight: 900; letter-spacing: .06em; }
 .content-badge-ready { background: #edf8f2; color: var(--success) !important; }
+.content-badge-partial { background: #fff4dc; color: #8b6417 !important; }
 .product-form { font-weight: 800; color: var(--navy) !important; }
 .module-cta { display: inline-flex; margin-top: 6px; color: var(--blue) !important; font-weight: 800; }
 .mini-link { color: var(--blue); font-size: 12px; font-weight: 800; }
 
 .training-title-row { display: flex; justify-content: space-between; gap: 30px; align-items: flex-start; }
 .training-title-row .module-subtitle { margin-bottom: 24px; }
+.training-limit { display: grid; grid-template-columns: minmax(220px,.7fr) 1.3fr; gap: 24px; padding: 24px 26px; margin: 4px 0 28px; border: 1px solid #efd7a2; border-radius: 20px; background: #fffaf0; }
+.training-limit h2 { margin: 7px 0 0; font-size: 22px; }
+.training-limit .training-list { color: #795d25; }
 .training-facts { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; margin: 14px 0 38px; }
 .training-fact { padding: 20px; border: 1px solid var(--line); border-radius: 18px; background: white; }
 .training-fact span { display: block; color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
@@ -243,7 +247,7 @@ button, input, textarea { font: inherit; }
   .secure-badge { display: none; }
   .page { width: min(100% - 28px, 1180px); padding-top: 34px; }
   .hero-row, .training-title-row { align-items: start; flex-direction: column; }
-  .grid, .product-grid, .training-facts, .say-grid, .scenario-grid, .framework-steps { grid-template-columns: 1fr; }
+  .grid, .product-grid, .training-facts, .say-grid, .scenario-grid, .framework-steps, .training-limit { grid-template-columns: 1fr; }
   .card { min-height: 205px; }
   .training-block { grid-template-columns: 1fr; }
   .quiz-progress { top: 14px; }

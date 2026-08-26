@@ -92,4 +92,4 @@ Private/internal-only claims are intentionally **not** placed in this public Git
 5. Add private Cloudflare-backed knowledge storage for internal-only training material.
 6. Add admin roles and employee management.
 
-<!-- Cloudflare rebuild trigger: 2026-08-26 -->
+<!-- Cloudflare rebuild trigger: 2026-08-26-2 -->

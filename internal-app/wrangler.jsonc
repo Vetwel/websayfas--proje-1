@@ -6,6 +6,12 @@
   "compatibility_flags": ["nodejs_compat"],
   "main": "vinext/server/app-router-entry",
   "preview_urls": true,
+  "routes": [
+    {
+      "pattern": "internal.vetwel.us",
+      "custom_domain": true
+    }
+  ],
   "assets": {
     "not_found_handling": "none"
   },

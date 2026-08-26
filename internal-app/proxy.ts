@@ -1,11 +1,21 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
+import {
+  getClerkPublishableKey,
+  getClerkSecretKey,
+  isClerkConfigured,
+} from "@/lib/internal-config";
 
-const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY?.trim() || "";
-const secretKey = process.env.CLERK_SECRET_KEY?.trim() || "";
-const clerkReady =
-  /^pk_(test|live)_[A-Za-z0-9_-]+$/.test(publishableKey) &&
-  /^sk_(test|live)_[A-Za-z0-9_-]+$/.test(secretKey);
+const publishableKey = getClerkPublishableKey();
+const secretKey = getClerkSecretKey();
+const clerkReady = isClerkConfigured();
+
+if (publishableKey) {
+  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = publishableKey;
+}
+if (secretKey) {
+  process.env.CLERK_SECRET_KEY = secretKey;
+}
 
 export default clerkReady
   ? clerkMiddleware()

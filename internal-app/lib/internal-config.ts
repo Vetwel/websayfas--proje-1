@@ -57,6 +57,7 @@ export function getInternalSetupStatus() {
     clerkSecretLength: rawSecret.length,
     clerkPublishablePrefix: rawPublishable.startsWith("pk_live_") || rawPublishable.startsWith("pk_test_"),
     clerkSecretPrefix: rawSecret.startsWith("sk_live_") || rawSecret.startsWith("sk_test_"),
+    workersAI: true,
     aiProvider: "Cloudflare Workers AI",
     aiBillingMode: "Free allocation only",
   };

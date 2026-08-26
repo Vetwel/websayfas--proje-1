@@ -24,9 +24,8 @@ export default clerkReady
     };
 
 export const config = {
-  matcher: [
-    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
-    "/(api|trpc)(.*)",
-    "/__clerk/(.*)",
-  ],
+  // vinext rejects Clerk's negative-lookahead matcher as an ambiguous route
+  // expansion. Running the lightweight middleware for every path keeps auth
+  // coverage intact and uses route syntax supported by both Next.js and vinext.
+  matcher: ["/:path*"],
 };

@@ -30,6 +30,7 @@ export default function AdvancedRoleplayClient({ products }: Props) {
   const [error, setError] = useState("");
   const [started, setStarted] = useState(false);
   const [evaluated, setEvaluated] = useState(false);
+  const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
 
   async function callAI(nextMessages: ChatMessage[]) {
     setLoading(true);
@@ -53,6 +54,26 @@ export default function AdvancedRoleplayClient({ products }: Props) {
     }
   }
 
+  async function savePractice() {
+    setSaveState("saving");
+    try {
+      const response = await fetch("/api/progress", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "roleplay_result",
+          product,
+          persona,
+          difficulty,
+        }),
+      });
+      if (!response.ok) throw new Error("save failed");
+      setSaveState("saved");
+    } catch {
+      setSaveState("error");
+    }
+  }
+
   async function startRoleplay() {
     if (!product || loading) return;
     const seed: ChatMessage = {
@@ -71,6 +92,7 @@ export default function AdvancedRoleplayClient({ products }: Props) {
     };
     setStarted(true);
     setEvaluated(false);
+    setSaveState("idle");
     setMessages([]);
     setAnswer("");
     await callAI([seed]);
@@ -103,6 +125,7 @@ export default function AdvancedRoleplayClient({ products }: Props) {
     };
     setEvaluated(true);
     await callAI([...messages, prompt]);
+    await savePractice();
   }
 
   function reset() {
@@ -111,7 +134,10 @@ export default function AdvancedRoleplayClient({ products }: Props) {
     setError("");
     setStarted(false);
     setEvaluated(false);
+    setSaveState("idle");
   }
+
+  const visibleMessages = messages.filter((message, index) => !(index === 0 && message.role === "user"));
 
   return (
     <div className={styles.layout}>
@@ -150,6 +176,11 @@ export default function AdvancedRoleplayClient({ products }: Props) {
           </div>
         )}
         <p className={styles.note}>AI gerçek veteriner rolünü oynar; ürün bilgisinde ise VetWel doğrulama sınırlarının dışına çıkmamalıdır.</p>
+        {saveState !== "idle" ? (
+          <p className={styles.note}>
+            {saveState === "saving" ? "Prova etkinliği hesabına kaydediliyor…" : saveState === "saved" ? "✓ Prova etkinliği VetWel hesabına kaydedildi." : "Prova tamamlandı ancak etkinlik kaydı yapılamadı."}
+          </p>
+        ) : null}
       </aside>
 
       <section className={styles.chat} aria-live="polite">
@@ -168,12 +199,15 @@ export default function AdvancedRoleplayClient({ products }: Props) {
               <p>Profil ve zorluk seçildiğinde AI tek tek itiraz soracak; sen saha çalışanı gibi cevap vereceksin.</p>
             </div>
           ) : null}
-          {messages.filter((message, index) => !(index === 0 && message.role === "user")).map((message, index) => (
-            <article className={`${styles.message} ${message.role === "user" ? styles.employee : styles.vet}`} key={`${message.role}-${index}`}>
-              <span>{message.role === "user" ? "Sen" : evaluated && index === messages.length - 2 ? "AI Koç" : "Veteriner"}</span>
-              <p>{message.content}</p>
-            </article>
-          ))}
+          {visibleMessages.map((message, index) => {
+            const isLastAssistant = evaluated && message.role === "assistant" && index === visibleMessages.length - 1;
+            return (
+              <article className={`${styles.message} ${message.role === "user" ? styles.employee : styles.vet}`} key={`${message.role}-${index}`}>
+                <span>{message.role === "user" ? "Sen" : isLastAssistant ? "AI Koç" : "Veteriner"}</span>
+                <p>{message.content}</p>
+              </article>
+            );
+          })}
           {loading ? <div className={styles.loading}>Yanıt hazırlanıyor…</div> : null}
         </div>
 

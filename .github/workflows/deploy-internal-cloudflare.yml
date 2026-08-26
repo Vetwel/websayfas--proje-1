@@ -64,11 +64,18 @@ jobs:
       - name: Verify Cloudflare compatibility
         run: npm run check:cloudflare
 
-      - name: Upload Clerk runtime secrets
+      - name: Build for Cloudflare
+        run: npm run build:cloudflare
+
+      - name: Deploy with Clerk secrets
         shell: bash
         run: |
-          printf '%s' "$NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY" | npx wrangler secret put NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
-          printf '%s' "$CLERK_SECRET_KEY" | npx wrangler secret put CLERK_SECRET_KEY
-
-      - name: Deploy vetwel-internal-ai
-        run: npm run deploy:cloudflare
+          umask 077
+          secrets_file="$(mktemp)"
+          trap 'rm -f "$secrets_file"' EXIT
+          jq -n \
+            --arg publishable "$NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY" \
+            --arg secret "$CLERK_SECRET_KEY" \
+            '{NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: $publishable, CLERK_SECRET_KEY: $secret}' \
+            > "$secrets_file"
+          npx wrangler deploy --secrets-file "$secrets_file"

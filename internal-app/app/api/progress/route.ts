@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { isClerkConfigured } from "@/lib/internal-config";
 import { trainingModules } from "@/lib/training-content";
 import { normalizeProgress, recordQuizResult } from "@/lib/progress";
+import { scoreQuizAnswers } from "@/lib/quiz-scoring";
 
 export const runtime = "nodejs";
 
@@ -53,6 +54,7 @@ export async function POST(request: Request) {
   const privateMetadata = metadataRecord(session.user.privateMetadata);
   const current = normalizeProgress(privateMetadata.vetwelProgress);
   let next = current;
+  let quizScore: { correct: number; total: number; percent: number } | undefined;
 
   if (input.action === "complete_training") {
     const slug = typeof input.slug === "string" ? input.slug : "";
@@ -69,11 +71,17 @@ export async function POST(request: Request) {
     };
   } else if (input.action === "quiz_result") {
     const quiz = input.quiz === "basic" || input.quiz === "advanced" ? input.quiz : null;
-    const percent = typeof input.percent === "number" ? input.percent : Number.NaN;
-    if (!quiz || !Number.isFinite(percent)) {
-      return NextResponse.json({ error: "Geçersiz sınav sonucu." }, { status: 400 });
+    if (!quiz) {
+      return NextResponse.json({ error: "Geçersiz sınav türü." }, { status: 400 });
     }
-    next = recordQuizResult(current, quiz, percent);
+
+    const scored = scoreQuizAnswers(quiz, input.answers);
+    if (!scored) {
+      return NextResponse.json({ error: "Geçersiz veya eksik sınav cevapları." }, { status: 400 });
+    }
+
+    quizScore = scored;
+    next = recordQuizResult(current, quiz, scored.percent);
   } else {
     return NextResponse.json({ error: "Bilinmeyen işlem." }, { status: 400 });
   }
@@ -85,5 +93,5 @@ export async function POST(request: Request) {
     },
   });
 
-  return NextResponse.json({ progress: next });
+  return NextResponse.json({ progress: next, quizScore });
 }

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { isClerkConfigured } from "@/lib/internal-config";
-import { verifiedTrainingModules, verificationQueue } from "@/lib/training-content";
+import { trainingModules, verificationQueue } from "@/lib/training-content";
 
 export default async function TrainingPage() {
   if (!isClerkConfigured()) {
@@ -12,6 +12,9 @@ export default async function TrainingPage() {
   const { userId } = await auth();
   if (!userId) redirect("/sign-in");
 
+  const approvedCount = trainingModules.filter((module) => module.status === "ONAYLI").length;
+  const limitedCount = trainingModules.filter((module) => module.status === "KISMEN ONAYLI").length;
+
   return (
     <main className="shell">
       <div className="page">
@@ -19,41 +22,46 @@ export default async function TrainingPage() {
         <span className="eyebrow">Modül 01</span>
         <h1 className="module-title">Ürün Eğitimi</h1>
         <p className="module-subtitle">
-          Buradaki eğitimler yalnız VetWel bilgi tabanında doğrulanmış ürün/form kayıtlarından
-          oluşturulur. Bir ürünün Tablet ve Liquid formları ayrı bilgi olarak değerlendirilir;
-          doğrulanmamış doz veya içerik tahmin edilmez.
+          Eğitimler VetWel bilgi tabanındaki veri statüsüne göre açılır. ONAYLI modüllerde
+          doğrulanmış ürün/form bilgileri kullanılır; KISMEN ONAYLI modüllerde ise çalışan
+          hangi bilginin güvenle söylenebileceğini ve hangi noktada durması gerektiğini öğrenir.
         </p>
 
         <section className="section">
           <div className="section-head">
             <div>
-              <span className="eyebrow">Eğitime hazır</span>
-              <h2>Doğrulanmış ürün modülleri</h2>
+              <span className="eyebrow">Aktif eğitimler</span>
+              <h2>Ürün ve form modülleri</h2>
             </div>
-            <p>{verifiedTrainingModules.length} tam modül</p>
+            <p>{approvedCount} onaylı • {limitedCount} sınırlı modül</p>
           </div>
 
           <div className="product-grid">
-            {verifiedTrainingModules.map((module) => (
-              <Link className="product-card product-card-link" href={`/training/${module.slug}`} key={module.slug}>
-                <div className="product-card-topline">
-                  <span className="content-badge content-badge-ready">ONAYLI</span>
-                  <span className="product-form">{module.form}</span>
-                </div>
-                <strong>{module.product}</strong>
-                <span>{module.supportArea}</span>
-                <p>{module.positioning}</p>
-                <span className="module-cta">Eğitime başla →</span>
-              </Link>
-            ))}
+            {trainingModules.map((module) => {
+              const partial = module.status === "KISMEN ONAYLI";
+              return (
+                <Link className="product-card product-card-link" href={`/training/${module.slug}`} key={module.slug}>
+                  <div className="product-card-topline">
+                    <span className={`content-badge ${partial ? "content-badge-partial" : "content-badge-ready"}`}>
+                      {module.status}
+                    </span>
+                    <span className="product-form">{module.form}</span>
+                  </div>
+                  <strong>{module.product}</strong>
+                  <span>{module.supportArea}</span>
+                  <p>{module.positioning}</p>
+                  <span className="module-cta">{partial ? "Sınırlarıyla öğren →" : "Eğitime başla →"}</span>
+                </Link>
+              );
+            })}
           </div>
         </section>
 
         <section className="section">
           <div className="section-head">
             <div>
-              <span className="eyebrow">Veri güvenliği</span>
-              <h2>Doğrulama bekleyen ürünler</h2>
+              <span className="eyebrow">Henüz modül açılmadı</span>
+              <h2>Doğrulama bekleyen ürün/formlar</h2>
             </div>
             <p>Eksik bilgi AI tarafından tamamlanmaz</p>
           </div>
@@ -74,13 +82,13 @@ export default async function TrainingPage() {
         <section className="section placeholder">
           <h2>Eğitim standardı</h2>
           <p>
-            Her tam modül beş parçadan oluşur: ürünün konumlandırması, doğrulanmış doz/kullanım,
-            formülasyon mantığı, klinikte söylenebilir kısa anlatım ve kesinlikle söylenmemesi
-            gereken ifadeler. Modül sonunda kontrol soruları bulunur.
+            Her modül konumlandırma, kayıtlı doz/kullanım, formülasyon mantığı, klinikte
+            söylenebilir kısa anlatım ve “söyle / söyleme” sınırlarını içerir. Kısmen onaylı
+            modüllerde ayrıca veri eksikleri görünür biçimde gösterilir.
           </p>
           <p className="placeholder-note">
-            Kural: “DOĞRULAMA GEREKİYOR” olan bir bilgi için çalışan veya AI tahminde bulunmaz;
-            doğru yanıt bilgi eksikliğini açıkça belirtmektir.
+            Temel kural: “DOĞRULAMA GEREKİYOR” olan bir bilgi için çalışan veya AI tahminde
+            bulunmaz. Doğru profesyonel yanıt, bilgi sınırını açıkça belirtmektir.
           </p>
         </section>
       </div>

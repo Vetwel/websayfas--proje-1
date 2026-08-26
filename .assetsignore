@@ -1,0 +1,15 @@
+.git/
+.github/
+.agents/
+.codex/
+internal-app/
+node_modules/
+_worker.js
+_routes.json
+wrangler.jsonc
+package.json
+package-lock.json
+README.md
+.assetsignore
+.nojekyll
+*.log

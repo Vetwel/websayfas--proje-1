@@ -61,6 +61,19 @@ const modules = [
   },
 ];
 
+const managerModule = {
+  href: "/manager",
+  code: "YÖN",
+  title: "Ekip Eğitim Paneli",
+  text: "Çalışanların eğitim tamamlama durumunu, sınav puanlarını ve saha yetkinliği ilerlemesini izle.",
+};
+
+function metadataRecord(value: unknown): Record<string, unknown> {
+  return value && typeof value === "object" && !Array.isArray(value)
+    ? (value as Record<string, unknown>)
+    : {};
+}
+
 export default async function DashboardPage() {
   if (!isClerkConfigured()) {
     redirect("/setup");
@@ -71,6 +84,8 @@ export default async function DashboardPage() {
 
   const user = await currentUser();
   const firstName = user?.firstName || "VetWel ekibi";
+  const isAdmin = metadataRecord(user?.privateMetadata).vetwelRole === "admin";
+  const visibleModules = isAdmin ? [...modules, managerModule] : modules;
 
   return (
     <main className="shell">
@@ -101,7 +116,7 @@ export default async function DashboardPage() {
         </section>
 
         <section className="grid" aria-label="Ekip asistanı modülleri">
-          {modules.map((module) => (
+          {visibleModules.map((module) => (
             <Link className="card" href={module.href} key={module.href}>
               <div className="card-icon">{module.code}</div>
               <h2>{module.title}</h2>

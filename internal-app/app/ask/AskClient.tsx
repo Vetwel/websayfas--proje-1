@@ -10,14 +10,17 @@ type ChatMessage = {
 
 const STARTER_PROMPTS = [
   "KidneyWel Tablet başlangıç protokolünü kısa anlat.",
-  "Breathe Ease kedi ve köpek için nasıl konumlandırılıyor?",
   "Veteriner KidneyWel'de fosfor bağlayıcı var mı diye sorarsa ne söylemeliyim?",
+  "KidneyWel Tablet ve Liquid arasındaki doğrulanmış farkları karşılaştır.",
+  "15 kg köpek için SkinWel dozu sorulursa nasıl cevap vermeliyim?",
+  "Breathe Ease için hangi doz bilgileri doğrulanmış, hangileri eksik?",
+  "Cleanse hakkında pet sahibine hangi ifadeleri kullanmamalıyım?",
 ];
 
 const WELCOME: ChatMessage = {
   role: "assistant",
   content:
-    "VetWel Bilgi Asistanı hazır. Sorunu yaz; yalnızca doğrulanmış şirket içi bilgi tabanına dayanarak yanıt vereceğim. Eksik veya doğrulanmamış bir alan varsa bunu açıkça belirteceğim.",
+    "VetWel Bilgi Asistanı hazır. Sorunu yaz; şirket içi bilgi tabanındaki doğrulanmış kayıtlara dayanarak yanıt vereceğim. Bir alan eksik, kısmen onaylı veya doğrulama bekliyorsa bunu açıkça belirteceğim ve tahmin yapmayacağım.",
 };
 
 export default function AskClient() {
@@ -77,7 +80,7 @@ export default function AskClient() {
       <div className={styles.toolbar}>
         <div>
           <strong>Şirket içi, doğrulanmış bilgi</strong>
-          <span>Doz veya form bilinmiyorsa asistan tahmin yapmaz.</span>
+          <span>Ürün, form, doz veya claim bilinmiyorsa asistan tahmin yapmaz.</span>
         </div>
         <button className={styles.reset} type="button" onClick={resetChat} disabled={loading}>
           Yeni konuşma
@@ -141,7 +144,7 @@ export default function AskClient() {
       </form>
 
       <p className={styles.footnote}>
-        Bu asistan yalnız VetWel&apos;in doğrulanmış şirket içi kayıtlarıyla çalışacak şekilde
+        Bu asistan VetWel&apos;in şirket içi kayıtlarını kullanır ve veri statüsünü koruyacak şekilde
         tasarlanmıştır. Klinik karar ve hasta değerlendirmesi veteriner hekimin sorumluluğundadır.
       </p>
     </section>

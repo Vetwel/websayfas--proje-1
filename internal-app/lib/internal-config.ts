@@ -54,10 +54,19 @@ export function isOpenAIConfigured() {
 }
 
 export function getInternalSetupStatus() {
+  const rawPublishable = normalize(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY);
+  const rawSecret = normalize(process.env.CLERK_SECRET_KEY);
+
   return {
     clerk: isClerkConfigured(),
     clerkPublishableKey: isValidClerkPublishableKey(),
     clerkSecretKey: isValidClerkSecretKey(),
+    clerkPublishablePresent: Boolean(rawPublishable),
+    clerkSecretPresent: Boolean(rawSecret),
+    clerkPublishableLength: rawPublishable.length,
+    clerkSecretLength: rawSecret.length,
+    clerkPublishablePrefix: rawPublishable.startsWith("pk_live_") || rawPublishable.startsWith("pk_test_"),
+    clerkSecretPrefix: rawSecret.startsWith("sk_live_") || rawSecret.startsWith("sk_test_"),
     openaiKey: Boolean(process.env.OPENAI_API_KEY),
     vectorStore: Boolean(process.env.OPENAI_VECTOR_STORE_ID),
     model: process.env.OPENAI_MODEL || "gpt-5.6",

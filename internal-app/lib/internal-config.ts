@@ -6,9 +6,13 @@ function extractClerkKey(value: string | undefined, kind: "pk" | "sk") {
   const raw = normalize(value);
   if (!raw) return "";
 
+  // Current Clerk publishable keys can contain base64 characters and end with a `$`
+  // delimiter. Secret keys may also contain characters outside a simple alphanumeric
+  // token. Extract the complete key while still tolerating a whole `.env` line pasted
+  // into Vercel.
   const pattern = kind === "pk"
-    ? /pk_(?:test|live)_[A-Za-z0-9_+=\/-]+/
-    : /sk_(?:test|live)_[A-Za-z0-9_+=\/-]+/;
+    ? /pk_(?:test|live)_[A-Za-z0-9_+=\/.$-]+/
+    : /sk_(?:test|live)_[A-Za-z0-9_+=\/.$-]+/;
 
   return raw.match(pattern)?.[0] || "";
 }

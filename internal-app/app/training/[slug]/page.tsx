@@ -3,6 +3,7 @@ import { auth } from "@clerk/nextjs/server";
 import { notFound, redirect } from "next/navigation";
 import { isClerkConfigured } from "@/lib/internal-config";
 import { getTrainingModule } from "@/lib/training-content";
+import TrainingCompleteButton from "./training-complete-button";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -123,6 +124,10 @@ export default async function TrainingDetailPage({ params }: Props) {
               </details>
             ))}
           </div>
+        </section>
+
+        <section className="section">
+          <TrainingCompleteButton slug={module.slug} />
         </section>
 
         <section className="section placeholder">

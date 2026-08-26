@@ -2,10 +2,20 @@ import { auth, clerkClient } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import { isClerkConfigured } from "@/lib/internal-config";
 import { trainingModules } from "@/lib/training-content";
-import { normalizeProgress, recordQuizResult } from "@/lib/progress";
+import { normalizeProgress, recordQuizResult, recordRoleplay } from "@/lib/progress";
 import { scoreQuizAnswers } from "@/lib/quiz-scoring";
 
 export const runtime = "nodejs";
+
+const ROLEPLAY_PERSONAS = new Set([
+  "Kanıt odaklı veteriner",
+  "Zamanı çok kısıtlı veteriner",
+  "Şüpheci veteriner",
+  "Mevcut ürüne sadık veteriner",
+  "Pratik / uygulama odaklı veteriner",
+]);
+
+const ROLEPLAY_DIFFICULTIES = new Set(["Temel", "Orta", "Zor"]);
 
 function metadataRecord(value: unknown): Record<string, unknown> {
   return value && typeof value === "object" && !Array.isArray(value)
@@ -82,6 +92,17 @@ export async function POST(request: Request) {
 
     quizScore = scored;
     next = recordQuizResult(current, quiz, scored.percent);
+  } else if (input.action === "roleplay_result") {
+    const product = typeof input.product === "string" ? input.product : "";
+    const persona = typeof input.persona === "string" ? input.persona : "";
+    const difficulty = typeof input.difficulty === "string" ? input.difficulty : "";
+    const validProducts = new Set(trainingModules.map((module) => `${module.product} ${module.form}`));
+
+    if (!validProducts.has(product) || !ROLEPLAY_PERSONAS.has(persona) || !ROLEPLAY_DIFFICULTIES.has(difficulty)) {
+      return NextResponse.json({ error: "Geçersiz rol-play kaydı." }, { status: 400 });
+    }
+
+    next = recordRoleplay(current, product, persona, difficulty);
   } else {
     return NextResponse.json({ error: "Bilinmeyen işlem." }, { status: 400 });
   }

@@ -31,6 +31,7 @@ export default function ProgressClient() {
   const trainingPercent = Math.round((completedCount / trainingModules.length) * 100);
   const basicBest = progress.basicQuiz?.best ?? 0;
   const advancedBest = progress.advancedQuiz?.best ?? 0;
+  const roleplayAttempts = progress.roleplay?.attempts ?? 0;
   const overall = Math.round((trainingPercent + basicBest + advancedBest) / 3);
 
   return (
@@ -56,7 +57,24 @@ export default function ProgressClient() {
           <strong>%{advancedBest}</strong>
           <p>{progress.advancedQuiz?.attempts ?? 0} deneme</p>
         </article>
+        <article className={styles.stat}>
+          <span>AI rol-play</span>
+          <strong>{roleplayAttempts}</strong>
+          <p>{progress.roleplay?.lastPersona ? `Son: ${progress.roleplay.lastPersona}` : "Henüz değerlendirilmiş prova yok"}</p>
+        </article>
       </section>
+
+      {progress.roleplay?.lastProduct ? (
+        <section className="section info-panel">
+          <div className="progress-row">
+            <div>
+              <strong>Son AI saha provası</strong>
+              <span>{progress.roleplay.lastProduct} • {progress.roleplay.lastPersona} • {progress.roleplay.lastDifficulty}</span>
+            </div>
+            <Link className="status" href="/advanced-coach">Tekrar prova →</Link>
+          </div>
+        </section>
+      ) : null}
 
       <section className="section">
         <div className="section-head">
@@ -95,8 +113,11 @@ export default function ProgressClient() {
           {advancedBest < 80 ? (
             <div className="progress-row"><div><strong>Seviye 2 saha sınavını geç</strong><span>Gerçek veteriner senaryolarında hedef en az %80.</span></div><Link className="status" href="/quiz/advanced">Seviye 2 →</Link></div>
           ) : null}
-          {completedCount === trainingModules.length && basicBest >= 80 && advancedBest >= 80 ? (
-            <div className="progress-row"><div><strong>Temel saha yetkinliği tamamlandı</strong><span>Şimdi görüşme simülasyonları ve AI koçluğu ile pratiği sürdür.</span></div><Link className="status" href="/practice">Pratik →</Link></div>
+          {roleplayAttempts < 3 ? (
+            <div className="progress-row"><div><strong>En az 3 AI rol-play tamamla</strong><span>Farklı veteriner profilleriyle sahaya çıkmadan önce pratik yap.</span></div><Link className="status" href="/advanced-coach">Rol-play →</Link></div>
+          ) : null}
+          {completedCount === trainingModules.length && basicBest >= 80 && advancedBest >= 80 && roleplayAttempts >= 3 ? (
+            <div className="progress-row"><div><strong>Temel saha hazırlık standardı tamamlandı</strong><span>Eğitim, sınav ve rol-play temel hedeflerini tamamladın; pratiği düzenli sürdür.</span></div><Link className="status" href="/meeting-prep">Görüşmeye hazırlan →</Link></div>
           ) : null}
         </div>
       </section>

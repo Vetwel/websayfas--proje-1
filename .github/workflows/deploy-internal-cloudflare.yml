@@ -61,25 +61,6 @@ jobs:
             exit 1
           fi
 
-      - name: Diagnose Clerk domain
-        shell: bash
-        run: |
-          clerk_domains="$(curl --fail --silent --show-error \
-            -H "Authorization: Bearer $CLERK_SECRET_KEY" \
-            https://api.clerk.com/v1/domains)"
-          echo "$clerk_domains" | jq -c '.data | map({
-            id,
-            name,
-            is_satellite,
-            frontend_api_url,
-            accounts_portal_url,
-            proxy_url,
-            cname_targets
-          })'
-          status="$(curl --silent --output /dev/null --write-out '%{http_code}' \
-            https://clerk.vetwel.us/v1/environment)"
-          echo "Clerk Frontend API status: $status"
-
       - name: Verify Cloudflare compatibility
         run: npm run check:cloudflare
 

@@ -37,7 +37,7 @@ export default function SetupPage() {
             <h1>Altyapı hazır, bağlantılar kontrol ediliyor.</h1>
             <p>
               Uygulama Vercel üzerinde çalışıyor. Bu ekran gizli anahtarların kendisini göstermez;
-              yalnızca formatlarının geçerli olup olmadığını kontrol eder.
+              yalnızca Vercel'in değişkenleri görüp görmediğini ve formatlarını kontrol eder.
             </p>
           </div>
         </section>
@@ -47,12 +47,16 @@ export default function SetupPage() {
           <StatusRow
             label="Clerk Publishable Key"
             ready={status.clerkPublishableKey}
-            detail={status.clerkPublishableKey ? "pk_live_ / pk_test_ formatı geçerli." : "Publishable Key formatı geçersiz veya eksik."}
+            detail={status.clerkPublishableKey
+              ? "Anahtar görüldü ve formatı geçerli."
+              : `Vercel görüyor: ${status.clerkPublishablePresent ? "Evet" : "Hayır"} · Karakter: ${status.clerkPublishableLength} · pk_live_/pk_test_ ile başlıyor: ${status.clerkPublishablePrefix ? "Evet" : "Hayır"}`}
           />
           <StatusRow
             label="Clerk Secret Key"
             ready={status.clerkSecretKey}
-            detail={status.clerkSecretKey ? "sk_live_ / sk_test_ formatı geçerli." : "Secret Key formatı geçersiz veya eksik."}
+            detail={status.clerkSecretKey
+              ? "Anahtar görüldü ve formatı geçerli."
+              : `Vercel görüyor: ${status.clerkSecretPresent ? "Evet" : "Hayır"} · Karakter: ${status.clerkSecretLength} · sk_live_/sk_test_ ile başlıyor: ${status.clerkSecretPrefix ? "Evet" : "Hayır"}`}
           />
           <StatusRow
             label="Clerk çalışan girişi"
@@ -74,13 +78,13 @@ export default function SetupPage() {
         <section className="section placeholder">
           <h2>Güvenli teşhis modu</h2>
           <p>
-            Geçersiz Clerk anahtarı artık uygulamayı 500 hatasına düşürmez. Sistem kurulum modunda
-            kalır ve hangi bağlantının düzeltilmesi gerektiğini burada gösterir.
+            Bu ekran gizli anahtar değerlerini hiçbir zaman göstermez. Yalnızca değişkenin mevcut olup
+            olmadığını, toplam karakter sayısını ve beklenen Clerk önekiyle başlayıp başlamadığını gösterir.
           </p>
           {status.clerk ? (
             <p className="placeholder-note"><Link href="/sign-in">Ekip girişine geç →</Link></p>
           ) : (
-            <p className="placeholder-note">Clerk anahtar formatlarından biri henüz geçerli değil.</p>
+            <p className="placeholder-note">Clerk bağlantısı için yukarıdaki iki teşhis satırını kontrol et.</p>
           )}
           {status.clerk && aiReady ? (
             <p><Link className="back-link" href="/dashboard">Ana panele git →</Link></p>

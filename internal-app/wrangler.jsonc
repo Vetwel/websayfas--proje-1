@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "vetwel-internal-ai",
+  "account_id": "72994666ab50ebd44473f30ce7c9c054",
   "compatibility_date": "2026-08-26",
   "compatibility_flags": ["nodejs_compat"],
   "main": "vinext/server/app-router-entry",

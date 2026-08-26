@@ -62,6 +62,16 @@ export default async function ManagerPage() {
           <article><span>Seviye 2 ort.</span><strong>%{averageAdvanced}</strong></article>
         </section>
 
+        <section className="section info-panel">
+          <div className="progress-row">
+            <div>
+              <strong>Bilgi Açıkları Merkezi</strong>
+              <span>Kısmen onaylı ve doğrulama bekleyen ürün/form kayıtlarını yönet.</span>
+            </div>
+            <Link className="status" href="/manager/knowledge-gaps">Açıkları gör →</Link>
+          </div>
+        </section>
+
         <section className="section">
           <div className="section-head">
             <div><span className="eyebrow">Ekip görünümü</span><h2>Çalışan ilerlemesi</h2></div>

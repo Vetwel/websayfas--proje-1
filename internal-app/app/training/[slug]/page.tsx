@@ -20,6 +20,8 @@ export default async function TrainingDetailPage({ params }: Props) {
   const module = getTrainingModule(slug);
   if (!module) notFound();
 
+  const partial = module.status === "KISMEN ONAYLI";
+
   return (
     <main className="shell">
       <div className="page training-detail">
@@ -27,12 +29,26 @@ export default async function TrainingDetailPage({ params }: Props) {
 
         <div className="training-title-row">
           <div>
-            <span className="eyebrow">Doğrulanmış Eğitim • {module.form}</span>
+            <span className="eyebrow">{partial ? "Sınırlı Veri Eğitimi" : "Doğrulanmış Eğitim"} • {module.form}</span>
             <h1 className="module-title">{module.product} {module.form}</h1>
             <p className="module-subtitle">{module.positioning}</p>
           </div>
-          <span className="content-badge content-badge-ready">{module.status}</span>
+          <span className={`content-badge ${partial ? "content-badge-partial" : "content-badge-ready"}`}>
+            {module.status}
+          </span>
         </div>
+
+        {partial && module.limitations?.length ? (
+          <section className="training-limit">
+            <div>
+              <span className="eyebrow">Veri sınırı</span>
+              <h2>Bu modülde özellikle tahmin etme</h2>
+            </div>
+            <ul className="training-list">
+              {module.limitations.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+          </section>
+        ) : null}
 
         <section className="training-facts">
           <article className="training-fact">
@@ -113,8 +129,8 @@ export default async function TrainingDetailPage({ params }: Props) {
           <h2>AI ile pekiştir</h2>
           <p>
             Bu modülü bitirdikten sonra AI Soru-Cevap alanında ürünün dozu, form farkları,
-            klinik anlatımı veya itirazlarıyla ilgili sorular sorabilirsin. AI doğrulanmamış
-            bir bilgiyi tahmin etmemelidir.
+            klinik anlatımı veya itirazlarıyla ilgili sorular sorabilirsin. Kısmen onaylı
+            modüllerde AI veri sınırını açıkça korumalıdır.
           </p>
           <p><Link className="back-link" href="/ask">AI’a soru sor →</Link></p>
         </section>

@@ -2,23 +2,7 @@ import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { isClerkConfigured } from "@/lib/internal-config";
-
-const products = [
-  ["KidneyWel Tablet", "Renal sağlık desteği • tablet form"],
-  ["KidneyWel Liquid", "Renal sağlık desteği • sıvı form"],
-  ["LiverWel Tablet", "Karaciğer ve metabolik destek • tablet form"],
-  ["LiverWel Liquid", "Karaciğer desteği • sıvı form"],
-  ["CalmWel Tablet", "Sakin davranış ve stres desteği • tablet form"],
-  ["CalmWel Liquid", "Sakin davranış ve stres desteği • sıvı form"],
-  ["SkinWel", "Deri ve tüy sağlığı desteği"],
-  ["HeartWel", "Kalp sağlığı desteği"],
-  ["LactoWel", "Sindirim ve mikrobiyota desteği"],
-  ["DentaWel", "Ağız ve diş sağlığı desteği"],
-  ["Breathe Ease", "Solunum sağlığı desteği"],
-  ["Cleanse", "Veteriner kullanımına yönelik üriner destek"],
-  ["Malign Detox", "Tamamlayıcı wellness desteği"],
-  ["Malt Paste", "Günlük bakım desteği"],
-];
+import { verifiedTrainingModules, verificationQueue } from "@/lib/training-content";
 
 export default async function TrainingPage() {
   if (!isClerkConfigured()) {
@@ -35,29 +19,68 @@ export default async function TrainingPage() {
         <span className="eyebrow">Modül 01</span>
         <h1 className="module-title">Ürün Eğitimi</h1>
         <p className="module-subtitle">
-          Amaç yalnızca ürün adını ezberlemek değil. Her ürün için kullanım alanını,
-          formülasyon mantığını, form farklarını, doğrulanmış doz bilgisini ve klinikte
-          nasıl anlatılacağını öğrenmek.
+          Buradaki eğitimler yalnız VetWel bilgi tabanında doğrulanmış ürün/form kayıtlarından
+          oluşturulur. Bir ürünün Tablet ve Liquid formları ayrı bilgi olarak değerlendirilir;
+          doğrulanmamış doz veya içerik tahmin edilmez.
         </p>
 
-        <section className="product-grid">
-          {products.map(([name, description]) => (
-            <article className="product-card" key={name}>
-              <strong>{name}</strong>
-              <span>{description}</span>
-            </article>
-          ))}
+        <section className="section">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">Eğitime hazır</span>
+              <h2>Doğrulanmış ürün modülleri</h2>
+            </div>
+            <p>{verifiedTrainingModules.length} tam modül</p>
+          </div>
+
+          <div className="product-grid">
+            {verifiedTrainingModules.map((module) => (
+              <Link className="product-card product-card-link" href={`/training/${module.slug}`} key={module.slug}>
+                <div className="product-card-topline">
+                  <span className="content-badge content-badge-ready">ONAYLI</span>
+                  <span className="product-form">{module.form}</span>
+                </div>
+                <strong>{module.product}</strong>
+                <span>{module.supportArea}</span>
+                <p>{module.positioning}</p>
+                <span className="module-cta">Eğitime başla →</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">Veri güvenliği</span>
+              <h2>Doğrulama bekleyen ürünler</h2>
+            </div>
+            <p>Eksik bilgi AI tarafından tamamlanmaz</p>
+          </div>
+
+          <div className="info-panel">
+            {verificationQueue.map((item) => (
+              <div className="progress-row" key={item.name}>
+                <div>
+                  <strong>{item.name}</strong>
+                  <span>{item.note}</span>
+                </div>
+                <span className="status">{item.status}</span>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section className="section placeholder">
-          <h2>Bir ürün eğitimi nasıl çalışacak?</h2>
+          <h2>Eğitim standardı</h2>
           <p>
-            Çalışan ürün seçtiğinde AI önce temel bilgiyi öğretecek; sonra içerik ve
-            formülasyon mantığını, doz/kullanımı, veteriner görüşmesindeki anlatım dilini
-            ve sık itirazları adım adım işleyecek. Eğitim sonunda kısa kontrol soruları gelecek.
+            Her tam modül beş parçadan oluşur: ürünün konumlandırması, doğrulanmış doz/kullanım,
+            formülasyon mantığı, klinikte söylenebilir kısa anlatım ve kesinlikle söylenmemesi
+            gereken ifadeler. Modül sonunda kontrol soruları bulunur.
           </p>
           <p className="placeholder-note">
-            Sonraki adım: doğrulanmış VetWel bilgi tabanını bu ürün kartlarına bağlayıp ilk tam eğitim modülünü KidneyWel ile açmak.
+            Kural: “DOĞRULAMA GEREKİYOR” olan bir bilgi için çalışan veya AI tahminde bulunmaz;
+            doğru yanıt bilgi eksikliğini açıkça belirtmektir.
           </p>
         </section>
       </div>

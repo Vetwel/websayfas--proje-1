@@ -1,84 +1,54 @@
 import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
-import { auth, currentUser } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@/lib/clerk-server";
 import { redirect } from "next/navigation";
 import { isClerkConfigured } from "@/lib/internal-config";
+import { trainingModules } from "@/lib/training-content";
 
 const modules = [
   {
-    href: "/training",
-    code: "01",
+    number: "01",
     title: "Ürün Eğitimi",
-    text: "VetWel ürünlerini sıfırdan öğren; kullanım alanı, formülasyon mantığı, doz ve saha anlatımını çalış.",
+    description: "VetWel ürünlerini sıfırdan öğren. Formülasyon mantığı, kullanım alanı, doz ve saha anlatımı.",
+    href: "/training",
+    cta: "Eğitime başla",
   },
   {
-    href: "/progress",
-    code: "BEN",
-    title: "İlerlemem",
-    text: "Tamamladığın eğitimleri, temel ve Seviye 2 sınav puanlarını ve sıradaki gelişim adımını gör.",
-  },
-  {
-    href: "/meeting-prep",
-    code: "HAZ",
-    title: "Görüşmeye Hazırlan",
-    text: "Ürün, süre, hedef ve veteriner profilini seç; AI sana doğrulanmış VetWel bilgisiyle görüşme planı hazırlasın.",
-  },
-  {
-    href: "/advanced-coach",
-    code: "AI+",
-    title: "İleri AI Rol-Play",
-    text: "Veteriner profilini ve zorluk seviyesini seç; gerçekçi itiraz provası yap ve görüşme sonunda 100 puan üzerinden geri bildirim al.",
-  },
-  {
-    href: "/field-guide",
-    code: "HIZ",
-    title: "Saha Hızlı Rehber",
-    text: "Klinikte ürün/form statüsünü, kayıtlı doz bilgisini ve hangi noktada durup doğrulama gerektiğini saniyeler içinde kontrol et.",
-  },
-  {
-    href: "/product-match",
-    code: "04",
-    title: "Ürün Eşleştirme",
-    text: "Renal, hepatik, stres, deri, sindirim, solunum veya üriner destek konuşmasında hangi VetWel ürün ailesiyle başlayacağını çalış.",
-  },
-  {
-    href: "/practice",
-    code: "05",
-    title: "Görüşme Simülasyonu",
-    text: "Gerçek veteriner itirazlarını önce kendin yanıtla; sonra ideal cevap ve kırmızı bayraklarla performansını kontrol et.",
-  },
-  {
+    number: "02",
+    title: "AI’a Sor",
+    description: "Ürün, form, doz veya sahadaki bir soruyu VetWel bilgi tabanına sor.",
     href: "/ask",
-    code: "AI",
-    title: "AI'a Sor",
-    text: "Ürün, doz, içerik ve veteriner görüşmesiyle ilgili şirket içi sorularını VetWel bilgi tabanına sor.",
+    cta: "Asistanı aç",
   },
   {
-    href: "/coach",
-    code: "02",
+    number: "03",
     title: "Satış Koçu",
-    text: "Klinik görüşmesine hazırlan, itirazları çalış ve hangi ürünle nasıl yaklaşacağını planla.",
+    description: "Veteriner görüşmesine hazırlan, itirazlara çalış ve 30 saniyelik ürün anlatımını geliştir.",
+    href: "/coach",
+    cta: "Pratik yap",
   },
   {
-    href: "/quiz",
-    code: "03",
+    number: "04",
     title: "Sınav & Onboarding",
-    text: "Temel ve ileri seviye sınavlarla ürün bilgisini, saha kararını ve bilgi güvenliği disiplinini ölç.",
+    description: "Ürün bilginizi ölçün. Yanlış cevapları görün ve eksik konuları tekrar edin.",
+    href: "/quiz",
+    cta: "Sınava gir",
+  },
+  {
+    number: "05",
+    title: "Saha Hazırlığı",
+    description: "Veteriner tipine göre görüşme dili, klinik öncesi AI briefing ve gerçek saha senaryoları.",
+    href: "/advanced-coach",
+    cta: "Saha moduna geç",
+  },
+  {
+    number: "06",
+    title: "İlerlemem",
+    description: "Tamamladığın ürün eğitimlerini, sınav sonuçlarını ve rol-play çalışmalarını tek ekranda gör.",
+    href: "/progress",
+    cta: "İlerlemeyi aç",
   },
 ];
-
-const managerModule = {
-  href: "/manager",
-  code: "YÖN",
-  title: "Ekip Eğitim Paneli",
-  text: "Çalışanların eğitim tamamlama durumunu, sınav puanlarını ve saha yetkinliği ilerlemesini izle.",
-};
-
-function metadataRecord(value: unknown): Record<string, unknown> {
-  return value && typeof value === "object" && !Array.isArray(value)
-    ? (value as Record<string, unknown>)
-    : {};
-}
 
 export default async function DashboardPage() {
   if (!isClerkConfigured()) {
@@ -89,95 +59,85 @@ export default async function DashboardPage() {
   if (!userId) redirect("/sign-in");
 
   const user = await currentUser();
-  const firstName = user?.firstName || "VetWel ekibi";
-  const isAdmin = metadataRecord(user?.privateMetadata).vetwelRole === "admin";
-  const visibleModules = isAdmin ? [...modules, managerModule] : modules;
+  const firstName = user?.firstName || user?.emailAddresses?.[0]?.emailAddress?.split("@")[0] || "VetWel ekibi";
+  const privateMetadata = user?.privateMetadata as Record<string, unknown> | undefined;
+  const isAdmin = privateMetadata?.vetwelRole === "admin";
 
   return (
     <main className="shell">
-      <header className="topbar">
-        <Link className="brand" href="/dashboard">
-          <span className="brand-mark">V</span>
-          <span className="brand-copy">
-            <strong>VetWel®</strong>
-            <small>Ekip Asistanı</small>
-          </span>
-        </Link>
-        <div className="topbar-actions">
-          <span className="secure-badge"><span className="secure-dot" />Özel alan</span>
-          <UserButton />
-        </div>
-      </header>
+      <div className="page dashboard">
+        <header className="internal-header">
+          <div className="brand" aria-label="VetWel Ekip Asistanı">
+            <span className="brand-mark">V</span>
+            <span className="brand-copy">
+              <strong>VetWel®</strong>
+              <small>Ekip Asistanı</small>
+            </span>
+          </div>
+          <div className="employee-menu">
+            <span className="private-badge">Şirket İçi</span>
+            <UserButton afterSignOutUrl="/sign-in" />
+          </div>
+        </header>
 
-      <div className="page">
-        <section className="hero-row">
+        <section className="dashboard-hero">
           <div>
-            <span className="eyebrow">VetWel Internal</span>
-            <h1>Merhaba, {firstName}.</h1>
+            <span className="eyebrow">VetWel Akademi AI</span>
+            <h1>Merhaba {firstName}.<br />Bugün ne üzerinde çalışalım?</h1>
             <p>
-              Bir ürün öğren, ilerlemeni takip et, veteriner profiline göre görüşmeye hazırlan,
-              canlı AI rol-play yap veya VetWel bilgi tabanına doğrudan soru sor.
+              Ürün bilgisini öğren, veteriner görüşmesine hazırlan, AI’a soru sor veya eğitim durumunu kontrol et.
             </p>
           </div>
+          <div className="hero-stat-card">
+            <span>Bilgi tabanı</span>
+            <strong>{trainingModules.length}</strong>
+            <small>aktif ürün / form modülü</small>
+          </div>
         </section>
 
-        <section className="grid" aria-label="Ekip asistanı modülleri">
-          {visibleModules.map((module) => (
-            <Link className="card" href={module.href} key={module.href}>
-              <div className="card-icon">{module.code}</div>
-              <h2>{module.title}</h2>
-              <p>{module.text}</p>
-              <span className="card-arrow" aria-hidden="true">→</span>
+        <section className="module-grid" aria-label="Ekip asistanı modülleri">
+          {modules.map((module) => (
+            <Link className="module-card" href={module.href} key={module.number}>
+              <span className="module-number">{module.number}</span>
+              <div>
+                <h2>{module.title}</h2>
+                <p>{module.description}</p>
+                <strong>{module.cta} →</strong>
+              </div>
             </Link>
           ))}
+          {isAdmin ? (
+            <Link className="module-card" href="/manager">
+              <span className="module-number">07</span>
+              <div>
+                <h2>Ekip Yönetimi</h2>
+                <p>Çalışanların eğitim tamamlama, sınav ve rol-play ilerlemesini görüntüle.</p>
+                <strong>Yönetici panelini aç →</strong>
+              </div>
+            </Link>
+          ) : null}
         </section>
 
-        <section className="section">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow">Onboarding</span>
-              <h2>Eğitim yolculuğun</h2>
-            </div>
-            <p>Eğitim ve sınav ilerlemesi kullanıcı hesabına kalıcı olarak kaydedilir.</p>
-          </div>
-          <div className="info-panel">
-            <div className="progress-row">
-              <div><strong>Kişisel ilerleme kaydı</strong><span>Tamamlanan eğitimler, en iyi sınav puanı ve deneme sayısı</span></div>
-              <Link className="status" href="/progress">İlerlemem →</Link>
-            </div>
-            <div className="progress-row">
-              <div><strong>VetWel bilgi güvenliği standardı</strong><span>Onaylı / kısmen onaylı / doğrulama gerekiyor ayrımı</span></div>
-              <span className="status">Aktif</span>
-            </div>
-            <div className="progress-row">
-              <div><strong>Ürün eğitimleri</strong><span>8 ürün/form için eğitim ve saha anlatımı</span></div>
-              <span className="status">Aktif</span>
-            </div>
-            <div className="progress-row">
-              <div><strong>AI görüşme hazırlığı</strong><span>Ürün, süre, hedef ve veteriner profiline göre otomatik saha planı</span></div>
-              <span className="status">Aktif</span>
-            </div>
-            <div className="progress-row">
-              <div><strong>İleri AI rol-play</strong><span>5 veteriner profili, 3 zorluk seviyesi ve 100 puanlık görüşme değerlendirmesi</span></div>
-              <span className="status">Aktif</span>
-            </div>
-            <div className="progress-row">
-              <div><strong>Ürün eşleştirme</strong><span>7 destek alanında doğru VetWel ürün ailesi ve iletişim sınırı</span></div>
-              <span className="status">Aktif</span>
-            </div>
-            <div className="progress-row">
-              <div><strong>Veteriner görüşmesi simülasyonu</strong><span>Temel, orta ve ileri seviye saha itiraz pratikleri</span></div>
-              <span className="status">Aktif</span>
-            </div>
-            <div className="progress-row">
-              <div><strong>Saha hızlı rehberi</strong><span>Doz, konumlandırma ve doğrulama sınırlarının hızlı kontrolü</span></div>
-              <span className="status">Aktif</span>
-            </div>
-            <div className="progress-row">
-              <div><strong>Yetkinlik sınavları</strong><span>14 soruluk temel sınav + 8 senaryolu Seviye 2 saha sınavı</span></div>
-              <span className="status">Aktif</span>
-            </div>
-          </div>
+        <section className="dashboard-bottom-grid">
+          <article className="info-card">
+            <span className="eyebrow">Yeni çalışan yolu</span>
+            <h2>Önce öğren → sonra prova → sonra sınav</h2>
+            <ol className="onboarding-list">
+              <li><span>1</span><div><strong>Ürünü öğren</strong><small>Destek alanı, formülasyon, doz, içerik ve sınırlar</small></div></li>
+              <li><span>2</span><div><strong>Saha provasını yap</strong><small>Veteriner itirazları ve 30 saniyelik anlatım</small></div></li>
+              <li><span>3</span><div><strong>Sınava gir</strong><small>Eksik konuları gör ve gerektiğinde tekrar et</small></div></li>
+            </ol>
+          </article>
+          <article className="info-card safety-card">
+            <span className="eyebrow">AI güvenlik standardı</span>
+            <h2>Bilmediğinde tahmin etme.</h2>
+            <p>
+              VetWel Ekip Asistanı yalnız doğrulanmış kayıtları kesin bilgi olarak kullanır. Eksik veya formu belirsiz alanlar açıkça doğrulama gerektirir.
+            </p>
+            <div className="rule-pill">Tablet ≠ Liquid</div>
+            <div className="rule-pill">Tedavi claim’i yok</div>
+            <div className="rule-pill">Doz tahmini yok</div>
+          </article>
         </section>
       </div>
     </main>

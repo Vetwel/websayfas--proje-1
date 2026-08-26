@@ -12,6 +12,12 @@ const modules = [
     text: "VetWel ürünlerini sıfırdan öğren; kullanım alanı, formülasyon mantığı, doz ve saha anlatımını çalış.",
   },
   {
+    href: "/meeting-prep",
+    code: "HAZ",
+    title: "Görüşmeye Hazırlan",
+    text: "Ürün, süre ve hedefi seç; AI sana doğrulanmış VetWel bilgisiyle açılış, ana mesajlar, itiraz cevapları ve kapanış hazırlasın.",
+  },
+  {
     href: "/field-guide",
     code: "HIZ",
     title: "Saha Hızlı Rehber",
@@ -45,7 +51,7 @@ const modules = [
     href: "/quiz",
     code: "03",
     title: "Sınav & Onboarding",
-    text: "Ürün bilgisini test et; eksik konuları gör ve bilgi güvenliği disiplinini ölç.",
+    text: "Temel ve ileri seviye sınavlarla ürün bilgisini, saha kararını ve bilgi güvenliği disiplinini ölç.",
   },
 ];
 
@@ -82,7 +88,7 @@ export default async function DashboardPage() {
             <span className="eyebrow">VetWel Internal</span>
             <h1>Merhaba, {firstName}.</h1>
             <p>
-              Bir ürün öğren, doğru ürün ailesini eşleştir, kliniğe girmeden bilgiyi kontrol et,
+              Bir ürün öğren, görüşmeye hazırlan, doğru ürün ailesini eşleştir, kliniğe girmeden bilgiyi kontrol et,
               veteriner itirazlarını çalış veya VetWel bilgi tabanına doğrudan soru sor.
             </p>
           </div>
@@ -117,6 +123,10 @@ export default async function DashboardPage() {
               <span className="status">Aktif</span>
             </div>
             <div className="progress-row">
+              <div><strong>AI görüşme hazırlığı</strong><span>Ürün, süre ve hedefe göre otomatik saha planı</span></div>
+              <span className="status">Aktif</span>
+            </div>
+            <div className="progress-row">
               <div><strong>Ürün eşleştirme</strong><span>7 destek alanında doğru VetWel ürün ailesi ve iletişim sınırı</span></div>
               <span className="status">Aktif</span>
             </div>
@@ -129,7 +139,7 @@ export default async function DashboardPage() {
               <span className="status">Aktif</span>
             </div>
             <div className="progress-row">
-              <div><strong>Saha sınavı</strong><span>14 soruluk temel yetkinlik ve bilgi güvenliği değerlendirmesi</span></div>
+              <div><strong>Yetkinlik sınavları</strong><span>14 soruluk temel sınav + 8 senaryolu Seviye 2 saha sınavı</span></div>
               <span className="status">Aktif</span>
             </div>
           </div>

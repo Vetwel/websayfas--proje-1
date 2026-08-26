@@ -13,10 +13,11 @@ export type TrainingModule = {
   clinicPitch: string;
   doSay: string[];
   dontSay: string[];
+  limitations?: string[];
   checkpoints: { question: string; answer: string }[];
 };
 
-export const verifiedTrainingModules: TrainingModule[] = [
+export const trainingModules: TrainingModule[] = [
   {
     slug: "kidneywel-tablet",
     product: "KidneyWel",
@@ -176,6 +177,172 @@ export const verifiedTrainingModules: TrainingModule[] = [
       },
     ],
   },
+  {
+    slug: "skinwel-tablet",
+    product: "SkinWel",
+    form: "Tablet",
+    supportArea: "Deri ve tüy sağlığı desteği",
+    target: "Kedi + Köpek",
+    status: "KISMEN ONAYLI",
+    positioning: "Skin / coat health support. Doz temeli kayıtlıdır; tam içerik listesi ve ara kilo kuralı doğrulama bekler.",
+    dose:
+      "Kedi: 1 tablet/doz. Köpek: her 10 kg için 1 tablet/doz. İlk 3 gün günde 3 doz; 4. günden sonra günde 2 doz. Minimum 21 gün; uzatılabilir. Ara kilo yuvarlama kuralı doğrulanmamıştır.",
+    formulation: [
+      "Toplam 20 içerik bilgisi kayıtlıdır.",
+      "Tam 20 içerik listesi henüz resmi kaynakla doğrulanmamıştır.",
+      "Eğitimde doğrulanmamış tek tek içerik veya mekanizma uydurulmaz.",
+    ],
+    clinicPitch:
+      "SkinWel deri ve tüy sağlığı desteği için konumlandırılır. Kedi dozu ve her 10 kg için köpek doz temeli kayıtlıdır; ancak ara kilo yuvarlama kuralını tahmin etmiyoruz ve tam içerik listesi doğrulama bekliyor.",
+    doSay: [
+      "Deri ve tüy sağlığı desteği olarak anlat.",
+      "İlk 3 gün TID, sonra BID ve minimum 21 gün kullanım sıklığını kayıtlı şekliyle ver.",
+      "Ara kilo sorusunda resmi yuvarlama kuralının doğrulanmadığını açıkça belirt.",
+    ],
+    dontSay: [
+      "15 kg köpeği kendi başına 1 veya 2 tablete yuvarla.",
+      "20 içeriğin isimlerini doğrulanmadan say.",
+      "Deri hastalığını tedavi eder de.",
+    ],
+    limitations: [
+      "20 içeriğin tam resmi listesi doğrulanmalı.",
+      "Köpeklerde 10 kg katları arasındaki ağırlıklar için yuvarlama kuralı doğrulanmalı.",
+    ],
+    checkpoints: [
+      {
+        question: "15 kg köpek için SkinWel kaç tablet denir?",
+        answer: "Kesin sayı tahmin edilmez; ara kilo yuvarlama kuralının doğrulanması gerekir.",
+      },
+      {
+        question: "SkinWel kullanım sıklığı nasıl kayıtlı?",
+        answer: "İlk 3 gün günde 3 doz; 4. günden sonra günde 2 doz; minimum 21 gün.",
+      },
+    ],
+  },
+  {
+    slug: "lactowel-tablet",
+    product: "LactoWel",
+    form: "Tablet",
+    supportArea: "Sindirim ve mikrobiyota desteği",
+    target: "Kedi + Köpek",
+    status: "KISMEN ONAYLI",
+    positioning: "Digestive / microbiome wellness support. Probiotic + botanical yaklaşımı kayıtlıdır; tam formül doğrulama bekler.",
+    dose:
+      "Kedi: 1 tablet/doz. Köpek: her 10 kg için 1 tablet/doz. Günde 2 kez, sabah-akşam. Kullanım süresi veteriner hekimin değerlendirmesine bağlıdır. Ara kilo yuvarlama kuralı doğrulanmamıştır.",
+    formulation: [
+      "Probiotic + botanical yaklaşımı kayıtlıdır.",
+      "Tam formül ve miktarlar doğrulama beklemektedir.",
+      "Doğrulanmamış spesifik içerik veya miktar söylenmez.",
+    ],
+    clinicPitch:
+      "LactoWel sindirim ve mikrobiyota desteği için probiotic + botanical yaklaşımıyla konumlandırılır. Kedide 1 tablet/doz, köpekte her 10 kg için 1 tablet/doz ve günde iki kez kullanım kayıtlıdır; süre veteriner hekime bağlıdır.",
+    doSay: [
+      "Sindirim ve mikrobiyota desteği olarak konumlandır.",
+      "Günde 2 kez, sabah-akşam kullanım bilgisini ver.",
+      "Süreyi veteriner hekimin değerlendirmesine bağla.",
+    ],
+    dontSay: [
+      "Ara kiloda tablet sayısını tahmin et.",
+      "Tam formülü doğrulanmış gibi anlat.",
+      "Gastrointestinal hastalığı tedavi eder de.",
+    ],
+    limitations: [
+      "Köpeklerde ara kilo yuvarlama kuralı doğrulanmalı.",
+      "Tam formül ve içerik miktarları doğrulanmalı.",
+    ],
+    checkpoints: [
+      {
+        question: "LactoWel kullanım sıklığı nedir?",
+        answer: "Günde 2 kez, sabah-akşam.",
+      },
+      {
+        question: "LactoWel için ara kilo köpek dozu tahmin edilir mi?",
+        answer: "Hayır. Resmi yuvarlama kuralı doğrulanana kadar tahmin edilmez.",
+      },
+    ],
+  },
+  {
+    slug: "breathe-ease",
+    product: "Breathe Ease",
+    form: "Saşe / püre",
+    supportArea: "Solunum sistemi desteği",
+    target: "Kedi + Köpek",
+    status: "KISMEN ONAYLI",
+    positioning: "Respiratory / breathing wellness support. Tedavi veya 'cough relief' benzeri güçlü iddialar kontrollü yönetilir.",
+    dose:
+      "Kedi: 1 tüp/gün. Köpek: 11 lb'a kadar 1 tüp; 11–22 lb için 2 tüp. 22 lb üzerindeki köpekler için resmi doz tablosu doğrulanmalıdır.",
+    formulation: [
+      "Kayıtlı başlıca içerikler: Propolis, Chitosan, Chlorella vulgaris, Dandelion, Magnesium Oxide ve Pear Extract.",
+      "Ana konumlandırma solunum / breathing wellness desteğidir.",
+      "Güçlü tedavi veya öksürük giderme claim'i kullanılmaz.",
+    ],
+    clinicPitch:
+      "Breathe Ease kedi ve köpeklerde solunum sistemi desteği için saşe/püre formunda konumlandırılır. Kayıtlı içerik eksenlerini anlatırız; ancak ürünü tedavi veya kesin öksürük giderici olarak sunmayız.",
+    doSay: [
+      "Hem kedi hem köpek için konumlandırıldığını söyle.",
+      "Kedide 1 tüp/gün ve 22 lb'a kadar kayıtlı köpek dozunu kullan.",
+      "22 lb üzeri için resmi doz doğrulaması gerektiğini açıkça belirt.",
+    ],
+    dontSay: [
+      "22 lb üzeri köpek dozunu orantı kurarak tahmin et.",
+      "Cough relief / öksürüğü tedavi eder şeklinde kesin claim kullan.",
+      "Solunum hastalığının primer tedavisi olarak sun.",
+    ],
+    limitations: ["22 lb üzeri köpekler için resmi doz tablosu doğrulanmalı."],
+    checkpoints: [
+      {
+        question: "Breathe Ease hangi türler için kayıtlı?",
+        answer: "Kedi ve köpek.",
+      },
+      {
+        question: "22 lb üzeri köpek için doz nasıl verilir?",
+        answer: "Tahmin edilmez; resmi doz tablosunun doğrulanması gerekir.",
+      },
+    ],
+  },
+  {
+    slug: "cleanse",
+    product: "Cleanse",
+    form: "Steril sıvı",
+    supportArea: "Üriner sistem / struvit ilişkili klinik destek",
+    target: "Kedi",
+    status: "KISMEN ONAYLI",
+    positioning:
+      "Veteriner hekim uygulamasında üriner sistem destek ürünü. Genel tüketiciye tanı veya tedavi yerine geçecek şekilde konumlandırılmaz.",
+    dose:
+      "Kayıtlı klinik protokol: kateter tıkanıklığa ilerletilir ve Cleanse kateterden uygulanır; opsiyonel mesane instilasyonu 5–6 cc; işlem sonrası 7 gün boyunca günde 2 kez 2 cc. Bu kayıt veteriner klinik protokolüdür.",
+    formulation: [
+      "Steril sıvı form.",
+      "Ayrıntılı içerik/formülasyon doğrulaması tamamlanmamıştır.",
+      "Ham dahili güçlü claim'ler kullanıcıya aynen aktarılmaz; kontrollü üriner/struvit destek dili kullanılır.",
+    ],
+    clinicPitch:
+      "Cleanse mevcut kayıtlarda kedi üriner/struvit ilişkili klinik kullanım bağlamında, veteriner hekim uygulamasına yönelik destek ürünü olarak yer alıyor. Evde kullanım önerisi vermiyoruz ve ürünü tanı veya tedavinin yerine koymuyoruz.",
+    doSay: [
+      "Veteriner klinik protokolü içinde anlat.",
+      "Üriner/struvit yönetimine yönelik kontrollü destek dilini kullan.",
+      "Evde kullanım güvenliği onaylı değilse bunu açıkça belirt.",
+    ],
+    dontSay: [
+      "Pet sahibine evde uygulama talimatı ver.",
+      "Ham 'strüvit taşını eritir' claim'ini aynen kullan.",
+      "Tanı veya primer tedavi yerine geçtiğini söyle.",
+    ],
+    limitations: [
+      "Ayrıntılı içerik/formülasyon doğrulanmalı.",
+      "Evde kullanım için onaylı güvenlik/talimat kaydı bulunmuyor.",
+    ],
+    checkpoints: [
+      {
+        question: "Cleanse pet sahibine evde kullanım için önerilir mi?",
+        answer: "Hayır. Mevcut kayıt veteriner klinik protokolüdür; onaylanmamış ev kullanım talimatı verilmez.",
+      },
+      {
+        question: "Ham 'strüvit taşını eritir' claim'i temsilci yanıtında aynen kullanılır mı?",
+        answer: "Hayır. Kontrollü üriner/struvit destek diline dönüştürülür.",
+      },
+    ],
+  },
 ];
 
 export const verificationQueue = [
@@ -190,26 +357,6 @@ export const verificationQueue = [
     note: "Liquid doz, içerik ve onaylı konumlandırma ayrı doğrulanmalı; Tablet bilgisi taşınmaz.",
   },
   {
-    name: "SkinWel",
-    status: "KISMEN ONAYLI" as const,
-    note: "Doz temeli kayıtlı; 20 içeriğin tam listesi ve ara kilo yuvarlama kuralı doğrulanmalı.",
-  },
-  {
-    name: "LactoWel",
-    status: "KISMEN ONAYLI" as const,
-    note: "Kedi ve 10 kg başına köpek dozu kayıtlı; ara kilo yuvarlama kuralı ve tam formül doğrulanmalı.",
-  },
-  {
-    name: "Breathe Ease",
-    status: "KISMEN ONAYLI" as const,
-    note: "Kedi + köpek konumlandırması kayıtlı; yüksek köpek ağırlıkları için resmi doz tablosu tamamlanmalı.",
-  },
-  {
-    name: "Cleanse",
-    status: "KISMEN ONAYLI" as const,
-    note: "Veteriner klinik protokolü içinde değerlendirilir; evde kullanım talimatı verilmez.",
-  },
-  {
     name: "HeartWel",
     status: "DOĞRULAMA GEREKİYOR" as const,
     note: "Doz, içerik ve formülasyon mantığı doğrulanmalı.",
@@ -219,8 +366,13 @@ export const verificationQueue = [
     status: "DOĞRULAMA GEREKİYOR" as const,
     note: "Kesin form, doz ve tam içerik doğrulanmalı.",
   },
+  {
+    name: "Malign Detox / Malt Paste",
+    status: "DOĞRULAMA GEREKİYOR" as const,
+    note: "Amaç, form, doz ve içerik doğrulanmadan tam eğitim modülü açılmaz.",
+  },
 ];
 
 export function getTrainingModule(slug: string) {
-  return verifiedTrainingModules.find((module) => module.slug === slug);
+  return trainingModules.find((module) => module.slug === slug);
 }

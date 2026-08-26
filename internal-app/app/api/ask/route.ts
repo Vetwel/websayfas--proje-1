@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs/server";
+import { auth } from "@/lib/clerk-server";
 import { NextResponse } from "next/server";
 import { env } from "cloudflare:workers";
 import { isClerkConfigured } from "@/lib/internal-config";

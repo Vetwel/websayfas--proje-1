@@ -3,6 +3,7 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { isClerkConfigured } from "@/lib/internal-config";
 import { trainingModules } from "@/lib/training-content";
+import styles from "./product-match.module.css";
 
 const needMap = [
   {
@@ -64,15 +65,15 @@ export default async function ProductMatchPage() {
           Bu ekran tanı koymak için değil, veteriner görüşmesinde doğru VetWel ürün ailesini doğru destek alanıyla eşleştirmek için kullanılır. Nihai ürün/form ve kullanım kararı veteriner hekimin klinik değerlendirmesine bağlıdır.
         </p>
 
-        <section className="match-grid">
+        <section className={styles.grid}>
           {needMap.map((item, index) => {
             const modules = item.slugs
               .map((slug) => trainingModules.find((module) => module.slug === slug))
               .filter(Boolean);
 
             return (
-              <article className="match-card" key={item.need}>
-                <div className="match-head">
+              <article className={styles.card} key={item.need}>
+                <div className={styles.head}>
                   <span className="scenario-index">{String(index + 1).padStart(2, "0")}</span>
                   <div>
                     <span className="eyebrow">İhtiyaç alanı</span>
@@ -80,11 +81,11 @@ export default async function ProductMatchPage() {
                   </div>
                 </div>
 
-                <p className="match-opening">{item.opening}</p>
+                <p className={styles.opening}>{item.opening}</p>
 
-                <div className="match-products">
+                <div className={styles.products}>
                   {modules.map((module) => module && (
-                    <Link className="match-product" href={`/training/${module.slug}`} key={module.slug}>
+                    <Link className={styles.product} href={`/training/${module.slug}`} key={module.slug}>
                       <div>
                         <strong>{module.product} {module.form}</strong>
                         <span>{module.supportArea}</span>
@@ -110,7 +111,7 @@ export default async function ProductMatchPage() {
             <span className="eyebrow">3 soruluk saha filtresi</span>
             <h2>Ürünü konuşmadan önce</h2>
           </div>
-          <div className="framework-steps framework-steps-three">
+          <div className="framework-steps">
             <article><span>1</span><strong>Hangi destek alanı?</strong><p>Önce konuşmanın renal, hepatik, stres, deri, sindirim, solunum veya üriner klinik eksenini netleştir.</p></article>
             <article><span>2</span><strong>Hangi form?</strong><p>Tablet/Liquid/saşe/steril sıvı ayrımını netleştir; bir formun bilgisini diğerine taşıma.</p></article>
             <article><span>3</span><strong>Veri statüsü ne?</strong><p>ONAYLI ise kayıtlı bilgiyi kullan; KISMEN ONAYLI ise yalnız doğrulanmış kısmı söyle; eksikte dur ve doğrula.</p></article>

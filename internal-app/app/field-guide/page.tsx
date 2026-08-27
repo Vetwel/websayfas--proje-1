@@ -2,17 +2,20 @@ import Link from "next/link";
 import { auth } from "@/lib/clerk-server";
 import { redirect } from "next/navigation";
 import { isClerkConfigured } from "@/lib/internal-config";
-import { trainingModules, verificationQueue } from "@/lib/training-content";
+import {
+  internalTrainingModules as trainingModules,
+  internalVerificationQueue as verificationQueue,
+} from "@/lib/internal-training-content";
 import styles from "./field-guide.module.css";
 
 const rules = [
   {
-    title: "Önce ürün + formu doğrula",
+    title: "Önce ürün + formu netleştir",
     text: "KidneyWel Tablet ile KidneyWel Liquid gibi formlar ayrı kayıttır. Bir formun dozunu veya içeriğini diğerine taşıma.",
   },
   {
-    title: "Statüye bak",
-    text: "ONAYLI bilgi kullanılabilir. KISMEN ONAYLI bilgide yalnız doğrulanmış alanı kullan. DOĞRULAMA GEREKİYOR ise tahmin etme.",
+    title: "Bilgi sınırını kontrol et",
+    text: "Kayıtlı bilgiyi kullan. Eksik veya net olmayan bir doz, içerik, form farkı ya da klinik sonuç varsa tahmin yürütme.",
   },
   {
     title: "Dozda boşluk varsa dur",
@@ -35,19 +38,19 @@ const quickAnswers = [
   },
   {
     q: "15 kg köpek için SkinWel?",
-    a: "Ara kilo yuvarlama kuralı doğrulanmamıştır. Kesin tablet sayısı tahmin edilmez; doğrulama gerekir.",
+    a: "Ara kilo yuvarlama kuralı kayıtta net değildir. Kesin tablet sayısı tahmin edilmez; resmi bilgi netleştirilir.",
   },
   {
     q: "Breathe Ease 22 lb üzeri köpek?",
-    a: "Resmi yüksek ağırlık doz tablosu doğrulanana kadar doz tahmin edilmez.",
+    a: "Resmi yüksek ağırlık doz tablosu netleşmeden doz tahmin edilmez.",
   },
   {
     q: "Cleanse evde uygulanır mı?",
-    a: "Mevcut kayıt veteriner klinik protokolü içindedir. Onaylanmış ev kullanım talimatı yoksa pet sahibine ev uygulaması önerilmez.",
+    a: "Mevcut kayıt veteriner klinik protokolü içindedir. Açık bir ev kullanım talimatı yoksa pet sahibine ev uygulaması önerilmez.",
   },
   {
     q: "LiverWel Liquid dozu?",
-    a: "Doğrulama gerekiyor. LiverWel Tablet dozu Liquid forma taşınmaz.",
+    a: "Liquid doz bilgisi kayıtta net değil. LiverWel Tablet dozu Liquid forma taşınmaz.",
   },
 ];
 
@@ -64,7 +67,7 @@ export default async function FieldGuidePage() {
         <span className="eyebrow">Saha Hızlı Rehber</span>
         <h1 className="module-title">Klinikte 30 saniyede doğru bilgi</h1>
         <p className="module-subtitle">
-          Görüşme öncesi veya görüşme sırasında ürün/form statüsünü, kayıtlı kullanım bilgisini
+          Görüşme öncesi veya görüşme sırasında ürün/form bilgisini, kayıtlı kullanım bilgisini
           ve iletişim sınırını hızlıca kontrol et. Bu ekran tahmin yapmak yerine doğru noktada
           durmayı da öğretir.
         </p>
@@ -94,9 +97,6 @@ export default async function FieldGuidePage() {
             {trainingModules.map((module) => (
               <article className={styles.product} key={module.slug}>
                 <div className="product-card-topline">
-                  <span className={`content-badge ${module.status === "ONAYLI" ? "content-badge-ready" : "content-badge-partial"}`}>
-                    {module.status}
-                  </span>
                   <span className="product-form">{module.form}</span>
                 </div>
                 <h3>{module.product}</h3>
@@ -111,7 +111,7 @@ export default async function FieldGuidePage() {
                 </div>
                 {module.limitations?.length ? (
                   <div className={styles.warning}>
-                    <strong>Dur ve doğrula</strong>
+                    <strong>Dikkat</strong>
                     <ul>
                       {module.limitations.map((item) => <li key={item}>{item}</li>)}
                     </ul>
@@ -140,31 +140,32 @@ export default async function FieldGuidePage() {
           </div>
         </section>
 
-        <section className="section">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow">Kırmızı bölge</span>
-              <h2>Şu anda kesin cevap verilmemesi gereken kayıtlar</h2>
-            </div>
-          </div>
-          <div className="info-panel">
-            {verificationQueue.map((item) => (
-              <div className="progress-row" key={item.name}>
-                <div>
-                  <strong>{item.name}</strong>
-                  <span>{item.note}</span>
-                </div>
-                <span className="status">{item.status}</span>
+        {verificationQueue.length ? (
+          <section className="section">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Ek bilgi</span>
+                <h2>Bilgisi tamamlanacak başlıklar</h2>
               </div>
-            ))}
-          </div>
-        </section>
+            </div>
+            <div className="info-panel">
+              {verificationQueue.map((item) => (
+                <div className="progress-row" key={item.name}>
+                  <div>
+                    <strong>{item.name}</strong>
+                    <span>{item.note}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         <section className="section placeholder">
           <h2>Bir soru rehberde yoksa</h2>
           <p>
             AI Soru-Cevap alanına sor. Asistan önce VetWel bilgi tabanını arayacak; bilgi kayıtlı
-            değilse veya doğrulama bekliyorsa bunu açıkça belirtmesi gerekir.
+            değilse bunu açıkça belirtmesi ve tahmin yürütmemesi gerekir.
           </p>
           <p><Link className="back-link" href="/ask">AI’a sor →</Link></p>
         </section>

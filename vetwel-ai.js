@@ -11,6 +11,9 @@
     send: 'Send',
     close: 'Close VetWel AI',
     open: 'Open VetWel AI',
+    launcher: 'Pet Health Assistant',
+    launcherShort: 'Health Assistant',
+    launcherBadge: 'AI • Free',
     thinking: 'Reviewing VetWel information…',
     error: 'The AI connection is temporarily unavailable. Please try again shortly.',
     disclaimer: 'AI-generated educational information. For diagnosis, treatment, medication changes, or urgent symptoms, contact a veterinarian.',
@@ -29,6 +32,9 @@
     send: 'Gönder',
     close: 'VetWel AI’ı kapat',
     open: 'VetWel AI’ı aç',
+    launcher: 'Evcil Hayvan Sağlık Asistanı',
+    launcherShort: 'Sağlık Asistanı',
+    launcherBadge: 'AI • Ücretsiz',
     thinking: 'VetWel bilgileri inceleniyor…',
     error: 'AI bağlantısı geçici olarak kullanılamıyor. Lütfen kısa süre sonra tekrar deneyin.',
     disclaimer: 'AI tarafından oluşturulan eğitim amaçlı bilgidir. Tanı, tedavi, ilaç değişikliği veya acil belirtiler için veteriner hekiminize başvurun.',
@@ -54,9 +60,18 @@
   style.id = 'vetwel-ai-style';
   style.textContent = `
     #vetwel-ai-root{position:fixed;right:20px;bottom:20px;z-index:2147483000;font-family:Manrope,Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172333}
-    .vwai-launcher{width:58px;height:58px;border:0;border-radius:19px;background:#0b2447;color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 38px rgba(11,36,71,.28);transition:transform .2s ease,box-shadow .2s ease}
+    .vwai-launcher{min-height:62px;padding:7px 12px 7px 8px;border:1px solid rgba(117,201,216,.36);border-radius:19px;background:linear-gradient(135deg,#071b35,#0b3157);color:#fff;display:flex;align-items:center;gap:10px;cursor:pointer;box-shadow:0 14px 38px rgba(11,36,71,.3);transition:transform .2s ease,box-shadow .2s ease;text-align:left}
     .vwai-launcher:hover{transform:translateY(-2px);box-shadow:0 18px 44px rgba(11,36,71,.34)}
-    .vwai-launcher svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:2}
+    .vwai-launcher:focus-visible{outline:3px solid rgba(117,201,216,.48);outline-offset:3px}
+    .vwai-launcher-icon{width:46px;height:46px;flex:0 0 46px;border-radius:14px;background:#75c9d8;color:#082742;display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,.45)}
+    .vwai-launcher svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:2.15}
+    .vwai-launcher-copy{display:flex;min-width:0;flex-direction:column;gap:3px;line-height:1.15}
+    .vwai-launcher-label{font-size:13px;font-weight:850;white-space:nowrap;letter-spacing:-.1px}
+    .vwai-launcher-short{display:none}
+    .vwai-launcher-badge{color:#9de0e9;font-size:9px;font-weight:900;letter-spacing:.65px;text-transform:uppercase}
+    .vwai-launcher-arrow{margin-left:2px;color:#9de0e9;font-size:18px;font-weight:900;line-height:1}
+    .vwai-launcher.vwai-first-visit{animation:vwai-welcome 2.8s ease-out 1}
+    @keyframes vwai-welcome{0%,100%{box-shadow:0 14px 38px rgba(11,36,71,.3)}35%{box-shadow:0 14px 44px rgba(11,36,71,.36),0 0 0 7px rgba(117,201,216,.18)}70%{box-shadow:0 14px 42px rgba(11,36,71,.34),0 0 0 3px rgba(117,201,216,.1)}}
     .vwai-panel{position:absolute;right:0;bottom:70px;width:min(390px,calc(100vw - 28px));height:min(650px,calc(100dvh - 105px));background:#fff;border:1px solid #dfe7ee;border-radius:24px;overflow:hidden;box-shadow:0 24px 70px rgba(11,36,71,.22);display:none;grid-template-rows:auto 1fr auto auto}
     .vwai-panel.open{display:grid}
     .vwai-head{display:flex;align-items:center;gap:12px;padding:17px 18px;background:linear-gradient(135deg,#071b35,#0b3157);color:#fff}
@@ -83,7 +98,8 @@
     .vwai-send{align-self:end;height:43px;padding:0 15px;border:0;border-radius:13px;background:#0b2447;color:#fff;cursor:pointer;font:inherit;font-size:12px;font-weight:850}
     .vwai-send:disabled{opacity:.5;cursor:not-allowed}
     .vwai-disclaimer{padding:0 13px 11px;background:#fff;color:#7a8998;font-size:9px;line-height:1.4}
-    @media(max-width:600px){#vetwel-ai-root{right:12px;bottom:12px}.vwai-panel{position:fixed;right:10px;left:10px;bottom:80px;width:auto;height:min(650px,calc(100dvh - 96px));border-radius:20px}.vwai-launcher{width:55px;height:55px}}
+    @media(max-width:600px){#vetwel-ai-root{right:12px;bottom:12px}.vwai-panel{position:fixed;right:10px;left:10px;bottom:86px;width:auto;height:min(650px,calc(100dvh - 102px));border-radius:20px}.vwai-launcher{min-height:58px;padding:6px 10px 6px 7px}.vwai-launcher-icon{width:44px;height:44px;flex-basis:44px}.vwai-launcher-full{display:none}.vwai-launcher-short{display:inline}.vwai-launcher-label{font-size:12px}.vwai-launcher-arrow{display:none}}
+    @media(max-width:360px){.vwai-launcher-badge{display:none}.vwai-launcher-copy{max-width:112px}}
     @media(prefers-reduced-motion:reduce){.vwai-launcher,.vwai-dot{animation:none!important;transition:none!important}}
   `;
   document.head.appendChild(style);
@@ -105,7 +121,9 @@
       <div class="vwai-disclaimer">${copy.disclaimer}</div>
     </section>
     <button class="vwai-launcher" type="button" aria-label="${copy.open}" aria-expanded="false">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A3.5 3.5 0 0 1 7.5 2h9A3.5 3.5 0 0 1 20 5.5v7a3.5 3.5 0 0 1-3.5 3.5H11l-4.8 4v-4A3.5 3.5 0 0 1 4 12.5z"/><path d="M9 9h6M12 6v6"/></svg>
+      <span class="vwai-launcher-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5A3.5 3.5 0 0 1 7.5 2h9A3.5 3.5 0 0 1 20 5.5v7a3.5 3.5 0 0 1-3.5 3.5H11l-4.8 4v-4A3.5 3.5 0 0 1 4 12.5z"/><path d="M9 9h6M12 6v6"/></svg></span>
+      <span class="vwai-launcher-copy"><span class="vwai-launcher-label"><span class="vwai-launcher-full">${copy.launcher}</span><span class="vwai-launcher-short">${copy.launcherShort}</span></span><span class="vwai-launcher-badge">${copy.launcherBadge}</span></span>
+      <span class="vwai-launcher-arrow" aria-hidden="true">›</span>
     </button>`;
   document.body.appendChild(root);
 
@@ -116,6 +134,16 @@
   const form = root.querySelector('.vwai-form');
   const input = root.querySelector('.vwai-input');
   const sendBtn = root.querySelector('.vwai-send');
+
+  try {
+    const welcomeKey = 'vetwel-ai-launcher-seen-v2';
+    if (!localStorage.getItem(welcomeKey)) {
+      launcher.classList.add('vwai-first-visit');
+      localStorage.setItem(welcomeKey, '1');
+    }
+  } catch {
+    launcher.classList.add('vwai-first-visit');
+  }
 
   const safeSource = (source) => {
     try {

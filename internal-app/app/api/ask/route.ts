@@ -1,4 +1,4 @@
-import { auth } from "@/lib/clerk-server";
+import { auth, getSessionToken } from "@/lib/clerk-server";
 import { NextResponse } from "next/server";
 import { env } from "cloudflare:workers";
 import { isClerkConfigured } from "@/lib/internal-config";
@@ -11,6 +11,10 @@ type ClientMessage = {
 type AiResult = {
   response?: string;
 };
+
+const CLOUDFLARE_AI_ENDPOINT =
+  "https://vetwel-internal-ai.oben-ak.workers.dev/api/ask";
+const AI_RELAY_HEADER = "x-vetwel-ai-relay";
 
 const SYSTEM_INSTRUCTIONS = `
 Sen VetWel Türkiye Ekip Asistanısın. Görevin yeni ve mevcut çalışanları VetWel ürünleri konusunda eğitmek, saha görüşmesine hazırlamak ve doğrulanmış VetWel kaynaklarına dayalı cevap vermektir.
@@ -106,6 +110,70 @@ async function getVetWelContext(question: string) {
   return sections.join("\n\n---\n\n");
 }
 
+function getAiBinding() {
+  try {
+    return env?.AI;
+  } catch {
+    return undefined;
+  }
+}
+
+async function relayToCloudflare(
+  request: Request,
+  messages: ClientMessage[],
+) {
+  if (request.headers.get(AI_RELAY_HEADER) === "1") {
+    console.error(JSON.stringify({
+      message: "Workers AI binding is unavailable after relay",
+      path: "/api/ask",
+    }));
+    return NextResponse.json(
+      { error: "AI bağlantısı geçici olarak kullanılamıyor." },
+      { status: 503 },
+    );
+  }
+
+  const sessionToken = await getSessionToken();
+  if (!sessionToken) {
+    return NextResponse.json(
+      { error: "Oturum açmanız gerekiyor." },
+      { status: 401 },
+    );
+  }
+
+  try {
+    const response = await fetch(CLOUDFLARE_AI_ENDPOINT, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${sessionToken}`,
+        "Content-Type": "application/json",
+        [AI_RELAY_HEADER]: "1",
+      },
+      body: JSON.stringify({ messages }),
+      cache: "no-store",
+      signal: AbortSignal.timeout(30_000),
+    });
+
+    return new NextResponse(response.body, {
+      status: response.status,
+      headers: {
+        "Content-Type": response.headers.get("Content-Type") || "application/json",
+        "Cache-Control": "no-store",
+      },
+    });
+  } catch (error) {
+    console.error(JSON.stringify({
+      message: "Cloudflare AI relay failed",
+      error: error instanceof Error ? error.message : String(error),
+      path: "/api/ask",
+    }));
+    return NextResponse.json(
+      { error: "AI servisine şu anda ulaşılamıyor. Lütfen tekrar deneyin." },
+      { status: 503 },
+    );
+  }
+}
+
 export async function POST(request: Request) {
   if (!isClerkConfigured()) {
     return NextResponse.json({ error: "Çalışan giriş sistemi henüz yapılandırılmadı." }, { status: 503 });
@@ -134,11 +202,16 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Bir soru yazın." }, { status: 400 });
   }
 
+  const ai = getAiBinding();
+  if (!ai || typeof ai.run !== "function") {
+    return relayToCloudflare(request, messages);
+  }
+
   const context = await getVetWelContext(lastUserMessage.content);
   const history = messages.map((message) => ({ role: message.role, content: message.content }));
 
   try {
-    const result = (await env.AI.run("@cf/meta/llama-3.1-8b-instruct-fp8", {
+    const result = (await ai.run("@cf/meta/llama-3.1-8b-instruct-fp8", {
       messages: [
         { role: "system", content: SYSTEM_INSTRUCTIONS },
         {
@@ -158,7 +231,11 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ answer });
   } catch (error) {
-    console.error("VetWel Workers AI error", error);
+    console.error(JSON.stringify({
+      message: "VetWel Workers AI error",
+      error: error instanceof Error ? error.message : String(error),
+      path: "/api/ask",
+    }));
     return NextResponse.json(
       { error: "Ücretsiz AI kotasına ulaşılmış veya servis geçici olarak kullanılamıyor. Daha sonra tekrar deneyin." },
       { status: 503 },

@@ -2,49 +2,49 @@ import Link from "next/link";
 import { auth } from "@/lib/clerk-server";
 import { redirect } from "next/navigation";
 import { isClerkConfigured } from "@/lib/internal-config";
-import { trainingModules } from "@/lib/training-content";
+import { internalTrainingModules as trainingModules } from "@/lib/internal-training-content";
 
 const scenarios = [
   {
     title: "“KidneyWel fosfor bağlayıcı mı?”",
     answer:
       "Hayır. KidneyWel Tablet fosfor bağlayıcı olarak konumlandırılmıyor; yaklaşım fosfor emilimini azaltmaya yönelik destek ve antioksidan destektir.",
-    boundary: "Mekanizma detayını doğrulanmış formülasyon metninin dışına taşırma.",
+    boundary: "Mekanizma detayını kayıtlı formülasyon metninin dışına taşırma.",
   },
   {
     title: "“Bu ürün hastalığı tedavi eder mi?”",
     answer:
-      "VetWel iletişimi ürünü tanı veya tedavinin yerine koymaz. İlgili sağlık alanını destekleme amacı ve doğrulanmış formülasyon mantığı anlatılır.",
+      "VetWel iletişimi ürünü tanı veya tedavinin yerine koymaz. İlgili sağlık alanını destekleme amacı ve kayıtlı formülasyon mantığı anlatılır.",
     boundary: "Tedavi eder, iyileştirir, kesin sonuç verir gibi güçlü ilaç dili kullanma.",
   },
   {
     title: "“15 kg köpeğe SkinWel kaç tablet?”",
     answer:
-      "Veritabanında her 10 kg için 1 tablet/doz kuralı var; ancak 15 kg gibi ara ağırlıklarda resmi yuvarlama kuralı doğrulanmış değil. Tahmin etmeden doğrulama gerekir.",
+      "Veritabanında her 10 kg için 1 tablet/doz kuralı var; ancak 15 kg gibi ara ağırlıklarda resmi yuvarlama kuralı net değil. Tahmin etmeden resmi bilgiyi netleştirmek gerekir.",
     boundary: "1 veya 2 tablete kendi başına yuvarlama yapma.",
   },
   {
     title: "“LiverWel Liquid dozu Tablet ile aynı mı?”",
     answer:
-      "Hayır, bunu varsayamayız. Liquid form ayrı ürün/form kaydıdır ve dozu doğrulanana kadar Tablet bilgisini taşımıyoruz.",
+      "Hayır, bunu varsayamayız. Liquid form ayrı ürün/form kaydıdır ve dozu netleşene kadar Tablet bilgisini taşımıyoruz.",
     boundary: "Formlar arasında doz, içerik veya claim kopyalama.",
   },
   {
     title: "“Cleanse evde uygulanabilir mi?”",
     answer:
-      "Mevcut VetWel kaydı Cleanse’i veteriner klinik protokolü içinde tarif ediyor. Evde kullanım güvenliği veya talimatı ayrıca onaylanmadıkça önerilmez.",
-    boundary: "Pet sahibine onaylanmamış ev uygulama protokolü verme.",
+      "Mevcut VetWel kaydı Cleanse’i veteriner klinik protokolü içinde tarif ediyor. Evde kullanım güvenliği veya talimatı ayrıca açıkça kayıtlı değilse önerilmez.",
+    boundary: "Pet sahibine kaydı bulunmayan ev uygulama protokolü verme.",
   },
   {
     title: "“Breathe Ease 30 lb köpekte kaç tüp?”",
     answer:
-      "22 lb üzerindeki köpekler için resmi doz tablosu henüz doğrulanmış değil. Bu nedenle orantı kurup doz tahmini yapmıyoruz.",
+      "22 lb üzerindeki köpekler için resmi doz tablosu henüz net değil. Bu nedenle orantı kurup doz tahmini yapmıyoruz.",
     boundary: "11 lb başına 1 tüp gibi otomatik matematiksel genelleme yapma.",
   },
   {
     title: "“LactoWel 15 kg köpekte kaç tablet?”",
     answer:
-      "Kayıt her 10 kg için 1 tablet/doz diyor; ancak ara kilo yuvarlama kuralı doğrulanmadığı için 15 kg için kesin sayı vermiyoruz.",
+      "Kayıt her 10 kg için 1 tablet/doz diyor; ancak ara kilo yuvarlama kuralı net olmadığı için 15 kg için kesin sayı vermiyoruz.",
     boundary: "Kayıtlı olmayan yuvarlama kuralını saha kolaylığı için uydurma.",
   },
   {
@@ -63,6 +63,7 @@ const coachPrompts = [
   "SkinWel için veteriner rolüne gir; özellikle 15 kg doz sorusuyla beni test et ve tahmin edersem düzelt.",
   "Breathe Ease için 22 lb üzeri doz sınırını koruyarak bir klinik görüşme provası yaptır.",
   "Cleanse hakkında pet sahibi evde kullanım sorarsa nasıl profesyonel sınır koyacağımı çalıştır.",
+  "Malign Detox için onkolojik bakım bağlamında 30 saniyelik veteriner görüşmesi provası yaptır; tedavi veya metastazı önleme iddiasına kaçarsam düzelt.",
 ];
 
 export default async function CoachPage() {
@@ -81,8 +82,8 @@ export default async function CoachPage() {
         <h1 className="module-title">Satış Koçu</h1>
         <p className="module-subtitle">
           Amaç ezberlenmiş satış cümlesi vermek değil; veteriner görüşmesinde doğru bilgiyi kısa,
-          kontrollü ve güvenilir şekilde aktarabilmek. Kısmen onaylı ürünlerde iyi temsilci,
-          yalnız bildiğini değil nerede durması gerektiğini de bilir.
+          kontrollü ve güvenilir şekilde aktarabilmek. İyi temsilci yalnız bildiğini değil,
+          hangi noktada tahmin yürütmemesi gerektiğini de bilir.
         </p>
 
         <section className="section">
@@ -97,9 +98,7 @@ export default async function CoachPage() {
             {trainingModules.map((module) => (
               <article className="product-card coach-pitch-card" key={module.slug}>
                 <div className="product-card-topline">
-                  <span className={`content-badge ${module.status === "ONAYLI" ? "content-badge-ready" : "content-badge-partial"}`}>
-                    {module.status}
-                  </span>
+                  <span className="product-form">{module.form}</span>
                   <Link className="mini-link" href={`/training/${module.slug}`}>Eğitim →</Link>
                 </div>
                 <strong>{module.product} {module.form}</strong>
@@ -139,7 +138,7 @@ export default async function CoachPage() {
           </div>
           <div className="framework-steps">
             <article><span>1</span><strong>Kısa cevap</strong><p>Önce 1–3 cümlede klinikte söylenebilir net yanıt ver.</p></article>
-            <article><span>2</span><strong>Doğrulanmış detay</strong><p>Gerekirse yalnız kayıtlı doz, formülasyon ve kullanım bilgisini ekle.</p></article>
+            <article><span>2</span><strong>Kayıtlı detay</strong><p>Gerekirse yalnız kayıtlı doz, formülasyon ve kullanım bilgisini ekle.</p></article>
             <article><span>3</span><strong>Sınırı koru</strong><p>Tedavi iddiası, form karışımı veya veri boşluğunda tahmin yapma.</p></article>
             <article><span>4</span><strong>Veteriner bağlamı</strong><p>Ürünü veteriner hekimin değerlendirme ve bakım planına destek olarak konumlandır.</p></article>
           </div>

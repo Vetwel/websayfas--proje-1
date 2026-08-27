@@ -12,6 +12,7 @@
     dog: 'Dog',
     catReady: 'Great. How can I help with your cat?',
     dogReady: 'Great. How can I help with your dog?',
+    changePet: 'Change pet type',
     placeholder: 'Type your question…',
     placeholderCat: 'Type your question about your cat…',
     placeholderDog: 'Type your question about your dog…',
@@ -40,6 +41,7 @@
     dog: 'Köpek',
     catReady: 'Harika. Kediniz için nasıl yardımcı olabilirim?',
     dogReady: 'Harika. Köpeğiniz için nasıl yardımcı olabilirim?',
+    changePet: 'Türü değiştir',
     placeholder: 'Sorunuzu yazın…',
     placeholderCat: 'Kedinizle ilgili sorunuzu yazın…',
     placeholderDog: 'Köpeğinizle ilgili sorunuzu yazın…',
@@ -106,6 +108,7 @@
     .vwai-pet-choices{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
     .vwai-pet-choice{min-height:48px;padding:9px 12px;border:1px solid #cfe0e9;border-radius:14px;background:#f7fbfd;color:#173f6b;cursor:pointer;font:inherit;font-size:13px;font-weight:850;transition:background .18s ease,border-color .18s ease,transform .18s ease}
     .vwai-pet-choice:hover{transform:translateY(-1px);border-color:#75b5c7;background:#edf8fa}.vwai-pet-choice:focus-visible{outline:3px solid rgba(117,201,216,.3);outline-offset:2px}
+    .vwai-change-pet{margin-top:9px;padding:0;border:0;background:transparent;color:#39769a;cursor:pointer;font:inherit;font-size:10px;font-weight:800;text-decoration:underline;text-underline-offset:3px}
     .vwai-starters{display:grid;gap:7px;margin-top:11px}
     .vwai-starter{width:100%;padding:9px 11px;text-align:left;border:1px solid #dce6ee;border-radius:12px;background:#fff;color:#245f82;cursor:pointer;font:inherit;font-size:12px;font-weight:750}
     .vwai-starter:hover{background:#eef7fa}
@@ -231,25 +234,7 @@
     target.appendChild(starters);
   };
 
-  const setPetType = (value, announce = true) => {
-    petType = value;
-    try { sessionStorage.setItem('vetwel-ai-pet-v1', value); } catch {}
-    input.disabled = false;
-    sendBtn.disabled = false;
-    input.placeholder = value === 'cat' ? copy.placeholderCat : copy.placeholderDog;
-    input.setAttribute('aria-label', input.placeholder);
-    if (announce) addMessage('user', value === 'cat' ? `🐱 ${copy.cat}` : `🐶 ${copy.dog}`);
-    const ready = addMessage('assistant', value === 'cat' ? copy.catReady : copy.dogReady);
-    addStarters(ready);
-    input.focus();
-  };
-
-  const intro = addIntro();
-  if (petType) {
-    setPetType(petType, false);
-  } else {
-    input.disabled = true;
-    sendBtn.disabled = true;
+  const showPetChoices = (target) => {
     const choices = document.createElement('div');
     choices.className = 'vwai-pet-choices';
     [['cat', `🐱 ${copy.cat}`], ['dog', `🐶 ${copy.dog}`]].forEach(([value, label]) => {
@@ -263,7 +248,43 @@
       });
       choices.appendChild(button);
     });
-    intro.appendChild(choices);
+    target.appendChild(choices);
+  };
+
+  const setPetType = (value, announce = true) => {
+    petType = value;
+    try { sessionStorage.setItem('vetwel-ai-pet-v1', value); } catch {}
+    input.disabled = false;
+    sendBtn.disabled = false;
+    input.placeholder = value === 'cat' ? copy.placeholderCat : copy.placeholderDog;
+    input.setAttribute('aria-label', input.placeholder);
+    if (announce) addMessage('user', value === 'cat' ? `🐱 ${copy.cat}` : `🐶 ${copy.dog}`);
+    const ready = addMessage('assistant', value === 'cat' ? copy.catReady : copy.dogReady);
+    addStarters(ready);
+    const changeButton = document.createElement('button');
+    changeButton.type = 'button';
+    changeButton.className = 'vwai-change-pet';
+    changeButton.textContent = copy.changePet;
+    changeButton.addEventListener('click', () => {
+      petType = null;
+      try { sessionStorage.removeItem('vetwel-ai-pet-v1'); } catch {}
+      input.disabled = true;
+      sendBtn.disabled = true;
+      input.placeholder = copy.placeholder;
+      const question = addMessage('assistant', copy.petQuestion);
+      showPetChoices(question);
+    });
+    ready.appendChild(changeButton);
+    input.focus();
+  };
+
+  const intro = addIntro();
+  if (petType) {
+    setPetType(petType, false);
+  } else {
+    input.disabled = true;
+    sendBtn.disabled = true;
+    showPetChoices(intro);
   }
 
   const setOpen = (open) => {

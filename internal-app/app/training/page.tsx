@@ -2,7 +2,10 @@ import Link from "next/link";
 import { auth } from "@/lib/clerk-server";
 import { redirect } from "next/navigation";
 import { isClerkConfigured } from "@/lib/internal-config";
-import { trainingModules, verificationQueue } from "@/lib/training-content";
+import {
+  internalTrainingModules as trainingModules,
+  internalVerificationQueue as verificationQueue,
+} from "@/lib/internal-training-content";
 
 export default async function TrainingPage() {
   if (!isClerkConfigured()) {

@@ -234,6 +234,7 @@ RULES:
 - Do not repeat the user's question. Use short plain-text paragraphs or numbered points; do not use Markdown symbols such as **, #, or tables.
 - For non-urgent symptom questions, prioritize: what to observe, common categories of possible causes without diagnosing, warning signs, and when to see a veterinarian.
 - Do not ask for unnecessary personal information.
+- Use the pet type selected by the user as context. If their question clearly contradicts that selection, ask one brief clarification instead of assuming.
 - If a relevant VetWel product is mentioned, describe it only as supportive/complementary and keep veterinary evaluation primary.
 - Use only the supplied VetWel source context for VetWel-specific facts.`;
 
@@ -284,7 +285,9 @@ async function callWorkersAI(env, payload, knowledge, urgent) {
     .map(x => `${x.role === 'assistant' ? 'Assistant' : 'User'}: ${String(x.content || '').slice(0,550)}`)
     .join('\n');
 
-  const input = `${compactHistory ? `RECENT CONVERSATION:\n${compactHistory}\n\n` : ''}CURRENT USER QUESTION:
+  const input = `${compactHistory ? `RECENT CONVERSATION:\n${compactHistory}\n\n` : ''}PET TYPE SELECTED BY USER: ${payload.petType || 'not specified'}
+
+CURRENT USER QUESTION:
 ${payload.message}
 
 APPROVED VETWEL SOURCE CONTEXT:
@@ -369,6 +372,9 @@ async function handleChat(request, env) {
   }
 
   const lang = payload?.lang === 'en' ? 'en' : 'tr';
+  const petType = payload?.petType === 'cat' || payload?.petType === 'dog'
+    ? payload.petType
+    : '';
   const pagePath = String(payload?.pagePath || '').slice(0,300);
   const sessionId = String(payload?.sessionId || '').slice(0,128);
   if (!/^[a-zA-Z0-9-]{8,128}$/.test(sessionId)) {
@@ -385,12 +391,17 @@ async function handleChat(request, env) {
   const urgent = isUrgent(message);
 
   try {
-    const knowledge = await collectKnowledge(env, request, message, lang, pagePath);
+    const speciesContext = petType === 'cat'
+      ? (lang === 'en' ? ' cat feline' : ' kedi')
+      : petType === 'dog'
+        ? (lang === 'en' ? ' dog canine' : ' köpek')
+        : '';
+    const knowledge = await collectKnowledge(env, request, `${message}${speciesContext}`, lang, pagePath);
     const reply = urgent
       ? urgentGuidance(lang)
       : await callWorkersAI(
         env,
-        { ...payload, message, lang },
+        { ...payload, message, lang, petType },
         knowledge,
         false
       );

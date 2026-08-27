@@ -6,8 +6,15 @@
   const copy = isEnglish ? {
     title: 'VetWel AI',
     subtitle: 'Pet Health Information Assistant',
-    intro: 'Ask about pet health, VetWel products, or information on this website. I provide educational information and do not replace a veterinary examination.',
+    greeting: 'Hello, I’m the VetWel Pet Health Assistant.',
+    petQuestion: 'To get started, is your companion a cat or a dog?',
+    cat: 'Cat',
+    dog: 'Dog',
+    catReady: 'Great. How can I help with your cat?',
+    dogReady: 'Great. How can I help with your dog?',
     placeholder: 'Type your question…',
+    placeholderCat: 'Type your question about your cat…',
+    placeholderDog: 'Type your question about your dog…',
     send: 'Send',
     close: 'Close VetWel AI',
     open: 'Open VetWel AI',
@@ -27,8 +34,15 @@
   } : {
     title: 'VetWel AI',
     subtitle: 'Evcil Hayvan Sağlığı Bilgi Asistanı',
-    intro: 'Evcil hayvan sağlığı, VetWel ürünleri veya sitedeki bilgiler hakkında sorabilirsiniz. Eğitim amaçlı bilgi veririm; veteriner muayenesinin yerini almam.',
+    greeting: 'Merhaba, ben VetWel Evcil Hayvan Sağlık Asistanı’yım.',
+    petQuestion: 'Başlamadan önce dostunuz kedi mi, köpek mi?',
+    cat: 'Kedi',
+    dog: 'Köpek',
+    catReady: 'Harika. Kediniz için nasıl yardımcı olabilirim?',
+    dogReady: 'Harika. Köpeğiniz için nasıl yardımcı olabilirim?',
     placeholder: 'Sorunuzu yazın…',
+    placeholderCat: 'Kedinizle ilgili sorunuzu yazın…',
+    placeholderDog: 'Köpeğinizle ilgili sorunuzu yazın…',
     send: 'Gönder',
     close: 'VetWel AI’ı kapat',
     open: 'VetWel AI’ı aç',
@@ -50,6 +64,11 @@
   const endpoint = window.VETWEL_AI_ENDPOINT || '/api/chat';
   const sessionKey = 'vetwel-ai-session-v1';
   const history = [];
+  let petType = null;
+  try {
+    const savedPet = sessionStorage.getItem('vetwel-ai-pet-v1');
+    if (savedPet === 'cat' || savedPet === 'dog') petType = savedPet;
+  } catch {}
   let sessionId = localStorage.getItem(sessionKey);
   if (!sessionId) {
     sessionId = (window.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}`);
@@ -84,6 +103,9 @@
     .vwai-msg.assistant{background:#fff;border:1px solid #e1e8ef;border-top-left-radius:5px;box-shadow:0 5px 16px rgba(11,36,71,.05)}
     .vwai-msg.user{margin-left:auto;background:#0b2447;color:#fff;border-bottom-right-radius:5px}
     .vwai-intro{margin-bottom:13px}
+    .vwai-pet-choices{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+    .vwai-pet-choice{min-height:48px;padding:9px 12px;border:1px solid #cfe0e9;border-radius:14px;background:#f7fbfd;color:#173f6b;cursor:pointer;font:inherit;font-size:13px;font-weight:850;transition:background .18s ease,border-color .18s ease,transform .18s ease}
+    .vwai-pet-choice:hover{transform:translateY(-1px);border-color:#75b5c7;background:#edf8fa}.vwai-pet-choice:focus-visible{outline:3px solid rgba(117,201,216,.3);outline-offset:2px}
     .vwai-starters{display:grid;gap:7px;margin-top:11px}
     .vwai-starter{width:100%;padding:9px 11px;text-align:left;border:1px solid #dce6ee;border-radius:12px;background:#fff;color:#245f82;cursor:pointer;font:inherit;font-size:12px;font-weight:750}
     .vwai-starter:hover{background:#eef7fa}
@@ -95,6 +117,7 @@
     .vwai-form{display:grid;grid-template-columns:1fr auto;gap:8px;padding:12px 12px 8px;border-top:1px solid #e2e9ef;background:#fff}
     .vwai-input{min-width:0;resize:none;max-height:110px;min-height:43px;padding:11px 12px;border:1px solid #d9e3eb;border-radius:13px;outline:none;font:inherit;font-size:13px;line-height:1.35;color:#172333;background:#fff}
     .vwai-input:focus{border-color:#75a9c8;box-shadow:0 0 0 3px rgba(44,120,168,.09)}
+    .vwai-input:disabled{cursor:not-allowed;background:#f3f6f8;color:#8a98a6}
     .vwai-send{align-self:end;height:43px;padding:0 15px;border:0;border-radius:13px;background:#0b2447;color:#fff;cursor:pointer;font:inherit;font-size:12px;font-weight:850}
     .vwai-send:disabled{opacity:.5;cursor:not-allowed}
     .vwai-disclaimer{padding:0 13px 11px;background:#fff;color:#7a8998;font-size:9px;line-height:1.4}
@@ -188,8 +211,13 @@
     const intro = document.createElement('div');
     intro.className = 'vwai-msg assistant vwai-intro';
     const text = document.createElement('div');
-    text.textContent = copy.intro;
+    text.textContent = petType ? copy.greeting : `${copy.greeting}\n\n${copy.petQuestion}`;
     intro.appendChild(text);
+    messages.appendChild(intro);
+    return intro;
+  };
+
+  const addStarters = (target) => {
     const starters = document.createElement('div');
     starters.className = 'vwai-starters';
     copy.starters.forEach((label) => {
@@ -200,16 +228,49 @@
       b.addEventListener('click', () => { input.value = label; submitMessage(); });
       starters.appendChild(b);
     });
-    intro.appendChild(starters);
-    messages.appendChild(intro);
+    target.appendChild(starters);
   };
-  addIntro();
+
+  const setPetType = (value, announce = true) => {
+    petType = value;
+    try { sessionStorage.setItem('vetwel-ai-pet-v1', value); } catch {}
+    input.disabled = false;
+    sendBtn.disabled = false;
+    input.placeholder = value === 'cat' ? copy.placeholderCat : copy.placeholderDog;
+    input.setAttribute('aria-label', input.placeholder);
+    if (announce) addMessage('user', value === 'cat' ? `🐱 ${copy.cat}` : `🐶 ${copy.dog}`);
+    const ready = addMessage('assistant', value === 'cat' ? copy.catReady : copy.dogReady);
+    addStarters(ready);
+    input.focus();
+  };
+
+  const intro = addIntro();
+  if (petType) {
+    setPetType(petType, false);
+  } else {
+    input.disabled = true;
+    sendBtn.disabled = true;
+    const choices = document.createElement('div');
+    choices.className = 'vwai-pet-choices';
+    [['cat', `🐱 ${copy.cat}`], ['dog', `🐶 ${copy.dog}`]].forEach(([value, label]) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'vwai-pet-choice';
+      button.textContent = label;
+      button.addEventListener('click', () => {
+        choices.remove();
+        setPetType(value);
+      });
+      choices.appendChild(button);
+    });
+    intro.appendChild(choices);
+  }
 
   const setOpen = (open) => {
     panel.classList.toggle('open', open);
     launcher.setAttribute('aria-expanded', String(open));
     launcher.setAttribute('aria-label', open ? copy.close : copy.open);
-    if (open) setTimeout(() => input.focus(), 60);
+    if (open && !input.disabled) setTimeout(() => input.focus(), 60);
   };
   launcher.addEventListener('click', () => setOpen(!panel.classList.contains('open')));
   closeBtn.addEventListener('click', () => setOpen(false));
@@ -225,7 +286,7 @@
 
   async function submitMessage() {
     const message = input.value.trim();
-    if (!message || sendBtn.disabled) return;
+    if (!petType || !message || sendBtn.disabled) return;
     input.value = '';
     input.style.height = 'auto';
     addMessage('user', message);
@@ -244,6 +305,7 @@
           lang: isEnglish ? 'en' : 'tr',
           pagePath: window.location.pathname,
           pageTitle: document.title,
+          petType,
           sessionId
         })
       });

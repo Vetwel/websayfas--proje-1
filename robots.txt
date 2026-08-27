@@ -7,3 +7,4 @@ User-agent: OAI-SearchBot
 Allow: /
 
 Sitemap: https://vetwel.us/sitemap.xml
+Sitemap: https://vetwel.us/sitemap-health.xml

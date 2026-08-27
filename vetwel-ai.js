@@ -55,7 +55,7 @@
     error: 'AI bağlantısı geçici olarak kullanılamıyor. Lütfen kısa süre sonra tekrar deneyin.',
     disclaimer: 'AI tarafından oluşturulan eğitim amaçlı bilgidir. Tanı, tedavi, ilaç değişikliği veya acil belirtiler için veteriner hekiminize başvurun.',
     starters: [
-      'Evcil hayvanımda bir belirti var',
+      'Evcil hayvanımda bir problem var',
       'Bana uygun VetWel ürününü bul',
       'VetWel ürünlerini karşılaştır',
       'İlgili sağlık makalesini bul'

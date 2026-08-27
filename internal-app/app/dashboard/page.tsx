@@ -76,7 +76,7 @@ export default async function DashboardPage() {
           </div>
           <div className="employee-menu">
             <span className="private-badge">Şirket İçi</span>
-            <UserButton afterSignOutUrl="/sign-in" />
+            <UserButton />
           </div>
         </header>
 

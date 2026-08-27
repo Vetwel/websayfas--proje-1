@@ -29,7 +29,7 @@ export default async function QuizPage() {
               <span className="product-form">14 soru</span>
             </div>
             <strong>Temel Yetkinlik</strong>
-            <span>Doz, form ayrımı, veri statüsü ve VetWel iletişim standardı</span>
+            <span>Doz, form ayrımı, bilgi sınırları ve VetWel iletişim standardı</span>
             <p>Geçme hedefi %80. Yanlış cevaplarda nedenini ve doğru saha yaklaşımını görürsün.</p>
           </article>
 
@@ -39,7 +39,7 @@ export default async function QuizPage() {
               <span className="product-form">8 senaryo</span>
             </div>
             <strong>Saha Yetkinliği</strong>
-            <span>Gerçek veteriner soruları, ürün/form seçimi ve doğrulama sınırı</span>
+            <span>Gerçek veteriner soruları, ürün/form seçimi ve bilgi sınırları</span>
             <p>Bilgiyi ezberlemek yerine gerçek görüşmede doğru kararı verip veremediğini ölçer.</p>
             <span className="module-cta">Seviye 2&apos;ye geç →</span>
           </Link>
@@ -47,11 +47,11 @@ export default async function QuizPage() {
 
         <section className="info-panel onboarding-summary section">
           <div className="progress-row">
-            <div><strong>1. Onaylı ürün bilgisi</strong><span>KidneyWel Tablet/Liquid, LiverWel Tablet ve CalmWel Tablet temelleri</span></div>
+            <div><strong>1. Temel ürün bilgisi</strong><span>KidneyWel Tablet/Liquid, LiverWel Tablet ve CalmWel Tablet temelleri</span></div>
             <span className="status">Aktif</span>
           </div>
           <div className="progress-row">
-            <div><strong>2. Kısmen onaylı ürün sınırları</strong><span>SkinWel, LactoWel, Breathe Ease ve Cleanse’de neyin bilindiğini ve neyin tahmin edilmemesi gerektiğini öğrenme</span></div>
+            <div><strong>2. Ürün bilgi sınırları</strong><span>SkinWel, LactoWel, Breathe Ease ve Cleanse’de neyin bilindiğini ve hangi noktada tahmin yürütülmemesi gerektiğini öğrenme</span></div>
             <span className="status">Aktif</span>
           </div>
           <div className="progress-row">
@@ -59,7 +59,7 @@ export default async function QuizPage() {
             <span className="status">Aktif</span>
           </div>
           <div className="progress-row">
-            <div><strong>4. Saha iletişimi</strong><span>Tedavi iddiası yerine destek amacı, doğrulanmış bilgi ve profesyonel sınır kullanma</span></div>
+            <div><strong>4. Saha iletişimi</strong><span>Tedavi iddiası yerine destek amacı, kayıtlı bilgi ve profesyonel sınır kullanma</span></div>
             <span className="status">Aktif</span>
           </div>
         </section>

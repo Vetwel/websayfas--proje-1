@@ -2,7 +2,7 @@ import Link from "next/link";
 import { auth } from "@/lib/clerk-server";
 import { notFound, redirect } from "next/navigation";
 import { isClerkConfigured } from "@/lib/internal-config";
-import { getTrainingModule } from "@/lib/training-content";
+import { getInternalTrainingModule } from "@/lib/internal-training-content";
 import TrainingCompleteButton from "./training-complete-button";
 
 type Props = {
@@ -18,7 +18,7 @@ export default async function TrainingDetailPage({ params }: Props) {
   if (!userId) redirect("/sign-in");
 
   const { slug } = await params;
-  const module = getTrainingModule(slug);
+  const module = getInternalTrainingModule(slug);
   if (!module) notFound();
 
   const partial = module.status === "KISMEN ONAYLI";

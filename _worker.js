@@ -19,7 +19,7 @@ const PRODUCT_INDEX = [
   { title:'KidneyWel® Liquid', tr:'/education-kidneywel-liquid.html', en:'/en/education-kidneywel-liquid.html', keys:'bobrek böbrek renal kidney liquid sivi sıvı' },
   { title:'LiverWel® Tablet', tr:'/education-liverwel-tablet.html', en:'/en/education-liverwel-tablet.html', keys:'karaciger karaciğer liver hepatic tablet' },
   { title:'LiverWel® Liquid', tr:'/education-liverwel-liquid.html', en:'/en/education-liverwel-liquid.html', keys:'karaciger karaciğer liver hepatic liquid sivi sıvı' },
-  { title:'SkinWel®', tr:'/education-skinwel.html', en:'/en/education-skinwel.html', keys:'deri cilt tuy tüy kasinti kaşıntı pati alerji skin coat itch itching allergy hot spot' },
+  { title:'SkinWel®', tr:'/education-skinwel.html', en:'/en/education-skinwel.html', keys:'deri cilt tuy tüy mat kasinti kaşıntı pati alerji skin coat dull itch itching allergy hot spot' },
   { title:'HeartWel®', tr:'/education-heartwel.html', en:'/en/education-heartwel.html', keys:'kalp dolasim dolaşım heart cardiac circulation' },
   { title:'LactoWel®', tr:'/education-lactowel.html', en:'/en/education-lactowel.html', keys:'probiyotik ishal sindirim bagirsak bağırsak mikrobiyota probiotic diarrhea digestive gut microbiome' },
   { title:'CalmWel® Tablet', tr:'/education-calmwel-tablet.html', en:'/en/education-calmwel-tablet.html', keys:'stres korku sakin davranis davranış yolculuk havai fisek fişek ayrilik ayrılık calm stress anxiety fear travel fireworks tablet' },
@@ -99,7 +99,9 @@ function scoreText(query, candidate) {
   let score = 0;
   for (const t of qTokens) {
     if (hayTokens.includes(t)) score += 4;
-    if (t.length >= 5 && hayTokens.some(h => h.startsWith(t) || t.startsWith(h))) score += 2;
+    if (t.length >= 5 && hayTokens.some(h => h.length >= 5 && (
+      h.startsWith(t) || t.startsWith(h) || h.slice(0,5) === t.slice(0,5)
+    ))) score += 2;
   }
   const q = normalize(query);
   if (q.length > 4 && hay.includes(q)) score += 12;
@@ -118,6 +120,14 @@ function relevantProducts(message, lang) {
 function isUrgent(message) {
   const q = normalize(message);
   return RED_FLAGS.some(flag => q.includes(normalize(flag)));
+}
+
+function urgentGuidance(lang) {
+  if (lang === 'en') {
+    return 'These signs may require emergency veterinary assessment. Do not wait or give a supplement, medication, food, or home remedy. Call the nearest open veterinary clinic now and leave for the clinic. Do not press the abdomen or bladder, induce vomiting, or attempt an invasive procedure. Keep your pet quiet and bring any medication, chemical, plant, or product packaging that may be relevant.';
+  }
+
+  return 'Bu belirtiler acil veteriner değerlendirmesi gerektirebilir. Beklemeyin; herhangi bir takviye, ilaç, yiyecek veya ev çözümü vermeden en yakın açık veteriner kliniğini şimdi arayın ve kliniğe gidin. Karna veya mesaneye bastırmayın, kusturmaya çalışmayın ve evde herhangi bir girişim uygulamayın. Evcil hayvanınızı sakin tutun; ilgili olabilecek ilaç, kimyasal, bitki veya ürün ambalajını yanınıza alın.';
 }
 
 function corsHeaders(request) {
@@ -376,12 +386,14 @@ async function handleChat(request, env) {
 
   try {
     const knowledge = await collectKnowledge(env, request, message, lang, pagePath);
-    const reply = await callWorkersAI(
-      env,
-      { ...payload, message, lang },
-      knowledge,
-      urgent
-    );
+    const reply = urgent
+      ? urgentGuidance(lang)
+      : await callWorkersAI(
+        env,
+        { ...payload, message, lang },
+        knowledge,
+        false
+      );
 
     const base = new URL(request.url);
     const requestOrigin = request.headers.get('origin');
@@ -389,6 +401,7 @@ async function handleChat(request, env) {
       ? requestOrigin
       : base.origin;
     const sources = knowledge.sources
+      .filter(s => !urgent || s.kind !== 'product')
       .slice(0,4)
       .map(s => ({
         title:s.title,

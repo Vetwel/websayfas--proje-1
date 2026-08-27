@@ -1,7 +1,7 @@
 import { auth, getSessionToken } from "@/lib/clerk-server";
 import { NextResponse } from "next/server";
-import { env } from "cloudflare:workers";
 import { isClerkConfigured } from "@/lib/internal-config";
+import { getAiBinding } from "@/lib/runtime-env";
 
 type ClientMessage = {
   role: "user" | "assistant";
@@ -108,14 +108,6 @@ async function getVetWelContext(question: string) {
   );
 
   return sections.join("\n\n---\n\n");
-}
-
-function getAiBinding() {
-  try {
-    return env?.AI;
-  } catch {
-    return undefined;
-  }
 }
 
 async function relayToCloudflare(

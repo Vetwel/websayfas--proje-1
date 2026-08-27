@@ -15,9 +15,6 @@ export default async function TrainingPage() {
   const { userId } = await auth();
   if (!userId) redirect("/sign-in");
 
-  const approvedCount = trainingModules.filter((module) => module.status === "ONAYLI").length;
-  const limitedCount = trainingModules.filter((module) => module.status === "KISMEN ONAYLI").length;
-
   return (
     <main className="shell">
       <div className="page">
@@ -25,73 +22,67 @@ export default async function TrainingPage() {
         <span className="eyebrow">Modül 01</span>
         <h1 className="module-title">Ürün Eğitimi</h1>
         <p className="module-subtitle">
-          Eğitimler VetWel bilgi tabanındaki veri statüsüne göre açılır. ONAYLI modüllerde
-          doğrulanmış ürün/form bilgileri kullanılır; KISMEN ONAYLI modüllerde ise çalışan
-          hangi bilginin güvenle söylenebileceğini ve hangi noktada durması gerektiğini öğrenir.
+          Her ürün modülü VetWel ekibinin sahada ihtiyaç duyduğu ürün konumlandırmasını,
+          kullanım bilgisini, formülasyon mantığını ve doğru iletişim sınırlarını tek yerde toplar.
         </p>
 
         <section className="section">
           <div className="section-head">
             <div>
-              <span className="eyebrow">Aktif eğitimler</span>
+              <span className="eyebrow">Ürün eğitimleri</span>
               <h2>Ürün ve form modülleri</h2>
             </div>
-            <p>{approvedCount} onaylı • {limitedCount} sınırlı modül</p>
+            <p>{trainingModules.length} ürün/form modülü</p>
           </div>
 
           <div className="product-grid">
-            {trainingModules.map((module) => {
-              const partial = module.status === "KISMEN ONAYLI";
-              return (
-                <Link className="product-card product-card-link" href={`/training/${module.slug}`} key={module.slug}>
-                  <div className="product-card-topline">
-                    <span className={`content-badge ${partial ? "content-badge-partial" : "content-badge-ready"}`}>
-                      {module.status}
-                    </span>
-                    <span className="product-form">{module.form}</span>
-                  </div>
-                  <strong>{module.product}</strong>
-                  <span>{module.supportArea}</span>
-                  <p>{module.positioning}</p>
-                  <span className="module-cta">{partial ? "Sınırlarıyla öğren →" : "Eğitime başla →"}</span>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-
-        <section className="section">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow">Henüz modül açılmadı</span>
-              <h2>Doğrulama bekleyen ürün/formlar</h2>
-            </div>
-            <p>Eksik bilgi AI tarafından tamamlanmaz</p>
-          </div>
-
-          <div className="info-panel">
-            {verificationQueue.map((item) => (
-              <div className="progress-row" key={item.name}>
-                <div>
-                  <strong>{item.name}</strong>
-                  <span>{item.note}</span>
+            {trainingModules.map((module) => (
+              <Link className="product-card product-card-link" href={`/training/${module.slug}`} key={module.slug}>
+                <div className="product-card-topline">
+                  <span className="product-form">{module.form}</span>
                 </div>
-                <span className="status">{item.status}</span>
-              </div>
+                <strong>{module.product}</strong>
+                <span>{module.supportArea}</span>
+                <p>{module.positioning}</p>
+                <span className="module-cta">Eğitime başla →</span>
+              </Link>
             ))}
           </div>
         </section>
+
+        {verificationQueue.length ? (
+          <section className="section">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">İçerik geliştirme</span>
+                <h2>Bilgisi tamamlanacak ürün/formlar</h2>
+              </div>
+              <p>Eksik bilgi AI tarafından uydurulmaz</p>
+            </div>
+
+            <div className="info-panel">
+              {verificationQueue.map((item) => (
+                <div className="progress-row" key={item.name}>
+                  <div>
+                    <strong>{item.name}</strong>
+                    <span>{item.note}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         <section className="section placeholder">
           <h2>Eğitim standardı</h2>
           <p>
             Her modül konumlandırma, kayıtlı doz/kullanım, formülasyon mantığı, klinikte
-            söylenebilir kısa anlatım ve “söyle / söyleme” sınırlarını içerir. Kısmen onaylı
-            modüllerde ayrıca veri eksikleri görünür biçimde gösterilir.
+            söylenebilir kısa anlatım ve “söyle / söyleme” sınırlarını içerir. Bilginin eksik
+            olduğu noktalarda çalışan veya AI tahmin yürütmez.
           </p>
           <p className="placeholder-note">
-            Temel kural: “DOĞRULAMA GEREKİYOR” olan bir bilgi için çalışan veya AI tahminde
-            bulunmaz. Doğru profesyonel yanıt, bilgi sınırını açıkça belirtmektir.
+            Temel kural: Ürünle ilgili kesin kaydı bulunmayan doz, içerik, form farkı veya klinik
+            sonuç bilgisi uydurulmaz; mevcut bilgi açık ve profesyonel şekilde aktarılır.
           </p>
         </section>
       </div>

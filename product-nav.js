@@ -228,7 +228,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const assistantScript = document.createElement("script");
   assistantScript.src = "https://vetwel-public-ai.oben-ak.workers.dev/vetwel-ai.js";
   assistantScript.defer = true;
-  assistantScript.crossOrigin = "anonymous";
   assistantScript.dataset.vetwelAiLoader = "1";
   assistantScript.onerror = () => console.warn("VetWel health assistant could not be loaded.");
   document.head.appendChild(assistantScript);

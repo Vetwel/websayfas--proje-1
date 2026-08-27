@@ -25,12 +25,6 @@
     thinking: 'Reviewing VetWel information…',
     error: 'The AI connection is temporarily unavailable. Please try again shortly.',
     disclaimer: 'AI-generated educational information. For diagnosis, treatment, medication changes, or urgent symptoms, contact a veterinarian.',
-    starters: [
-      'My pet has a symptom',
-      'Help me find a VetWel product',
-      'Compare VetWel products',
-      'Show me a relevant health article'
-    ],
     sourceLabel: 'Sources'
   } : {
     title: 'VetWel AI',
@@ -54,12 +48,6 @@
     thinking: 'VetWel bilgileri inceleniyor…',
     error: 'AI bağlantısı geçici olarak kullanılamıyor. Lütfen kısa süre sonra tekrar deneyin.',
     disclaimer: 'AI tarafından oluşturulan eğitim amaçlı bilgidir. Tanı, tedavi, ilaç değişikliği veya acil belirtiler için veteriner hekiminize başvurun.',
-    starters: [
-      'Evcil hayvanımda bir problem var',
-      'Bana uygun VetWel ürününü bul',
-      'VetWel ürünlerini karşılaştır',
-      'İlgili sağlık makalesini bul'
-    ],
     sourceLabel: 'Kaynaklar'
   };
 
@@ -109,9 +97,6 @@
     .vwai-pet-choice{min-height:48px;padding:9px 12px;border:1px solid #cfe0e9;border-radius:14px;background:#f7fbfd;color:#173f6b;cursor:pointer;font:inherit;font-size:13px;font-weight:850;transition:background .18s ease,border-color .18s ease,transform .18s ease}
     .vwai-pet-choice:hover{transform:translateY(-1px);border-color:#75b5c7;background:#edf8fa}.vwai-pet-choice:focus-visible{outline:3px solid rgba(117,201,216,.3);outline-offset:2px}
     .vwai-change-pet{margin-top:9px;padding:0;border:0;background:transparent;color:#39769a;cursor:pointer;font:inherit;font-size:10px;font-weight:800;text-decoration:underline;text-underline-offset:3px}
-    .vwai-starters{display:grid;gap:7px;margin-top:11px}
-    .vwai-starter{width:100%;padding:9px 11px;text-align:left;border:1px solid #dce6ee;border-radius:12px;background:#fff;color:#245f82;cursor:pointer;font:inherit;font-size:12px;font-weight:750}
-    .vwai-starter:hover{background:#eef7fa}
     .vwai-sources{display:grid;gap:6px;margin-top:9px;padding-top:9px;border-top:1px solid #e7edf2}
     .vwai-sources-label{font-size:10px;font-weight:900;letter-spacing:.7px;text-transform:uppercase;color:#718294}
     .vwai-source{display:block;color:#256a93;font-size:11px;font-weight:750;text-decoration:none;line-height:1.35}
@@ -220,20 +205,6 @@
     return intro;
   };
 
-  const addStarters = (target) => {
-    const starters = document.createElement('div');
-    starters.className = 'vwai-starters';
-    copy.starters.forEach((label) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'vwai-starter';
-      b.textContent = label;
-      b.addEventListener('click', () => { input.value = label; submitMessage(); });
-      starters.appendChild(b);
-    });
-    target.appendChild(starters);
-  };
-
   const showPetChoices = (target) => {
     const choices = document.createElement('div');
     choices.className = 'vwai-pet-choices';
@@ -260,7 +231,6 @@
     input.setAttribute('aria-label', input.placeholder);
     if (announce) addMessage('user', value === 'cat' ? `🐱 ${copy.cat}` : `🐶 ${copy.dog}`);
     const ready = addMessage('assistant', value === 'cat' ? copy.catReady : copy.dogReady);
-    addStarters(ready);
     const changeButton = document.createElement('button');
     changeButton.type = 'button';
     changeButton.className = 'vwai-change-pet';

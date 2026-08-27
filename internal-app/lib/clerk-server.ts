@@ -27,7 +27,7 @@ function getBackendClient() {
   });
 }
 
-async function getSessionToken() {
+export async function getSessionToken() {
   const headerStore = await headers();
 
   const middlewareToken = headerStore.get("x-clerk-auth-token");

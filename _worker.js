@@ -1,4 +1,4 @@
-const MODEL_DEFAULT = '@cf/zai-org/glm-4.7-flash';
+const MODEL_DEFAULT = '@cf/meta/llama-3.1-8b-instruct-fp8';
 const MAX_MESSAGE = 1200;
 const MAX_HISTORY_ITEMS = 6;
 const MAX_CONTEXT_CHARS = 9000;
@@ -289,10 +289,8 @@ ${knowledge.context || 'No directly relevant VetWel source was retrieved.'}`;
           content:input
         }
       ],
-      max_completion_tokens:450,
-      temperature:0.2,
-      reasoning_effort:'low',
-      store:false
+      max_tokens:450,
+      temperature:0.2
     });
   } catch (error) {
     const detail = String(error?.message || error || '');

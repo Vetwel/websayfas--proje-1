@@ -2,9 +2,10 @@ const MODEL_DEFAULT = '@cf/zai-org/glm-4.7-flash';
 const MAX_MESSAGE = 1200;
 const MAX_HISTORY_ITEMS = 6;
 const MAX_CONTEXT_CHARS = 9000;
-const WINDOW_MS = 10 * 60 * 1000;
-const MAX_REQUESTS_PER_WINDOW = 24;
-const localRate = new Map();
+const ALLOWED_ORIGINS = new Set([
+  'https://vetwel.us',
+  'https://www.vetwel.us'
+]);
 
 const STOP_WORDS = new Set([
   've','veya','ile','icin','bir','bu','su','ne','neden','nasil','mi','mu','benim','kedim','kopegim','kedi','kopek','pet','hayvan','evcil',
@@ -118,25 +119,18 @@ function isUrgent(message) {
   return RED_FLAGS.some(flag => q.includes(normalize(flag)));
 }
 
-function allowedRequest(request) {
-  const ip = request.headers.get('cf-connecting-ip') || 'unknown';
-  const now = Date.now();
-  const current = localRate.get(ip);
-
-  if (!current || now - current.start > WINDOW_MS) {
-    localRate.set(ip, { start:now, count:1 });
-    return true;
+function corsHeaders(request) {
+  const origin = request.headers.get('origin');
+  if (!origin || ALLOWED_ORIGINS.has(origin) || origin === new URL(request.url).origin) {
+    return origin ? {
+      'Access-Control-Allow-Origin':origin,
+      'Access-Control-Allow-Methods':'POST, OPTIONS',
+      'Access-Control-Allow-Headers':'Content-Type',
+      'Access-Control-Max-Age':'86400',
+      'Vary':'Origin'
+    } : {};
   }
-
-  current.count += 1;
-
-  if (localRate.size > 5000) {
-    for (const [key, value] of localRate) {
-      if (now - value.start > WINDOW_MS) localRate.delete(key);
-    }
-  }
-
-  return current.count <= MAX_REQUESTS_PER_WINDOW;
+  return null;
 }
 
 async function readAsset(env, request, path) {
@@ -329,40 +323,53 @@ function json(data, status=200, extraHeaders={}) {
 }
 
 async function handleChat(request, env) {
+  const cors = corsHeaders(request);
+  if (!cors) {
+    return json({ error:'Origin not allowed.' }, 403);
+  }
+
   if (request.method === 'OPTIONS') {
     return new Response(null, {
       status:204,
-      headers:{ 'Allow':'POST, OPTIONS' }
+      headers:{ 'Allow':'POST, OPTIONS', ...cors }
     });
   }
 
   if (request.method !== 'POST') {
-    return json({ error:'Method not allowed' }, 405, { 'Allow':'POST, OPTIONS' });
-  }
-
-  if (!allowedRequest(request)) {
-    return json({ error:'Too many requests. Please try again later.' }, 429);
+    return json({ error:'Method not allowed' }, 405, { 'Allow':'POST, OPTIONS', ...cors });
   }
 
   const length = Number(request.headers.get('content-length') || 0);
   if (length > 20000) {
-    return json({ error:'Request too large.' }, 413);
+    return json({ error:'Request too large.' }, 413, cors);
   }
 
   let payload;
   try {
     payload = await request.json();
   } catch {
-    return json({ error:'Invalid JSON.' }, 400);
+    return json({ error:'Invalid JSON.' }, 400, cors);
   }
 
   const message = String(payload?.message || '').trim();
   if (!message || message.length > MAX_MESSAGE) {
-    return json({ error:'Message must be between 1 and 1200 characters.' }, 400);
+    return json({ error:'Message must be between 1 and 1200 characters.' }, 400, cors);
   }
 
   const lang = payload?.lang === 'en' ? 'en' : 'tr';
   const pagePath = String(payload?.pagePath || '').slice(0,300);
+  const sessionId = String(payload?.sessionId || '').slice(0,128);
+  if (!/^[a-zA-Z0-9-]{8,128}$/.test(sessionId)) {
+    return json({ error:'Invalid session.' }, 400, cors);
+  }
+
+  if (env.AI_RATE_LIMITER) {
+    const { success } = await env.AI_RATE_LIMITER.limit({ key:sessionId });
+    if (!success) {
+      return json({ error:'Too many requests. Please try again shortly.' }, 429, cors);
+    }
+  }
+
   const urgent = isUrgent(message);
 
   try {
@@ -382,7 +389,7 @@ async function handleChat(request, env) {
         url:new URL(s.path, base.origin).href
       }));
 
-    return json({ reply, urgent, sources });
+    return json({ reply, urgent, sources }, 200, cors);
   } catch (error) {
     const code = String(error?.message || error);
 
@@ -391,7 +398,7 @@ async function handleChat(request, env) {
         error:lang === 'en'
           ? 'VetWel AI is being activated.'
           : 'VetWel AI bağlantısı etkinleştiriliyor.'
-      }, 503);
+      }, 503, cors);
     }
 
     if (code === 'AI_FREE_QUOTA_EXHAUSTED') {
@@ -399,7 +406,7 @@ async function handleChat(request, env) {
         error:lang === 'en'
           ? 'Today’s free AI allowance has been reached. Please try again later.'
           : 'Bugünkü ücretsiz AI kotasına ulaşıldı. Lütfen daha sonra tekrar deneyin.'
-      }, 429);
+      }, 429, cors);
     }
 
     console.log('VetWel AI failure', code);
@@ -407,7 +414,7 @@ async function handleChat(request, env) {
       error:lang === 'en'
         ? 'AI service is temporarily unavailable.'
         : 'AI servisi geçici olarak kullanılamıyor.'
-    }, 502);
+    }, 502, cors);
   }
 }
 

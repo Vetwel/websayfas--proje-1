@@ -29,11 +29,11 @@ const questions: Question[] = [
     options: [
       "2 tablet/doz; her zaman yukarı yuvarlanır.",
       "1 tablet/doz; her zaman aşağı yuvarlanır.",
-      "Her 10 kg için 1 tablet/doz temeli kayıtlı; ara kilo yuvarlama kuralı doğrulanmadığı için kesin sayı tahmin edilmez.",
+      "Her 10 kg için 1 tablet/doz temeli kayıtlı; ara kilo yuvarlama kuralı net olmadığı için kesin sayı tahmin edilmez.",
       "3 tablet/doz.",
     ],
     correct: 2,
-    explanation: "Ara kilo yuvarlama kuralı veri tabanında doğrulanmış değil. Çalışan veya AI kendi kuralını üretemez.",
+    explanation: "Ara kilo yuvarlama kuralı veri tabanında net değil. Çalışan veya AI kendi kuralını üretemez.",
   },
   {
     category: "CalmWel",
@@ -53,7 +53,7 @@ const questions: Question[] = [
     options: [
       "22 lb üzeri için dozu lineer olarak artırmalısın.",
       "Kedi dozunu kullanmalısın.",
-      "22 lb üzeri resmi doz tablosunun doğrulanmadığını söylemeli ve tahmin etmemelisin.",
+      "22 lb üzeri resmi doz tablosu kayıtta net olmadığı için tahmin etmemelisin.",
       "3 tüp kesin önermelisin.",
     ],
     correct: 2,
@@ -64,7 +64,7 @@ const questions: Question[] = [
     question: "Bir pet sahibi Cleanse'i evde nasıl uygulayacağını soruyor. En doğru yaklaşım hangisidir?",
     options: [
       "Klinik dozu azaltıp evde kullanım tarif etmek.",
-      "Mevcut kaydın Cleanse'i veteriner klinik protokolü içinde tanımladığını ve onaylı ev kullanımı bulunmadığını belirtmek.",
+      "Mevcut kaydın Cleanse'i veteriner klinik protokolü içinde tanımladığını ve açık bir ev kullanım talimatının kayıtta bulunmadığını belirtmek.",
       "İnternetten benzer bir uygulama bulmak.",
       "Ürünün güçlü claim'ini aynen söylemek.",
     ],
@@ -77,35 +77,35 @@ const questions: Question[] = [
     options: [
       "Rakiplerden kesin olarak daha iyi olduğunu söylemek.",
       "Her ürünü hastalık tedavisi üzerinden anlatmak.",
-      "Hedeflenen sağlık alanı, ürün/form ayrımı, doğrulanmış kullanım bilgisi ve kontrollü iletişim standardını vurgulamak.",
+      "Hedeflenen sağlık alanı, ürün/form ayrımı, kayıtlı kullanım bilgisi ve kontrollü iletişim standardını vurgulamak.",
       "Sadece içerik sayısını söylemek.",
     ],
     correct: 2,
-    explanation: "VetWel'in güvenilir saha yaklaşımı; hedeflenen destek alanı, form ayrımı, doğrulanmış bilgi ve iddia sınırlarını birlikte korumaktır.",
+    explanation: "VetWel'in güvenilir saha yaklaşımı; hedeflenen destek alanı, form ayrımı, kayıtlı bilgi ve iddia sınırlarını birlikte korumaktır.",
   },
   {
     category: "LactoWel",
     question: "LactoWel için hangisini güvenle söyleyebilirsin?",
     options: [
-      "Tam formül ve tüm miktarlar doğrulanmıştır.",
-      "Kedide 1 tablet/doz; köpekte her 10 kg için 1 tablet/doz, günde iki kez; ara kilo yuvarlama kuralı ayrıca doğrulanmalıdır.",
+      "Tam formül ve tüm miktarlar kesin olarak kayıtlıdır.",
+      "Kedide 1 tablet/doz; köpekte her 10 kg için 1 tablet/doz, günde iki kez; ara kilo yuvarlama kuralı ayrıca netleştirilmelidir.",
       "Her köpeğe aynı doz verilir.",
       "Sindirim hastalıklarını tedavi eder.",
     ],
     correct: 1,
-    explanation: "Kullanım temeli kayıtlıdır fakat ara kilo kuralı ve tam formül hâlâ doğrulama sınırındadır.",
+    explanation: "Kullanım temeli kayıtlıdır fakat ara kilo kuralı ve tam formül için ek bilgi gerekir.",
   },
   {
     category: "Saha iletişim standardı",
-    question: "Bir ürün için bilgi tabanında 'DOĞRULAMA GEREKİYOR' yazıyorsa en profesyonel davranış hangisidir?",
+    question: "Bir ürün için gerekli bilgi VetWel bilgi tabanında bulunmuyorsa en profesyonel davranış hangisidir?",
     options: [
       "Benzer üründen bilgi kopyalamak.",
       "Muhtemel cevabı söyleyip sonra kontrol etmek.",
-      "Eksik bilgiyi açıkça belirtmek, tahmin yapmamak ve doğrulanmış bilgiye kadar sınırı korumak.",
+      "Eksik bilgiyi açıkça belirtmek, tahmin yapmamak ve kayıtlı bilgi sınırını korumak.",
       "Soruyu değiştirmek.",
     ],
     correct: 2,
-    explanation: "VetWel sisteminde veri boşluğunu gizlemek yerine görünür kılmak güvenilirliğin bir parçasıdır.",
+    explanation: "VetWel sisteminde veri boşluğunu gizlemek yerine açıkça belirtmek güvenilirliğin bir parçasıdır.",
   },
 ];
 
@@ -224,7 +224,7 @@ export default function AdvancedQuizClient() {
           <h2>%{percent}</h2>
           <p>
             {percent >= 80
-              ? "Saha senaryolarında güvenli ürün dili, form ayrımı ve doğrulama sınırlarını yeterli düzeyde uyguladın."
+              ? "Saha senaryolarında güvenli ürün dili, form ayrımı ve bilgi sınırlarını yeterli düzeyde uyguladın."
               : "Gerçek saha senaryolarında tekrar eğitim önerilir. Yanlış yaptığın soruların ilgili ürün eğitimlerine dön."}
           </p>
           <div className="quiz-result-meta">

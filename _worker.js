@@ -94,11 +94,12 @@ function extractArticleItems(html='') {
 function scoreText(query, candidate) {
   const qTokens = tokens(query);
   const hay = normalize(candidate);
+  const hayTokens = tokens(candidate);
   if (!qTokens.length) return 0;
   let score = 0;
   for (const t of qTokens) {
-    if (hay.includes(t)) score += 4;
-    if (hay.startsWith(t)) score += 1;
+    if (hayTokens.includes(t)) score += 4;
+    if (t.length >= 5 && hayTokens.some(h => h.startsWith(t) || t.startsWith(h))) score += 2;
   }
   const q = normalize(query);
   if (q.length > 4 && hay.includes(q)) score += 12;
@@ -215,10 +216,13 @@ RULES:
 - Product-specific claims must come only from the APPROVED VETWEL SOURCE CONTEXT supplied in the request. If the source does not support a claim, say you do not have verified VetWel information for it.
 - For general pet-health education, be cautious, practical, and clearly distinguish possibilities from diagnosis.
 - If urgent warning signs are present, clearly recommend prompt/emergency veterinary assessment before discussing optional supportive products.
+- When the urgent flag is present, do not recommend or discuss any product in that response; focus only on immediate safe action and veterinary care.
 - Do not give pet owners catheterization, bladder instillation, or other invasive procedural instructions for Cleanse or any product.
 - Do not invent links, ingredients, dosages, studies, or VetWel product benefits.
 - Do not claim that a supplement treats or cures disease.
 - Keep answers concise enough for a chat widget.
+- Do not repeat the user's question. Use short plain-text paragraphs or numbered points; do not use Markdown symbols such as **, #, or tables.
+- For non-urgent symptom questions, prioritize: what to observe, common categories of possible causes without diagnosing, warning signs, and when to see a veterinarian.
 - Do not ask for unnecessary personal information.
 - If a relevant VetWel product is mentioned, describe it only as supportive/complementary and keep veterinary evaluation primary.
 - Use only the supplied VetWel source context for VetWel-specific facts.`;

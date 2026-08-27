@@ -1,0 +1,54 @@
+name: Deploy VetWel Public Health Assistant
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - vetwel-rebuild
+    paths:
+      - "_worker.js"
+      - "vetwel-ai.js"
+      - "wrangler.jsonc"
+      - "package.json"
+      - "package-lock.json"
+      - ".assetsignore"
+      - "*.html"
+      - "en/**"
+      - "assets/**"
+      - ".github/workflows/deploy-public-health-assistant.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vetwel-public-ai-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Validate and deploy vetwel-public-ai
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: "72994666ab50ebd44473f30ce7c9c054"
+
+    steps:
+      - name: Check out vetwel-rebuild
+        uses: actions/checkout@v4
+        with:
+          ref: vetwel-rebuild
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate Cloudflare configuration
+        run: npm run cf:check
+
+      - name: Deploy public health assistant
+        run: npm run cf:deploy

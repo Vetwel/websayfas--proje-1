@@ -380,11 +380,15 @@ async function handleChat(request, env) {
     );
 
     const base = new URL(request.url);
+    const requestOrigin = request.headers.get('origin');
+    const publicOrigin = requestOrigin && ALLOWED_ORIGINS.has(requestOrigin)
+      ? requestOrigin
+      : base.origin;
     const sources = knowledge.sources
       .slice(0,4)
       .map(s => ({
         title:s.title,
-        url:new URL(s.path, base.origin).href
+        url:new URL(s.path, publicOrigin).href
       }));
 
     return json({ reply, urgent, sources }, 200, cors);

@@ -220,3 +220,16 @@ document.addEventListener("DOMContentLoaded", () => {
   photoScript.onerror = () => console.warn("VetWel botanical modal photos could not be loaded.");
   document.head.appendChild(photoScript);
 })();
+
+// Load the public VetWel health assistant on product information pages.
+(() => {
+  if (window.__VETWEL_AI_LOADED__ || document.querySelector('[data-vetwel-ai-loader]')) return;
+  window.VETWEL_AI_ENDPOINT = "https://vetwel-public-ai.oben-ak.workers.dev/api/chat";
+  const assistantScript = document.createElement("script");
+  assistantScript.src = "https://vetwel-public-ai.oben-ak.workers.dev/vetwel-ai.js";
+  assistantScript.defer = true;
+  assistantScript.crossOrigin = "anonymous";
+  assistantScript.dataset.vetwelAiLoader = "1";
+  assistantScript.onerror = () => console.warn("VetWel health assistant could not be loaded.");
+  document.head.appendChild(assistantScript);
+})();

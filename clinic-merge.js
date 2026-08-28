@@ -38,7 +38,7 @@ window.VETWEL_MERGE_CLINICS=rows=>{
  });
  if(window.VETWEL_APPLY_CLINIC_ENRICHMENT)window.VETWEL_APPLY_CLINIC_ENRICHMENT();
 };
-["a","b","c","d","e","f","g"].forEach(part=>{
+["a","b","c","d","e","f","g","h"].forEach(part=>{
  try{
   const xhr=new XMLHttpRequest();
   xhr.open("GET",`clinic-import-2026-${part}.js`,false);

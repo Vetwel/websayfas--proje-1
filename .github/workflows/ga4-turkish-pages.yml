@@ -1,0 +1,62 @@
+name: Ensure GA4 on Turkish pages
+
+on:
+  push:
+    branches:
+      - vetwel-rebuild
+    paths:
+      - '*.html'
+      - 'vetwel-analytics.js'
+      - '.github/workflows/ga4-turkish-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  inject-ga4:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out vetwel-rebuild
+        uses: actions/checkout@v4
+        with:
+          ref: vetwel-rebuild
+
+      - name: Add Analytics loader to Turkish HTML pages
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          tag = '<script src="vetwel-analytics.js" defer></script>'
+          changed = []
+
+          # Turkish site pages live at repository root. The English site is under /en
+          # and is intentionally left unchanged.
+          for path in sorted(Path('.').glob('*.html')):
+              text = path.read_text(encoding='utf-8')
+              if 'vetwel-analytics.js' in text:
+                  continue
+              if '</head>' not in text:
+                  continue
+              text = text.replace('</head>', f'  {tag}\n</head>', 1)
+              path.write_text(text, encoding='utf-8')
+              changed.append(path.as_posix())
+
+          print(f'Updated {len(changed)} Turkish HTML page(s).')
+          for item in changed:
+              print(item)
+          PY
+
+      - name: Commit Analytics tag updates
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No Analytics tag changes needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*.html'
+          git commit -m "Add GA4 tracking to Turkish site pages"
+          git push origin HEAD:vetwel-rebuild

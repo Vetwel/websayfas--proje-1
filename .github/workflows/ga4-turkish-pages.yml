@@ -1,4 +1,4 @@
-name: Ensure GA4 on Turkish pages
+name: Ensure GA4 on VetWel pages
 
 on:
   push:
@@ -6,6 +6,7 @@ on:
       - vetwel-rebuild
     paths:
       - '*.html'
+      - 'en/*.html'
       - 'vetwel-analytics.js'
       - '.github/workflows/ga4-turkish-pages.yml'
   workflow_dispatch:
@@ -22,28 +23,32 @@ jobs:
         with:
           ref: vetwel-rebuild
 
-      - name: Add Analytics loader to Turkish HTML pages
+      - name: Add Analytics loader to Turkish and English HTML pages
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
 
-          tag = '<script src="vetwel-analytics.js" defer></script>'
           changed = []
 
-          # Turkish site pages live at repository root. The English site is under /en
-          # and is intentionally left unchanged.
-          for path in sorted(Path('.').glob('*.html')):
-              text = path.read_text(encoding='utf-8')
-              if 'vetwel-analytics.js' in text:
-                  continue
-              if '</head>' not in text:
-                  continue
-              text = text.replace('</head>', f'  {tag}\n</head>', 1)
-              path.write_text(text, encoding='utf-8')
-              changed.append(path.as_posix())
+          def add_tag(paths, tag):
+              for path in sorted(paths):
+                  text = path.read_text(encoding='utf-8')
+                  if 'vetwel-analytics.js' in text:
+                      continue
+                  if '</head>' not in text:
+                      continue
+                  text = text.replace('</head>', f'  {tag}\n</head>', 1)
+                  path.write_text(text, encoding='utf-8')
+                  changed.append(path.as_posix())
 
-          print(f'Updated {len(changed)} Turkish HTML page(s).')
+          # Turkish pages live at repository root.
+          add_tag(Path('.').glob('*.html'), '<script src="vetwel-analytics.js" defer></script>')
+
+          # English pages live under /en and use the shared loader from repository root.
+          add_tag(Path('en').glob('*.html'), '<script src="../vetwel-analytics.js" defer></script>')
+
+          print(f'Updated {len(changed)} HTML page(s).')
           for item in changed:
               print(item)
           PY
@@ -57,6 +62,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- '*.html'
-          git commit -m "Add GA4 tracking to Turkish site pages"
+          git add -- '*.html' 'en/*.html'
+          git commit -m "Add GA4 tracking to Turkish and English site pages"
           git push origin HEAD:vetwel-rebuild

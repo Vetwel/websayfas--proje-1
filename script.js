@@ -425,7 +425,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Apply the VetWel-aligned visual treatment to the Turkish clinic finder section.
 (() => {
   const s = document.createElement('script');
-  s.src = 'vet-channel-premium.js';
+  s.src = 'vet-channel-premium.js?v=20260919-tr-case';
   s.defer = true;
   s.onerror = () => console.warn('VetWel clinic-finder visual layer could not be loaded.');
   document.head.appendChild(s);

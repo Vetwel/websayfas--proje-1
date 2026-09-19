@@ -224,8 +224,8 @@
     }
 
     const products = [
-      {id:'cleanse',cls:'product-cleanse',image:'assets/images/products/Cleans.jpg',alt:isEnglish?'VetWel Cleanse box and bottle':'VetWel Cleanse ürün kutusu ve şişesi',tag:'Urinary System Support',name:'Cleanse',href:'education-cleanse.html',text:isEnglish?'A liquid formulation intended for veterinary use as part of urinary tract care in cats and dogs.':'Kedi ve köpeklerin üriner sistem bakımına yönelik, veteriner kullanımına özel sıvı formülasyon.'},
-      {id:'breathe-ease',cls:'product-breathe',image:'assets/images/products/BREATHE EASE PM.jpeg',alt:isEnglish?'VetWel Breathe Ease box and sachet':'VetWel Breathe Ease ürün kutusu ve saşesi',tag:'Respiratory Health Support',name:'Breathe Ease',href:'education-breathe-ease.html',text:isEnglish?'A complementary nutritional product formulated to support respiratory comfort and normal respiratory function.':'Solunum yolları, bronş sağlığı ve günlük solunum konforunun desteklenmesine yönelik tamamlayıcı beslenme ürünü.'}
+      {id:'cleanse',cls:'product-cleanse',image:'assets/images/products/Cleans.jpg',alt:isEnglish?'VetWel Cleanse box and bottle':'VetWel Cleanse ürün kutusu ve şişesi',tag:isEnglish?'Urinary System Support':'ÜRİNER SİSTEM DESTEĞİ',name:'Cleanse',href:'education-cleanse.html',text:isEnglish?'A liquid formulation intended for veterinary use as part of urinary tract care in cats and dogs.':'Kedi ve köpeklerin üriner sistem bakımına yönelik, veteriner kullanımına özel sıvı formülasyon.'},
+      {id:'breathe-ease',cls:'product-breathe',image:'assets/images/products/BREATHE EASE PM.jpeg',alt:isEnglish?'VetWel Breathe Ease box and sachet':'VetWel Breathe Ease ürün kutusu ve saşesi',tag:isEnglish?'Respiratory Health Support':'SOLUNUM SAĞLIĞI DESTEĞİ',name:'Breathe Ease',href:'education-breathe-ease.html',text:isEnglish?'A complementary nutritional product formulated to support respiratory comfort and normal respiratory function.':'Solunum yolları, bronş sağlığı ve günlük solunum konforunun desteklenmesine yönelik tamamlayıcı beslenme ürünü.'}
     ];
 
     const fragment = document.createDocumentFragment();
@@ -233,7 +233,7 @@
       const card = document.createElement('article');
       card.className = `product-card ${p.cls} product-featured`;
       card.id = p.id;
-      card.innerHTML = `<span class="product-feature-badge">${isEnglish?'Featured':'Öne Çıkan'}</span><div class="product-card-image"><img src="${imagePrefix}${p.image}" alt="${p.alt}" loading="lazy"></div><span class="product-card-tag" lang="en">${p.tag}</span><h3>${p.name}</h3><p>${p.text}</p><a href="${p.href}">${isEnglish?'View Product':'Ürünü İncele'} <span aria-hidden="true">→</span></a>`;
+      card.innerHTML = `<span class="product-feature-badge">${isEnglish?'Featured':'Öne Çıkan'}</span><div class="product-card-image"><img src="${imagePrefix}${p.image}" alt="${p.alt}" loading="lazy"></div><span class="product-card-tag" lang="${isEnglish?'en':'tr'}">${p.tag}</span><h3>${p.name}</h3><p>${p.text}</p><a href="${p.href}">${isEnglish?'View Product':'Ürünü İncele'} <span aria-hidden="true">→</span></a>`;
       fragment.appendChild(card);
     });
 

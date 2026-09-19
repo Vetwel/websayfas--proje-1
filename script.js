@@ -70,9 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (isTurkishHomepage) {
     document.querySelectorAll(".product-card-tag").forEach((tag) => {
-      tag.textContent = tag.textContent.trim().toLocaleUpperCase("en-US");
+      tag.textContent = tag.textContent.trim().toLocaleUpperCase("tr-TR");
       tag.style.textTransform = "none";
-      tag.setAttribute("lang", "en");
+      tag.setAttribute("lang", "tr");
     });
 
     const purchaseFaqButton = [...document.querySelectorAll(".accordion-button")].find(

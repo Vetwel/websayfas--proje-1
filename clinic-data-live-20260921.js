@@ -76,5 +76,6 @@ window.VETWEL_CLINICS = [
   {name:"Konya Pet Veteriner Kliniği",city:"Konya",district:"Selçuklu",address:"Nişantaş Mah. Tamer Sok. No:1/A",phone:"05422786719"},
   {name:"MR.CANVET VETERİNER KLİNİĞİ",city:"Şanlıurfa",district:"Haliliye",address:"Refahiye Mah. Necmettin Cevheri Blv. Emek A Blok No:40B",phone:"05525706063"},
   {"name":"Petopia Veteriner Kliniği","city":"İstanbul","district":"Ümraniye","address":"Atakent Mah. Alemdağ Cad. No:376/A, 34760","phone":"05454028385"},
-  {"name":"Vet 16 Veteriner Kliniği","city":"Bursa","district":"Osmangazi","address":"Hamitler Mah. 3. Dumlupınar Cad. No:38 A Blok, 16160","phone":"05350511600"}
+  {"name":"Vet 16 Veteriner Kliniği","city":"Bursa","district":"Osmangazi","address":"Hamitler Mah. 3. Dumlupınar Cad. No:38 A Blok, 16160","phone":"05350511600"},
+  {"name":"Natura Veteriner","city":"Bursa","district":"Osmangazi","address":"Kükürtlü Mah. 5. Çeyiz Sok. No:2 D:B, 16040","phone":"02242331778"}
 ];

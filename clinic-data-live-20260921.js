@@ -75,5 +75,5 @@ window.VETWEL_CLINICS = [
   {name:"Vetscience Veteriner Kliniği",city:"İstanbul",district:"Başakşehir",address:"Bahçeşehir 1. Kısım Mah. Vali Recep Yazıcıoğlu Cad. No:64 İç Kapı No:34",phone:"05337010242"},
   {name:"Konya Pet Veteriner Kliniği",city:"Konya",district:"Selçuklu",address:"Nişantaş Mah. Tamer Sok. No:1/A",phone:"05422786719"},
   {name:"MR.CANVET VETERİNER KLİNİĞİ",city:"Şanlıurfa",district:"Haliliye",address:"Refahiye Mah. Necmettin Cevheri Blv. Emek A Blok No:40B",phone:"05525706063"},
-  {"name":"Petopia Veteriner Kliniği","city":"İstanbul","district":"Ümraniye","address":"Atakent Mah. Alemdağ Cad. No:376/A, 34760 Ümraniye/İstanbul","phone":"05454028385"}
+  {"name":"Petopia Veteriner Kliniği","city":"İstanbul","district":"Ümraniye","address":"Atakent Mah. Alemdağ Cad. No:376/A, 34760","phone":"05454028385"}
 ];

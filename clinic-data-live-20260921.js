@@ -73,5 +73,6 @@ window.VETWEL_CLINICS = [
   {name:"Florya Veteriner Kliniği",city:"İstanbul",district:"Küçükçekmece",address:"Şenlikköy Efeker Sokak No:10",phone:"02126631387"},
   {name:"Mavi Veteriner Kliniği",city:"İstanbul",district:"Kadıköy",address:"Topağaç Sk. Caddebostan Mah. Bağdat Cad. Marmara Apt. No:248 16/B",phone:"02167841808"},
   {name:"Vetscience Veteriner Kliniği",city:"İstanbul",district:"Başakşehir",address:"Bahçeşehir 1. Kısım Mah. Vali Recep Yazıcıoğlu Cad. No:64 İç Kapı No:34",phone:"05337010242"},
-  {name:"Konya Pet Veteriner Kliniği",city:"Konya",district:"Selçuklu",address:"Nişantaş Mah. Tamer Sok. No:1/A",phone:"05422786719"}
+  {name:"Konya Pet Veteriner Kliniği",city:"Konya",district:"Selçuklu",address:"Nişantaş Mah. Tamer Sok. No:1/A",phone:"05422786719"},
+  {name:"MR.CANVET VETERİNER KLİNİĞİ",city:"Şanlıurfa",district:"Haliliye",address:"Refahiye Mah. Necmettin Cevheri Blv. Emek A Blok No:40B",phone:"05525706063"}
 ];

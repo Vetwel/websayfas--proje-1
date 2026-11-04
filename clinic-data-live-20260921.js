@@ -79,5 +79,6 @@ window.VETWEL_CLINICS = [
   {"name":"Vet 16 Veteriner Kliniği","city":"Bursa","district":"Osmangazi","address":"Hamitler Mah. 3. Dumlupınar Cad. No:38 A Blok, 16160","phone":"05350511600"},
   {"name":"Natura Veteriner","city":"Bursa","district":"Osmangazi","address":"Kükürtlü Mah. 5. Çeyiz Sok. No:2 D:B, 16040","phone":"02242331778"},
   {"name":"SAVA VETERİNER KLİNİĞİ","city":"Bolu","district":"Merkez","address":"Kültür Mah. Namık Kemal Cad. No:35A İç Kapı No:13","phone":"05061185000"},
-  {"name":"Petopia Çekmeköy Veteriner Kliniği","city":"İstanbul","district":"Çekmeköy","address":"Cumhuriyet Mah. Demokrasi Cad. No:5/A, 34788","phone":"05449142358"}
+  {"name":"Petopia Çekmeköy Veteriner Kliniği","city":"İstanbul","district":"Çekmeköy","address":"Cumhuriyet Mah. Demokrasi Cad. No:5/A, 34788","phone":"05449142358"},
+  {name:"BEYKOZVET VETERİNER KLİNİĞİ",city:"İstanbul",district:"Beykoz",address:"Paşabahçe Mah. Saip Molla Cad. No:22 İç Kapı No:A",phone:"05384540847"}
 ];
